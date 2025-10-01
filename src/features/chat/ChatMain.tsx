@@ -78,6 +78,15 @@ function ChatMain() {
   }
 
   async function sendToBackend(message: chatRequestDataType) {
+    const body = {
+      query: message.content,
+      messages: messages,
+      messageId: message.id,
+      role: message.role,
+      useWebSearch: useWebSearch,
+      useDeepResearch: useDeepResearch,
+      useFlash: useFlash,
+    };
     const allMessages = [
       ...messages,
       {
@@ -91,14 +100,7 @@ function ChatMain() {
 
     const controller = new AbortController();
     const form = new FormData();
-    form.append("query", message.content);
-    form.append("messageId", message.id);
-    form.append("role", message.role);
-    form.append("useWebSearch", useWebSearch ? "true" : "false");
-    form.append("useDeepResearch", useDeepResearch ? "true" : "false");
-    form.append("useFlash", useFlash ? "true" : "false");
-    form.append("messages", JSON.stringify(messages));
-
+    form.append("payload", JSON.stringify(body));
     if (message.file) {
       const file = await fileFromFileUIPart(message.file);
       form.append("file", file);
