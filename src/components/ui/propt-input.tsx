@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -17,7 +16,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import type { ChatStatus, FileUIPart } from "ai";
 import {
-  ImageIcon,
   Loader2Icon,
   PaperclipIcon,
   PlusIcon,
@@ -45,6 +43,7 @@ import {
   useState,
 } from "react";
 import { FaArrowUp } from "react-icons/fa";
+import { BsFiletypePdf } from "react-icons/bs";
 
 type AttachmentsContext = {
   files: (FileUIPart & { id: string })[];
@@ -86,7 +85,8 @@ export function PromptInputAttachment({
       className={cn("group relative h-14 w-14 rounded-md border", className)}
       key={data.id}
       {...props}
-    >
+    > 
+      
       {data.mediaType?.startsWith("image/") && data.url ? (
         <img
           alt={data.filename || "attachment"}
@@ -95,6 +95,10 @@ export function PromptInputAttachment({
           src={data.url}
           width={56}
         />
+      ) : data.mediaType === "application/pdf" ? (
+        <div className="flex size-full items-center justify-center text-muted-foreground">
+          <BsFiletypePdf   className="size-4" />
+        </div>
       ) : (
         <div className="flex size-full items-center justify-center text-muted-foreground">
           <PaperclipIcon className="size-4" />
@@ -182,7 +186,7 @@ export const PromptInputActionAddAttachments = ({
         attachments.openFileDialog();
       }}
     >
-      <ImageIcon className="mr-2 size-4" /> {label}
+      <BsFiletypePdf className="mr-2 size-4" /> {label}
     </DropdownMenuItem>
   );
 };
@@ -249,9 +253,9 @@ export const PromptInput = ({
       if (!accept || accept.trim() === "") {
         return true;
       }
-      // Simple check: if accept includes "image/*", filter to images; otherwise allow.
-      if (accept.includes("image/*")) {
-        return f.type.startsWith("image/");
+      // Simple check: if accept includes "application/pdf", filter to PDFs; otherwise allow.
+      if (accept.includes("application/pdf")) {
+        return f.type.startsWith("application/pdf");
       }
       return true;
     },
@@ -404,8 +408,11 @@ export const PromptInput = ({
     const files: FileUIPart[] = items.map(({ ...item }) => ({
       ...item,
     }));
-
+    setTimeout(() => {
+      clear();
+    }, 50);
     onSubmit({ text: event.currentTarget.message.value, files }, event);
+    clear();
   };
 
   const ctx = useMemo<AttachmentsContext>(
@@ -538,7 +545,7 @@ export const PromptInputButton = ({
   ...props
 }: PromptInputButtonProps) => {
   const newSize =
-    (size ?? Children.count(props.children) > 1) ? "default" : "icon";
+    size ?? Children.count(props.children) > 1 ? "default" : "icon";
 
   return (
     <Button
@@ -557,9 +564,16 @@ export const PromptInputButton = ({
 };
 
 export type PromptInputActionMenuProps = ComponentProps<typeof DropdownMenu>;
-export const PromptInputActionMenu = (props: PromptInputActionMenuProps) => (
-  <DropdownMenu {...props} />
-);
+export const PromptInputActionMenu = (props: PromptInputActionMenuProps) => {
+  const [open, setOpen] = useState(false);
+  const attachments = usePromptInputAttachments();
+
+  useEffect(() => {
+    setOpen(false);
+  }, [attachments]);
+
+  return <DropdownMenu onOpenChange={setOpen} open={open} {...props} />;
+};
 
 export type PromptInputActionMenuTriggerProps = ComponentProps<
   typeof Button

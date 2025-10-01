@@ -33,13 +33,11 @@ import type { ChatStatus } from "ai";
 import {
   CopyIcon,
   GlobeIcon,
-  MicIcon,
   RefreshCcwIcon,
   ThumbsDownIcon,
   ThumbsUpIcon,
 } from "lucide-react";
 import { v4 as uuidv4 } from "uuid";
-import { RxCode } from "react-icons/rx";
 import { Loader } from "@/components/ui/loader";
 import { Response } from "@/components/ui/response";
 import type {
@@ -273,12 +271,12 @@ function ChatMain() {
         </Conversation>
       </div>
       <div className="w-[50vw] absolute bottom-5">
-        <PromptInput onSubmit={handleSubmit}>
+        <PromptInput accept="application/pdf" onSubmit={handleSubmit}>
           <PromptInputBody>
             <PromptInputAttachments>
               {(attachment) => <PromptInputAttachment data={attachment} />}
             </PromptInputAttachments>
-            <div className="flex  items-center pr-4">
+            <div className="flex w-full items-center px-3">
               <PromptInputTextarea
                 onChange={(e) => setInput(e.target.value)}
                 value={input}
@@ -292,14 +290,9 @@ function ChatMain() {
               <PromptInputActionMenu>
                 <PromptInputActionMenuTrigger />
                 <PromptInputActionMenuContent>
-                  <PromptInputActionAddAttachments />
+                  <PromptInputActionAddAttachments label="Add Your Resume" />
                 </PromptInputActionMenuContent>
               </PromptInputActionMenu>
-
-              <PromptInputButton variant={"ghost"}>
-                <MicIcon size={16} />
-                <span className="sr-only">Microphone</span>
-              </PromptInputButton>
 
               <PromptInputButton
                 variant={useFlash ? "default" : "ghost"}
