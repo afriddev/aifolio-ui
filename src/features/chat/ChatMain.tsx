@@ -86,6 +86,7 @@ function ChatMain() {
       useWebSearch: useWebSearch,
       useDeepResearch: useDeepResearch,
       useFlash: useFlash,
+      file:message.file ? true : false,
     };
     const allMessages = [
       ...messages,
@@ -110,7 +111,8 @@ function ChatMain() {
 
     const resp = await fetch(CHAT_API, {
       method: "POST",
-      body: form,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
       signal: controller.signal,
     });
 
