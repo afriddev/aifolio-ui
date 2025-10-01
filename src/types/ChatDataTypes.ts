@@ -1,8 +1,11 @@
+import type { FileUIPart } from "ai";
+
 export type chatRequestDataType = {
   role: "user" | "assistant";
   id: string;
   reasoningContent?: string;
   content: string;
+  file?: FileUIPart | undefined;
 };
 
 

@@ -28,7 +28,7 @@ import {
   ConversationScrollButton,
 } from "@/components/ui/conversation";
 import { Message, MessageContent } from "@/components/ui/message";
-import type { ChatStatus } from "ai";
+import type { ChatStatus, FileUIPart } from "ai";
 
 import {
   CopyIcon,
@@ -59,7 +59,6 @@ function ChatMain() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<chatMessageDataType[]>([]);
   const [useWebSearch, setUseWebSearch] = useState<boolean>(false);
-  const [useCode, setUseCode] = useState<boolean>(false);
   const [useDeepResearch, setUseDeepResearch] = useState<boolean>(false);
   const [useFlash, setUseFlash] = useState<boolean>(false);
 
@@ -69,18 +68,16 @@ function ChatMain() {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  async function sendToBackend(message: chatRequestDataType) {
-    const body = {
-      query: message.content,
-      messages: messages,
-      messageId: message.id,
-      role: message.role,
+  async function fileFromFileUIPart(part: FileUIPart): Promise<File> {
+    const res = await fetch(part.url);
+    const blob = await res.blob();
 
-      useWebSearch: useWebSearch,
-      useCode: useCode,
-      useDeepResearch: useDeepResearch,
-      useFlash: useFlash,
-    };
+    return new File([blob], part.filename ?? `${uuidv4().toString()}.pdf`, {
+      type: part.mediaType || blob.type || "application/octet-stream",
+    });
+  }
+
+  async function sendToBackend(message: chatRequestDataType) {
     const allMessages = [
       ...messages,
       {
@@ -93,11 +90,25 @@ function ChatMain() {
     setMessages(allMessages);
 
     const controller = new AbortController();
+    const form = new FormData();
+    form.append("query", message.content);
+    form.append("messageId", message.id);
+    form.append("role", message.role);
+    form.append("useWebSearch", useWebSearch ? "true" : "false");
+    form.append("useDeepResearch", useDeepResearch ? "true" : "false");
+    form.append("useFlash", useFlash ? "true" : "false");
+    form.append("messages", JSON.stringify(messages));
+
+    if (message.file) {
+      const file = await fileFromFileUIPart(message.file);
+      form.append("file", file);
+      form.append("fileName", file.name);
+      form.append("mediaType", file.type);
+    }
 
     const resp = await fetch(CHAT_API, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      body: form,
       signal: controller.signal,
     });
 
@@ -158,20 +169,19 @@ function ChatMain() {
 
   function handleSubmit(message: PromptInputMessage) {
     console.log("Message submitted:", message);
-    if (message.text) {
+    if (message.text && message) {
       setStatus("submitted");
       sendToBackend({
         id: uuidv4().toString(),
         role: "user",
         content: message.text,
+        file: message.files ? message.files[0] : undefined,
       });
       setInput("");
     }
   }
 
-  function handleChatAction(
-    type: "creative" | "flash" | "deepResearch" | "webSearch" | "code"
-  ) {
+  function handleChatAction(type: "flash" | "deepResearch" | "webSearch") {
     switch (type) {
       case "flash":
         setUseFlash(!useFlash);
@@ -181,9 +191,6 @@ function ChatMain() {
         break;
       case "webSearch":
         setUseWebSearch(!useWebSearch);
-        break;
-      case "code":
-        setUseCode(!useCode);
         break;
     }
   }
@@ -271,7 +278,12 @@ function ChatMain() {
         </Conversation>
       </div>
       <div className="w-[50vw] absolute bottom-5">
-        <PromptInput accept="application/pdf" onSubmit={handleSubmit}>
+        <PromptInput
+          accept="application/pdf"
+          maxFileSize={2 * 1024 * 1024}
+          maxFiles={1}
+          onSubmit={handleSubmit}
+        >
           <PromptInputBody>
             <PromptInputAttachments>
               {(attachment) => <PromptInputAttachment data={attachment} />}
