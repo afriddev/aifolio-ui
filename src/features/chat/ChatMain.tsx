@@ -2,6 +2,13 @@
 import { useEffect, useRef, useState } from "react";
 import {
   PromptInput,
+  PromptInputActionAddAttachments,
+  PromptInputActionMenu,
+  PromptInputActionMenuContent,
+  PromptInputActionMenuTrigger,
+  PromptInputAttachment,
+  PromptInputAttachments,
+  PromptInputBody,
   PromptInputButton,
   PromptInputSubmit,
   PromptInputTextarea,
@@ -26,6 +33,7 @@ import type { ChatStatus } from "ai";
 import {
   CopyIcon,
   GlobeIcon,
+  MicIcon,
   RefreshCcwIcon,
   ThumbsDownIcon,
   ThumbsUpIcon,
@@ -151,6 +159,7 @@ function ChatMain() {
   }
 
   function handleSubmit(message: PromptInputMessage) {
+    console.log("Message submitted:", message);
     if (message.text) {
       setStatus("submitted");
       sendToBackend({
@@ -265,25 +274,32 @@ function ChatMain() {
       </div>
       <div className="w-[50vw] absolute bottom-5">
         <PromptInput onSubmit={handleSubmit}>
-          <div className="flex  items-center pr-4">
-            <PromptInputTextarea
-              onChange={(e) => setInput(e.target.value)}
-              value={input}
-            />
-            <PromptInputSubmit disabled={!input && !status} status={status} />
-          </div>
+          <PromptInputBody>
+            <PromptInputAttachments>
+              {(attachment) => <PromptInputAttachment data={attachment} />}
+            </PromptInputAttachments>
+            <div className="flex  items-center pr-4">
+              <PromptInputTextarea
+                onChange={(e) => setInput(e.target.value)}
+                value={input}
+              />
+              <PromptInputSubmit disabled={!input && !status} status={status} />
+            </div>
+          </PromptInputBody>
+
           <PromptInputToolbar>
             <PromptInputTools>
-              {/* <PromptInputActionMenu>
-                        <PromptInputActionMenuTrigger />
-                        <PromptInputActionMenuContent>
-                          <PromptInputActionAddAttachments />
-                        </PromptInputActionMenuContent>
-                      </PromptInputActionMenu>
-                      <PromptInputButton variant={"ghost"}>
-                        <MicIcon size={16} />
-                        <span className="sr-only">Microphone</span>
-                      </PromptInputButton> */}
+              <PromptInputActionMenu>
+                <PromptInputActionMenuTrigger />
+                <PromptInputActionMenuContent>
+                  <PromptInputActionAddAttachments />
+                </PromptInputActionMenuContent>
+              </PromptInputActionMenu>
+
+              <PromptInputButton variant={"ghost"}>
+                <MicIcon size={16} />
+                <span className="sr-only">Microphone</span>
+              </PromptInputButton>
 
               <PromptInputButton
                 variant={useFlash ? "default" : "ghost"}
@@ -306,14 +322,6 @@ function ChatMain() {
               >
                 <GlobeIcon size={16} />
                 <span>Search</span>
-              </PromptInputButton>
-
-              <PromptInputButton
-                variant={useCode ? "default" : "ghost"}
-                onClick={() => handleChatAction("code")}
-              >
-                <RxCode className="h-6 w-6" />
-                <span>Code</span>
               </PromptInputButton>
             </PromptInputTools>
           </PromptInputToolbar>

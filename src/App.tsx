@@ -3,10 +3,6 @@ import { Toaster } from "./components/ui/toaster";
 import ProtectedRoute from "./apputils/ProtectedRoute";
 import ChatMain from "./features/chat/ChatMain";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Toaster } from "./components/ui/toaster";
-import ProtectedRoute from "./apputils/ProtectedRoute";
-import ChatMain from "./features/chat/ChatMain";
 
 function App() {
   return (
