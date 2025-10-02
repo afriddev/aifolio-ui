@@ -4,8 +4,8 @@ export type chatRequestDataType = {
   role: "user" | "assistant";
   id: string;
   reasoningContent?: string;
-  content: string;
-  file?: FileUIPart | undefined;
+  content: string | undefined;
+  files?: FileUIPart[] | undefined;
 };
 
 
@@ -21,6 +21,15 @@ export type chatMessageDataType = {
   role: "user" | "assistant";
   id: string;
   reasoningContent?: string;
-  content: string;
+  content: string | undefined;
   searchResults?: searchResultDataType[];
+};
+
+
+
+export type fileModelDataType = {
+  name: string;
+  mediaType: string;
+  data: string; 
+  size: number; 
 };

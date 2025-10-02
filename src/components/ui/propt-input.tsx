@@ -85,8 +85,7 @@ export function PromptInputAttachment({
       className={cn("group relative h-14 w-14 rounded-md border", className)}
       key={data.id}
       {...props}
-    > 
-      
+    >
       {data.mediaType?.startsWith("image/") && data.url ? (
         <img
           alt={data.filename || "attachment"}
@@ -97,7 +96,7 @@ export function PromptInputAttachment({
         />
       ) : data.mediaType === "application/pdf" ? (
         <div className="flex size-full items-center justify-center text-muted-foreground">
-          <BsFiletypePdf   className="size-4" />
+          <BsFiletypePdf className="size-4" />
         </div>
       ) : (
         <div className="flex size-full items-center justify-center text-muted-foreground">
@@ -217,6 +216,7 @@ export type PromptInputProps = Omit<
     message: PromptInputMessage,
     event: FormEvent<HTMLFormElement>
   ) => void;
+  onSelectFile: (file: FileUIPart) => void;
 };
 
 export const PromptInput = ({
@@ -229,6 +229,7 @@ export const PromptInput = ({
   maxFileSize,
   onError,
   onSubmit,
+  onSelectFile,
   ...props
 }: PromptInputProps) => {
   const [items, setItems] = useState<(FileUIPart & { id: string })[]>([]);
@@ -298,13 +299,15 @@ export const PromptInput = ({
         }
         const next: (FileUIPart & { id: string })[] = [];
         for (const file of capped) {
-          next.push({
+          const tempFileUiPart: FileUIPart & { id: string } = {
             id: nanoid(),
             type: "file",
             url: URL.createObjectURL(file),
             mediaType: file.type,
             filename: file.name,
-          });
+          };
+          next.push(tempFileUiPart);
+          onSelectFile(tempFileUiPart);
         }
         return prev.concat(next);
       });

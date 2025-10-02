@@ -43,6 +43,7 @@ import { Response } from "@/components/ui/response";
 import type {
   chatMessageDataType,
   chatRequestDataType,
+  fileModelDataType,
 } from "@/types/ChatDataTypes";
 import { LuBrain } from "react-icons/lu";
 import { VscSymbolEvent } from "react-icons/vsc";
@@ -52,6 +53,7 @@ import {
   SourcesContent,
   SourcesTrigger,
 } from "@/components/ui/sources";
+import { ExtractFileData } from "@/apputils/AppUtils";
 
 const CHAT_API = "http://127.0.0.1:8001/api/v1/chat";
 function ChatMain() {
@@ -68,16 +70,15 @@ function ChatMain() {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  async function fileFromFileUIPart(part: FileUIPart): Promise<File> {
-    const res = await fetch(part.url);
-    const blob = await res.blob();
-
-    return new File([blob], part.filename ?? `${uuidv4().toString()}.pdf`, {
-      type: part.mediaType || blob.type || "application/octet-stream",
-    });
-  }
-
   async function sendToBackend(message: chatRequestDataType) {
+    const files: fileModelDataType[] = [];
+
+    if (message.files && message.files.length > 0) {
+      for (const file of message.files as FileUIPart[]) {
+        const extractedFile = await ExtractFileData(file);
+        files.push(extractedFile);
+      }
+    }
     const body = {
       query: message.content,
       messages: messages,
@@ -86,7 +87,7 @@ function ChatMain() {
       useWebSearch: useWebSearch,
       useDeepResearch: useDeepResearch,
       useFlash: useFlash,
-      file:message.file ? true : false,
+      files: files,
     };
     const allMessages = [
       ...messages,
@@ -102,12 +103,6 @@ function ChatMain() {
     const controller = new AbortController();
     const form = new FormData();
     form.append("payload", JSON.stringify(body));
-    if (message.file) {
-      const file = await fileFromFileUIPart(message.file);
-      form.append("file", file);
-      form.append("fileName", file.name);
-      form.append("mediaType", file.type);
-    }
 
     const resp = await fetch(CHAT_API, {
       method: "POST",
@@ -172,17 +167,26 @@ function ChatMain() {
   }
 
   function handleSubmit(message: PromptInputMessage) {
-    console.log("Message submitted:", message);
-    if (message.text && message) {
+    if (
+      message &&
+      (message.text || (message.files && message.files.length > 0))
+    ) {
       setStatus("submitted");
       sendToBackend({
         id: uuidv4().toString(),
         role: "user",
         content: message.text,
-        file: message.files ? message.files[0] : undefined,
+        files: message.files ? message.files : undefined,
       });
       setInput("");
     }
+  }
+
+  function onSelectFile(file: FileUIPart) {
+    console.log("Selected file:", file);
+
+
+
   }
 
   function handleChatAction(type: "flash" | "deepResearch" | "webSearch") {
@@ -216,7 +220,7 @@ function ChatMain() {
                       <MessageContent>
                         {message.reasoningContent && (
                           <Reasoning
-                            className="w-full "
+                            className="w-full"
                             isStreaming={status === "streaming" ? true : false}
                             defaultOpen={true}
                           >
@@ -226,6 +230,7 @@ function ChatMain() {
                             </ReasoningContent>
                           </Reasoning>
                         )}
+
                         {message.searchResults &&
                           message.searchResults.length > 0 && (
                             <Sources>
@@ -285,8 +290,9 @@ function ChatMain() {
         <PromptInput
           accept="application/pdf"
           maxFileSize={2 * 1024 * 1024}
-          maxFiles={1}
+          maxFiles={2}
           onSubmit={handleSubmit}
+          onSelectFile={onSelectFile}
         >
           <PromptInputBody>
             <PromptInputAttachments>
