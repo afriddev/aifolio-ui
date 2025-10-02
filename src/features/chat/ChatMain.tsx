@@ -226,8 +226,9 @@ function ChatMain() {
                         {message.reasoningContent && (
                           <Reasoning
                             className="w-full"
-                            isStreaming={status === "streaming" ? true : false}
-                            defaultOpen={true}
+                            isStreaming={ false}
+                            // isStreaming={status === "streaming" ? true : false}
+                            defaultOpen={false}
                           >
                             <ReasoningTrigger />
                             <ReasoningContent>
