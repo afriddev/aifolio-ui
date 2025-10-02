@@ -1,6 +1,7 @@
 import { postAPI } from "@/ApiServices";
+import type { fileModelDataType } from "@/types/ChatDataTypes";
 
 
-export function loginAPI(data: any) {
-  return postAPI("auth/login", data);
+export function loginAPI(data: fileModelDataType) {
+  return postAPI("upload", data);
 }

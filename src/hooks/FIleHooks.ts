@@ -1,21 +1,22 @@
 
 import { useHandleApiResponse } from "@/ApiServices";
 import { loginAPI } from "@/services/FileApis";
+import type { fileModelDataType } from "@/types/ChatDataTypes";
 import { useMutation } from "@tanstack/react-query";
 
-export function useLogin() {
+export function useUploadFile() {
     const {handleToast} = useHandleApiResponse()
   const {
     data,
     isPending,
-    mutate: login,
+    mutate: uploadFile,
   } = useMutation({
-    mutationFn: (data: any) => loginAPI(data),
+    mutationFn: (data: fileModelDataType) => loginAPI(data),
     onSuccess(data) {
         handleToast(data.data)
     }
 
 });
 
-  return { data, isPending, login };
+  return { data, isPending, uploadFile };
 }

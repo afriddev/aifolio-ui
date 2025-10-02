@@ -54,6 +54,7 @@ import {
   SourcesTrigger,
 } from "@/components/ui/sources";
 import { ExtractFileData } from "@/apputils/AppUtils";
+import { useUploadFile } from "@/hooks/FIleHooks";
 
 const CHAT_API = "http://127.0.0.1:8001/api/v1/chat";
 function ChatMain() {
@@ -63,6 +64,8 @@ function ChatMain() {
   const [useWebSearch, setUseWebSearch] = useState<boolean>(false);
   const [useDeepResearch, setUseDeepResearch] = useState<boolean>(false);
   const [useFlash, setUseFlash] = useState<boolean>(false);
+
+  const {uploadFile,isPending} = useUploadFile()
 
   const bottomRef = useRef<HTMLDivElement | null>(null);
 
@@ -182,8 +185,10 @@ function ChatMain() {
     }
   }
 
-  function onSelectFile(file: FileUIPart) {
-    console.log("Selected file:", file);
+  async function onSelectFile(file: FileUIPart) {
+    const extractedFile = await ExtractFileData(file);
+    uploadFile(extractedFile)
+
 
 
 
