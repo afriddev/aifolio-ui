@@ -31,5 +31,7 @@ export type fileModelDataType = {
   name: string;
   mediaType: string;
   data: string; 
-  size: number; 
+  size: number;
+  chatId: string;
+  messageId: string; 
 };

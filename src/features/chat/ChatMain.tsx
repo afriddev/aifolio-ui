@@ -68,15 +68,21 @@ function ChatMain() {
     undefined
   );
   const bottomRef = useRef<HTMLDivElement | null>(null);
+  const [chatId, setChatId] = useState<string | undefined>(undefined);
+  const [messageId, setMessageId] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     if (status === "ready") {
       bottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }
+    if (chatId === undefined) {
+      setChatId(uuidv4().toString());
+    }
   }, [status]);
 
   async function sendToBackend(message: chatRequestDataType) {
     const body = {
+      chatId: chatId,
       query: message.content,
       messages: messages,
       messageId: message.id,
@@ -172,7 +178,7 @@ function ChatMain() {
       }
     }
     setUploadedFileId(undefined);
-
+    setMessageId(undefined);
     setStatus("ready");
   }
 
@@ -183,7 +189,7 @@ function ChatMain() {
     ) {
       setStatus("submitted");
       sendToBackend({
-        id: uuidv4().toString(),
+        id: messageId ? messageId : uuidv4().toString(),
         role: "user",
         content: message.text,
       });
@@ -194,14 +200,23 @@ function ChatMain() {
   async function onSelectFile(file: FileUIPart) {
     setStatus("pending");
     const extractedFile = await ExtractFileData(file);
-    uploadFile(extractedFile, {
-      onSuccess: (data) => {
-        if (data?.data === "SUCCESS") {
-          setUploadedFileId(data.id);
-        }
-        setStatus("ready");
+    const messageId = uuidv4().toString();
+    setMessageId(messageId);
+    uploadFile(
+      {
+        ...extractedFile,
+        chatId: chatId as never,
+        messageId: messageId,
       },
-    });
+      {
+        onSuccess: (data) => {
+          if (data?.data === "SUCCESS") {
+            setUploadedFileId(data.id);
+          }
+          setStatus("ready");
+        },
+      }
+    );
   }
 
   function handleChatAction(type: "flash" | "deepResearch" | "webSearch") {
@@ -340,7 +355,11 @@ function ChatMain() {
             <PromptInputTools>
               <PromptInputActionMenu>
                 <PromptInputActionMenuTrigger
-                  disabled={uploadedFileId ? true : false}
+                  disabled={
+                    uploadedFileId
+                      ? true
+                      : false || isPending || status === "pending"
+                  }
                 />
                 <PromptInputActionMenuContent>
                   <PromptInputActionAddAttachments label="Add Your Resume" />
