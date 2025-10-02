@@ -43,7 +43,6 @@ import { Response } from "@/components/ui/response";
 import type {
   chatMessageDataType,
   chatRequestDataType,
-  fileModelDataType,
 } from "@/types/ChatDataTypes";
 import { LuBrain } from "react-icons/lu";
 import { VscSymbolEvent } from "react-icons/vsc";
@@ -64,24 +63,19 @@ function ChatMain() {
   const [useWebSearch, setUseWebSearch] = useState<boolean>(false);
   const [useDeepResearch, setUseDeepResearch] = useState<boolean>(false);
   const [useFlash, setUseFlash] = useState<boolean>(false);
-
-  const {uploadFile,isPending} = useUploadFile()
-
+  const { uploadFile, isPending } = useUploadFile();
+  const [uploadedFileId, setUploadedFileId] = useState<string | undefined>(
+    undefined
+  );
   const bottomRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+    if (status === "ready") {
+      bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [status]);
 
   async function sendToBackend(message: chatRequestDataType) {
-    const files: fileModelDataType[] = [];
-
-    if (message.files && message.files.length > 0) {
-      for (const file of message.files as FileUIPart[]) {
-        const extractedFile = await ExtractFileData(file);
-        files.push(extractedFile);
-      }
-    }
     const body = {
       query: message.content,
       messages: messages,
@@ -90,7 +84,7 @@ function ChatMain() {
       useWebSearch: useWebSearch,
       useDeepResearch: useDeepResearch,
       useFlash: useFlash,
-      files: files,
+      fileId: uploadedFileId,
     };
     const allMessages = [
       ...messages,
@@ -141,30 +135,43 @@ function ChatMain() {
             setStatus("streaming");
 
             setMessages((prev) =>
-              prev.map((m) =>
-                m.id === assistantTemplateMessage.id
-                  ? {
-                      ...m,
-                      content:
-                        parsedToken.type === "content"
-                          ? (m.content ?? "") + parsedToken.data
-                          : m.content,
-                      reasoningContent:
-                        parsedToken.type === "reasoning"
-                          ? (m.reasoningContent ?? "") + parsedToken.data
-                          : m.reasoningContent,
-                      searchResults:
-                        parsedToken.type === "searchResults"
-                          ? parsedToken.data
-                          : m.searchResults,
-                    }
-                  : m
-              )
+              prev.map((m) => {
+                if (m.id !== assistantTemplateMessage.id) return m;
+
+                const newMsg = { ...m };
+
+                if (parsedToken.type === "content") {
+                  newMsg.content =
+                    (newMsg.content ?? "") + String(parsedToken.data ?? "");
+                } else if (parsedToken.type === "tool_name") {
+                  if (parsedToken.data === "generate_resume") {
+                    newMsg.content =
+                      (newMsg.content ?? "") +
+                      "Generated your resume, you will get the key by email.";
+                  } else {
+                    newMsg.content =
+                      (newMsg.content ?? "") + String(parsedToken.data ?? "");
+                  }
+                }
+
+                if (parsedToken.type === "reasoning") {
+                  newMsg.reasoningContent =
+                    (newMsg.reasoningContent ?? "") +
+                    String(parsedToken.data ?? "");
+                }
+
+                if (parsedToken.type === "searchResults") {
+                  newMsg.searchResults = parsedToken.data;
+                }
+
+                return newMsg;
+              })
             );
           }
         }
       }
     }
+    setUploadedFileId(undefined);
 
     setStatus("ready");
   }
@@ -179,19 +186,22 @@ function ChatMain() {
         id: uuidv4().toString(),
         role: "user",
         content: message.text,
-        files: message.files ? message.files : undefined,
       });
       setInput("");
     }
   }
 
   async function onSelectFile(file: FileUIPart) {
+    setStatus("pending");
     const extractedFile = await ExtractFileData(file);
-    uploadFile(extractedFile)
-
-
-
-
+    uploadFile(extractedFile, {
+      onSuccess: (data) => {
+        if (data?.data === "SUCCESS") {
+          setUploadedFileId(data.id);
+        }
+        setStatus("ready");
+      },
+    });
   }
 
   function handleChatAction(type: "flash" | "deepResearch" | "webSearch") {
@@ -226,8 +236,7 @@ function ChatMain() {
                         {message.reasoningContent && (
                           <Reasoning
                             className="w-full"
-                            isStreaming={ false}
-                            // isStreaming={status === "streaming" ? true : false}
+                            isStreaming={status === "streaming" ? true : false}
                             defaultOpen={false}
                           >
                             <ReasoningTrigger />
@@ -259,6 +268,7 @@ function ChatMain() {
                               </SourcesContent>
                             </Sources>
                           )}
+
                         <Response>{message.content}</Response>
                         {message.role === "assistant" && (
                           <Actions>
@@ -296,27 +306,42 @@ function ChatMain() {
         <PromptInput
           accept="application/pdf"
           maxFileSize={2 * 1024 * 1024}
-          maxFiles={2}
+          maxFiles={1}
           onSubmit={handleSubmit}
           onSelectFile={onSelectFile}
         >
           <PromptInputBody>
             <PromptInputAttachments>
-              {(attachment) => <PromptInputAttachment data={attachment} />}
+              {(attachment) => (
+                <PromptInputAttachment
+                  fileUploading={isPending}
+                  data={attachment}
+                />
+              )}
             </PromptInputAttachments>
             <div className="flex w-full items-center px-3">
               <PromptInputTextarea
                 onChange={(e) => setInput(e.target.value)}
                 value={input}
               />
-              <PromptInputSubmit disabled={!input && !status} status={status} />
+              <PromptInputSubmit
+                disabled={
+                  (!input && !uploadedFileId ? true : false) ||
+                  !status ||
+                  status === "pending" ||
+                  isPending
+                }
+                status={status}
+              />
             </div>
           </PromptInputBody>
 
           <PromptInputToolbar>
             <PromptInputTools>
               <PromptInputActionMenu>
-                <PromptInputActionMenuTrigger />
+                <PromptInputActionMenuTrigger
+                  disabled={uploadedFileId ? true : false}
+                />
                 <PromptInputActionMenuContent>
                   <PromptInputActionAddAttachments label="Add Your Resume" />
                 </PromptInputActionMenuContent>

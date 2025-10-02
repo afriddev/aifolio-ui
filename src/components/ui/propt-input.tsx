@@ -76,8 +76,9 @@ export type PromptInputAttachmentProps = HTMLAttributes<HTMLDivElement> & {
 export function PromptInputAttachment({
   data,
   className,
+  fileUploading,
   ...props
-}: PromptInputAttachmentProps) {
+}: PromptInputAttachmentProps & { fileUploading?: boolean }) {
   const attachments = usePromptInputAttachments();
 
   return (
@@ -95,8 +96,11 @@ export function PromptInputAttachment({
           width={56}
         />
       ) : data.mediaType === "application/pdf" ? (
-        <div className="flex size-full items-center justify-center text-muted-foreground">
-          <BsFiletypePdf className="size-4" />
+        <div className="flex size-full relative items-center justify-center text-muted-foreground">
+          <BsFiletypePdf className="size-8" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            {fileUploading && <Loader2Icon className="animate-spin" />}
+          </div>
         </div>
       ) : (
         <div className="flex size-full items-center justify-center text-muted-foreground">
@@ -586,7 +590,7 @@ export const PromptInputActionMenuTrigger = ({
   children,
   ...props
 }: PromptInputActionMenuTriggerProps) => (
-  <DropdownMenuTrigger asChild>
+  <DropdownMenuTrigger asChild disabled={props.disabled}>
     <PromptInputButton className={className} {...props}>
       {children ?? <PlusIcon className="size-4" />}
     </PromptInputButton>
@@ -630,7 +634,7 @@ export const PromptInputSubmit = ({
 }: PromptInputSubmitProps) => {
   let Icon = <FaArrowUp className="size-4" />;
 
-  if (status === "submitted") {
+  if (status === "submitted" || status === "pending") {
     Icon = <Loader2Icon className="size-4 animate-spin" />;
   } else if (status === "streaming") {
     Icon = <SquareIcon className="size-4" />;
