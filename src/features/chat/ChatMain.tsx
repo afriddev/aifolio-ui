@@ -71,7 +71,7 @@ function ChatMain() {
     undefined
   );
   const bottomRef = useRef<HTMLDivElement | null>(null);
-  const [chatId, setChatId] = useState<string | undefined>(undefined);
+  const [chatId, setChatId] = useState<string | undefined>(uuidv4().toString());
   const [messageId, setMessageId] = useState<string | undefined>(undefined);
   const navigate = useNavigate();
   const location = useLocation();
@@ -80,18 +80,14 @@ function ChatMain() {
   const { allChats } = useAppContext();
 
   useEffect(() => {
-    if (status === "ready") {
+    if (status === "ready" || status === "submitted") {
       bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-    }
-    if (!chatId && !location?.state?.chatId) {
-      setChatId(uuidv4().toString());
     }
   }, [status]);
 
   useEffect(() => {
     if (location.state?.reload) {
       resetChat();
-      return;
     }
 
     if (location?.state?.chatId) {
@@ -113,15 +109,14 @@ function ChatMain() {
                   });
                 }
               }
-              console.log("2");
 
               setMessages(tempMessages);
-              setChatId(location.state.chatId);
               setTitleGenerated(location.state.titleGenerated);
             }
           },
         }
       );
+      handleSetChatId(location.state.chatId);
     }
     for (let index = 0; index < allChats.length; index++) {
       if (allChats[index].id === chatId) {
@@ -130,13 +125,7 @@ function ChatMain() {
     }
   }, [location.state, allChats]);
 
-  useEffect(() => {
-    console.log(titleGenerated);
-  }, [titleGenerated]);
-
   function resetChat() {
-    console.log("3");
-
     setTitleGenerated(false);
     setMessages([]);
     setInput("");
@@ -146,12 +135,18 @@ function ChatMain() {
     setUseWebSearch(false);
     setUploadedFileId(undefined);
     setMessageId(undefined);
-    setChatId(uuidv4().toString());
+  }
+
+  function handleSetChatId(id?: string) {
+    setChatId(id ? id : uuidv4().toString());
   }
 
   async function sendToBackend(message: chatRequestDataType) {
-    if (messages.length === 0 && chatId) {
-      navigate(`/chat/${chatId}`, { state: { reload: false } });
+    if (messages.length === 0) {
+      navigate(`/chat/${chatId}`, {
+        state: { reload: false },
+        replace: true,
+      });
     }
     const body = {
       chatId: chatId,
@@ -272,15 +267,15 @@ function ChatMain() {
   }
 
   async function onSelectFile(file: FileUIPart) {
-    setStatus("pending");
     const extractedFile = await ExtractFileData(file);
-    const messageId = uuidv4().toString();
-    setMessageId(messageId);
+    const tempMessageId = uuidv4().toString();
+    setMessageId(tempMessageId);
+
     uploadFile(
       {
         ...extractedFile,
-        chatId: chatId as never,
-        messageId: messageId,
+        chatId: chatId,
+        messageId: tempMessageId,
         emailId: "afridayan01@gmail.com",
       },
       {
@@ -288,7 +283,6 @@ function ChatMain() {
           if (data?.data === "SUCCESS") {
             setUploadedFileId(data.id);
           }
-          setStatus("ready");
         },
       }
     );
@@ -418,8 +412,9 @@ function ChatMain() {
                 disabled={
                   (!input && !uploadedFileId ? true : false) ||
                   !status ||
-                  status === "pending" ||
-                  isPending
+                  isPending ||
+                  !chatId ||
+                  (uploadedFileId && !messageId)
                 }
                 status={status}
               />
@@ -433,7 +428,8 @@ function ChatMain() {
                   disabled={
                     (uploadedFileId ? true : false) ||
                     isPending ||
-                    status === "pending"
+                    status === "pending" ||
+                    !chatId
                   }
                 />
                 <PromptInputActionMenuContent>

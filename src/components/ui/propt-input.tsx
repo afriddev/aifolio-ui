@@ -268,7 +268,7 @@ export const PromptInput = ({
   );
 
   const add = useCallback(
-    (files: File[] | FileList) => {
+    async (files: File[] | FileList) => {
       const incoming = Array.from(files);
       const accepted = incoming.filter((f) => matchesAccept(f));
       if (accepted.length === 0) {
@@ -311,12 +311,14 @@ export const PromptInput = ({
             filename: file.name,
           };
           next.push(tempFileUiPart);
-          onSelectFile(tempFileUiPart);
+          Promise.resolve(onSelectFile(tempFileUiPart)).catch((error) => {
+            console.error("Error in onSelectFile:", error);
+          });
         }
         return prev.concat(next);
       });
     },
-    [matchesAccept, maxFiles, maxFileSize, onError]
+    [matchesAccept, maxFiles, maxFileSize, onError, onSelectFile] // Add onSelectFile to dependencies
   );
 
   const remove = useCallback((id: string) => {
