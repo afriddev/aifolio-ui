@@ -54,7 +54,7 @@ import {
 } from "@/components/ui/sources";
 import { ExtractFileData } from "@/apputils/AppUtils";
 import { useUploadFile } from "@/hooks/fileHooks";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const CHAT_API = "http://127.0.0.1:8001/api/v1/chat";
 function ChatMain() {
@@ -72,6 +72,7 @@ function ChatMain() {
   const [chatId, setChatId] = useState<string | undefined>(undefined);
   const [messageId, setMessageId] = useState<string | undefined>(undefined);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (status === "ready") {
@@ -82,9 +83,27 @@ function ChatMain() {
     }
   }, [status]);
 
+  useEffect(() => {
+    if (location.state?.reload) {
+      resetChat();
+    }
+  }, [location.state]);
+
+  function resetChat() {
+    setMessages([]);
+    setInput("");
+    setStatus("ready");
+    setUseFlash(false);
+    setUseDeepResearch(false);
+    setUseWebSearch(false);
+    setUploadedFileId(undefined);
+    setMessageId(undefined);
+    setChatId(uuidv4().toString());
+  }
+
   async function sendToBackend(message: chatRequestDataType) {
     if (messages.length === 0 && chatId) {
-      navigate(`/chat/${chatId}`, { replace: false });
+      navigate(`/chat/${chatId}`, { state: { reload: false } });
     }
     const body = {
       chatId: chatId,

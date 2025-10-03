@@ -58,7 +58,7 @@ function AppSidebar() {
   }, [emailId]);
 
   return (
-    <div className="lg:w-[17vw] h-full  border-r  bg-gray-100 border-foreground/10 ">
+    <div className="lg:w-[17vw] h-full overflow-auto max-h-[100vh]  border-r  bg-gray-100 border-foreground/10 ">
       <div className="w-full h-full p-2 justify-between flex flex-col">
         <div className="flex flex-col w-full h-full ">
           <div className="p-1 justify-between flex items-center">
@@ -83,13 +83,15 @@ function AppSidebar() {
               Chats
             </label>
 
-            <div className="mt-2">
+            <div className="mt-2  ">
               {allChats &&
                 allChats.map((chat) => (
                   <div
                     onClick={() => {
                       if (chat.id != chatId) {
-                        navigate(`/chat/${chat.id}`, { replace: true });
+                        navigate(`/chat/${chat.id}`, {
+                          state: { reload:true },
+                        });
                       }
                     }}
                     key={chat.id}
