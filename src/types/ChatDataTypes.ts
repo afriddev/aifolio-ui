@@ -34,4 +34,5 @@ export type fileModelDataType = {
 export type chatDataType  = {
   title: string;
   id: string;
+  titleGenerated: boolean;
 }

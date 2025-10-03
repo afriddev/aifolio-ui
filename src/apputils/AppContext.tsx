@@ -46,6 +46,14 @@ function reducer(state: contextType, action: dispatchDataType) {
         allChats: [action.payload, ...state.allChats],
       };
 
+    case "updateChat":
+      return {
+        ...state,
+        allChats: state.allChats.map((chat) =>
+          chat.id === action.payload.id ? { ...chat, ...action.payload } : chat
+        ),
+      };
+
     default:
       throw new Error("Action unkonwn");
   }

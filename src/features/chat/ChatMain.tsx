@@ -56,6 +56,7 @@ import { ExtractFileData } from "@/apputils/AppUtils";
 import { useUploadFile } from "@/hooks/fileHooks";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useGetChatHistory } from "@/hooks/chatHooks";
+import { useAppContext } from "@/apputils/AppContext";
 
 const CHAT_API = "http://127.0.0.1:8001/api/v1/chat";
 function ChatMain() {
@@ -75,12 +76,14 @@ function ChatMain() {
   const navigate = useNavigate();
   const location = useLocation();
   const { getHistory } = useGetChatHistory();
+  const [titleGenerated, setTitleGenerated] = useState<boolean>(false);
+  const { allChats } = useAppContext();
 
   useEffect(() => {
     if (status === "ready") {
       bottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }
-    if (chatId === undefined && !location.state.chatId) {
+    if (!chatId && !location?.state?.chatId) {
       setChatId(uuidv4().toString());
     }
   }, [status]);
@@ -88,9 +91,10 @@ function ChatMain() {
   useEffect(() => {
     if (location.state?.reload) {
       resetChat();
+      return;
     }
 
-    if (location.state.chatId) {
+    if (location?.state?.chatId) {
       getHistory(
         {
           id: location.state.chatId,
@@ -109,16 +113,31 @@ function ChatMain() {
                   });
                 }
               }
+              console.log("2");
+
               setMessages(tempMessages);
               setChatId(location.state.chatId);
+              setTitleGenerated(location.state.titleGenerated);
             }
           },
         }
       );
     }
-  }, [location.state]);
+    for (let index = 0; index < allChats.length; index++) {
+      if (allChats[index].id === chatId) {
+        setTitleGenerated(allChats[index]?.titleGenerated);
+      }
+    }
+  }, [location.state, allChats]);
+
+  useEffect(() => {
+    console.log(titleGenerated);
+  }, [titleGenerated]);
 
   function resetChat() {
+    console.log("3");
+
+    setTitleGenerated(false);
     setMessages([]);
     setInput("");
     setStatus("ready");
@@ -145,6 +164,7 @@ function ChatMain() {
       useFlash: useFlash,
       fileId: uploadedFileId,
       emailId: "afridayan01@gmail.com",
+      titleGenerated,
     };
     const allMessages = [
       ...messages,

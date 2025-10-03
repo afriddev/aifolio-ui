@@ -36,12 +36,13 @@ function AppSidebar() {
 
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      if (data.type === "chatSummary") {
+      if (data.type === "chatSummary" || data.type === "chatSummaryUpdate") {
         dispatch({
-          type: "addNewChat",
+          type: data.type == "chatSummaryUpdate" ? "updateChat" : "addNewChat",
           payload: {
             id: data.chatId,
             title: data.title,
+            titleGenerated: data.titleGenerated,
           },
         });
       }
@@ -77,9 +78,7 @@ function AppSidebar() {
                 <p className=" font-medium">New Chat</p>
                 <MdOutlineChatBubbleOutline className="h-4 w-4" />
               </div>
-              <div
-                className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer"
-              >
+              <div className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer">
                 <p className=" font-medium">Api keys</p>
                 <LiaKeycdn className="h-5 w-5" />
               </div>
@@ -96,7 +95,12 @@ function AppSidebar() {
                   <div
                     onClick={() => {
                       if (chat.id != chatId) {
-                        navigate(`/chat/${chat.id}`, {state: { chatId: chat.id }});
+                        navigate(`/chat/${chat.id}`, {
+                          state: {
+                            chatId: chat.id,
+                            titleGenerated: chat.titleGenerated,
+                          },
+                        });
                       }
                     }}
                     key={chat.id}
