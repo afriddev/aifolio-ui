@@ -8,15 +8,11 @@ export type chatRequestDataType = {
   files?: FileUIPart[] | undefined;
 };
 
-
-
 export type searchResultDataType = {
-
-  content:string
-  url:string;
-  title:string
-
-}
+  content: string;
+  url: string;
+  title: string;
+};
 export type chatMessageDataType = {
   role: "user" | "assistant";
   id: string;
@@ -25,13 +21,17 @@ export type chatMessageDataType = {
   searchResults?: searchResultDataType[];
 };
 
-
-
 export type fileModelDataType = {
   name: string;
   mediaType: string;
-  data: string; 
+  data: string;
   size: number;
-  chatId: string;
-  messageId: string; 
+  chatId?: string;
+  messageId?: string;
+  emailId?: string;
 };
+
+export type chatDataType  = {
+  title: string;
+  id: string;
+}

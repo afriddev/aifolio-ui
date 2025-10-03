@@ -53,7 +53,8 @@ import {
   SourcesTrigger,
 } from "@/components/ui/sources";
 import { ExtractFileData } from "@/apputils/AppUtils";
-import { useUploadFile } from "@/hooks/FIleHooks";
+import { useUploadFile } from "@/hooks/fileHooks";
+import { useNavigate } from "react-router-dom";
 
 const CHAT_API = "http://127.0.0.1:8001/api/v1/chat";
 function ChatMain() {
@@ -70,6 +71,7 @@ function ChatMain() {
   const bottomRef = useRef<HTMLDivElement | null>(null);
   const [chatId, setChatId] = useState<string | undefined>(undefined);
   const [messageId, setMessageId] = useState<string | undefined>(undefined);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (status === "ready") {
@@ -81,6 +83,9 @@ function ChatMain() {
   }, [status]);
 
   async function sendToBackend(message: chatRequestDataType) {
+    if (messages.length === 0 && chatId) {
+      navigate(`/chat/${chatId}`, { replace: false });
+    }
     const body = {
       chatId: chatId,
       query: message.content,
@@ -91,6 +96,7 @@ function ChatMain() {
       useDeepResearch: useDeepResearch,
       useFlash: useFlash,
       fileId: uploadedFileId,
+      emailId: "afridayan01@gmail.com",
     };
     const allMessages = [
       ...messages,
@@ -207,6 +213,7 @@ function ChatMain() {
         ...extractedFile,
         chatId: chatId as never,
         messageId: messageId,
+        emailId: "afridayan01@gmail.com",
       },
       {
         onSuccess: (data) => {
@@ -356,13 +363,13 @@ function ChatMain() {
               <PromptInputActionMenu>
                 <PromptInputActionMenuTrigger
                   disabled={
-                    uploadedFileId
-                      ? true
-                      : false || isPending || status === "pending"
+                    (uploadedFileId ? true : false) ||
+                    isPending ||
+                    status === "pending"
                   }
                 />
                 <PromptInputActionMenuContent>
-                  <PromptInputActionAddAttachments label="Add Your Resume" />
+                  <PromptInputActionAddAttachments label="Select File  " />
                 </PromptInputActionMenuContent>
               </PromptInputActionMenu>
 

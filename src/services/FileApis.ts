@@ -1,4 +1,4 @@
-import { postAPI } from "@/ApiServices";
+import {  postAPI } from "@/ApiServices";
 import type { fileModelDataType } from "@/types/ChatDataTypes";
 
 

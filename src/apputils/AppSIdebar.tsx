@@ -1,45 +1,105 @@
 import { FiSidebar } from "react-icons/fi";
-import { MdOutlineChatBubbleOutline, MdOutlineImage } from "react-icons/md";
-import { LuSearch } from "react-icons/lu";
-import { FiFolderPlus } from "react-icons/fi";
+import { MdOutlineChatBubbleOutline } from "react-icons/md";
+
 import { Avatar } from "@/components/ui/avatar";
 import { AvatarImage } from "@radix-ui/react-avatar";
 import { CiSettings } from "react-icons/ci";
+import { useGetAllChats } from "@/hooks/chatHooks";
+import { useEffect, useRef } from "react";
+import { useAppContext } from "./AppContext";
+import { truncateText } from "./AppUtils";
+import { useNavigate, useParams } from "react-router-dom";
 
 function AppSidebar() {
+  const { getAllChats } = useGetAllChats();
+  const { allChats, dispatch } = useAppContext();
+  const { chatId } = useParams<{ chatId: string }>();
+  const navigate = useNavigate();
+  const wsRef = useRef<WebSocket | null>(null);
+
+  const emailId = "afridayan01@gmail.com";
+
+  useEffect(() => {
+    getAllChats();
+  }, []);
+
+  useEffect(() => {
+    if (!emailId) return;
+
+    const ws = new WebSocket(`ws://localhost:8001/ws/${emailId}`);
+    wsRef.current = ws;
+
+    ws.onopen = () => {
+      console.log("✅ Connected as", emailId);
+    };
+
+    ws.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      if (data.type === "chatSummary") {
+        dispatch({
+          type: "addNewChat",
+          payload: {
+            id: data.chatId,
+            title: data.title,
+          },
+        });
+      }
+    };
+
+    ws.onclose = () => {
+      console.log("❌ Disconnected");
+    };
+
+    ws.onerror = (err) => {
+      console.error("⚠️ WebSocket error", err);
+    };
+
+    return () => ws.close();
+  }, [emailId]);
+
   return (
-    <div className="lg:w-[15vw] h-full bg-background  border-r  border-foreground/10 ">
+    <div className="lg:w-[17vw] h-full  border-r  bg-gray-100 border-foreground/10 ">
       <div className="w-full h-full p-2 justify-between flex flex-col">
         <div className="flex flex-col w-full h-full ">
           <div className="p-1 justify-between flex items-center">
-            <img
-              alt="logo"
-              src="logo.png"
-              className="h-10 w-10 object-cover cursor-pointer"
-            />
+            <label className="text-xl font-mono">AIFOLIO</label>
             <FiSidebar className="h-10 w-10 cursor-pointer lg:hover:bg-muted p-2 rounded " />
           </div>
           <div>
             <div className="flex flex-col gap-1 pt-5">
-              <div className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer">
+              <div
+                onClick={() => {
+                  navigate(`/`, { state: { reload: true } });
+                }}
+                className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer"
+              >
                 <p className=" font-medium">New Chat</p>
                 <MdOutlineChatBubbleOutline className="h-6 w-6" />
               </div>
+            </div>
+          </div>
+          <div className="mt-10 ">
+            <label className="font-semibold text-sm pl-2 text-foreground/70">
+              Chats
+            </label>
 
-              <div className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer">
-                <p className=" font-medium">Search Chats</p>
-                <LuSearch className="h-6 w-6" />
-              </div>
-
-              <div className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer">
-                <p className=" font-medium">Generate Image</p>
-                <MdOutlineImage className="h-6 w-6" />
-              </div>
-
-              <div className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer">
-                <p className=" font-medium">New Project</p>
-                <FiFolderPlus className="h-6 w-6" />
-              </div>
+            <div className="mt-2">
+              {allChats &&
+                allChats.map((chat) => (
+                  <div
+                    onClick={() => {
+                      if (chat.id != chatId) {
+                        navigate(`/chat/${chat.id}`, { replace: true });
+                      }
+                    }}
+                    key={chat.id}
+                    className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer"
+                  >
+                    <p className=" font-medium">
+                      {truncateText(chat.title, 35, "...")}
+                    </p>
+                  </div>
+                ))}
             </div>
           </div>
         </div>

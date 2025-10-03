@@ -1,4 +1,4 @@
-import { loginAPI } from "@/services/FileApis";
+import { loginAPI } from "@/services/fileApis";
 import type { fileModelDataType } from "@/types/ChatDataTypes";
 import { useMutation } from "@tanstack/react-query";
 

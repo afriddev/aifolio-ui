@@ -15,18 +15,15 @@ export function fileToBase64(file: File): Promise<string> {
   });
 }
 
-
-export async function ExtractFileData(part: FileUIPart): Promise<fileModelDataType> {
+export async function ExtractFileData(
+  part: FileUIPart
+): Promise<fileModelDataType> {
   const res = await fetch(part.url);
   const blob = await res.blob();
 
-  const file = new File(
-    [blob],
-    part.filename ?? `${uuidv4().toString()}.pdf`,
-    {
-      type: part.mediaType || blob.type || "application/octet-stream",
-    }
-  );
+  const file = new File([blob], part.filename ?? `${uuidv4().toString()}.pdf`, {
+    type: part.mediaType || blob.type || "application/octet-stream",
+  });
 
   const base64Data = await fileToBase64(file);
 
@@ -36,4 +33,15 @@ export async function ExtractFileData(part: FileUIPart): Promise<fileModelDataTy
     data: base64Data,
     size: file.size,
   };
+}
+
+
+export function truncateText(
+  text: string,
+  maxLength: number,
+  ending: string = "…"
+): string {
+  if (!text) return "";
+  if (text.length <= maxLength) return text;
+  return text.substring(0, maxLength) + ending;
 }
