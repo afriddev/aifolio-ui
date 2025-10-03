@@ -54,7 +54,8 @@ import {
 } from "@/components/ui/sources";
 import { ExtractFileData } from "@/apputils/AppUtils";
 import { useUploadFile } from "@/hooks/fileHooks";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useGetChatHistory } from "@/hooks/chatHooks";
 
 const CHAT_API = "http://127.0.0.1:8001/api/v1/chat";
 function ChatMain() {
@@ -73,12 +74,14 @@ function ChatMain() {
   const [messageId, setMessageId] = useState<string | undefined>(undefined);
   const navigate = useNavigate();
   const location = useLocation();
+  const { chatId: paramChatId } = useParams<{ chatId: string }>();
+  const { getHistory } = useGetChatHistory();
 
   useEffect(() => {
     if (status === "ready") {
       bottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }
-    if (chatId === undefined) {
+    if (chatId === undefined && !paramChatId) {
       setChatId(uuidv4().toString());
     }
   }, [status]);
@@ -87,7 +90,34 @@ function ChatMain() {
     if (location.state?.reload) {
       resetChat();
     }
-  }, [location.state]);
+
+    if (paramChatId) {
+      getHistory(
+        {
+          id: paramChatId,
+        },
+        {
+          onSuccess: (data) => {
+            if (data.data === "SUCCESS") {
+              const tempMessages = [];
+
+              for (let index = 0; index < data.chatHistory.length; index++) {
+                {
+                  tempMessages.push({
+                    id: data.chatHistory[index].messageId,
+                    role: data.chatHistory[index].role,
+                    content: data.chatHistory[index].content,
+                  });
+                }
+              }
+              setMessages(tempMessages);
+              setChatId(paramChatId);
+            }
+          },
+        }
+      );
+    }
+  }, [location.state, paramChatId]);
 
   function resetChat() {
     setMessages([]);

@@ -89,16 +89,14 @@ function AppSidebar() {
                   <div
                     onClick={() => {
                       if (chat.id != chatId) {
-                        navigate(`/chat/${chat.id}`, {
-                          state: { reload:true },
-                        });
+                        navigate(`/chat/${chat.id}`, {});
                       }
                     }}
                     key={chat.id}
                     className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer"
                   >
                     <p className=" font-medium">
-                      {truncateText(chat.title, 35, "...")}
+                      {truncateText(chat.title, 32, "...")}
                     </p>
                   </div>
                 ))}
