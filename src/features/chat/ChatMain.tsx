@@ -54,7 +54,7 @@ import {
 } from "@/components/ui/sources";
 import { ExtractFileData } from "@/apputils/AppUtils";
 import { useUploadFile } from "@/hooks/fileHooks";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useGetChatHistory } from "@/hooks/chatHooks";
 
 const CHAT_API = "http://127.0.0.1:8001/api/v1/chat";
@@ -74,14 +74,13 @@ function ChatMain() {
   const [messageId, setMessageId] = useState<string | undefined>(undefined);
   const navigate = useNavigate();
   const location = useLocation();
-  const { chatId: paramChatId } = useParams<{ chatId: string }>();
   const { getHistory } = useGetChatHistory();
 
   useEffect(() => {
     if (status === "ready") {
       bottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }
-    if (chatId === undefined && !paramChatId) {
+    if (chatId === undefined && !location.state.chatId) {
       setChatId(uuidv4().toString());
     }
   }, [status]);
@@ -91,10 +90,10 @@ function ChatMain() {
       resetChat();
     }
 
-    if (paramChatId) {
+    if (location.state.chatId) {
       getHistory(
         {
-          id: paramChatId,
+          id: location.state.chatId,
         },
         {
           onSuccess: (data) => {
@@ -104,20 +103,20 @@ function ChatMain() {
               for (let index = 0; index < data.chatHistory.length; index++) {
                 {
                   tempMessages.push({
-                    id: data.chatHistory[index].messageId,
+                    id: data.chatHistory[index].id,
                     role: data.chatHistory[index].role,
                     content: data.chatHistory[index].content,
                   });
                 }
               }
               setMessages(tempMessages);
-              setChatId(paramChatId);
+              setChatId(location.state.chatId);
             }
           },
         }
       );
     }
-  }, [location.state, paramChatId]);
+  }, [location.state]);
 
   function resetChat() {
     setMessages([]);
@@ -290,7 +289,7 @@ function ChatMain() {
   }
 
   return (
-    <div className="w-full h-full overflow-auto max-h-[100vh]  flex flex-col justify-between items-center py-5">
+    <div className="w-full h-full  overflow-auto max-h-[100vh]  flex flex-col justify-between items-center py-5">
       <div className="w-full h-full   pb-36 flex justify-center items-center">
         <Conversation className="h-full  flex justify-center items-center">
           <ConversationContent className="flex flex-col justify-center items-center">

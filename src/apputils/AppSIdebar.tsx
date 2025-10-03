@@ -9,6 +9,7 @@ import { useEffect, useRef } from "react";
 import { useAppContext } from "./AppContext";
 import { truncateText } from "./AppUtils";
 import { useNavigate, useParams } from "react-router-dom";
+import { LiaKeycdn } from "react-icons/lia";
 
 function AppSidebar() {
   const { getAllChats } = useGetAllChats();
@@ -74,12 +75,18 @@ function AppSidebar() {
                 className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer"
               >
                 <p className=" font-medium">New Chat</p>
-                <MdOutlineChatBubbleOutline className="h-6 w-6" />
+                <MdOutlineChatBubbleOutline className="h-4 w-4" />
+              </div>
+              <div
+                className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer"
+              >
+                <p className=" font-medium">Api keys</p>
+                <LiaKeycdn className="h-5 w-5" />
               </div>
             </div>
           </div>
           <div className="mt-10 ">
-            <label className="font-semibold text-sm pl-2 text-foreground/70">
+            <label className="font-bold text-sm pl-2 text-foreground/50">
               Chats
             </label>
 
@@ -89,11 +96,11 @@ function AppSidebar() {
                   <div
                     onClick={() => {
                       if (chat.id != chatId) {
-                        navigate(`/chat/${chat.id}`, {});
+                        navigate(`/chat/${chat.id}`, {state: { chatId: chat.id }});
                       }
                     }}
                     key={chat.id}
-                    className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer"
+                    className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer text-foreground/80"
                   >
                     <p className=" font-medium">
                       {truncateText(chat.title, 32, "...")}
