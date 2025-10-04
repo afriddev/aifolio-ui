@@ -104,6 +104,7 @@ function ChatMain() {
                     id: data.chatHistory[index].id,
                     role: data.chatHistory[index].role,
                     content: data.chatHistory[index].content,
+                    visible: true,
                   });
                 }
               }
@@ -171,6 +172,7 @@ function ChatMain() {
         id: message.id,
         reasoningContent: "",
         content: message.content,
+        visible: true,
       },
     ];
     setMessages(allMessages);
@@ -194,6 +196,7 @@ function ChatMain() {
       content: "",
       reasoningContent: "",
       searchResults: [],
+      visible: true,
     };
 
     setMessages((prev) => [...prev, assistantTemplateMessage]);
@@ -225,7 +228,7 @@ function ChatMain() {
                   if (parsedToken.data === "generate_resume") {
                     newMsg.content =
                       (newMsg.content ?? "") +
-                      "Generated your resume, you will get the key by email.";
+                      "Generated your key, you will get the key by email.";
                   } else {
                     newMsg.content =
                       (newMsg.content ?? "") + String(parsedToken.data ?? "");
@@ -285,6 +288,17 @@ function ChatMain() {
         onSuccess: (data) => {
           if (data?.data === "SUCCESS") {
             setUploadedFileId(data.id);
+            const allMessages = [
+              ...messages,
+              {
+                role: "user" as any,
+                id: tempMessageId,
+                reasoningContent: "",
+                content: data.text,
+                visible: false,
+              },
+            ];
+            setMessages(allMessages);
           }
         },
       }
@@ -312,9 +326,11 @@ function ChatMain() {
           <ConversationContent className="flex flex-col justify-center items-center">
             {messages.map((message, index) => {
               if (
-                message.content ||
-                message.reasoningContent ||
-                (message.searchResults && message.searchResults?.length > 0)
+                (message.content ||
+                  message.reasoningContent ||
+                  (message.searchResults &&
+                    message.searchResults?.length > 0)) &&
+                message.visible
               )
                 return (
                   <div key={index} className="mb-4 w-[50vw]">

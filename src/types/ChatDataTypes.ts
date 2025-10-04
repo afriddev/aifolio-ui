@@ -19,6 +19,7 @@ export type chatMessageDataType = {
   reasoningContent?: string;
   content: string | undefined;
   searchResults?: searchResultDataType[];
+  visible: boolean;
 };
 
 export type fileModelDataType = {
@@ -31,8 +32,8 @@ export type fileModelDataType = {
   emailId?: string;
 };
 
-export type chatDataType  = {
+export type chatDataType = {
   title: string;
   id: string;
   titleGenerated: boolean;
-}
+};
