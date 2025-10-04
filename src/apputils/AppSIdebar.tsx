@@ -4,12 +4,20 @@ import { MdOutlineChatBubbleOutline } from "react-icons/md";
 import { Avatar } from "@/components/ui/avatar";
 import { AvatarImage } from "@radix-ui/react-avatar";
 import { CiSettings } from "react-icons/ci";
-import { useGetAllChats } from "@/hooks/chatHooks";
+import { useDeleteChat, useGetAllChats } from "@/hooks/chatHooks";
 import { useEffect, useRef } from "react";
 import { useAppContext } from "./AppContext";
 import { truncateText } from "./AppUtils";
 import { useNavigate, useParams } from "react-router-dom";
 import { LiaKeycdn } from "react-icons/lia";
+import { RxDotsVertical } from "react-icons/rx";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
+import { AiOutlineDelete } from "react-icons/ai";
 
 function AppSidebar() {
   const { getAllChats } = useGetAllChats();
@@ -17,12 +25,14 @@ function AppSidebar() {
   const { chatId } = useParams<{ chatId: string }>();
   const navigate = useNavigate();
   const wsRef = useRef<WebSocket | null>(null);
+  const { deleteChat } = useDeleteChat();
+  const { refresh } = useAppContext();
 
   const emailId = "afridayan01@gmail.com";
 
   useEffect(() => {
     getAllChats();
-  }, []);
+  }, [refresh]);
 
   useEffect(() => {
     if (!emailId) return;
@@ -60,7 +70,7 @@ function AppSidebar() {
   }, [emailId]);
 
   return (
-    <div className="lg:w-[17vw] h-full overflow-auto max-h-[100vh]  border-r  bg-gray-100 border-foreground/10 ">
+    <div className="lg:w-[17vw] h-full overflow-auto max-h-[100vh]  border-r   border-foreground/10 ">
       <div className="w-full h-full p-2 justify-between flex flex-col">
         <div className="flex flex-col w-full h-full ">
           <div className="p-1 justify-between flex items-center">
@@ -85,9 +95,9 @@ function AppSidebar() {
             </div>
           </div>
           <div className="mt-10 ">
-            <label className="font-bold text-sm pl-2 text-foreground/50">
-              Chats
-            </label>
+            {allChats && allChats.length > 0 && (
+              <p className="px-3 text-xs text-foreground/50 uppercase">Chats</p>
+            )}
 
             <div className="mt-2  ">
               {allChats &&
@@ -104,11 +114,33 @@ function AppSidebar() {
                       }
                     }}
                     key={chat.id}
-                    className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer text-foreground/80"
+                    className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer text-foreground/80 z-40"
                   >
-                    <p className=" font-medium">
+                    <p className=" font-medium ">
                       {truncateText(chat.title, 32, "...")}
                     </p>
+                    <Popover>
+                      <PopoverTrigger
+                        className="z-50"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <RxDotsVertical className="cursor-pointer" />
+                      </PopoverTrigger>
+                      <PopoverContent className=" p-1  w-28">
+                        <div className="flex flex-col gap-2">
+                          <Button
+                            onClick={() => {
+                              deleteChat({ id: chat.id });
+                            }}
+                            variant={"ghost"}
+                            className="text-left p-2 hover:bg-muted rounded"
+                          >
+                            <AiOutlineDelete className="text-destructive" />{" "}
+                            Delete
+                          </Button>
+                        </div>
+                      </PopoverContent>
+                    </Popover>
                   </div>
                 ))}
             </div>

@@ -27,7 +27,7 @@ function reducer(state: contextType, action: dispatchDataType) {
     case "setRefresh":
       return {
         ...state,
-        refresh: action?.payload,
+        refresh: !state.refresh,
       };
     case "setNavBarIndex":
       return {
