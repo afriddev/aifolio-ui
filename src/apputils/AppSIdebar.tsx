@@ -8,7 +8,7 @@ import { useDeleteChat, useGetAllChats } from "@/hooks/chatHooks";
 import { useEffect, useRef } from "react";
 import { useAppContext } from "./AppContext";
 import { truncateText } from "./AppUtils";
-import { useNavigate, useParams } from "react-router-dom";
+import { replace, useNavigate, useParams } from "react-router-dom";
 import { LiaKeycdn } from "react-icons/lia";
 import { RxDotsVertical } from "react-icons/rx";
 import {
@@ -70,7 +70,7 @@ function AppSidebar() {
   }, [emailId]);
 
   return (
-    <div className="lg:w-[17vw] h-full overflow-auto max-h-[100vh]  border-r   border-foreground/10 ">
+    <div className="lg:w-[20vw] h-full overflow-auto max-h-[100vh]  border-r   border-foreground/10 ">
       <div className="w-full h-full p-2 justify-between flex flex-col">
         <div className="flex flex-col w-full h-full ">
           <div className="p-1 justify-between flex items-center">
@@ -81,14 +81,14 @@ function AppSidebar() {
             <div className="flex flex-col gap-1 pt-5">
               <div
                 onClick={() => {
-                  navigate(`/`, { state: { reload: true } });
+                  navigate(`/`, { state: { reload: true, replace: true } });
                 }}
-                className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer"
+                className="flex items-center gap-3 justify-between  w-full px-3 py-2 lg:hover:bg-muted rounded cursor-pointer"
               >
                 <p className=" font-medium">New Chat</p>
                 <MdOutlineChatBubbleOutline className="h-4 w-4" />
               </div>
-              <div className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer">
+              <div className="flex items-center gap-3 justify-between  w-full px-3 py-2 lg:hover:bg-muted rounded cursor-pointer">
                 <p className=" font-medium">Api keys</p>
                 <LiaKeycdn className="h-5 w-5" />
               </div>
@@ -107,6 +107,7 @@ function AppSidebar() {
                       if (chat.id != chatId) {
                         navigate(`/chat/${chat.id}`, {
                           state: {
+                            reload: true,
                             chatId: chat.id,
                             titleGenerated: chat.titleGenerated,
                           },
@@ -114,33 +115,35 @@ function AppSidebar() {
                       }
                     }}
                     key={chat.id}
-                    className="flex items-center gap-3 justify-between  w-full p-3 lg:hover:bg-muted rounded cursor-pointer text-foreground/80 z-40"
+                    className="flex items-center gap-3 justify-between relative  w-full px-3 py-2 lg:hover:bg-muted/60 rounded cursor-pointer text-foreground/80 z-40"
                   >
                     <p className=" font-medium ">
-                      {truncateText(chat.title, 32, "...")}
+                      {truncateText(chat.title, 35, "...")}
                     </p>
-                    <Popover>
-                      <PopoverTrigger
-                        className="z-50"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <RxDotsVertical className="cursor-pointer" />
-                      </PopoverTrigger>
-                      <PopoverContent className=" p-1  w-28">
-                        <div className="flex flex-col gap-2">
-                          <Button
-                            onClick={() => {
-                              deleteChat({ id: chat.id });
-                            }}
-                            variant={"ghost"}
-                            className="text-left p-2 hover:bg-muted rounded"
-                          >
-                            <AiOutlineDelete className="text-destructive" />{" "}
-                            Delete
-                          </Button>
-                        </div>
-                      </PopoverContent>
-                    </Popover>
+                    <div className="absolute cursor-pointer right-2 flex ">
+                      <Popover>
+                        <PopoverTrigger
+                          className="z-50 cursor-pointer hover:bg-zinc-100 hover:scale-110   p-2"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <RxDotsVertical className="cursor-pointer" />
+                        </PopoverTrigger>
+                        <PopoverContent className=" p-1  w-28">
+                          <div className="flex flex-col gap-2">
+                            <Button
+                              onClick={() => {
+                                deleteChat({ id: chat.id });
+                              }}
+                              variant={"ghost"}
+                              className="text-left p-2 hover:bg-muted rounded"
+                            >
+                              <AiOutlineDelete className="text-destructive" />{" "}
+                              Delete
+                            </Button>
+                          </div>
+                        </PopoverContent>
+                      </Popover>
+                    </div>
                   </div>
                 ))}
             </div>

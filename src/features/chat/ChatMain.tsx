@@ -54,7 +54,7 @@ import {
 } from "@/components/ui/sources";
 import { ExtractFileData } from "@/apputils/AppUtils";
 import { useUploadFile } from "@/hooks/fileHooks";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useGetChatHistory } from "@/hooks/chatHooks";
 import { useAppContext } from "@/apputils/AppContext";
 
@@ -78,22 +78,25 @@ function ChatMain() {
   const { getHistory } = useGetChatHistory();
   const [titleGenerated, setTitleGenerated] = useState<boolean>(false);
   const { allChats } = useAppContext();
+  const { chatId: paramChatId } = useParams<{ chatId: string }>();
 
   useEffect(() => {
     if (status === "ready" || status === "submitted") {
       bottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }
-  }, [status]);
-
-  useEffect(() => {
     if (location.state?.reload) {
       resetChat();
+      navigate(".", { state: undefined });
     }
 
-    if (location?.state?.chatId) {
+
+    if (paramChatId && location?.state?.reload ) {
+      const tempChatId = location?.state?.chatId
+        ? location?.state?.chatId
+        : paramChatId;
       getHistory(
         {
-          id: location.state.chatId,
+          id: tempChatId,
         },
         {
           onSuccess: (data) => {
@@ -109,9 +112,9 @@ function ChatMain() {
                   });
                 }
               }
+              setTitleGenerated(data.titleGenerated);
 
               setMessages(tempMessages);
-              setTitleGenerated(location.state.titleGenerated);
             }
           },
         }
@@ -123,7 +126,11 @@ function ChatMain() {
         setTitleGenerated(allChats[index]?.titleGenerated);
       }
     }
-  }, [location.state, allChats]);
+  }, [status, location.state, allChats]);
+
+  // useEffect(() => {
+
+  // }, []);
 
   function resetChat() {
     setTitleGenerated(false);
