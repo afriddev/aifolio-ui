@@ -60,7 +60,7 @@ import { useAppContext } from "@/apputils/AppContext";
 
 const CHAT_API = "http://127.0.0.1:8001/api/v1/chat";
 function ChatMain() {
-  const [status, setStatus] = useState<ChatStatus>("ready");
+  const [status, setStatus] = useState<string>("");
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<chatMessageDataType[]>([]);
   const [useWebSearch, setUseWebSearch] = useState<boolean>(false);
@@ -84,13 +84,8 @@ function ChatMain() {
     if (status === "ready" || status === "submitted") {
       bottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }
-    if (location.state?.reload) {
-      resetChat();
-      navigate(".", { state: undefined });
-    }
 
-
-    if (paramChatId && location?.state?.reload ) {
+    if (paramChatId && (location?.state?.reload || !status)) {
       const tempChatId = location?.state?.chatId
         ? location?.state?.chatId
         : paramChatId;
@@ -113,24 +108,25 @@ function ChatMain() {
                 }
               }
               setTitleGenerated(data.titleGenerated);
-
               setMessages(tempMessages);
             }
           },
         }
       );
-      handleSetChatId(location.state.chatId);
+      handleSetChatId(location?.state?.chatId);
     }
+
+    if (location.state?.reload) {
+      resetChat();
+      navigate(".", { state: undefined });
+    }
+
     for (let index = 0; index < allChats.length; index++) {
       if (allChats[index].id === chatId) {
         setTitleGenerated(allChats[index]?.titleGenerated);
       }
     }
   }, [status, location.state, allChats]);
-
-  // useEffect(() => {
-
-  // }, []);
 
   function resetChat() {
     setTitleGenerated(false);

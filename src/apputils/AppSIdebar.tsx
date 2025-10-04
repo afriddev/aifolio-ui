@@ -8,7 +8,7 @@ import { useDeleteChat, useGetAllChats } from "@/hooks/chatHooks";
 import { useEffect, useRef } from "react";
 import { useAppContext } from "./AppContext";
 import { truncateText } from "./AppUtils";
-import { replace, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import { LiaKeycdn } from "react-icons/lia";
 import { RxDotsVertical } from "react-icons/rx";
 import {
@@ -118,7 +118,7 @@ function AppSidebar() {
                     className="flex items-center gap-3 justify-between relative  w-full px-3 py-2 lg:hover:bg-muted/60 rounded cursor-pointer text-foreground/80 z-40"
                   >
                     <p className=" font-medium ">
-                      {truncateText(chat.title, 35, "...")}
+                      {truncateText(chat.title, 32, "...")}
                     </p>
                     <div className="absolute cursor-pointer right-2 flex ">
                       <Popover>
@@ -131,8 +131,10 @@ function AppSidebar() {
                         <PopoverContent className=" p-1  w-28">
                           <div className="flex flex-col gap-2">
                             <Button
-                              onClick={() => {
+                              onClick={(e) => {
+                                e.stopPropagation()
                                 deleteChat({ id: chat.id });
+                                
                               }}
                               variant={"ghost"}
                               className="text-left p-2 hover:bg-muted rounded"

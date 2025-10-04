@@ -623,7 +623,7 @@ export const PromptInputActionMenuItem = ({
 // are provided in opt-in modules (e.g., prompt-input-attachments).
 
 export type PromptInputSubmitProps = ComponentProps<typeof Button> & {
-  status?: ChatStatus;
+  status?: string;
 };
 
 export const PromptInputSubmit = ({
