@@ -225,7 +225,7 @@ function ChatMain() {
                   newMsg.content =
                     (newMsg.content ?? "") + String(parsedToken.data ?? "");
                 } else if (parsedToken.type === "tool_name") {
-                  if (parsedToken.data === "generate_resume") {
+                  if (parsedToken.data === "generatekey") {
                     newMsg.content =
                       (newMsg.content ?? "") +
                       "Generated your key, you will get the key by email.";
