@@ -28,15 +28,9 @@ import {
   ConversationScrollButton,
 } from "@/components/ui/conversation";
 import { Message, MessageContent } from "@/components/ui/message";
-import type { ChatStatus, FileUIPart } from "ai";
+import type { FileUIPart } from "ai";
 
-import {
-  CopyIcon,
-  GlobeIcon,
-  RefreshCcwIcon,
-  ThumbsDownIcon,
-  ThumbsUpIcon,
-} from "lucide-react";
+import { CopyIcon, GlobeIcon } from "lucide-react";
 import { v4 as uuidv4 } from "uuid";
 import { Loader } from "@/components/ui/loader";
 import { Response } from "@/components/ui/response";
@@ -44,7 +38,6 @@ import type {
   chatMessageDataType,
   chatRequestDataType,
 } from "@/types/ChatDataTypes";
-import { LuBrain } from "react-icons/lu";
 import { VscSymbolEvent } from "react-icons/vsc";
 import {
   Source,
@@ -52,11 +45,19 @@ import {
   SourcesContent,
   SourcesTrigger,
 } from "@/components/ui/sources";
-import { ExtractFileData } from "@/apputils/AppUtils";
+import { ExtractFileData, getFormattedDate } from "@/apputils/AppUtils";
 import { useUploadFile } from "@/hooks/fileHooks";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useGetChatHistory } from "@/hooks/chatHooks";
 import { useAppContext } from "@/apputils/AppContext";
+
+import { AiFillLike } from "react-icons/ai";
+import { AiOutlineLike } from "react-icons/ai";
+import { AiOutlineDislike } from "react-icons/ai";
+import { AiFillDislike } from "react-icons/ai";
+import { IoCheckmark } from "react-icons/io5";
+import { BiBulb } from "react-icons/bi";
+import { IoFlashSharp } from "react-icons/io5";
 
 const CHAT_API = "http://127.0.0.1:8001/api/v1/chat";
 function ChatMain() {
@@ -79,6 +80,7 @@ function ChatMain() {
   const [titleGenerated, setTitleGenerated] = useState<boolean>(false);
   const { allChats } = useAppContext();
   const { chatId: paramChatId } = useParams<{ chatId: string }>();
+  const [copied, setCopied] = useState<number | null>(null);
 
   useEffect(() => {
     if (status === "ready" || status === "submitted") {
@@ -105,6 +107,11 @@ function ChatMain() {
                     role: data.chatHistory[index].role,
                     content: data.chatHistory[index].content,
                     visible: true,
+                    liked: data.chatHistory[index].liked,
+                    disLiked: data.chatHistory[index].disLiked,
+                    timeAndDate: getFormattedDate(
+                      data.chatHistory[index].timeAndDate
+                    ),
                   });
                 }
               }
@@ -173,6 +180,9 @@ function ChatMain() {
         reasoningContent: "",
         content: message.content,
         visible: true,
+        liked: false,
+        disLiked: false,
+        timeAndDate: getFormattedDate(),
       },
     ];
     setMessages(allMessages);
@@ -197,6 +207,9 @@ function ChatMain() {
       reasoningContent: "",
       searchResults: [],
       visible: true,
+      liked: false,
+      disLiked: false,
+      timeAndDate: getFormattedDate(),
     };
 
     setMessages((prev) => [...prev, assistantTemplateMessage]);
@@ -244,6 +257,7 @@ function ChatMain() {
                 if (parsedToken.type === "searchResults") {
                   newMsg.searchResults = parsedToken.data;
                 }
+                newMsg.timeAndDate = getFormattedDate();
 
                 return newMsg;
               })
@@ -296,6 +310,9 @@ function ChatMain() {
                 reasoningContent: "",
                 content: data.text,
                 visible: false,
+                liked: false,
+                disLiked: false,
+                timeAndDate: getFormattedDate(),
               },
             ];
             setMessages(allMessages);
@@ -319,6 +336,35 @@ function ChatMain() {
     }
   }
 
+  function handleLike(index: number) {
+    setMessages((prev) => {
+      return prev.map((m, idx) => {
+        if (idx === index) {
+          return {
+            ...m,
+            liked: !m.liked,
+            disLiked: m.disLiked ? false : m.disLiked,
+          };
+        }
+        return m;
+      });
+    });
+  }
+  function handleDislike(index: number) {
+    setMessages((prev) => {
+      return prev.map((m, idx) => {
+        if (idx === index) {
+          return {
+            ...m,
+            disLiked: !m.disLiked,
+            liked: m.liked ? false : m.liked,
+          };
+        }
+        return m;
+      });
+    });
+  }
+
   return (
     <div className="w-full h-full  overflow-auto max-h-[100vh]  flex flex-col justify-between items-center py-5">
       <div className="w-full h-full   pb-36 flex justify-center items-center">
@@ -333,8 +379,35 @@ function ChatMain() {
                 message.visible
               )
                 return (
-                  <div key={index} className="mb-4 w-[50vw]">
-                    <Message from={message.role}>
+                  <div key={index} className=" mb-4 w-[40vw] flex items-start">
+                    <Message from={message.role} className="p-0 relative">
+                      <div
+                        className={`${
+                          message.role === "user"
+                            ? "mt-3  -right-5"
+                            : "mt-3  -left-5"
+                        } -top-1  absolute`}
+                      >
+                        {message.role === "user" ? (
+                          ""
+                        ) : (
+                          <div>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 298.24155 298.24154"
+                              width="28"
+                              height="28"
+                              className="bg-red-500 rounded"
+                              fill="white"
+                            >
+                              <polygon
+                                points="242.424,90.909 242.424,121.212 212.121,121.212 212.121,151.515 181.818,151.515 181.818,121.212 151.515,121.212 151.515,90.909 121.212,90.909 121.212,212.121 90.909,212.121 90.909,242.424 181.818,242.424 181.818,212.121 151.515,212.121 151.515,181.818 181.818,181.818 181.818,212.121 212.121,212.121 212.121,181.818 242.424,181.818 242.424,212.121 212.121,212.121 212.121,242.424 303.03,242.424 303.03,212.121 272.727,212.121 272.727,90.909"
+                                transform="translate(-47.848728,-17.545727)"
+                              />
+                            </svg>
+                          </div>
+                        )}
+                      </div>
                       <MessageContent>
                         {message.reasoningContent && (
                           <Reasoning
@@ -372,23 +445,67 @@ function ChatMain() {
                             </Sources>
                           )}
 
-                        <Response>{message.content}</Response>
-                        {message.role === "assistant" && (
-                          <Actions>
-                            <Action label="Like">
-                              <ThumbsUpIcon className="size-4" />
-                            </Action>
-                            <Action label="Dislike">
-                              <ThumbsDownIcon className="size-4" />
-                            </Action>
-                            <Action label="Retry">
-                              <RefreshCcwIcon className="size-3" />
-                            </Action>
-                            <Action label="Copy">
-                              <CopyIcon className="size-3" />
-                            </Action>
-                          </Actions>
-                        )}
+                        <Response
+                          className={`${
+                            message.role === "user" &&
+                            "bg-muted px-4 py-2 rounded-3xl"
+                          }`}
+                        >
+                          {message.content}
+                        </Response>
+
+                        <div className="flex items-center justify-between mt-1 space-x-2">
+                          {message.role === "assistant" && (
+                            <label className="flex items-center text-xs gap-2">
+                              <IoFlashSharp className="text-orange-400 size-3" />{" "}
+                              {message.timeAndDate}
+                            </label>
+                          )}
+                          {message.role === "assistant" && (
+                            <Actions>
+                              <Action
+                                onClick={async () => {
+                                  await navigator.clipboard.writeText(
+                                    message.content ? message.content : ""
+                                  );
+                                  setCopied(index);
+                                  setTimeout(() => setCopied(null), 1000);
+                                }}
+                                label="Copy"
+                              >
+                                {copied === index ? (
+                                  <IoCheckmark className="size-3" />
+                                ) : (
+                                  <CopyIcon className="size-3 " />
+                                )}
+                              </Action>
+                              <Action
+                                onClick={() => {
+                                  handleLike(index);
+                                }}
+                                label="Like"
+                              >
+                                {message.liked ? (
+                                  <AiFillLike className="size-3 " />
+                                ) : (
+                                  <AiOutlineLike className="size-3" />
+                                )}
+                              </Action>
+                              <Action
+                                label="Dislike"
+                                onClick={() => {
+                                  handleDislike(index);
+                                }}
+                              >
+                                {message.disLiked ? (
+                                  <AiFillDislike className="size-3 " />
+                                ) : (
+                                  <AiOutlineDislike className="size-3" />
+                                )}
+                              </Action>
+                            </Actions>
+                          )}
+                        </div>
                       </MessageContent>
                     </Message>
                   </div>
@@ -396,7 +513,7 @@ function ChatMain() {
               else return null;
             })}
             {status === "submitted" && (
-              <div className="w-[50vw] items-start">
+              <div className="w-[40vw] items-start">
                 <Loader />
               </div>
             )}
@@ -405,7 +522,7 @@ function ChatMain() {
           <ConversationScrollButton />
         </Conversation>
       </div>
-      <div className="w-[50vw] absolute bottom-5">
+      <div className="w-[40vw] absolute bottom-5 ">
         <PromptInput
           accept="application/pdf"
           maxFileSize={2 * 1024 * 1024}
@@ -467,8 +584,8 @@ function ChatMain() {
                 variant={useDeepResearch ? "default" : "ghost"}
                 onClick={() => handleChatAction("deepResearch")}
               >
-                <LuBrain className="h-6 w-6" />
-                <span>Deep Reasearch</span>
+                <BiBulb className="h-6 w-6" />
+                <span>Think</span>
               </PromptInputButton>
 
               <PromptInputButton
@@ -476,7 +593,7 @@ function ChatMain() {
                 onClick={() => handleChatAction("webSearch")}
               >
                 <GlobeIcon size={16} />
-                <span>Search</span>
+                <span> Web search</span>
               </PromptInputButton>
             </PromptInputTools>
           </PromptInputToolbar>

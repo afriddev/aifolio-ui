@@ -45,3 +45,17 @@ export function truncateText(
   if (text.length <= maxLength) return text;
   return text.substring(0, maxLength) + ending;
 }
+
+
+export function getFormattedDate(dateInput?: Date | string): string {
+  const date = dateInput ? new Date(dateInput) : new Date();
+  const options: Intl.DateTimeFormatOptions = {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  };
+  const formatted = date.toLocaleString("en-US", options);
+  return formatted.replace(" AM", "am").replace(" PM", "pm");
+}

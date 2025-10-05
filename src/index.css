@@ -1,7 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600&family=Fira+Code&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap");
 
+/* existing Tailwind imports */
 @import "tailwindcss";
 @import "tw-animate-css";
+
 
 
 @custom-variant dark (&:is(.dark *));
@@ -56,7 +58,7 @@
   --popover: oklch(0.987 0.001 106.42);
   --popover-foreground: oklch(0.145 0 0);
   
-  --primary: oklch(48.301% 0.29236 264.334);
+  --primary: oklch(0% 0 0);
   --primary-foreground: oklch(0.985 0 0);
   
   --secondary: oklch(0.97 0 0);
@@ -90,20 +92,34 @@
 
 
 
+:root{
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Space Grotesk", "General Sans", "Inter", system-ui, sans-serif;
+  --font-mono: "Fira Code", "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+} 
+
 :root {
-  /* existing vars ... */
---font-sans: "Inter", system-ui, sans-serif;
---font-heading: "Space Grotesk", system-ui, sans-serif;
---font-mono: "JetBrains Mono", monospace;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, SFMono-Regular, monospace;
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50  ;
+    @apply border-border outline-ring/50;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    @apply font-semibold;
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
   }
 
   body {
-    @apply bg-background text-foreground  antialiased  text-sm;
+    @apply bg-background text-foreground antialiased text-sm;
     font-family: var(--font-sans);
   }
 }

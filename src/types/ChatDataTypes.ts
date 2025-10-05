@@ -20,6 +20,9 @@ export type chatMessageDataType = {
   content: string | undefined;
   searchResults?: searchResultDataType[];
   visible: boolean;
+  liked: boolean;
+  disLiked: boolean;
+  timeAndDate: string;
 };
 
 export type fileModelDataType = {

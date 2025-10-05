@@ -9,15 +9,15 @@ export type dispatchDataType = {
 export type contextType = {
   dispatch: React.Dispatch<dispatchDataType>;
   refresh: boolean;
-  navBarIndex: number;
   allChats: chatDataType[];
+  webSocket: WebSocket | null;
 };
 
 const initState: contextType = {
   dispatch: () => {},
   refresh: false,
-  navBarIndex: 0,
   allChats: [],
+  webSocket: null,
 };
 
 const contextProvider = createContext(initState);
@@ -29,10 +29,11 @@ function reducer(state: contextType, action: dispatchDataType) {
         ...state,
         refresh: !state.refresh,
       };
-    case "setNavBarIndex":
+
+    case "setWebSocket":
       return {
         ...state,
-        navBarIndex: action?.payload,
+        webSocket: action?.payload,
       };
 
     case "setAllChats":
@@ -59,7 +60,7 @@ function reducer(state: contextType, action: dispatchDataType) {
   }
 }
 export default function AppContext({ children }: { children: ReactNode }) {
-  const [{ refresh, navBarIndex, allChats }, dispatch] = useReducer(
+  const [{ refresh, allChats, webSocket }, dispatch] = useReducer(
     reducer,
     initState
   );
@@ -69,8 +70,8 @@ export default function AppContext({ children }: { children: ReactNode }) {
       value={{
         dispatch,
         refresh,
-        navBarIndex,
         allChats,
+        webSocket,
       }}
     >
       {children}

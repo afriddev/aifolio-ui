@@ -182,7 +182,7 @@ export const PromptInputActionAddAttachments = ({
   const attachments = usePromptInputAttachments();
 
   return (
-    <DropdownMenuItem
+    <DropdownMenuItem className="cursor-pointer"
       {...props}
       onSelect={(e) => {
         e.preventDefault();
@@ -449,7 +449,7 @@ export const PromptInput = ({
       />
       <form
         className={cn(
-          "w-full divide-y overflow-hidden rounded-xl border bg-background shadow-sm",
+          "w-full  overflow-hidden rounded-md  bg-white shadow border border-foreground/10",
           className
         )}
         onSubmit={handleSubmit}
@@ -537,7 +537,7 @@ export const PromptInputTools = ({
 }: PromptInputToolsProps) => (
   <div
     className={cn(
-      "flex items-center gap-1",
+      "flex items-center gap-2",
       "[&_button:first-child]:rounded-bl-xl",
       className
     )}
