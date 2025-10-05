@@ -228,7 +228,7 @@ function ChatMain() {
                   if (parsedToken.data === "generatekey") {
                     newMsg.content =
                       (newMsg.content ?? "") +
-                      "Generated your key, you will get the key by email.";
+                      "Generated your key, you will get the key by email. Please wait some time it may take few seconds to few minutes based on the data uploaded.";
                   } else {
                     newMsg.content =
                       (newMsg.content ?? "") + String(parsedToken.data ?? "");
