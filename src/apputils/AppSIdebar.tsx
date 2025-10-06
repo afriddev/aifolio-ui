@@ -4,7 +4,7 @@ import { useDeleteChat, useGetAllChats } from "@/hooks/chatHooks";
 import { useEffect, useRef, useState } from "react";
 import { useAppContext } from "./AppContext";
 import { truncateText } from "./AppUtils";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { RxDotsVertical } from "react-icons/rx";
 import {
   Popover,
@@ -27,6 +27,7 @@ function AppSidebar() {
   const wsRef = useRef<WebSocket | null>(null);
   const { deleteChat } = useDeleteChat();
   const [openDelete, setOpenDelete] = useState<number | null>(null);
+  const location = useLocation()
 
   const emailId = "afridayan01@gmail.com";
 
@@ -69,7 +70,7 @@ function AppSidebar() {
     };
 
     return () => ws.close();
-  }, [emailId]);
+  }, [emailId,location.pathname]);
 
   return (
     <div className="lg:w-[15vw] h-full overflow-auto max-h-[100vh]  border-r   border-foreground/10 ">
@@ -96,7 +97,9 @@ function AppSidebar() {
                 <BsChatRight className="h-5 w-5" />
               </div>
 
-              <div className="flex items-center gap-3 justify-between  w-full px-3 py-3 lg:hover:bg-muted rounded cursor-pointer">
+              <div onClick={() => {
+                  navigate(`/chatdemo`);
+                }} className="flex items-center gap-3 justify-between  w-full px-3 py-3 lg:hover:bg-muted rounded cursor-pointer">
                 <p className=" font-medium">Chat demo</p>
                 <IoTerminalOutline className="h-5 w-5" />
               </div>
