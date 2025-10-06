@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useAppContext } from "@/apputils/AppContext";
 import { ExtractFileData, getFormattedDate } from "@/apputils/AppUtils";
 import type { PromptInputMessage } from "@/components/ui/propt-input";
@@ -7,6 +8,7 @@ import type {
   chatMessageDataType,
   chatRequestDataType,
 } from "@/types/ChatDataTypes";
+import type { FileUIPart } from "ai";
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
@@ -268,7 +270,7 @@ export function useHandleChat() {
         setUseFlash(!useFlash);
         break;
       case "deepResearch":
-        setUseDeepResearch(!useDeepResearch);
+        setUseThink(!useThink);
         break;
       case "webSearch":
         setUseWebSearch(!useWebSearch);
@@ -337,25 +339,25 @@ export function useHandleChat() {
     }
   }
   return {
-        messages,
-        status,
-        setCopied,
-        copied,
-        handleLike,
-        handleDislike,
-        handleSubmit,
-        input,
-        setInput,
-        bottomRef,
-        uploadingFile,
-        onSelectFile,
-        uploadedFileId,
-        chatId,
-        messageId,
-        useFlash,
-        useThink,
-        useWebSearch,
-        handleChatAction,
-        titleGenerated,
+    messages,
+    status,
+    setCopied,
+    copied,
+    handleLike,
+    handleDislike,
+    handleSubmit,
+    input,
+    setInput,
+    bottomRef,
+    uploadingFile,
+    onSelectFile,
+    uploadedFileId,
+    chatId,
+    messageId,
+    useFlash,
+    useThink,
+    useWebSearch,
+    handleChatAction,
+    titleGenerated,
   };
 }

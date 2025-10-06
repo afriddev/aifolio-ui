@@ -3,7 +3,7 @@ import ChatMain from "../chat/ChatMain";
 function ChatDemoMain() {
   return (
     <div className="flex w-full">
-      <ChatMain />
+      <ChatMain inputToolBar={false} />
     </div>
   );
 }
