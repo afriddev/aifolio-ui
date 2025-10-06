@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { chatDataType } from "@/types/ChatDataTypes";
+import type { chatDataType } from "@/types/chatDataTypes";
 import { createContext, useContext, useReducer, type ReactNode } from "react";
 
 export type dispatchDataType = {

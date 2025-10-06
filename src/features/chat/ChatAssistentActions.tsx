@@ -6,7 +6,7 @@ import { IoCheckmark } from "react-icons/io5";
 import { IoFlashSharp } from "react-icons/io5";
 import { CopyIcon } from "lucide-react";
 import { Action, Actions } from "@/components/ui/actions";
-import type { chatMessageDataType } from "@/types/ChatDataTypes";
+import type { chatMessageDataType } from "@/types/chatDataTypes";
 
 interface ChatAssistentActionsInterface {
   index: number;

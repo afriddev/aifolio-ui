@@ -1,4 +1,4 @@
-import type { chatMessageDataType } from "@/types/ChatDataTypes";
+import type { chatMessageDataType } from "@/types/chatDataTypes";
 
 interface ChatMessageAvatarInterface {
   message: chatMessageDataType;

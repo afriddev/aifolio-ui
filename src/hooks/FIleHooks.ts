@@ -1,5 +1,5 @@
 import { loginAPI } from "@/services/fileApis";
-import type { fileModelDataType } from "@/types/ChatDataTypes";
+import type { fileModelDataType } from "@/types/chatDataTypes";
 import { useMutation } from "@tanstack/react-query";
 
 export function useUploadFile() {

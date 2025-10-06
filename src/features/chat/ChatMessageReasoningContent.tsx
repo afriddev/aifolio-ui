@@ -3,7 +3,7 @@ import {
   ReasoningContent,
   ReasoningTrigger,
 } from "@/components/ui/reasoning";
-import type { chatMessageDataType } from "@/types/ChatDataTypes";
+import type { chatMessageDataType } from "@/types/chatDataTypes";
 
 interface ChatMessageReasoningInterface {
   message: chatMessageDataType;

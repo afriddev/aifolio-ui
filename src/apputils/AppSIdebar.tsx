@@ -18,6 +18,7 @@ import { BsChatRight } from "react-icons/bs";
 import { IoKeyOutline } from "react-icons/io5";
 import { GoTable } from "react-icons/go";
 import { VscGraph } from "react-icons/vsc";
+import { LuBot } from "react-icons/lu";
 
 function AppSidebar() {
   const { getAllChats } = useGetAllChats();
@@ -100,11 +101,13 @@ function AppSidebar() {
               <div onClick={() => {
                   navigate(`/chatdemo`);
                 }} className="flex items-center gap-3 justify-between  w-full px-3 py-3 lg:hover:bg-muted rounded cursor-pointer">
-                <p className=" font-medium">Chat demo</p>
-                <IoTerminalOutline className="h-5 w-5" />
+                <p className=" font-medium">Chat bot</p>
+                <LuBot className="h-5 w-5" />
               </div>
 
-              <div className="flex items-center gap-3 justify-between  w-full px-3 py-3 lg:hover:bg-muted rounded cursor-pointer">
+              <div onClick={() => {
+                  navigate(`/apikeys`);
+                }} className="flex items-center gap-3 justify-between  w-full px-3 py-3 lg:hover:bg-muted rounded cursor-pointer">
                 <p className=" font-medium">API keys</p>
                 <IoKeyOutline className="h-5 w-5" />
               </div>

@@ -4,7 +4,7 @@ import {
   SourcesContent,
   SourcesTrigger,
 } from "@/components/ui/sources";
-import type { chatMessageDataType } from "@/types/ChatDataTypes";
+import type { chatMessageDataType } from "@/types/chatDataTypes";
 
 interface ChatMessageSearchResultsInterface {
   message: chatMessageDataType;

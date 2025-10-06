@@ -7,7 +7,7 @@ import { useUploadFile } from "@/hooks/fileHooks";
 import type {
   chatMessageDataType,
   chatRequestDataType,
-} from "@/types/ChatDataTypes";
+} from "@/types/chatDataTypes";
 import type { FileUIPart } from "ai";
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";

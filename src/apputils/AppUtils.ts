@@ -1,4 +1,4 @@
-import type { fileModelDataType } from "@/types/ChatDataTypes";
+import type { fileModelDataType } from "@/types/chatDataTypes";
 import type { FileUIPart } from "ai";
 import { v4 as uuidv4 } from "uuid";
 
