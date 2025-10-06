@@ -8,7 +8,7 @@ function ChatMessageAvatar({ message }: ChatMessageAvatarInterface) {
   return (
     <div
       className={`${
-        message.role === "user" ? "mt-3  -right-5" : "mt-3  -left-5"
+        message.role === "user" ? "mt-3  -right-5" : "mt-7  -left-5"
       } -top-1  absolute`}
     >
       {message.role === "user" ? (

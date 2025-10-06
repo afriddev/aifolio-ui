@@ -13,7 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
-export function useHandleChat() {
+export function useHandleChat(tempChat?: boolean = false) {
   const CHAT_API = "http://127.0.0.1:8001/api/v1/chat";
 
   const bottomRef = useRef<HTMLDivElement | null>(null);
@@ -111,7 +111,7 @@ export function useHandleChat() {
   }
 
   async function sendToBackend(message: chatRequestDataType) {
-    if (messages.length === 0) {
+    if (messages.length === 0 && !tempChat) {
       navigate(`/chat/${chatId}`, {
         state: { reload: false },
         replace: true,

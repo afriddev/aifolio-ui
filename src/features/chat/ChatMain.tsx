@@ -19,9 +19,13 @@ import ChatMessageSearchResults from "./ChatMessageSearchResults";
 
 interface ChatMainInterface {
   inputToolBar?: boolean;
+  tempChat?: boolean;
 }
 
-function ChatMain({ inputToolBar = true }: ChatMainInterface) {
+function ChatMain({
+  inputToolBar = true,
+  tempChat = false,
+}: ChatMainInterface) {
   const {
     messages,
     status,
@@ -42,7 +46,7 @@ function ChatMain({ inputToolBar = true }: ChatMainInterface) {
     useWebSearch,
     handleChatAction,
     useThink,
-  } = useHandleChat();
+  } = useHandleChat(tempChat);
 
   return (
     <div className=" h-full  overflow-auto max-h-[100vh]  flex flex-col w-full  justify-between items-center py-5">
