@@ -22,13 +22,13 @@ import { LuBot } from "react-icons/lu";
 
 function AppSidebar() {
   const { getAllChats } = useGetAllChats();
-  const { allChats, dispatch, refresh } = useAppContext();
+  const { allChats, dispatch, refresh, webSocket } = useAppContext();
   const { chatId } = useParams<{ chatId: string }>();
   const navigate = useNavigate();
   const wsRef = useRef<WebSocket | null>(null);
   const { deleteChat } = useDeleteChat();
   const [openDelete, setOpenDelete] = useState<number | null>(null);
-  const location = useLocation()
+  const location = useLocation();
 
   const emailId = "afridayan01@gmail.com";
 
@@ -38,6 +38,7 @@ function AppSidebar() {
 
   useEffect(() => {
     if (!emailId) return;
+    if (webSocket) return;
 
     const ws = new WebSocket(`ws://localhost:8001/ws/${emailId}`);
     wsRef.current = ws;
@@ -71,7 +72,7 @@ function AppSidebar() {
     };
 
     return () => ws.close();
-  }, [emailId,location.pathname]);
+  }, [emailId]);
 
   return (
     <div className="lg:w-[15vw] h-full overflow-auto max-h-[100vh]  border-r   border-foreground/10 ">
@@ -98,16 +99,22 @@ function AppSidebar() {
                 <BsChatRight className="h-5 w-5" />
               </div>
 
-              <div onClick={() => {
+              <div
+                onClick={() => {
                   navigate(`/chatdemo`);
-                }} className="flex items-center gap-3 justify-between  w-full px-3 py-3 lg:hover:bg-muted rounded cursor-pointer">
+                }}
+                className="flex items-center gap-3 justify-between  w-full px-3 py-3 lg:hover:bg-muted rounded cursor-pointer"
+              >
                 <p className=" font-medium">Chat bot</p>
                 <LuBot className="h-5 w-5" />
               </div>
 
-              <div onClick={() => {
+              <div
+                onClick={() => {
                   navigate(`/apikeys`);
-                }} className="flex items-center gap-3 justify-between  w-full px-3 py-3 lg:hover:bg-muted rounded cursor-pointer">
+                }}
+                className="flex items-center gap-3 justify-between  w-full px-3 py-3 lg:hover:bg-muted rounded cursor-pointer"
+              >
                 <p className=" font-medium">API keys</p>
                 <IoKeyOutline className="h-5 w-5" />
               </div>

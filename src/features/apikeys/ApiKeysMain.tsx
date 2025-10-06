@@ -16,6 +16,7 @@ import { MdDataSaverOff } from "react-icons/md";
 import { useGetAllApiKeys } from "@/hooks/ApiKeyHooks";
 import { useEffect, useState } from "react";
 import type { apiKeyDataType } from "@/types/ApiKeysDataTypes";
+import { getFormattedDate, maskApiKey } from "@/apputils/AppUtils";
 
 function ApiKeysMain() {
   const [apiKeys, setApiKeys] = useState<apiKeyDataType[] | undefined>(
@@ -25,7 +26,13 @@ function ApiKeysMain() {
 
   useEffect(() => {
     if (apiKeys === undefined) {
-      getApiKeys();
+      getApiKeys(undefined, {
+        onSuccess(data) {
+          if (data?.data === "SUCCESS") {
+            setApiKeys(data.keys);
+          }
+        },
+      });
     }
   }, []);
 
@@ -45,74 +52,92 @@ function ApiKeysMain() {
             <p>These API keys allow you to access data for your chat bot </p>
           </div>
           <div className="font-semibold flex shadow rounded-tr-lg rounded-tl-lg mt-5  bg-white p-4 items-center justify-between">
-            <div className="w-[10vw]">Name</div>
-            <div className="w-[15vw]">API Key</div>
+            <div className="w-[10vw] ">Name</div>
+            <div className="w-[15vw] ">API Key</div>
             <div className="w-[10vw]">Created At</div>
             <div className="w-[10vw]">Status</div>
             <div className="w-[5vw]">Actions</div>
           </div>
-
-          <div className=" flex shadow rounded-br-lg rounded-tbl-lg mt-[1px]  bg-white p-4 items-center justify-between">
-            <div className="w-[10vw] font-semibold">Shaik afrid resume</div>
-            <div className="w-[15vw] font-light flex items-center gap-3">
-              csk-r6wv8f...kcnxnwfmej
-              <LuCopy className="size-4 cursor-pointer  " />
-            </div>
-            <div className="w-[10vw] font-light">Oct 6, 2:53pm</div>
-            <div className="w-[10vw] font-light flex items-center gap-1">
-              Active
-              <MdVerified className="text-constructive" />
-            </div>
-            <div className="w-[5vw] font-light">
-              <Popover>
-                <PopoverTrigger>
-                  <HiOutlineDotsVertical />{" "}
-                </PopoverTrigger>
-                <PopoverContent className="p-1 w-32  m-0">
-                  <div className="flex flex-col gap-1">
-                    <Button
-                      variant={"ghost"}
-                      className="w-full flex  justify-start"
-                    >
-                      <IoIosRemoveCircleOutline className="size-4 text-destructive" />
-                      Disable
-                    </Button>
-
-                    <Button
-                      variant={"ghost"}
-                      className="w-full flex  justify-start"
-                    >
-                      <IoMdCheckmarkCircleOutline className="size-4 text-constructive" />
-                      Enable
-                    </Button>
-
-                    <Button
-                      variant={"ghost"}
-                      className="w-full flex  justify-start"
-                    >
-                      <MdDataSaverOff className="size-4 " />
-                      Data
-                    </Button>
-
-                    <Button
-                      variant={"ghost"}
-                      className="w-full flex  justify-start"
-                    >
-                      <RiLoopLeftFill className="size-4 " />
-                      Retry
-                    </Button>
-                    <Button
-                      variant={"ghost"}
-                      className="w-full flex  justify-start"
-                    >
-                      <MdOutlineDeleteOutline className="size-4 text-destructive" />
-                      Delete
-                    </Button>
+          {apiKeys?.map((key, index) => {
+            return (
+              <div
+                key={index}
+                className=" flex shadow rounded-br-lg rounded-tbl-lg mt-[1px]  bg-white p-4 items-center justify-between"
+              >
+                <div className="w-[10vw]  font-semibold">{key.name}</div>
+                <div className="w-[15vw] font-light flex items-center gap-3">
+                  {maskApiKey(key.key)}
+                  <LuCopy className="size-4 cursor-pointer  " />
+                </div>
+                <div className="w-[10vw] font-light">
+                  {getFormattedDate(key.createdAt)}
+                </div>
+                {key.status === "ACTIVE" ? (
+                  <div className="w-[10vw] font-light flex items-center gap-1">
+                    Active
+                    <MdVerified className="text-constructive" />
                   </div>
-                </PopoverContent>
-              </Popover>
-            </div>
-          </div>
+                ) : key.status === "PENDING" ? (
+                  <div className="w-[10vw] font-light flex items-center gap-1">
+                    Pending
+                    <CiCircleAlert className="text-destructive" />
+                  </div>
+                ) : (
+                  <></> 
+                )}
+
+                <div className="w-[5vw] font-light">
+                  <Popover>
+                    <PopoverTrigger>
+                      <HiOutlineDotsVertical />{" "}
+                    </PopoverTrigger>
+                    <PopoverContent className="p-1 w-32  m-0">
+                      <div className="flex flex-col gap-1">
+                        <Button
+                          variant={"ghost"}
+                          className="w-full flex  justify-start"
+                        >
+                          <IoIosRemoveCircleOutline className="size-4 text-destructive" />
+                          Disable
+                        </Button>
+
+                        <Button
+                          variant={"ghost"}
+                          className="w-full flex  justify-start"
+                        >
+                          <IoMdCheckmarkCircleOutline className="size-4 text-constructive" />
+                          Enable
+                        </Button>
+
+                        <Button
+                          variant={"ghost"}
+                          className="w-full flex  justify-start"
+                        >
+                          <MdDataSaverOff className="size-4 " />
+                          Data
+                        </Button>
+
+                        <Button
+                          variant={"ghost"}
+                          className="w-full flex  justify-start"
+                        >
+                          <RiLoopLeftFill className="size-4 " />
+                          Retry
+                        </Button>
+                        <Button
+                          variant={"ghost"}
+                          className="w-full flex  justify-start"
+                        >
+                          <MdOutlineDeleteOutline className="size-4 text-destructive" />
+                          Delete
+                        </Button>
+                      </div>
+                    </PopoverContent>
+                  </Popover>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

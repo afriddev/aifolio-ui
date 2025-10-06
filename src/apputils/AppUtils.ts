@@ -35,7 +35,6 @@ export async function ExtractFileData(
   };
 }
 
-
 export function truncateText(
   text: string,
   maxLength: number,
@@ -46,6 +45,11 @@ export function truncateText(
   return text.substring(0, maxLength) + ending;
 }
 
+export function maskApiKey(key: string, prefixLength: number = 10): string {
+  const prefix = key.slice(0, prefixLength);
+  const suffix = key.slice(-prefixLength);
+  return `${prefix}......${suffix}`;
+}
 
 export function getFormattedDate(dateInput?: Date | string): string {
   const date = dateInput ? new Date(dateInput) : new Date();
@@ -57,5 +61,5 @@ export function getFormattedDate(dateInput?: Date | string): string {
     hour12: true,
   };
   const formatted = date.toLocaleString("en-US", options);
-  return formatted.replace(" AM", "am").replace(" PM", "pm");
+  return formatted;
 }
