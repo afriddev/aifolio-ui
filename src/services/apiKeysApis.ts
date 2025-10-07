@@ -5,5 +5,5 @@ export function getAllApiKeys() {
 }
 
 export function updateApiKey(id: string) {
-  return postAPI(`updateapikey`, { id });
+  return postAPI(`update/apikey`, { id });
 }
