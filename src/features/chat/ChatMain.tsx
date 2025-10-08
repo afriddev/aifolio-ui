@@ -113,6 +113,7 @@ function ChatMain({
         setInput={setInput}
         uploadedFileId={uploadedFileId}
         input={input}
+        status={status}
         toolBar={inputToolBar}
       />
     </div>

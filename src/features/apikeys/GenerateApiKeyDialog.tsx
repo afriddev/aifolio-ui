@@ -14,6 +14,7 @@ function GenerateApiKeyDialog({ onClose, open }: GenerateApiKeyInterface) {
   const [fileId, setFileId] = useState<string | undefined>(undefined);
   const [name, setName] = useState<string>("");
   const { generateApiKey } = useGenerateApiKey();
+ 
 
   function handleGenerateApiKey() {
     generateApiKey(

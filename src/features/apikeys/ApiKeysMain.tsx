@@ -12,10 +12,8 @@ import { MdOutlineDeleteOutline } from "react-icons/md";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { BiError } from "react-icons/bi";
 import { RiLoopLeftFill } from "react-icons/ri";
-import { MdDataSaverOff } from "react-icons/md";
 import {
   useGetAllApiKeysAPI,
-  useGetAPiKeyData,
   useUpdateApiKey,
 } from "@/hooks/ApiKeyHooks";
 import { useEffect, useState } from "react";
@@ -35,11 +33,10 @@ function ApiKeysMain() {
   );
   const { getApiKeys } = useGetAllApiKeysAPI();
   const { updateApiKey } = useUpdateApiKey();
-  const [copied, setCopied] = useState<boolean>(false);
+  const [copied, setCopied] = useState<number | undefined>(undefined)
   const { webSocket } = useAppContext();
   const [openGenerateApiKeyDialog, setOpenGenerateApiKeyDialog] =
     useState<boolean>(false);
-  const { getApiKeyData } = useGetAPiKeyData();
   const [openKeyDataDialog, setOpenKeyDataDialog] = useState<boolean>(false);
   const [keyData, setKeyData] = useState<string | undefined>(undefined);
 
@@ -106,10 +103,8 @@ function ApiKeysMain() {
         {
           onSuccess(data) {
             if (data?.data === "SUCCESS") {
-              if (method !== "DELETE") {
-                const updatedKeys = apiKeys?.map((key, idx) =>
-                  idx === index ? { ...key, status: data.status } : key
-                );
+              if (method === "DELETE") {
+                const updatedKeys = apiKeys?.filter((_, idx) => idx !== index);
                 setApiKeys(updatedKeys);
               }
               if (method === "DISABLE") {
@@ -135,16 +130,6 @@ function ApiKeysMain() {
       );
   }
 
-  function handleApiKeyDataClick(index: number) {
-    getApiKeyData(
-      { id: apiKeys ? apiKeys[index].id : "" },
-      {
-        onSuccess(data) {
-          setKeyData(data?.keyData);
-        },
-      }
-    );
-  }
 
   return (
     <div className="w-full flex">
@@ -165,7 +150,7 @@ function ApiKeysMain() {
             </div>
           </div>
 
-          {copied && (
+          {copied !== undefined && (
             <Alert className="mt-5" variant="constructive">
               <IoCheckmarkCircleOutline className="w-5 h-5" />
               <AlertTitle>Copied API key to clipboard.</AlertTitle>
@@ -184,6 +169,9 @@ function ApiKeysMain() {
             <div className="w-[10vw]">Status</div>
             <div className="w-[5vw]">Actions</div>
           </div>
+          {
+            apiKeys?.length === 0 && <div className="w-full flex items-center justify-center py-3  shadow rounded-br-lg rounded-tbl-lg mt-[1px]  bg-white">No API keys found.</div>
+          }
           {apiKeys?.map((key, index) => {
             return (
               <div
@@ -195,7 +183,7 @@ function ApiKeysMain() {
                 </div>
                 <div className="w-[15vw] font-light flex items-center gap-3">
                   {maskApiKey(key.key)}
-                  {copied ? (
+                  {copied === index ? (
                     <IoCheckmarkCircleOutline
                       aria-label="Copied"
                       className="size-4 text-constructive"
@@ -207,8 +195,8 @@ function ApiKeysMain() {
                         await navigator.clipboard.writeText(
                           key.key ? key.key : ""
                         );
-                        setCopied(true);
-                        setTimeout(() => setCopied(false), 3000);
+                        setCopied(index);
+                        setTimeout(() => setCopied(undefined), 3000);
                       }}
                       className="size-4 cursor-pointer  "
                     />
@@ -270,7 +258,7 @@ function ApiKeysMain() {
                           </Button>
                         )}
 
-                        <Button
+                        {/* <Button
                           onClick={() => {
                             handleApiKeyDataClick(index);
                           }}
@@ -279,7 +267,7 @@ function ApiKeysMain() {
                         >
                           <MdDataSaverOff className="size-4 " />
                           Data
-                        </Button>
+                        </Button> */}
 
                         {key.status === "ERROR" && (
                           <Button

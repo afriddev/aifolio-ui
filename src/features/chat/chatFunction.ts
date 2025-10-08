@@ -13,7 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
-export function useHandleChat(tempChat?: boolean = false) {
+export function useHandleChat(tempChat: boolean = false) {
   const CHAT_API = "http://127.0.0.1:8001/api/v1/chat";
 
   const bottomRef = useRef<HTMLDivElement | null>(null);
@@ -22,7 +22,7 @@ export function useHandleChat(tempChat?: boolean = false) {
   const { allChats, webSocket } = useAppContext();
   const navigate = useNavigate();
 
-  const [status, setStatus] = useState<string>("");
+  const [status, setStatus] = useState<string>();
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<chatMessageDataType[]>([]);
   const [useWebSearch, setUseWebSearch] = useState<boolean>(false);
@@ -92,6 +92,7 @@ export function useHandleChat(tempChat?: boolean = false) {
         setTitleGenerated(allChats[index]?.titleGenerated);
       }
     }
+    setStatus("ready");
   }, [status, location.state, allChats]);
 
   function resetChat() {

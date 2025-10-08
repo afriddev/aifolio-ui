@@ -34,6 +34,7 @@ interface ChatInputInterface {
   useWebSearch: boolean;
   handleChatAction: (action: "flash" | "webSearch" | "deepResearch") => void;
   toolBar?: boolean;
+  status: string | undefined;
 }
 
 function ChatInput({
@@ -50,6 +51,7 @@ function ChatInput({
   useThink,
   useWebSearch,
   toolBar = true,
+  status,
 }: ChatInputInterface) {
   return (
     <div className="w-[40vw] absolute bottom-5 ">
@@ -79,7 +81,6 @@ function ChatInput({
                 (!input && !uploadedFileId ? true : false) ||
                 !status ||
                 uploadingFile ||
-                !chatId ||
                 (uploadedFileId && !messageId)
               }
               status={status}
