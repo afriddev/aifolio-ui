@@ -1,6 +1,15 @@
 import { useHandleApiResponse } from "@/ApiServices";
-import { getAllApiKeysAPI, updateApiKeyAPI } from "@/services/apiKeysApis";
-import type { updateApiKeyRequestDataType } from "@/types/apiKeysDataTypes";
+import {
+  generateApiKeyAPI,
+  getAllApiKeysAPI,
+  updateApiKeyAPI,
+  uploadApiKeyFileAPI,
+} from "@/services/apiKeysApis";
+import type {
+  generateApiKeyRequestDataType,
+  updateApiKeyRequestDataType,
+} from "@/types/apiKeysDataTypes";
+import type { fileModelDataType } from "@/types/chatDataTypes";
 import { useMutation } from "@tanstack/react-query";
 
 export function useGetAllApiKeysAPI() {
@@ -24,7 +33,7 @@ export function useUpdateApiKey() {
     data,
     isPending,
     mutate: updateApiKey,
-  } = useMutation({ 
+  } = useMutation({
     mutationFn: (data: updateApiKeyRequestDataType) => updateApiKeyAPI(data),
 
     onError() {
@@ -33,3 +42,37 @@ export function useUpdateApiKey() {
   });
   return { data, isPending, updateApiKey };
 }
+export function useUploadApiKeyFile() {
+  const { handleToast } = useHandleApiResponse();
+  const {
+    data,
+    isPending,
+    mutate: uplaodApiKeyFile,
+  } = useMutation({
+    mutationFn: (data: fileModelDataType) => uploadApiKeyFileAPI(data),
+
+    onError() {
+      handleToast("ERROR");
+    },
+  });
+  return { data, isPending, uplaodApiKeyFile };
+}
+export function useGenerateApiKey() {
+  const { handleToast } = useHandleApiResponse();
+  const {
+    data,
+    isPending,
+    mutate: generateApiKey,
+  } = useMutation({
+    mutationFn: (data: generateApiKeyRequestDataType) =>
+      generateApiKeyAPI(data),
+    onSuccess() {
+      handleToast("SUCCESS");
+    },
+    onError() {
+      handleToast("ERROR");
+    },
+  });
+  return { data, isPending, generateApiKey };
+}
+

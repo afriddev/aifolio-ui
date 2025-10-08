@@ -35,14 +35,14 @@ function ApiKeysMain() {
   const [copied, setCopied] = useState<boolean>(false);
   const { webSocket } = useAppContext();
   const [openGenerateApiKeyDialog, setOpenGenerateApiKeyDialog] =
-    useState<boolean>(true);
+    useState<boolean>(false);
 
   useEffect(() => {
     if (apiKeys === undefined) {
       getApiKeys(undefined, {
         onSuccess(data) {
           if (data?.data === "SUCCESS") {
-            setApiKeys(data.keys ?? []);
+            setApiKeys(data?.keys?.length > 0 ? data?.keys : []);
           }
         },
       });
@@ -53,7 +53,27 @@ function ApiKeysMain() {
     if (!webSocket) return;
     webSocket.onmessage = (e) => {
       const data = JSON.parse(e.data);
-      // console.log("📩 Got message:", data);
+      if (data?.type === "ADD_API_KEY") {
+        const keyData: apiKeyDataType = {
+          createdAt: data?.createdAt,
+          disabled: data?.disabled,
+          id: data?.id,
+          key: data?.key,
+          name: data?.name,
+          status: data?.status,
+          deleted: data?.deleted,
+        };
+        setApiKeys((prev) => (prev ? [keyData, ...prev] : [keyData]));
+      }
+      if (data?.type === "UPDATE_API_KEY") {
+        setApiKeys((prev) =>
+          prev?.map((key) =>
+            key.id === data.id
+              ? { ...key, status: data.status }
+              : key
+          )
+        );
+      }
     };
   }, [webSocket]);
 

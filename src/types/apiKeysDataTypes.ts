@@ -12,3 +12,10 @@ export type updateApiKeyRequestDataType = {
   id: string;
   method: "DELETE" | "DISABLE" | "ENABLE";
 };
+
+
+export type generateApiKeyRequestDataType = {
+  name: string;
+  fileId: string;
+  keyId?:string
+};
