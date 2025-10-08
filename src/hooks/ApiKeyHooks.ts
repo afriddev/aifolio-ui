@@ -2,6 +2,7 @@ import { useHandleApiResponse } from "@/ApiServices";
 import {
   generateApiKeyAPI,
   getAllApiKeysAPI,
+  getApiKeyDataAPI,
   updateApiKeyAPI,
   uploadApiKeyFileAPI,
 } from "@/services/apiKeysApis";
@@ -76,3 +77,20 @@ export function useGenerateApiKey() {
   return { data, isPending, generateApiKey };
 }
 
+export function useGetAPiKeyData() {
+  const { handleToast } = useHandleApiResponse();
+  const {
+    data,
+    isPending,
+    mutate: getApiKeyData,
+  } = useMutation({
+    mutationFn: ({ id }: { id: string }) => getApiKeyDataAPI(id),
+    onSuccess() {
+      handleToast("SUCCESS");
+    },
+    onError() {
+      handleToast("ERROR");
+    },
+  });
+  return { data, isPending, getApiKeyData };
+}

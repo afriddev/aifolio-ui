@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button } from "@/components/ui/button";
 import { MdVerified } from "react-icons/md";
 import { LuCopy } from "react-icons/lu";
@@ -8,23 +9,25 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { MdOutlineDeleteOutline } from "react-icons/md";
-import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { BiError } from "react-icons/bi";
 import { RiLoopLeftFill } from "react-icons/ri";
 import { MdDataSaverOff } from "react-icons/md";
-import { useGetAllApiKeysAPI, useUpdateApiKey } from "@/hooks/ApiKeyHooks";
+import {
+  useGetAllApiKeysAPI,
+  useGetAPiKeyData,
+  useUpdateApiKey,
+} from "@/hooks/ApiKeyHooks";
 import { useEffect, useState } from "react";
 import type { apiKeyDataType } from "@/types/apiKeysDataTypes";
 import { getFormattedDate, maskApiKey } from "@/apputils/AppUtils";
-import { IoCheckmark } from "react-icons/io5";
 import { MdDoNotDisturb } from "react-icons/md";
 import { FaRegCircleXmark } from "react-icons/fa6";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Terminal } from "lucide-react";
+import { Alert, AlertTitle } from "@/components/ui/alert";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
 import { useAppContext } from "@/apputils/AppContext";
 import GenerateApiKeyDialog from "./GenerateApiKeyDialog";
+import ApiKeyDataDialog from "./ApiKeyDataDialog";
 
 function ApiKeysMain() {
   const [apiKeys, setApiKeys] = useState<apiKeyDataType[] | undefined>(
@@ -36,6 +39,9 @@ function ApiKeysMain() {
   const { webSocket } = useAppContext();
   const [openGenerateApiKeyDialog, setOpenGenerateApiKeyDialog] =
     useState<boolean>(false);
+  const { getApiKeyData } = useGetAPiKeyData();
+  const [openKeyDataDialog, setOpenKeyDataDialog] = useState<boolean>(false);
+  const [keyData, setKeyData] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     if (apiKeys === undefined) {
@@ -47,7 +53,10 @@ function ApiKeysMain() {
         },
       });
     }
-  }, []);
+    if (keyData) {
+      setOpenKeyDataDialog(true);
+    }
+  }, [keyData]);
 
   useEffect(() => {
     if (!webSocket) return;
@@ -68,9 +77,7 @@ function ApiKeysMain() {
       if (data?.type === "UPDATE_API_KEY") {
         setApiKeys((prev) =>
           prev?.map((key) =>
-            key.id === data.id
-              ? { ...key, status: data.status }
-              : key
+            key.id === data.id ? { ...key, status: data.status } : key
           )
         );
       }
@@ -79,6 +86,11 @@ function ApiKeysMain() {
 
   function handleGenerateApiKeyDialog() {
     setOpenGenerateApiKeyDialog(false);
+  }
+
+  function handleCloseKeyDataDialog() {
+    setKeyData(undefined);
+    setOpenKeyDataDialog(false);
   }
 
   function handleUpdateApiKey(
@@ -94,14 +106,44 @@ function ApiKeysMain() {
         {
           onSuccess(data) {
             if (data?.data === "SUCCESS") {
-              const updatedKeys = apiKeys?.filter(
-                (key) => key.id !== apiKeys[index].id
-              );
-              setApiKeys(updatedKeys);
+              if (method !== "DELETE") {
+                const updatedKeys = apiKeys?.map((key, idx) =>
+                  idx === index ? { ...key, status: data.status } : key
+                );
+                setApiKeys(updatedKeys);
+              }
+              if (method === "DISABLE") {
+                const updatedKeys = apiKeys?.map((key, idx) =>
+                  idx === index
+                    ? { ...key, disabled: true, status: "DISABLED" as any }
+                    : key
+                );
+                setApiKeys(updatedKeys);
+              }
+
+              if (method === "ENABLE") {
+                const updatedKeys = apiKeys?.map((key, idx) =>
+                  idx === index
+                    ? { ...key, disabled: false, status: "ACTIVE" as any }
+                    : key
+                );
+                setApiKeys(updatedKeys);
+              }
             }
           },
         }
       );
+  }
+
+  function handleApiKeyDataClick(index: number) {
+    getApiKeyData(
+      { id: apiKeys ? apiKeys[index].id : "" },
+      {
+        onSuccess(data) {
+          setKeyData(data?.keyData);
+        },
+      }
+    );
   }
 
   return (
@@ -185,6 +227,11 @@ function ApiKeysMain() {
                     Pending
                     <BiError className="" />
                   </div>
+                ) : key.status === "DISABLED" ? (
+                  <div className="w-[10vw] font-semibold text-destructive flex items-center gap-1">
+                    Disabled
+                    <MdDoNotDisturb className="text-destructive" />
+                  </div>
                 ) : (
                   <div className="w-[10vw] font-semibold text-destructive flex items-center gap-1">
                     Error
@@ -224,6 +271,9 @@ function ApiKeysMain() {
                         )}
 
                         <Button
+                          onClick={() => {
+                            handleApiKeyDataClick(index);
+                          }}
                           variant={"ghost"}
                           className="w-full flex  justify-start"
                         >
@@ -265,6 +315,13 @@ function ApiKeysMain() {
           onClose={handleGenerateApiKeyDialog}
         />
       }
+      {openKeyDataDialog && keyData && (
+        <ApiKeyDataDialog
+          data={keyData}
+          open={openKeyDataDialog}
+          onClose={handleCloseKeyDataDialog}
+        />
+      )}
     </div>
   );
 }
