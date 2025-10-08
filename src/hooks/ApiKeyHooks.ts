@@ -1,19 +1,35 @@
 import { useHandleApiResponse } from "@/ApiServices";
-import { getAllApiKeys } from "@/services/ApiKeysApis";
+import { getAllApiKeysAPI, updateApiKeyAPI } from "@/services/apiKeysApis";
+import type { updateApiKeyRequestDataType } from "@/types/apiKeysDataTypes";
 import { useMutation } from "@tanstack/react-query";
 
-export function useGetAllApiKeys() {
+export function useGetAllApiKeysAPI() {
   const { handleToast } = useHandleApiResponse();
   const {
     data,
     isPending,
     mutate: getApiKeys,
   } = useMutation({
-    mutationFn: () => getAllApiKeys(),
+    mutationFn: () => getAllApiKeysAPI(),
 
     onError() {
       handleToast("ERROR");
     },
   });
   return { data, isPending, getApiKeys };
+}
+export function useUpdateApiKey() {
+  const { handleToast } = useHandleApiResponse();
+  const {
+    data,
+    isPending,
+    mutate: updateApiKey,
+  } = useMutation({ 
+    mutationFn: (data: updateApiKeyRequestDataType) => updateApiKeyAPI(data),
+
+    onError() {
+      handleToast("ERROR");
+    },
+  });
+  return { data, isPending, updateApiKey };
 }

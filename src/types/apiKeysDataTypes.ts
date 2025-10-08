@@ -7,3 +7,8 @@ export type apiKeyDataType = {
   disabled: boolean;
   createdAt: string;
 };
+
+export type updateApiKeyRequestDataType = {
+  id: string;
+  method: "DELETE" | "DISABLE" | "ENABLE";
+};

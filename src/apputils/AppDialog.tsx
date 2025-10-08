@@ -81,7 +81,7 @@ export default function AppDialog({
               <p className="text-base font-semibold text-foreground">{title}</p>
               <button
                 onClick={onClose}
-                className="w-7 h-7 hover:bg-foreground/10 rounded-full flex items-center justify-center"
+                className="w-7 cursor-pointer h-7 hover:bg-foreground/10 rounded-full flex items-center justify-center"
               >
                 <X className="w-4 h-4" />
               </button>

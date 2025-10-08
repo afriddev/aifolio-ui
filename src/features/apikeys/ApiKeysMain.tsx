@@ -13,9 +13,9 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { BiError } from "react-icons/bi";
 import { RiLoopLeftFill } from "react-icons/ri";
 import { MdDataSaverOff } from "react-icons/md";
-import { useGetAllApiKeys } from "@/hooks/ApiKeyHooks";
+import { useGetAllApiKeysAPI, useUpdateApiKey } from "@/hooks/ApiKeyHooks";
 import { useEffect, useState } from "react";
-import type { apiKeyDataType } from "@/types/ApiKeysDataTypes";
+import type { apiKeyDataType } from "@/types/apiKeysDataTypes";
 import { getFormattedDate, maskApiKey } from "@/apputils/AppUtils";
 import { IoCheckmark } from "react-icons/io5";
 import { MdDoNotDisturb } from "react-icons/md";
@@ -23,25 +23,66 @@ import { FaRegCircleXmark } from "react-icons/fa6";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Terminal } from "lucide-react";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
+import { useAppContext } from "@/apputils/AppContext";
+import GenerateApiKeyDialog from "./GenerateApiKeyDialog";
 
 function ApiKeysMain() {
   const [apiKeys, setApiKeys] = useState<apiKeyDataType[] | undefined>(
     undefined
   );
-  const { getApiKeys } = useGetAllApiKeys();
+  const { getApiKeys } = useGetAllApiKeysAPI();
+  const { updateApiKey } = useUpdateApiKey();
   const [copied, setCopied] = useState<boolean>(false);
+  const { webSocket } = useAppContext();
+  const [openGenerateApiKeyDialog, setOpenGenerateApiKeyDialog] =
+    useState<boolean>(true);
 
   useEffect(() => {
     if (apiKeys === undefined) {
       getApiKeys(undefined, {
         onSuccess(data) {
           if (data?.data === "SUCCESS") {
-            setApiKeys(data.keys);
+            setApiKeys(data.keys ?? []);
           }
         },
       });
     }
   }, []);
+
+  useEffect(() => {
+    if (!webSocket) return;
+    webSocket.onmessage = (e) => {
+      const data = JSON.parse(e.data);
+      // console.log("📩 Got message:", data);
+    };
+  }, [webSocket]);
+
+  function handleGenerateApiKeyDialog() {
+    setOpenGenerateApiKeyDialog(false);
+  }
+
+  function handleUpdateApiKey(
+    index: number,
+    method: "ENABLE" | "DISABLE" | "DELETE"
+  ) {
+    if (apiKeys)
+      updateApiKey(
+        {
+          id: apiKeys[index].id,
+          method: method,
+        },
+        {
+          onSuccess(data) {
+            if (data?.data === "SUCCESS") {
+              const updatedKeys = apiKeys?.filter(
+                (key) => key.id !== apiKeys[index].id
+              );
+              setApiKeys(updatedKeys);
+            }
+          },
+        }
+      );
+  }
 
   return (
     <div className="w-full flex">
@@ -52,7 +93,13 @@ function ApiKeysMain() {
               <h3 className="text-2xl font-semibold">API Keys</h3>
             </div>
             <div>
-              <Button>Generate API Key</Button>
+              <Button
+                onClick={() => {
+                  setOpenGenerateApiKeyDialog(true);
+                }}
+              >
+                Generate API Key
+              </Button>
             </div>
           </div>
 
@@ -63,7 +110,10 @@ function ApiKeysMain() {
             </Alert>
           )}
           <div className="mt-6 text-foreground/80">
-            <p>These API keys provide programmatic access to your data through the AiFolio library. </p>
+            <p>
+              These API keys provide programmatic access to your data through
+              the AiFolio library.{" "}
+            </p>
           </div>
           <div className="font-semibold flex shadow rounded-tr-lg rounded-tl-lg mt-5  bg-white p-4 items-center justify-between">
             <div className="w-[10vw] ">Name</div>
@@ -131,6 +181,9 @@ function ApiKeysMain() {
                       <div className="flex flex-col gap-1">
                         {key.disabled ? (
                           <Button
+                            onClick={() => {
+                              handleUpdateApiKey(index, "ENABLE");
+                            }}
                             variant={"ghost"}
                             className="w-full flex  justify-start"
                           >
@@ -139,6 +192,9 @@ function ApiKeysMain() {
                           </Button>
                         ) : (
                           <Button
+                            onClick={() => {
+                              handleUpdateApiKey(index, "DISABLE");
+                            }}
                             variant={"ghost"}
                             className="w-full flex  justify-start"
                           >
@@ -165,6 +221,9 @@ function ApiKeysMain() {
                           </Button>
                         )}
                         <Button
+                          onClick={() => {
+                            handleUpdateApiKey(index, "DELETE");
+                          }}
                           variant={"ghost"}
                           className="w-full flex  justify-start"
                         >
@@ -180,6 +239,12 @@ function ApiKeysMain() {
           })}
         </div>
       </div>
+      {
+        <GenerateApiKeyDialog
+          open={openGenerateApiKeyDialog}
+          onClose={handleGenerateApiKeyDialog}
+        />
+      }
     </div>
   );
 }

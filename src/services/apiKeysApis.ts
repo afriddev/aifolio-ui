@@ -1,9 +1,10 @@
 import { getAPI, postAPI } from "@/ApiServices";
+import type { updateApiKeyRequestDataType } from "@/types/apiKeysDataTypes";
 
-export function getAllApiKeys() {
-  return getAPI(`apikeys`);
+export function getAllApiKeysAPI() {
+  return getAPI(`apikeys/all`);
 }
 
-export function updateApiKey(id: string) {
-  return postAPI(`update/apikey`, { id });
+export function updateApiKeyAPI(data:updateApiKeyRequestDataType) {
+  return postAPI(`apikeys/update/apikey`, data);
 }
