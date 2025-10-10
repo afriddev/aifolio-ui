@@ -16,19 +16,20 @@ import ChatAssistentActions from "./ChatAssistentActions";
 import ChatMessageAvatar from "./ChatMessageAvatar";
 import ChatMessageReasoningContent from "./ChatMessageReasoningContent";
 import ChatMessageSearchResults from "./ChatMessageSearchResults";
+import { useEffect } from "react";
 
 interface ChatMainInterface {
   inputToolBar?: boolean;
   tempChat?: boolean;
-  extraBody?:any
-  api?:string
+  extraBody?: any;
+  api?: string;
 }
 
 function ChatMain({
   inputToolBar = true,
   tempChat = false,
   extraBody,
-  api
+  api,
 }: ChatMainInterface) {
   const {
     messages,
@@ -50,7 +51,11 @@ function ChatMain({
     useWebSearch,
     handleChatAction,
     useThink,
-  } = useHandleChat(tempChat,extraBody,api);
+  } = useHandleChat(tempChat, extraBody, api);
+
+  useEffect(() => {
+    console.log(status);
+  }, [status]);
 
   return (
     <div className=" h-full  overflow-auto max-h-[100vh]  flex flex-col w-full  justify-between items-center py-5">

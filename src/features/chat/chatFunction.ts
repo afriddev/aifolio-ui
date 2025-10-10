@@ -16,7 +16,7 @@ import { v4 as uuidv4 } from "uuid";
 export function useHandleChat(
   tempChat: boolean = false,
   extraBody: any,
-  api: string
+  api: string | undefined
 ) {
   const CHAT_API = `http://127.0.0.1:8001${api ? api : "/api/v1/chat"}`;
 
@@ -96,7 +96,7 @@ export function useHandleChat(
         setTitleGenerated(allChats[index]?.titleGenerated);
       }
     }
-    setStatus("ready");
+    if (!status) setStatus("ready");
   }, [status, location.state, allChats]);
 
   function resetChat() {
