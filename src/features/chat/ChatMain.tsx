@@ -20,11 +20,15 @@ import ChatMessageSearchResults from "./ChatMessageSearchResults";
 interface ChatMainInterface {
   inputToolBar?: boolean;
   tempChat?: boolean;
+  extraBody?:any
+  api?:string
 }
 
 function ChatMain({
   inputToolBar = true,
   tempChat = false,
+  extraBody,
+  api
 }: ChatMainInterface) {
   const {
     messages,
@@ -46,7 +50,7 @@ function ChatMain({
     useWebSearch,
     handleChatAction,
     useThink,
-  } = useHandleChat(tempChat);
+  } = useHandleChat(tempChat,extraBody,api);
 
   return (
     <div className=" h-full  overflow-auto max-h-[100vh]  flex flex-col w-full  justify-between items-center py-5">

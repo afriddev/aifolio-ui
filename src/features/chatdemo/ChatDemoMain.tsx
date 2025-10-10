@@ -20,7 +20,7 @@ function ChatDemoMain() {
     undefined
   );
   const { getApiKeys } = useGetAllApiKeysAPI();
-   const [selectedKeyId, setSelectedKeyId] = useState<string | undefined>(
+  const [selectedKeyId, setSelectedKeyId] = useState<string | undefined>(
     undefined
   );
 
@@ -38,7 +38,14 @@ function ChatDemoMain() {
   return (
     <div className="flex w-full ">
       <div className="flex w-[100%] border-r">
-        <ChatMain inputToolBar={false} tempChat={true} />
+        <ChatMain
+          inputToolBar={false}
+          tempChat={true}
+          extraBody={{  
+            apiKey: selectedKeyId,
+          }}
+          api="/api/v1/chat/demo"
+        />
       </div>
 
       <div className="px-5 p-5 flex w-[30%]">
@@ -63,7 +70,7 @@ function ChatDemoMain() {
                   <>
                     <SelectLabel>Available API Keys</SelectLabel>
                     {apiKeys.map((key) => (
-                      <SelectItem key={key.id} value={key.id}>
+                      <SelectItem key={key.id} value={key.key}>
                         {key.name} - {maskApiKey(key.key, 7)}
                       </SelectItem>
                     ))}

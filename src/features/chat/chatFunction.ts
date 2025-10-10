@@ -13,8 +13,12 @@ import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
-export function useHandleChat(tempChat: boolean = false) {
-  const CHAT_API = "http://127.0.0.1:8001/api/v1/chat";
+export function useHandleChat(
+  tempChat: boolean = false,
+  extraBody: any,
+  api: string
+) {
+  const CHAT_API = `http://127.0.0.1:8001${api ? api : "/api/v1/chat"}`;
 
   const bottomRef = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
@@ -130,6 +134,7 @@ export function useHandleChat(tempChat: boolean = false) {
       fileId: uploadedFileId,
       emailId: "afridayan01@gmail.com",
       titleGenerated,
+      ...extraBody,
     };
     const allMessages = [
       ...messages,
