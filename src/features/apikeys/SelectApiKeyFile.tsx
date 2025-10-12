@@ -8,7 +8,10 @@ import type { FileUIPart } from "ai";
 import { useUploadApiKeyFile } from "@/hooks/ApiKeyHooks";
 
 interface SelectApiKeyFileInterface {
-  onFileSelect: (fileId: string | undefined) => void;
+  onFileSelect: (
+    fileId: string | undefined,
+    methodType: "CONTEXT" | "RAG" | undefined
+  ) => void;
 }
 
 function SelectApiKeyFile({ onFileSelect }: SelectApiKeyFileInterface) {
@@ -35,7 +38,7 @@ function SelectApiKeyFile({ onFileSelect }: SelectApiKeyFileInterface) {
         {
           onSuccess(data) {
             if (data?.data === "SUCCESS") {
-              onFileSelect?.(data.fileId);
+              onFileSelect?.(data.fileId, data.methodType);
             }
           },
         }
@@ -49,7 +52,7 @@ function SelectApiKeyFile({ onFileSelect }: SelectApiKeyFileInterface) {
   function handleDeleteFile() {
     setSelectedFile(undefined);
     if (fileInputRef.current) fileInputRef.current.value = "";
-    onFileSelect(undefined);
+    onFileSelect(undefined, undefined);
   }
   return (
     <div className="flex flex-col gap-2">

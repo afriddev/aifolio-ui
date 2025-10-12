@@ -12,15 +12,18 @@ interface GenerateApiKeyInterface {
 
 function GenerateApiKeyDialog({ onClose, open }: GenerateApiKeyInterface) {
   const [fileId, setFileId] = useState<string | undefined>(undefined);
+  const [methodType, setMethodType] = useState<"CONTEXT" | "RAG" | undefined>(
+    undefined
+  );
   const [name, setName] = useState<string>("");
   const { generateApiKey } = useGenerateApiKey();
- 
 
   function handleGenerateApiKey() {
     generateApiKey(
       {
         name,
         singleFileId: fileId!,
+        methodType: methodType,
       },
       {
         onSuccess(data) {
@@ -49,8 +52,9 @@ function GenerateApiKeyDialog({ onClose, open }: GenerateApiKeyInterface) {
         />
 
         <SelectFile
-          onFileSelect={(fileId) => {
+          onFileSelect={(fileId, methodType) => {
             setFileId(fileId);
+            setMethodType(methodType);
           }}
         />
         <div className="flex justify-center mt-5">

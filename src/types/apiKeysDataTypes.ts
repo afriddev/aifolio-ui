@@ -13,9 +13,9 @@ export type updateApiKeyRequestDataType = {
   method: "DELETE" | "DISABLE" | "ENABLE";
 };
 
-
 export type generateApiKeyRequestDataType = {
   name: string;
   singleFileId: string;
-  keyId?:string
+  methodType: "CONTEXT" | "RAG" | undefined;
+  keyId?: string;
 };
