@@ -16,6 +16,6 @@ export type updateApiKeyRequestDataType = {
 
 export type generateApiKeyRequestDataType = {
   name: string;
-  fileId: string;
+  singleFileId: string;
   keyId?:string
 };

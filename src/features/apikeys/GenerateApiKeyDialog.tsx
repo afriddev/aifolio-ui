@@ -20,7 +20,7 @@ function GenerateApiKeyDialog({ onClose, open }: GenerateApiKeyInterface) {
     generateApiKey(
       {
         name,
-        fileId: fileId!,
+        singleFileId: fileId!,
       },
       {
         onSuccess(data) {
