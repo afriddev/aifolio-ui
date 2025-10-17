@@ -2,7 +2,8 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { LuAsterisk } from "react-icons/lu";
-import { IoSearch } from "react-icons/io5";
+import {  IoSearch } from "react-icons/io5";
+import { TbBrandYoutubeFilled } from "react-icons/tb";
 
 interface InputInterface extends React.ComponentProps<"input"> {
   label?: string;
@@ -20,6 +21,10 @@ const Input = React.forwardRef<HTMLInputElement, InputInterface>(
       switch (icon?.toLowerCase()) {
         case "search":
           return <IoSearch className="w-5 h-5" />;
+          
+        case "youtube":
+          return <TbBrandYoutubeFilled    className="w-5 h-5" />;
+
       }
     }
 
@@ -37,17 +42,17 @@ const Input = React.forwardRef<HTMLInputElement, InputInterface>(
             </label>
           )}
           <div className="relative flex items-center ">
-            <div className="absolute pl-1">{getIcon()}</div>
+            <div className="absolute pl-2">{getIcon()}</div>
             <input
               autoComplete="off"
               ref={ref} 
               type={type}
               data-slot="input"
               className={cn(
-                "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm ",
-                "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[1px]",
+                "file:text-foreground placeholder:text-muted-foreground selection:bg-secondary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-sm border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm ",
+                "focus-visible:border-secondary focus-visible:ring-secondary/80 focus-visible:ring-[1px]",
                 "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
-                `${icon && "pl-7"}`,
+                `${icon && "pl-10"}`,
                 className
               )}
               {...props}

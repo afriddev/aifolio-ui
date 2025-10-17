@@ -43,13 +43,13 @@ function GenerateApiKeyDialog({ onClose, open }: GenerateApiKeyInterface) {
       onClose={onClose}
     >
       <div className="p-4 flex flex-col   gap-4">
-        <Input
+        {/* <Input
           mandatory
           label="API Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder=" Medical Faq's"
-        />
+        /> */}
 
         <SelectFile
           onFileSelect={(fileId, methodType) => {

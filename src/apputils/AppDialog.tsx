@@ -73,7 +73,7 @@ export default function AppDialog({
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className={`bg-background shadow-2xl flex flex-col overflow-hidden ${
               start === "CENTER"
-                ? "min-w-[20vw] max-h-[80vh] rounded"
+                ? "min-w-[20vw] max-h-[100vh] rounded"
                 : "min-w-[22vw] h-[100vh]"
             } overflow-x-hidden`}
           >
