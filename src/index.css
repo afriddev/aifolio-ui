@@ -61,7 +61,7 @@
   --primary: oklch(0% 0 0);
   --primary-foreground: oklch(0.985 0 0);
   
-  --secondary: oklch(31.541% 0.20527 268.37);
+  --secondary: oklch(40.005% 0.25831 268.757);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(96.792% 0.00104 11.366);
   --muted-foreground: oklch(0.556 0 0);
@@ -103,19 +103,19 @@
   --font-mono: "Fira Code", ui-monospace, SFMono-Regular, monospace;
 }
 
+
+
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
-
-  
-
-  code, pre {
-    font-family: var(--font-mono);
-  }
-
   body {
-    @apply bg-background text-foreground antialiased text-sm;
+    @apply bg-background text-foreground text-sm list-none ;
     font-family: var(--font-sans);
   }
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px #facc15; /* yellow-400 */
+  color: transparent;
 }
