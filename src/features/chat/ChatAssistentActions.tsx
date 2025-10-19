@@ -28,7 +28,7 @@ function ChatAssistentActions({
   return (
     <div className="flex items-center justify-between mt-1 space-x-2">
       {message.role === "assistant" && (
-        <label className="flex items-center text-xs gap-2">
+        <label className="flex items-center  gap-2">
           <IoFlashSharp className="text-orange-400 size-3" />{" "}
           {message.timeAndDate}
         </label>

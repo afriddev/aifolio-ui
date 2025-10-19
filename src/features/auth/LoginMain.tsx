@@ -68,7 +68,7 @@ function Login() {
               <div className="flex flex-col gap-y-5  justify-center px-2">
                 <div className="flex flex-col items-center gap-2">
                   <h2 className=" text-3xl ">Login to your account</h2>
-                  <p className="text-xs text-foreground/70">
+                  <p className=" text-foreground/70">
                     Continue tracking your progress after logging <br /> in to
                     your account
                   </p>

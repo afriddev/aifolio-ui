@@ -58,7 +58,7 @@
   --popover: oklch(0.987 0.001 106.42);
   --popover-foreground: oklch(0.145 0 0);
   
-  --primary: oklch(0.247 100 20);
+  --primary: oklch(62.742% 0.2284 33.08);
   --primary-foreground: oklch(0.985 0 0);
   
   --secondary: oklch(40.005% 0.25831 268.757);
@@ -102,7 +102,7 @@
 
 @layer base {
   body {
-    @apply bg-background text-foreground text-sm;
+    @apply bg-background text-foreground text-base;
     font-family: var(--font-sans); 
   }
 

@@ -5,7 +5,7 @@ function NavBar() {
   const navigate = useNavigate();
 
   return (
-    <header className="w-full sticky top-0 z-[200] ">
+    <header className="w-full sticky bg-background top-0 z-[200] h-[10vh]  ">
       <div className="px-5 lg:px-20 py-4 flex items-center justify-between">
         <div
           onClick={() => navigate("/")}

@@ -12,7 +12,7 @@ function Footer() {
           <div className="cursor-pointer  w-fit    ">
             <img src="logo-1.png" className="w-40" alt="logo" />
           </div>
-          <p className="text-sm w-full text-center">
+          <p className=" w-full text-center">
             A smart, intelligent system for data, knowledge, and AI-powered reasoning.
           </p>
         </div>
@@ -20,7 +20,7 @@ function Footer() {
         {/* Quick Links */}
         <div className="flex flex-col items-start space-y-4">
           <h3 className="text-lg font-semibold">Quick Links</h3>
-          <div className=" text-sm flex  items-center gap-4">
+          <div className="  flex  items-center gap-4">
             <button
               onClick={() => navigate("/about")}
               className="hover:text-blue-300 transition duration-300 text-left"
@@ -45,7 +45,7 @@ function Footer() {
         {/* Legal */}
         <div className="flex flex-col items-start space-y-4">
           <h3 className="text-lg font-semibold">Legal</h3>
-          <div className=" text-sm  gap-3 lg:gap-0 grid lg:grid-cols-2  items-start">
+          <div className="   gap-3 lg:gap-0 grid lg:grid-cols-2  items-start">
             <button
               onClick={() => navigate("/privacy-policy")}
               className="hover:text-blue-300 transition duration-300 text-left text-nowrap"
@@ -106,7 +106,7 @@ function Footer() {
       <div className="w-full h-[1px] bg-foreground/5 mt-10"> </div>
 
       {/* Bottom Section */}
-      <div className="w-full flex flex-col md:flex-row justify-between items-center mt-5 border-t border-white/20 text-center text-sm text-foreground gap-2">
+      <div className="w-full flex flex-col md:flex-row justify-between items-center mt-5 border-t border-white/20 text-center  text-foreground gap-2">
         <p>© 2025 Cortexvia. All rights reserved.</p>
         
         <div className="flex space-x-6 lg:mt-4 md:mt-0">

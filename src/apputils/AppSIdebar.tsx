@@ -132,7 +132,7 @@ function AppSidebar() {
           </div>
           <div className="mt-10 ">
             {allChats && allChats.length > 0 && (
-              <label className="px-3 text-xs text-foreground/50 ">Chats</label>
+              <label className="px-3  text-foreground/50 ">Chats</label>
             )}
 
             <div className="mt-2  ">

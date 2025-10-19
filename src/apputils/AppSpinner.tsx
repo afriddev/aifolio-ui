@@ -26,7 +26,7 @@ const AppSpinner: React.FC<AppSpinnerProps> = ({ isPending, message }) => {
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm transition-opacity duration-300 ease-in-out">
       <div className="flex flex-col items-center gap-4">
         <div className="w-12 h-12 border-4 border-gray-200 border-t-secondary rounded-full animate-spin shadow-xl" />
-        {message && <p className="text-white text-sm font-medium">{message}</p>}
+        {message && <p className="text-white  font-medium">{message}</p>}
       </div>
     </div>
   );
