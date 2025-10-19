@@ -5,6 +5,20 @@ import ApiKeysMain from "@/features/apikeys/ApiKeysMain";
 import HomeMain from "@/features/home/HomeMain";
 import NonProtected from "./NonProtected";
 import ChatMain from "@/features/chat/ChatMain";
+import LoginMain from "@/features/auth/LoginMain";
+import SignUpMain from "@/features/auth/SignUpMain";
+import ForgotPasswordMain from "@/features/auth/ForgotPAsswordMain";
+import ResetPasswordMain from "@/features/auth/ResetPasswordMain";
+import TermsMain from "@/features/terms/TermsMain";
+import CookiePolicyMain from "@/features/cookiepolicy/CookiePolicyMain";
+import PrivacyMain from "@/features/privacy/PrivacyMain";
+import FaqsMain from "@/features/faqs/FaqsMain";
+import RefundPolicyMain from "@/features/refundpolicy/RefundPolicyMain";
+import ApiPolicyMain from "@/features/apipolicy/ApiPolicyMain";
+import DeveloperPolicyMain from "@/features/developerpolicy/DeveloperPolicyMain";
+import DataUsagePolicyMain from "@/features/datausagepolicy/DataUsagePolicyMain";
+import SecurityPolicyMain from "@/features/securitypolicy/SecurityPolicyMain";
+import CompliancePolicyMain from "@/features/compliancepolicy/CompliancePolicyMain";
 
 function AppRoutes() {
   return (
@@ -12,6 +26,21 @@ function AppRoutes() {
 
       <Route element={<NonProtected />}>
         <Route path="/" element={<HomeMain />} />
+        <Route path="/login" element={<LoginMain />} />
+        <Route path="/signup" element={<SignUpMain />} />
+        <Route path="/forgot-password" element={<ForgotPasswordMain />} />
+        <Route path="/resetpassword/:token" element={<ResetPasswordMain />} />
+        <Route path="/terms" element={<TermsMain />} />
+        <Route path="/privacy-policy" element={<PrivacyMain />} />
+        <Route path="/cookie-policy" element={<CookiePolicyMain />} />
+        <Route path="/refund-policy" element={<RefundPolicyMain />} />
+        <Route path="/faq" element={<FaqsMain />} />
+        <Route path="/api-policy" element={<ApiPolicyMain />} />
+        <Route path="/developer-policy" element={<DeveloperPolicyMain />} />
+        <Route path="/data-usage-policy" element={<DataUsagePolicyMain />} />
+        <Route path="/security-policy" element={<SecurityPolicyMain />} />
+        <Route path="/compliance-policy" element={<CompliancePolicyMain />} />
+        <Route path="/legal-notice" element={<CompliancePolicyMain />} />
       </Route>
       <Route element={<ProtectedRoute />}>
         <Route path="/chat/:chatId" element={<ChatMain />} />

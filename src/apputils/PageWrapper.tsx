@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AnimatePresence, motion } from "framer-motion";
 
 const variants = {
@@ -32,14 +33,11 @@ export default function PageWrapper({
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        variants={variants}
+        variants={variants as any}
         initial="initial"
         animate="animate"
         exit="exit"
         style={{
-          position: "absolute",
-          width: "100%",
-          height: "100%",
           top: 0,
           left: 0,
           willChange: "opacity, transform", // helps smooth performance

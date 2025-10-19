@@ -29,7 +29,7 @@ const Input = React.forwardRef<HTMLInputElement, InputInterface>(
     }
 
     return (
-      <div className={`flex flex-col gap-1 ${label && "h-16"}`}>
+      <div className={`flex flex-col gap-1 ${label && "h-20"}`}>
         <div>
           {label && (
             <label className=" font-medium mb-1 flex items-center">
@@ -69,6 +69,5 @@ const Input = React.forwardRef<HTMLInputElement, InputInterface>(
   }
 );
 
-Input.displayName = "Input"; // This is useful for debugging.
-
+Input.displayName = "Input"; 
 export { Input };

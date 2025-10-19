@@ -10,7 +10,7 @@ function Footer() {
         {/* Brand */}
         <div className="flex flex-col  space-y-4 items-center">
           <div className="cursor-pointer  w-fit    ">
-            <img src="logo-1.png" className="w-48" alt="logo" />
+            <img src="/logo-1.png" className="w-48" alt="logo" />
           </div>
           <p className=" w-full text-center">
             A smart, intelligent system for data, knowledge, and AI-powered reasoning.
@@ -65,13 +65,63 @@ function Footer() {
             >
               Cookie Policy
             </button>
+            
+            <button
+              onClick={() => navigate("/faq")}
+              className="hover:text-blue-300 transition duration-300 text-left text-nowrap"
+            >
+              Faqs
+            </button>
+
 
             <button
               onClick={() => navigate("/refund-policy")}
               className="hover:text-blue-300 transition duration-300 text-left text-nowrap"
             >
-              refund Policy
+              Refund Policy
             </button>
+            
+            <button
+              onClick={() => navigate("/api-policy")}
+              className="hover:text-blue-300 transition duration-300 text-left text-nowrap"
+            >
+              API Policy
+            </button>
+            <button
+              onClick={() => navigate("/developer-policy")}
+              className="hover:text-blue-300 transition duration-300 text-left text-nowrap"
+            >
+              Developer Policy
+            </button>
+            <button
+              onClick={() => navigate("/data-usage-policy")}
+              className="hover:text-blue-300 transition duration-300 text-left text-nowrap"
+            >
+              Data Usage Policy
+            </button>
+            <button
+              onClick={() => navigate("/security-policy")}
+              className="hover:text-blue-300 transition duration-300 text-left text-nowrap"
+            >
+              Security Policy
+            </button>
+            
+            <button
+              onClick={() => navigate("/compliance-policy")}
+              className="hover:text-blue-300 transition duration-300 text-left text-nowrap"
+            >
+              Compliance Policy
+            </button>
+            
+            <button
+              onClick={() => navigate("/legal-notice")}
+              className="hover:text-blue-300 transition duration-300 text-left text-nowrap"
+            >
+              Legal Notice
+            </button>
+
+
+
           </div>
         </div>
 

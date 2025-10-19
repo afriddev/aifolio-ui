@@ -4,10 +4,10 @@ import Footer from "./Footer";
 
 function NonProtected() {
   return (
-    <div className="flex h-full w-full  flex-col">
+    <div className="flex  h-full w-full  flex-col">
       <NavBar />
 
-      <div className="h-full w-full">
+      <div className="h-full w-full ">
         <Outlet />
       </div>
 
