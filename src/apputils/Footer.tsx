@@ -11,7 +11,7 @@ function Footer() {
         {/* Brand */}
         <div className="flex flex-col  space-y-4 items-center">
           <div className="cursor-pointer  w-fit    ">
-            <LogoIcon />
+            <img src="logo-1.png" className="w-40 " />
           </div>
           <p className="text-sm w-full text-center">
             A smart, intelligent system for data, knowledge, and AI-powered reasoning.
@@ -108,20 +108,8 @@ function Footer() {
 
       {/* Bottom Section */}
       <div className="w-full flex flex-col md:flex-row justify-between items-center mt-5 border-t border-white/20 text-center text-sm text-foreground gap-2">
-        <p>© 2025 Muni ammamma pickles. All rights reserved.</p>
-        <p className="">
-          Developed by{" "}
-          <span
-            className="text-primary  cursor-pointer"
-            onClick={() =>
-              window.open(
-                "mailto:afridayan01@gmail.com?subject=Software development collaboration"
-              )
-            }
-          >
-            Shaik afrid💙
-          </span>
-        </p>
+        <p>© 2025 Cortexvia. All rights reserved.</p>
+        
         <div className="flex space-x-6 lg:mt-4 md:mt-0">
           <button
             onClick={() => navigate("/twitter")}
