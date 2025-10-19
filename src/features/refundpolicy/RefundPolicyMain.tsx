@@ -155,7 +155,7 @@ const RefundPolicyMain: React.FC = () => {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4 font-montserrat">
-              Refund & Cancellation Policy
+               Cortexvia Refund & Cancellation Policy
             </h1>
             <p className="text-lg text-gray-700 mb-8 font-roboto">
               Effective Date: April 21, 2025

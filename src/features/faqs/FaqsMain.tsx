@@ -110,7 +110,7 @@ export default function FaqsMain() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4 font-montserrat">
-              Frequently Asked Questions
+              Cortexvia Frequently Asked Questions
             </h1>
             <p className="text-lg text-gray-700 max-w-2xl mx-auto font-roboto leading-relaxed">
               Here are answers to common questions about Cortexvia.

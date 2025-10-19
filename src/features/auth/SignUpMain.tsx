@@ -11,8 +11,6 @@ import { MdArrowBackIosNew } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { LuAsterisk } from "react-icons/lu";
 import PageWrapper from "@/apputils/PageWrapper";
-import NavBar from "@/apputils/NavBar";
-import Footer from "@/apputils/Footer";
 import { useSignUp } from "@/hooks/signUpHooks";
 import InterPhoneInput from "@/components/ui/phone-input";
 
@@ -100,7 +98,7 @@ function SignUpMain() {
             >
               <div className="text-center">
                 <h2 className="text-3xl ">Create Your Account</h2>
-                <p className="text-muted-foreground  mt-1">Freegrow Nextgen</p>
+                <p className="text-muted-foreground  mt-1">Cortexvia</p>
               </div>
               {signUpStep === 0 ? (
                 <div className="flex flex-col gap-4">
@@ -195,26 +193,28 @@ function SignUpMain() {
                         type="checkbox"
                         {...register("agree", {
                           required:
-                            "You must accept FreeGrow’s Terms of Use and Privacy Policy to continue.",
+                            "You must accept Cortexvia’s Terms of Use and Privacy Policy to continue.",
                           validate: (v) =>
                             v === true ||
-                            "You must accept FreeGrow’s Terms of Use and Privacy Policy to continue.",
+                            "You must accept Cortexvia’s Terms of Use and Privacy Policy to continue.",
                         })}
                         className="mt-1 cursor-pointer accent-primary"
                       />
                       <span className="text-sm leading-relaxed">
-                        I have read and agree to FreeGrow’s{" "}
+                        I have read and agree to Cortexvia’s{" "}
                         <a
-                          href="/terms"
-                          target="_blank"
+                          onClick={() => {
+                            navigate("/terms");
+                          }}
                           className="text-primary hover:underline font-medium"
                         >
-                          Terms of Use
+                          Terms of Services
                         </a>{" "}
                         and{" "}
                         <a
-                          href="/privacy-policy"
-                          target="_blank"
+                          onClick={() => {
+                            navigate("/privacy-policy");
+                          }}
                           className="text-primary hover:underline font-medium"
                         >
                           Privacy Policy

@@ -126,7 +126,7 @@ const ApiPolicyMain: React.FC = () => {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4 font-montserrat">
-              API Policy
+            Cortexvia  API Policy
             </h1>
             <p className="text-lg text-gray-700 mb-8 font-roboto">
               Effective Date: October 20, 2025
