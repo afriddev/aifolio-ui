@@ -10,7 +10,7 @@ function Footer() {
         {/* Brand */}
         <div className="flex flex-col  space-y-4 items-center">
           <div className="cursor-pointer  w-fit    ">
-            <img src="logo-1.png" className="w-40" alt="logo" />
+            <img src="logo-1.png" className="w-48" alt="logo" />
           </div>
           <p className=" w-full text-center">
             A smart, intelligent system for data, knowledge, and AI-powered reasoning.

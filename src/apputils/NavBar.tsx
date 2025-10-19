@@ -5,13 +5,13 @@ function NavBar() {
   const navigate = useNavigate();
 
   return (
-    <header className="w-full sticky bg-background top-0 z-[200] h-[10vh]  ">
-      <div className="px-5 lg:px-20 py-4 flex items-center justify-between">
+    <header className="w-full  sticky bg-background flex items-center justify-center top-0 z-[200] h-[10vh]  ">
+      <div className="px-5 lg:px-20 py-4 w-full flex items-center justify-between">
         <div
           onClick={() => navigate("/")}
           className="flex items-center gap-2 cursor-pointer"
         >
-          <img src="logo-1.png" className="w-40" />
+          <img src="logo-1.png" className="w-48" />
         </div>
 
         <div className="hidden md:flex items-center gap-2">
