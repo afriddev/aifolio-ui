@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-import LogoIcon from "./LogoIcon";
 
 function Footer() {
   const navigate = useNavigate();
@@ -11,7 +10,7 @@ function Footer() {
         {/* Brand */}
         <div className="flex flex-col  space-y-4 items-center">
           <div className="cursor-pointer  w-fit    ">
-            <img src="logo-1.png" className="w-40 " />
+            <img src="logo-1.png" className="w-40" alt="logo" />
           </div>
           <p className="text-sm w-full text-center">
             A smart, intelligent system for data, knowledge, and AI-powered reasoning.

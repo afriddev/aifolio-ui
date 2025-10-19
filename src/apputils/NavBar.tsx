@@ -1,46 +1,43 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import LogoIcon from "./LogoIcon";
 
 function NavBar() {
   const navigate = useNavigate();
 
   return (
-    <header className="w-full sticky top-0 z-[200] bg-white/80 backdrop-blur-md border-b border-gray-200">
+    <header className="w-full sticky top-0 z-[200] ">
       <div className="px-5 lg:px-20 py-4 flex items-center justify-between">
-        {/* Logo */}
         <div
           onClick={() => navigate("/")}
           className="flex items-center gap-2 cursor-pointer"
         >
-          <LogoIcon />
+          <img src="logo-1.png" className="w-40" />
         </div>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-2">
           <div
             onClick={() => navigate("/")}
-            className=" font-medium text-primary  hover:bg-muted rounded px-4 py-2 cursor-pointer transition"
+            className=" font-medium   hover:bg-muted rounded px-4 py-2 cursor-pointer transition"
           >
             Docs
           </div>
 
           <div
             onClick={() => navigate("/collection")}
-            className=" font-medium text-primary  hover:bg-muted rounded px-4 py-2 cursor-pointer transition"
+            className=" font-medium   hover:bg-muted rounded px-4 py-2 cursor-pointer transition"
           >
             Pricing
           </div>
           <div
             onClick={() => navigate("/about")}
-            className=" font-medium text-primary  hover:bg-muted rounded px-4 py-2 cursor-pointer transition"
+            className=" font-medium   hover:bg-muted rounded px-4 py-2 cursor-pointer transition"
           >
             Models
           </div>
 
           <div
             onClick={() => navigate("/about")}
-            className=" font-medium text-primary  hover:bg-muted rounded px-4 py-2 cursor-pointer transition"
+            className=" font-medium   hover:bg-muted rounded px-4 py-2 cursor-pointer transition"
           >
             Rate Limits
           </div>
