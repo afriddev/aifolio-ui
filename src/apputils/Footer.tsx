@@ -14,7 +14,7 @@ function Footer() {
             <LogoIcon />
           </div>
           <p className="text-sm w-full text-center">
-            Bringing families together with authentic, home-style pickles.
+            A smart, intelligent system for data, knowledge, and AI-powered reasoning.
           </p>
         </div>
 

@@ -1,125 +1,116 @@
-# 🌐 Email API Web
 
-[![Python Package](https://img.shields.io/pypi/v/emailotp.svg?color=blue)](https://pypi.org/project/emailotp/)
-[![Dart Package](https://img.shields.io/pub/v/email_sender.svg)](https://pub.dev/packages/email_sender)
-[![NPM Package](https://img.shields.io/npm/v/email-api-sender.svg?color=yellow)](https://www.npmjs.com/package/@afriddev/emailservice)
-[![License](https://img.shields.io/github/license/afriddev/email_sender_webweb.svg?color=green)](https://github.com/afriddev/email-api-web/blob/main/LICENSE)
+# Cortexari
 
-A minimal, modern frontend for the [Email API](https://github.com/afriddev/emailAPI), allowing developers to explore and use the service directly from the browser. It includes links to official SDKs/packages for Python, Dart, JavaScript, and Java.
-
-> Send emails easily via API without any complicated setup – just plug and play!
+Cortexari is a unified AI platform for developers and users to upload documents and YouTube video URLs, generate API keys, and access intelligent answers through RAG-based systems or AI models. It includes a website, SDK, and React chatbot library for seamless integration.
 
 ---
 
-## ✨ Features
-
-- Clean, modern UI built with Tailwind CSS and Vite
-- Integrated [Buy Me a Coffee](https://www.buymeacoffee.com/afriddev) support
-- Direct access to code samples and endpoints
-- Lightweight and mobile responsive
-- Links to official libraries for **Python**, **Dart**, **JavaScript**, and **Java**
-
----
-
-## 🚀 Live Website
-
-👉 [Visit the Email API Web App](https://your-deployed-url.com)
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Components](#components)
+- [Getting Started](#getting-started)
+- [API Keys](#api-keys)
+- [Usage Tiers](#usage-tiers)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
-## 📦 Official SDKs & Packages
-
-| Language            | Package                                                                        |
-| ------------------- | ------------------------------------------------------------------------------ |
-| **Python**          | [emailotp (PyPI)](https://pypi.org/project/emailotp/)                          |
-| **Dart**            | [email_sender (pub.dev)](https://pub.dev/packages/email_sender)                |
-| **JavaScript/Node** | [email-api-sender (npm)](https://www.npmjs.com/package/@afriddev/emailservice) |
-| **Java**            | Manual usage via `HttpURLConnection` or `OkHttpClient` shown below             |
+## Overview
+Cortexari allows users to:
+- Upload documents or YouTube URLs.
+- Ask questions to get answers from uploaded data (RAG).
+- Access multiple AI models for inference via API.
+- Track usage and manage plan tiers (Free, Developer).
 
 ---
 
-> Built using Vite + React + Tailwind CSS
+## Features
+- **Website**: Upload interface, dashboard, documentation, API key management.
+- **RAG SDK**: RAG, SmartRAG, LightRAG, GraphRAG, embeddings, reranking.
+- **React Chatbot Library**: Plug-and-play chat UI using Data API.
+- **Model API Layer**: Supports multiple providers (OpenAI, Groq, Cerebras, etc.).
+- **Speed Tiers**: Fast (2000–2500 tokens/sec), Medium (700–1000), Normal (200–500).
 
 ---
 
-## ☕ Support This Project
+## Components
 
-If you like this project or it helps you, consider supporting:
+### Website
+- Dashboard with plans & usage limits.
+- Data upload: documents and YouTube video URLs.
+- API key generation (Data API & Model API).
+- Documentation portal for SDK and API usage.
 
-<a href="https://www.buymeacoffee.com/afriddev" target="_blank">
-  <img 
-    src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" 
-    alt="Buy Me A Coffee" 
-    class="h-[60px] w-[217px]" 
-  />
-</a>
+### RAG SDK
+- Unified toolkit for retrieval and reasoning.
+- Works with any model via URL + API key.
+
+### React Chatbot Library
+- Easy to embed in React projects.
+- Uses Data API key for contextual answers.
+
+### Model API Layer
+- Multi-model support with speed tiers.
+- Access via Model API key.
 
 ---
 
-## 📄 Java Example
+## Getting Started
 
-```java
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+### Requirements
+- Node.js >= 18
+- React >= 18
+- Backend: FastAPI / Express / Your choice
 
-public class SendEmail {
-    public static void main(String[] args) {
-        try {
-            URL url = new URL("https://freeemailapi.vercel.app/sendEmail");
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+### Installation
 
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Content-Type", "application/json");
-            conn.setDoOutput(true);
+**React Chatbot Library**
+```bash
+npm install @cortexari/chatbot
+```
 
-            String jsonInputString = "{
-" +
-                    "    "fromEmail": "yourgmail@gmail.com",
-" +
-                    "    "passkey": "your16digitapppassword",
-" +
-                    "    "toEmail": "receiver@gmail.com",
-" +
-                    "    "title": "Test Title",
-" +
-                    "    "subject": "Test Subject",
-" +
-                    "    "body": "This is a test email from Java client."
-" +
-                    "}";
+**RAG SDK**
+```bash
+npm install @cortexari/rag-sdk
+```
 
-            try (OutputStream os = conn.getOutputStream()) {
-                byte[] input = jsonInputString.getBytes("utf-8");
-                os.write(input, 0, input.length);
-            }
+### Usage Example
+```javascript
+import { ChatBot } from '@cortexari/chatbot';
 
-            int code = conn.getResponseCode();
-            System.out.println("Response code: " + code);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+function App() {
+  return <ChatBot apiKey="YOUR_DATA_API_KEY" />;
 }
 ```
 
 ---
 
-## 📬 API Reference
-
-Check the backend API here: [Email API GitHub](https://github.com/afriddev/emailAPI)
-
----
-
-## 🧑‍💻 Author
-
-**Shaik Afrid**  
-GitHub: [@afriddev](https://github.com/afriddev)  
-Website: [Shaik afrid](https://www.afrid.live)  
-Email: afridayan01@example.com
+## API Keys
+1. **Data API Key** – For Q&A from uploaded data.  
+2. **Model API Key** – For model inference.
 
 ---
 
-## 📄 License
+## Usage Tiers
+| Tier       | Data Limits | Model Limits | Speed |
+|-----------|------------|-------------|-------|
+| Free      | Low        | Low         | Normal |
+| Developer | Higher     | Higher      | Medium/Fast |
 
-MIT License. Free for personal and commercial use.
+---
+
+## Contributing
+- Fork the repository
+- Create a feature branch
+- Submit a pull request
+
+---
+
+## License
+This project is licensed under the MIT License.
+
+---
+
+**Cortexari** – Smart, intelligent AI platform for knowledge, data, and models.
