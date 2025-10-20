@@ -76,7 +76,7 @@ function PricingSection() {
               <span>Secure data encryption</span>
             </li>
           </ul>
-          <Button className="mt-8 py-3 bg-secondary hover:bg-secondary/90 text-background rounded-xl font-medium transition-colors duration-200">
+          <Button className="mt-8 py-3  text-background rounded-xl font-medium transition-colors duration-200">
             Start Free
           </Button>
         </div>
@@ -154,7 +154,7 @@ function PricingSection() {
               <span>Batch processing for high-throughput</span>
             </li>
           </ul>
-          <Button className="mt-8 py-3 bg-secondary hover:bg-blue-600 text-background rounded-xl font-medium transition-colors duration-200">
+          <Button className="mt-8 py-3 rounded-xl font-medium transition-colors duration-200">
             Upgrade to Developer
           </Button>
         </div>

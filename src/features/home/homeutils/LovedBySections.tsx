@@ -89,7 +89,7 @@ function LovedBySections() {
         <div className="flex flex-col gap-3 items-center text-center pt-5 w-full border-b pb-10">
           <Layers className="w-6 h-6" />
           <p className="text-foreground px-4">
-            Model API Layer supporting OpenAI, Groq, Cerebras & more
+            Model API Layer supporting Various models & more
           </p>
         </div>
       </div>

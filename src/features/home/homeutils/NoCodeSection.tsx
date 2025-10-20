@@ -4,9 +4,7 @@ import { FaCircleCheck } from "react-icons/fa6";
 function NoCodeSection() {
   return (
     <div className="flex items-center justify-center gap-12 mt-32 w-[70%]">
-      <div className="w-[35%]">
-        <img alt="No Code" src="/nocode.png" className="w-full" />
-      </div>
+      
       <div className="flex flex-col gap-10 w-[50%]">
         <div className="flex flex-col gap-4 max-w-[35vw]">
           <h3 className="text-4xl font-bold text-foreground">
@@ -58,6 +56,9 @@ function NoCodeSection() {
           </div>
         </div>
         <Button className="rounded-lg px-6 py-3 w-fit">Get Started Now</Button>
+      </div>
+      <div className="w-[35%]">
+        <img alt="No Code" src="/no-code.jpg" className="w-[25vw] rounded-lg" />
       </div>
     </div>
   );

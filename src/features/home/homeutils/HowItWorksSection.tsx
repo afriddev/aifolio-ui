@@ -4,7 +4,7 @@ function HowItWorksSection() {
   return (
     <div className="justify-between flex items-center gap-10 mt-32 w-[70%]">
       <div className="flex flex-col gap-10">
-        <div className="flex flex-col items-center border-b pb-5 gap-5 justify-center">
+        <div className="flex flex-col items-center  pb-5 gap-5 justify-center">
           <h1 className="text-4xl  font-bold ">How Cortexvia Works</h1>
           <p className="text-lg text-center w-[70%] text-foreground/70">
             Build your custom RAG-powered AI assistant in four effortless
@@ -17,7 +17,7 @@ function HowItWorksSection() {
         <div className="flex flex-row justify-between items-start gap-8  w-full">
           <div className="w-[25%] gap-2 flex flex-col">
             <div className="flex flex-col gap-1">
-              <div className="rounded p-2 bg-secondary w-fit h-fit text-background">
+              <div className="rounded p-2 bg-primary w-fit h-fit text-background">
                 <IoAddCircle className="w-5 h-5" />
               </div>
               <h5 className="text-foreground/60">CREATE</h5>
@@ -36,7 +36,7 @@ function HowItWorksSection() {
 
           <div className="w-[25%] gap-2 flex flex-col">
             <div className="flex flex-col gap-1">
-              <div className="rounded p-2 bg-secondary w-fit h-fit text-background">
+              <div className="rounded p-2 bg-primary w-fit h-fit text-background">
                 <IoDocument className="w-5 h-5" />
               </div>
               <h5 className="text-foreground/60">TRAIN</h5>
@@ -55,7 +55,7 @@ function HowItWorksSection() {
 
           <div className="w-[25%] gap-2 flex flex-col">
             <div className="flex flex-col gap-1">
-              <div className="rounded p-2 bg-secondary w-fit h-fit text-background">
+              <div className="rounded p-2 bg-primary w-fit h-fit text-background">
                 <IoRocket className="w-5 h-5" />
               </div>
               <h5 className="text-foreground/60">LAUNCH</h5>
@@ -67,7 +67,7 @@ function HowItWorksSection() {
               <p className="text-foreground/80">
                 Embed the themeable React chatbot in your app, expose via
                 Data/Model APIs for custom integrations, or connect to workflows
-                with seamless support for OpenAI, Groq, and more.
+                with seamless support  and more.
               </p>
             </div>
           </div>

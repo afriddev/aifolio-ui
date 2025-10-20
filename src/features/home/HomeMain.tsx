@@ -5,6 +5,9 @@ import EmpowerSection from "./homeutils/EmpowerSection";
 import CreateFirstSection from "./homeutils/CreateFirstSection";
 import HowItWorksSection from "./homeutils/HowItWorksSection";
 import PricingSection from "./homeutils/PricingSections";
+import AIHeroSection from "./homeutils/AiHeroSection";
+import ContentSourcesSection from "./homeutils/ContentSourcesSection";
+import DeploymentSection from "./homeutils/DeploymentSection";
 
 function HomeMain() {
   return (
@@ -16,7 +19,10 @@ function HomeMain() {
           <LovedBySections />
           <HowItWorksSection  />
           <CreateFirstSection />
+          <AIHeroSection/>
           <NoCodeSection />
+          <ContentSourcesSection />
+          <DeploymentSection />
           <PricingSection />
           <EmpowerSection />
         </div>

@@ -70,7 +70,7 @@ Cortexvia stands out with a rich set of features optimized for AI developers. Be
 ### Data Ingestion and Uploads
 
 - **Drag-and-drop Uploads**: Simple and secure interface for documents (PDF, Doc, Txt, html, etc.) and YouTube URLs. Supports batch uploads for efficient onboarding.
-- **Preprocessing and Indexing**: Automatically extract text, generate vector embeddings using models like text-embedding-ada-v2 (from OpenAI). Stored securely in a vector database for fast retrieval.
+- **Preprocessing and Indexing**: Automatically extract text, generate vector embeddings using models. Stored securely in a vector database for fast retrieval.
 - **File Support.**: Compatible with multi-file formats, including multimedia for YouTube transcripts and audio to text conversion.
 
 Why it's valuable? Saves developers time on data prep; just upload and query. Integrates with the RAG SDK for custom preprocessing workflows.

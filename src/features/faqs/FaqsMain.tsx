@@ -37,7 +37,7 @@ const faqs = [
   {
     question: "Which AI models are supported?",
     answer:
-      "Cortexvia integrates with major providers such as OpenAI, Groq, and Cerebras, offering model selection by speed tiers — Normal, Medium, and Fast.",
+      "Cortexvia provides a range of AI models, offering model selection by speed tiers — Normal, Medium, and Fast.",
     icon: <FaRobot className="text-teal-500 w-6 h-6" />,
   },
   {
