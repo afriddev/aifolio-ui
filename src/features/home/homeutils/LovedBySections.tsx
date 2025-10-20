@@ -23,26 +23,26 @@ function LovedBySections() {
           Empower developers to build intelligent apps — with the security,
           control, and compliance your organization requires. Refined through 5+
           years of AI infrastructure excellence.
-        </p>
+        </p>  
       </div>
       <div className="flex justify-between mt-10  ">
         <div className="flex flex-col gap-3 items-center text-center pt-5 w-full border-b pb-10 border-r">
           <Upload className="w-6 h-6" />
-          <p className="text-foreground">
+          <p className="text-foreground px-4">
             Upload documents or YouTube URLs for easy data ingestion
           </p>
         </div>
 
         <div className="flex flex-col gap-3 items-center text-center pt-5 w-full border-b pb-10 border-r">
           <Search className="w-6 h-6" />
-          <p className="text-foreground">
+          <p className="text-foreground px-4">
             Ask questions and get intelligent answers via RAG
           </p>
         </div>
 
         <div className="flex flex-col gap-3 items-center text-center pt-5 w-full border-b pb-10">
           <Zap className="w-6 h-6" />
-          <p className="text-foreground">
+          <p className="text-foreground px-4">
             Access multiple AI models for fast inference via API
           </p>
         </div>
@@ -51,21 +51,21 @@ function LovedBySections() {
       <div className="flex justify-between">
         <div className="flex flex-col gap-3 items-center text-center pt-5 w-full border-b pb-10 border-r">
           <BarChart3 className="w-6 h-6" />
-          <p className="text-foreground">
+          <p className="text-foreground px-4">
             Track usage and manage Free/Developer plan tiers
           </p>
         </div>
 
         <div className="flex flex-col gap-3 items-center text-center pt-5 w-full border-b pb-10 border-r">
           <Key className="w-6 h-6" />
-          <p className="text-foreground">
+          <p className="text-foreground px-4">
             Generate Data API and Model API keys securely
           </p>
         </div>
 
         <div className="flex flex-col gap-3 items-center text-center pt-5 w-full border-b pb-10">
           <BookOpen className="w-6 h-6" />
-          <p className="text-foreground">
+          <p className="text-foreground px-4">
             Comprehensive documentation for SDK and API usage
           </p>
         </div>
@@ -74,21 +74,21 @@ function LovedBySections() {
       <div className="flex justify-between">
         <div className="flex flex-col gap-3 items-center text-center pt-5 w-full border-b pb-10 border-r">
           <Package className="w-6 h-6" />
-          <p className="text-foreground">
+          <p className="text-foreground px-4">
             RAG SDK with SmartRAG, GraphRAG, embeddings & reranking
           </p>
         </div>
 
         <div className="flex flex-col gap-3 items-center text-center pt-5 w-full border-b pb-10 border-r">
           <Code className="w-6 h-6" />
-          <p className="text-foreground">
+          <p className="text-foreground px-4">
             React Chatbot Library for plug-and-play UI integration
           </p>
         </div>
 
         <div className="flex flex-col gap-3 items-center text-center pt-5 w-full border-b pb-10">
           <Layers className="w-6 h-6" />
-          <p className="text-foreground">
+          <p className="text-foreground px-4">
             Model API Layer supporting OpenAI, Groq, Cerebras & more
           </p>
         </div>
@@ -97,21 +97,21 @@ function LovedBySections() {
       <div className="flex justify-between">
         <div className="flex flex-col gap-3 items-center text-center pt-5 w-full pb-10 border-r">
           <Gauge className="w-6 h-6" />
-          <p className="text-foreground">
+          <p className="text-foreground px-4">
             Speed Tiers: Fast (2000–2500 tokens/sec) to Normal
           </p>
         </div>
 
         <div className="flex flex-col gap-3 items-center text-center pt-5 w-full pb-10 border-r">
           <Download className="w-6 h-6" />
-          <p className="text-foreground">
+          <p className="text-foreground px-4">
             Simple npm installation for SDK and Chatbot
           </p>
         </div>
 
         <div className="flex flex-col gap-3 items-center text-center pt-5 w-full pb-10">
           <BookOpen className="w-6 h-6" />
-          <p className="text-foreground">
+          <p className="text-foreground px-4">
             Perfect documentation for developers – SDKs, APIs, and integrations
           </p>
         </div>

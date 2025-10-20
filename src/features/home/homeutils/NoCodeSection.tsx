@@ -1,36 +1,63 @@
+import { Button } from "@/components/ui/button";
 import { FaCircleCheck } from "react-icons/fa6";
 
 function NoCodeSection() {
   return (
-    <div className="justify-between flex items-center gap-10 mt-32 w-[70%] ">
-      <div>
-        <img alt="no code" src="/nocode.png" className="w-[30vw]" />
+    <div className="flex items-center justify-center gap-12 mt-32 w-[70%]">
+      <div className="w-[35%]">
+        <img alt="No Code" src="/nocode.png" className="w-full" />
       </div>
-      <div className="flex   flex-col gap-10">
-        <div className=" gap-2 max-w-[30vw] flex flex-col">
-          <h3 className="text-3xl font-bold">
-            Build intelligent apps with AI-powered RAG, minimal coding required
+      <div className="flex flex-col gap-10 w-[50%]">
+        <div className="flex flex-col gap-4 max-w-[35vw]">
+          <h3 className="text-4xl font-bold text-foreground">
+            Create AI-Powered Apps with Minimal Coding
           </h3>
-          <p className="text-foreground/70 text-xl">
-            Embed our React Chatbot Library and RAG SDK into web, React Native,
-            or PWA apps in minutes—no heavy setup needed.
+          <p className="text-lg text-foreground/70 leading-relaxed">
+            Seamlessly integrate our React Chatbot Library and RAG SDK into web,
+            React Native, or PWA apps in minutes—no complex setup or backend
+            expertise required.
           </p>
         </div>
 
-        <div className="flex  flex-col gap-2 text-foreground/70">
-          <div className="flex items-center gap-3 ">
-            <FaCircleCheck className="text-constructive w-5 h-5" /> Intuitive
-            SDKs Easy APIs for RAG and multi-model inference
+        <div className="flex flex-col gap-4 text-foreground/80">
+          <div className="flex items-center gap-3">
+            <div className="w-5 h-5">
+              <FaCircleCheck className="w-4 h-4 text-constructive" />
+            </div>
+            <span>
+              <strong>Intuitive SDKs:</strong> User-friendly APIs for RAG
+              querying and multi-model inference, simplifying development.
+            </span>
           </div>
-          <div className="flex items-center gap-3 ">
-            <FaCircleCheck className="text-constructive w-5 h-5" /> Customizable
-            Themeable UI Custom components matching your app's branding.
+          <div className="flex items-center gap-3">
+            <div className="w-5 h-5">
+              <FaCircleCheck className="w-4 h-4 text-constructive" />
+            </div>
+            <span>
+              <strong>Customizable UI:</strong> Themeable components to align
+              perfectly with your app’s branding and design.
+            </span>
           </div>
-          <div className="flex items-center gap-3 ">
-            <FaCircleCheck className="text-constructive w-5 h-5" /> Seamless
-            Plug-and-Play Integration Seamless. No backend hassle.
+          <div className="flex items-center gap-3">
+            <div className="w-5 h-5">
+              <FaCircleCheck className="w-4 h-4 text-constructive" />
+            </div>
+            <span>
+              <strong>Seamless Integration:</strong> Plug-and-play chatbot with
+              Data/Model APIs for effortless setup across platforms.
+            </span>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-5 h-5">
+              <FaCircleCheck className="w-4 h-4 text-constructive" />
+            </div>
+            <span>
+              <strong>Rapid Deployment:</strong> Launch AI-powered features
+              quickly, without complexity.
+            </span>
           </div>
         </div>
+        <Button className="rounded-lg px-6 py-3 w-fit">Get Started Now</Button>
       </div>
     </div>
   );

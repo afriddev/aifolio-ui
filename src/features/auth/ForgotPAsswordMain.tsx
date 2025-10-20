@@ -5,8 +5,6 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import PageWrapper from "@/apputils/PageWrapper";
 import AppSpinner from "@/apputils/AppSpinner";
-import NavBar from "@/apputils/NavBar";
-import Footer from "@/apputils/Footer";
 import { useForogotPassword } from "@/hooks/forgotPasswordHooks";
 
 function ForgotPasswordMain() {
@@ -38,7 +36,7 @@ function ForgotPasswordMain() {
       <div className="flex flex-col ">
         <div className="flex flex-col h-[95vh]">
           <div className="flex flex-col items-center justify-center h-full w-full">
-            <div className=" mx-auto mt-20 px-6 py-10 bg-white ">
+            <div className=" mx-auto mt-20 px-6 py-10  ">
               <h2 className="text-3xl font-bold text-center text-blue-950 mb-4">
                 Forgot Password?
               </h2>

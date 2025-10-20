@@ -21,7 +21,7 @@ function HomeBannerSection() {
           multiple AI models. Manage API keys, track usage, and integrate smart
           AI features seamlessly into your projects.
         </p>
-        <Button className="text-xl px-10 py-3  rounded">Start Building</Button>
+        <Button className=" px-10 py-3  rounded-lg">Start Building</Button>
       </div>
     </div>
   );

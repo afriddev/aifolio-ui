@@ -3,6 +3,8 @@ import LovedBySections from "./homeutils/LovedBySections";
 import HomeBannerSection from "./homeutils/HomeBannerSection";
 import EmpowerSection from "./homeutils/EmpowerSection";
 import CreateFirstSection from "./homeutils/CreateFirstSection";
+import HowItWorksSection from "./homeutils/HowItWorksSection";
+import PricingSection from "./homeutils/PricingSections";
 
 function HomeMain() {
   return (
@@ -12,8 +14,10 @@ function HomeMain() {
 
         <div className="-mt-[20vh] items-center  flex flex-col gap-10">
           <LovedBySections />
+          <HowItWorksSection  />
           <CreateFirstSection />
           <NoCodeSection />
+          <PricingSection />
           <EmpowerSection />
         </div>
       </div>
