@@ -14,7 +14,7 @@ import {
 
 function LovedBySections() {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col  w-[70%]">
       <div className="flex flex-col items-center gap-5 justify-center">
         <h2 className="text-4xl font-bold">
           Loved by innovators. Trusted by enterprises.
@@ -25,7 +25,7 @@ function LovedBySections() {
           years of AI infrastructure excellence.
         </p>
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between mt-10  ">
         <div className="flex flex-col gap-3 items-center text-center pt-5 w-full border-b pb-10 border-r">
           <Upload className="w-6 h-6" />
           <p className="text-foreground">

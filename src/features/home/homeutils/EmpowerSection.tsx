@@ -1,6 +1,6 @@
 function EmpowerSection() {
   return (
-    <div className="justify-center flex flex-col items-center gap-10 mt-32">
+    <div className="justify-center flex flex-col items-center gap-10 mt-32 w-[70%] ">
       <h2 className="text-4xl  font-bold ">Empower All AI Users</h2>
 
       <div className="flex justify-between items-center gap-20">

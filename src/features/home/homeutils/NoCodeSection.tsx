@@ -2,7 +2,7 @@ import { FaCircleCheck } from "react-icons/fa6";
 
 function NoCodeSection() {
   return (
-    <div className="justify-between flex items-center gap-10 mt-32 ">
+    <div className="justify-between flex items-center gap-10 mt-32 w-[70%] ">
       <div>
         <img alt="no code" src="/nocode.png" className="w-[30vw]" />
       </div>
