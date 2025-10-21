@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import PageWrapper from "@/apputils/PageWrapper";
 import DividerWithText from "@/apputils/DividerWithText";
-import { useLogin } from "@/hooks/LoginHooks";
 import LoginForm from "./LoginForm";
+import { useLogin } from "@/hooks/loginHooks";
 
 function LoginMain() {
   const [loginStep, setLoginStep] = useState<number>(0);

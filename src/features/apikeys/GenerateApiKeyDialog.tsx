@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import AppDialog from "@/apputils/AppDialog";
 import SelectFile from "@/features/apikeys/SelectApiKeyFile";
-import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useGenerateApiKey } from "@/hooks/ApiKeyHooks";
@@ -15,13 +15,12 @@ function GenerateApiKeyDialog({ onClose, open }: GenerateApiKeyInterface) {
   const [methodType, setMethodType] = useState<"CONTEXT" | "RAG" | undefined>(
     undefined
   );
-  const [name, setName] = useState<string>("");
   const { generateApiKey } = useGenerateApiKey();
 
   function handleGenerateApiKey() {
     generateApiKey(
       {
-        name,
+        name:"",
         singleFileId: fileId!,
         methodType: methodType,
       },
@@ -60,7 +59,7 @@ function GenerateApiKeyDialog({ onClose, open }: GenerateApiKeyInterface) {
         <div className="flex justify-center mt-5">
           <Button
             onClick={handleGenerateApiKey}
-            disabled={!name || !fileId}
+            // disabled={!name || !fileId}
             className="w-fit"
           >
             Generate API Key

@@ -4,7 +4,7 @@ import { useDeleteChat, useGetAllChats } from "@/hooks/chatHooks";
 import { useEffect, useRef, useState } from "react";
 import { useAppContext } from "./AppContext";
 import { truncateText } from "./AppUtils";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import { RxDotsVertical } from "react-icons/rx";
 import {
   Popover,
@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import { AiOutlineDelete } from "react-icons/ai";
-import { IoTerminalOutline } from "react-icons/io5";
 import { BsChatRight } from "react-icons/bs";
 import { IoKeyOutline } from "react-icons/io5";
 import { GoTable } from "react-icons/go";
@@ -28,7 +27,6 @@ function AppSidebar() {
   const wsRef = useRef<WebSocket | null>(null);
   const { deleteChat } = useDeleteChat();
   const [openDelete, setOpenDelete] = useState<number | null>(null);
-  const location = useLocation();
 
   const emailId = "afridayan01@gmail.com";
 
@@ -179,7 +177,7 @@ function AppSidebar() {
                             <Button
                               onClick={(e) => {
                                 e.stopPropagation();
-                                setOpenDelete(false);
+                                setOpenDelete(null);
 
                                 deleteChat({ id: chat.id });
                               }}

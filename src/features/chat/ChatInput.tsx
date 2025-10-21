@@ -80,8 +80,8 @@ function ChatInput({
               disabled={
                 (!input && !uploadedFileId ? true : false) ||
                 !status ||
-                uploadingFile ||
-                (uploadedFileId && !messageId)
+                (uploadingFile ? true : false) ||
+                ((uploadedFileId && !messageId) ? true : false)
               }
               status={status}
             />

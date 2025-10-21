@@ -27,19 +27,19 @@ export function useHandleApiResponse() {
   const { toast } = useToast();
 
   function handleToast(data: string) {
-    // for (let index = 0; index < responseData.length; index++) {
-    //   if (responseData[index].data === data) {
-    //     toast({
-    //       title: responseData[index].message,
-    //       variant: responseData[index].variant as
-    //         | "constructive"
-    //         | "destructive"
-    //         | "default",
-    //     });
+    for (let index = 0; index < responseData.length; index++) {
+      if (responseData[index].data === data) {
+        toast({
+          title: responseData[index].message,
+          variant: responseData[index].variant as
+            | "constructive"
+            | "destructive"
+            | "default",
+        });
 
-    //     break;
-    //   }
-    // }
+        break;
+      }
+    }
   }
   return { handleToast };
 }

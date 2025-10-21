@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import AppSidebar from "./AppSIdebar";
+import AppSidebar from "./AppSidebar";
 
 function ProtectedRoute() {
   return (
