@@ -3,10 +3,10 @@ import { FaCircleCheck } from "react-icons/fa6";
 
 function NoCodeSection() {
   return (
-    <div className="flex items-center justify-center gap-12 mt-32 w-[70%]">
+    <div className="flex flex-col-reverse   lg:flex-row items-center justify-center gap-12 mt-5 lg:mt-32 w-[95%] lg:w-[70%]">
       
-      <div className="flex flex-col gap-10 w-[50%]">
-        <div className="flex flex-col gap-4 max-w-[35vw]">
+      <div className="flex flex-col gap-10 lg:w-[50%]">
+        <div className="flex flex-col gap-4 lg:max-w-[35vw]">
           <h3 className="text-4xl font-bold text-foreground">
             Create AI-Powered Apps with Minimal Coding
           </h3>
@@ -19,7 +19,7 @@ function NoCodeSection() {
 
         <div className="flex flex-col gap-4 text-foreground/80">
           <div className="flex items-center gap-3">
-            <div className="w-5 h-5">
+            <div className="w-5 h-6">
               <FaCircleCheck className="w-4 h-4 text-constructive" />
             </div>
             <span>
@@ -28,7 +28,7 @@ function NoCodeSection() {
             </span>
           </div>
           <div className="flex items-center gap-3">
-            <div className="w-5 h-5">
+            <div className="w-5 h-6">
               <FaCircleCheck className="w-4 h-4 text-constructive" />
             </div>
             <span>
@@ -37,7 +37,7 @@ function NoCodeSection() {
             </span>
           </div>
           <div className="flex items-center gap-3">
-            <div className="w-5 h-5">
+            <div className="w-5 h-6">
               <FaCircleCheck className="w-4 h-4 text-constructive" />
             </div>
             <span>
@@ -46,7 +46,7 @@ function NoCodeSection() {
             </span>
           </div>
           <div className="flex items-center gap-3">
-            <div className="w-5 h-5">
+            <div className="w-5 h-6">
               <FaCircleCheck className="w-4 h-4 text-constructive" />
             </div>
             <span>
@@ -57,8 +57,8 @@ function NoCodeSection() {
         </div>
         <Button className="rounded-lg px-6 py-3 w-fit">Get Started Now</Button>
       </div>
-      <div className="w-[35%]">
-        <img alt="No Code" src="/no-code.jpg" className="w-[25vw] rounded-lg" />
+      <div className="lg:w-[35%]">
+        <img alt="No Code" src="/no-code.jpg" className="w-[90vw] lg:w-[25vw] rounded-lg" />
       </div>
     </div>
   );

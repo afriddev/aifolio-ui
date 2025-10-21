@@ -17,7 +17,7 @@ function HomeMain() {
       <div className=" flex items-center justify-center flex-col">
         <HomeBannerSection />
 
-        <div className="-mt-[20vh] items-center  flex flex-col gap-10">
+        <div className="lg:-mt-[20vh] items-center  flex flex-col gap-10">
           <LovedBySections />
           <HowItWorksSection  />
           <CreateFirstSection />

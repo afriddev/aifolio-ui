@@ -3,19 +3,20 @@ import { FaCircleCheck } from "react-icons/fa6";
 
 function EmpowerSection() {
   return (
-    <div className=" text-background   flex items-center gap-10 mt-32 relative ">
-      <div className="">
+    <div className=" lg:text-background  w-[95%] lg:w-full  flex items-center gap-10 mt-5 lg:mt-32 relative ">
+      <div className="hidden lg:flex">
         <img src="man-with-copy-space-futuristic-device.jpg" className="" />
       </div>
+      
 
-      <div className="flex w-[40vw] flex-col items-center justify-center absolute">
-        <div className="flex  flex-col gap-12 ">
-          <div className="flex items-start gap-6    rounded-xl p-6">
+      <div className="flex  lg:w-[40vw]  flex-col items-center justify-center lg:absolute">
+        <div className="flex  flex-col gap-5 ">
+          <div className="flex items-start gap-6    rounded-xl lg:p-6">
             <div className="flex flex-col gap-4">
               <h3 className="text-2xl font-semibold ">
                 Developers & AI Builders
               </h3>
-              <ul className="flex flex-col gap-3 text-background/70">
+              <ul className="flex flex-col gap-3 lg:text-background/70">
                 <li className="flex items-center gap-3">
                   <div className="w-5 h-5 ">
                     <FaCircleCheck className="w-4 h-4 text-constructive" />
@@ -39,12 +40,12 @@ function EmpowerSection() {
             </div>
           </div>
 
-          <div className="flex items-start gap-6    rounded-xl p-6">
+          <div className="flex items-start gap-6    rounded-xl lg:p-6">
             <div className="flex flex-col gap-4">
               <h3 className="text-2xl font-semibold ">
                 Business & Domain Experts
               </h3>
-              <ul className="flex flex-col gap-3 text-background/70">
+              <ul className="flex flex-col gap-3 lg:text-background/70">
                 <li className="flex items-center gap-3">
                   <div className="w-5 h-5 ">
                     <FaCircleCheck className="w-4 h-4 text-constructive" />
@@ -85,7 +86,7 @@ function EmpowerSection() {
               <h3 className="text-2xl font-semibold ">
                 End Users & Consumers
               </h3>
-              <ul className="flex flex-col gap-3 text-background/70">
+              <ul className="flex flex-col gap-3 lg:text-background/70">
                 <li className="flex items-center gap-3">
                   <div className="w-5 h-5 ">
                     <FaCircleCheck className="w-4 h-4 text-constructive" />
@@ -114,12 +115,12 @@ function EmpowerSection() {
             </div>
           </div> */}
 
-          <div className="flex items-start gap-6    rounded-xl p-6">
+          <div className="flex items-start gap-6    rounded-xl lg:p-6">
             <div className="flex flex-col gap-4">
               <h3 className="text-2xl font-semibold ">
                 Teams & Enterprise Leaders
               </h3>
-              <ul className="flex flex-col gap-3 text-background/70">
+              <ul className="flex flex-col gap-3 lg:text-background/70">
                 <li className="flex items-center gap-3">
                   <div className="w-5 h-5 ">
                     <FaCircleCheck className="w-4 h-4 text-constructive" />
@@ -148,7 +149,7 @@ function EmpowerSection() {
             </div>
           </div>
         </div>
-        <Button className="rounded-lg py-3 px-6">Explore Cortexvia Now</Button>
+        <Button className="rounded-lg py-3 px-6 mt-5">Explore Cortexvia Now</Button>
       </div>
     </div>
   );

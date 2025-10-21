@@ -42,7 +42,7 @@ function NavBar() {
             Rate Limits
           </div>
         </div>
-        <div className="flex gap-4">
+        <div className=" gap-4 hidden lg:flex">
           <Button variant={"default"}>Contact Us </Button>
           <Button variant={"default"} onClick={() => navigate("/login")}  >Login</Button>
         </div>

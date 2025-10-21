@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 function PricingSection() {
   return (
-    <div className="flex flex-col items-center gap-12 mt-32 w-[70%] ">
+    <div className="flex flex-col items-center gap-12 mt-5 lg:mt-32 w-[95%] lg:w-[70%] ">
       <div className="flex flex-col items-center gap-6 text-center">
         <h1 className="text-5xl font-semibold text-foreground tracking-tight">
           Pricing Plans
@@ -15,7 +15,7 @@ function PricingSection() {
           Indian users in a clean, intuitive interface.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-[80%]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:w-[80%]">
         <div className="flex flex-col justify-between bg-bactext-background rounded-2xl p-8 border ">
           <div className="flex flex-col gap-4">
             <h3 className="text-2xl font-semibold text-foreground">

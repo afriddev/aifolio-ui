@@ -6,8 +6,8 @@ function Footer() {
 
   return (
     <footer className="bg-background text-foreground/80 w-full lg:pt-16 pb-10 px-8 md:px-16 mt-10">
-      <div className="w-full  flex  gap-16   justify-between  ">
-        <div className="flex flex-col  space-y-4 items-center max-w-[15vw]">
+      <div className="w-full  flex flex-col lg:flex-row  gap-16   justify-between  ">
+        <div className="flex flex-col  space-y-4 items-center lg:max-w-[15vw]">
           <div className="cursor-pointer  w-fit    ">
             <img src="/logo-1.png" className="w-48" alt="logo" />
           </div>

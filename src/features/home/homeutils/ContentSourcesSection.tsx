@@ -3,13 +3,13 @@ import { FaCircleCheck } from "react-icons/fa6";
 
 function ContentSourcesSection() {
   return (
-    <div className="flex flex-col items-center justify-center gap-12 mt-32 w-[70%]">
-      <div className="flex items-center justify-center gap-12 mt-32">
-        <div className="w-[35%]">
-          <img alt="Sources" src="/docs2-t.png" className="w-[25vw] rounded-lg" />
+    <div className="flex flex-col items-center justify-center gap-12 mt-5 lg:mt-32 w-[95%] lg:w-[70%] ">
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-12 mt-32">
+        <div className="lg:w-[35%]">
+          <img alt="Sources" src="/docs2-t.png" className="w-[90vw] lg:w-[25vw] rounded-lg" />
         </div>
-        <div className="flex flex-col gap-10 w-[50%]">
-          <div className="flex flex-col gap-4 max-w-[35vw]">
+        <div className="flex flex-col gap-10 lg:w-[50%]">
+          <div className="flex flex-col gap-4 lg:max-w-[35vw]">
             <h3 className="text-4xl font-bold text-foreground">
               Teach Your AI with Supported Content Sources
             </h3>
@@ -67,8 +67,8 @@ function ContentSourcesSection() {
         </div>
       </div>
 
-      <div className="flex flex-col items-center gap-6 bg-gray-50 rounded-xl p-8 w-full">
-        <h3 className="text-2xl font-semibold text-foreground">
+      <div className="flex flex-col items-center gap-6 bg-gray-50 rounded-xl lg:p-8 w-full">
+        <h3 className=" text-2xl font-semibold text-foreground">
           More Sources Coming Soon
         </h3>
         <p className="text-foreground/60 text-center max-w-2xl">
@@ -77,19 +77,19 @@ function ContentSourcesSection() {
           crawling features.
         </p>
         <div className="flex flex-wrap gap-3 mt-4 justify-center">
-          <span className="px-4 py-2 bg-white rounded-full text-foreground/60 border border-gray-200 hover:bg-gray-100 transition-colors duration-200">
+          <span className="px-4 py-2 bg-white rounded-full text-foreground/60 border  lg:hover:bg-muted transition-colors duration-200">
             OneDrive
           </span>
-          <span className="px-4 py-2 bg-white rounded-full text-foreground/60 border border-gray-200 hover:bg-gray-100 transition-colors duration-200">
+          <span className="px-4 py-2 bg-white rounded-full text-foreground/60 border lg:hover:bg-muted transition-colors duration-200">
             Box
           </span>
-          <span className="px-4 py-2 bg-white rounded-full text-foreground/60 border border-gray-200 hover:bg-gray-100 transition-colors duration-200">
+          <span className="px-4 py-2 bg-white rounded-full text-foreground/60 border lg:hover:bg-muted transition-colors duration-200">
             WordPress
           </span>
-          <span className="px-4 py-2 bg-white rounded-full text-foreground/60 border border-gray-200 hover:bg-gray-100 transition-colors duration-200">
+          <span className="px-4 py-2 bg-white rounded-full text-foreground/60 border lg:hover:bg-muted transition-colors duration-200">
             RSS Feeds
           </span>
-          <span className="px-4 py-2 bg-white rounded-full text-foreground/60 border border-gray-200 hover:bg-gray-100 transition-colors duration-200">
+          <span className="px-4 py-2 bg-white rounded-full text-foreground/60 border lg:hover:bg-muted transition-colors duration-200">
             Sitemaps
           </span>
         </div>

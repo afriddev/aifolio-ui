@@ -4,10 +4,10 @@ import { FaCircleCheck } from "react-icons/fa6";
 
 function DeploymentSection() {
   return (
-    <div className="flex flex-col items-center gap-12 mt-32 w-[90%] max-w-7xl mx-auto">
-      <div className="flex items-center justify-center gap-12">
-        <div className="flex flex-col gap-10 w-[50%]">
-          <div className="flex flex-col gap-6 max-w-[35vw]">
+    <div className="flex flex-col items-center gap-12 mt-5 lg:mt-32 w-[95%] lg:w-[70%] ">
+      <div className="flex flex-col-reverse lg:flex-row   items-center justify-center gap-12">
+        <div className="flex flex-col gap-10 lg:w-[50%]">
+          <div className="flex flex-col gap-6 lg:max-w-[35vw]">
             <h2 className="text-4xl font-semibold text-foreground tracking-tight">
               Deploy Anywhere with Powerful Integrations
             </h2>
@@ -46,11 +46,11 @@ function DeploymentSection() {
           </Button>
         </div>
 
-        <div className="w-[35%]">
+        <div className="lg:w-[35%]">
           <img
             alt="Deployment"
             src="/deployment.jpg"
-            className="w-[25vw] rounded-lg shadow-md"
+            className="w-[90vw] lg:w-[25vw] rounded-lg shadow-md"
           />
         </div>
       </div>

@@ -2,11 +2,11 @@ import { IoAddCircle, IoDocument, IoRocket } from "react-icons/io5";
 
 function HowItWorksSection() {
   return (
-    <div className="justify-between flex items-center gap-10 mt-32 w-[70%]">
+    <div className="justify-between flex items-center gap-10 mt-5 lg:mt-32 lg:w-[70%] w-[95%] ">
       <div className="flex flex-col gap-10">
         <div className="flex flex-col items-center  pb-5 gap-5 justify-center">
           <h1 className="text-4xl  font-bold ">How Cortexvia Works</h1>
-          <p className="text-lg text-center w-[70%] text-foreground/70">
+          <p className="text-lg text-center  lg:w-[70%] text-foreground/70">
             Build your custom RAG-powered AI assistant in four effortless
             steps—no coding or backend expertise needed. Our streamlined
             platform empowers developers and teams to upload data, query
@@ -14,8 +14,8 @@ function HowItWorksSection() {
             precise, context-aware responses every time.
           </p>
         </div>
-        <div className="flex flex-row justify-between items-start gap-8  w-full">
-          <div className="w-[25%] gap-2 flex flex-col">
+        <div className="flex flex-col lg:flex-row  justify-between items-start gap-8  px-3 lg:w-full">
+          <div className="lg:w-[25%] gap-2 flex flex-col">
             <div className="flex flex-col gap-1">
               <div className="rounded p-2 bg-primary w-fit h-fit text-background">
                 <IoAddCircle className="w-5 h-5" />
@@ -34,7 +34,7 @@ function HowItWorksSection() {
             </div>
           </div>
 
-          <div className="w-[25%] gap-2 flex flex-col">
+          <div className="lg:w-[25%] gap-2 flex flex-col">
             <div className="flex flex-col gap-1">
               <div className="rounded p-2 bg-primary w-fit h-fit text-background">
                 <IoDocument className="w-5 h-5" />
@@ -53,7 +53,7 @@ function HowItWorksSection() {
 
           
 
-          <div className="w-[25%] gap-2 flex flex-col">
+          <div className="lg:w-[25%] gap-2 flex flex-col">
             <div className="flex flex-col gap-1">
               <div className="rounded p-2 bg-primary w-fit h-fit text-background">
                 <IoRocket className="w-5 h-5" />
