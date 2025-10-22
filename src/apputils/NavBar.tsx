@@ -11,7 +11,7 @@ function NavBar() {
           onClick={() => navigate("/")}
           className="flex items-center gap-2 cursor-pointer"
         >
-          <img src="/logo-1.png" className="w-48" />
+          <img src="/home/logo-1.png" className="w-48" />
         </div>
 
         <div className="hidden md:flex items-center gap-2">
@@ -21,6 +21,14 @@ function NavBar() {
           >
             Docs
           </div>
+          
+          <div
+            onClick={() => navigate("/about")}
+            className=" font-medium   hover:bg-muted rounded px-4 py-2 cursor-pointer transition"
+          >
+            About Us
+          </div>
+
 
           <div
             onClick={() => navigate("/collection")}

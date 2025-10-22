@@ -1,13 +1,5 @@
-function AboutUsMain(){
-
-
-    return(
-        <div className="flex flex-col ">
-
-        </div>
-
-    )
+function AboutUsMain() {
+  return <div className="flex flex-col  "></div>;
 }
-
 
 export default AboutUsMain;

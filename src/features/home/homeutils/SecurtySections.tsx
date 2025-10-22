@@ -13,7 +13,7 @@ function SecuritySection() {
           </h2>
           <div className="flex items-center">
             <div>
-              <img src="soc-2.webp" className="w-32" />
+              <img src="/home/soc-2.webp" className="w-32" />
             </div>
             <div>
               <h2 className="text-2xl text-center font-bold">
@@ -21,7 +21,7 @@ function SecuritySection() {
               </h2>
             </div>
             <div>
-              <img src="gdpr.webp" className="w-32" />
+              <img src="/home/gdpr.webp" className="w-32" />
             </div>
           </div>
           <p className="text-lg text-foreground/60 text-center leading-relaxed">

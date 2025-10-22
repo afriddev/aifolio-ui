@@ -6,7 +6,7 @@ function ContentSourcesSection() {
     <div className="flex flex-col items-center justify-center gap-12 mt-5 lg:mt-32 w-[95%] lg:w-[70%] ">
       <div className="flex flex-col lg:flex-row items-center justify-center gap-12 mt-32">
         <div className="lg:w-[35%]">
-          <img alt="Sources" src="/docs2-t.png" className="w-[90vw] lg:w-[25vw] rounded-lg" />
+          <img alt="Sources" src="/home/docs2-t.png" className="w-[90vw] lg:w-[25vw] rounded-lg" />
         </div>
         <div className="flex flex-col gap-10 lg:w-[50%]">
           <div className="flex flex-col gap-4 lg:max-w-[35vw]">

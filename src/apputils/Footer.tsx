@@ -9,7 +9,7 @@ function Footer() {
       <div className="w-full  flex flex-col lg:flex-row  gap-16   justify-between  ">
         <div className="flex flex-col  space-y-4 items-center lg:max-w-[15vw]">
           <div className="cursor-pointer  w-fit    ">
-            <img src="/logo-1.png" className="w-48" alt="logo" />
+            <img src="/home/logo-1.png" className="w-48" alt="logo" />
           </div>
           <p className=" w-full text-center">
             A smart, intelligent system for data, knowledge, and AI-powered

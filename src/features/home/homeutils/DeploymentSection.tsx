@@ -49,7 +49,7 @@ function DeploymentSection() {
         <div className="lg:w-[35%]">
           <img
             alt="Deployment"
-            src="/deployment.jpg"
+            src="/home/deployment.jpg"
             className="w-[90vw] lg:w-[25vw] rounded-lg shadow-md"
           />
         </div>

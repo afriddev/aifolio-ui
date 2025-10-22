@@ -7,7 +7,7 @@ function AIHeroSection() {
       <div className="lg:w-[35%]">
         <img
           alt="AI Hero"
-          src="/people-discuss.jpg"
+          src="/home/people-discuss.jpg"
           className="w-[90vw]  lg:w-[25vw] rounded-lg shadow-md"
         />
       </div>

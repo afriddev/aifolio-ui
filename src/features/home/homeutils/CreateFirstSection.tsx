@@ -4,7 +4,7 @@ function CreateFirstSection() {
   return (
     <div className="justify-center text-background   flex items-center gap-10 mt-5 lg:mt-32 relative ">
       <div>
-        <img src="bg-banner.png" className=" rounded  h-[100vh]  " />
+        <img src="/home/bg-banner.png" className=" rounded  h-[100vh]  " />
       </div>
 
       <div className="flex absolute gap-10 flex-col w-full items-center">

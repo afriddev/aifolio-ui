@@ -4,7 +4,7 @@ import { GoDependabot } from "react-icons/go";
 function HomeBannerSection() {
   return (
     <div className="flex  lg:w-[70%]  w-[95%] relative">
-      <img src="home-bg-01.png" className="opacity-50 lg:opacity-100 lg:w-[60vw] lg:h-[120vh]  lg:-ml-[10vw]" />
+      <img src="/home/home-bg-01.png" className="opacity-50 lg:opacity-100 lg:w-[60vw] lg:h-[120vh]  lg:-ml-[10vw]" />
       <div className=" flex flex-col w-full   gap-10   absolute lg:relative h-[90vh]   items-center justify-center  ">
         <div className="flex justify-center gap-1 pb-5 lg:-mt-[10vh] items-center  ">
           <GoDependabot className="h-8 w-8  " />

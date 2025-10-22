@@ -5,7 +5,7 @@ function EmpowerSection() {
   return (
     <div className=" lg:text-background  w-[95%] lg:w-full  flex items-center gap-10 mt-5 lg:mt-32 relative ">
       <div className="hidden lg:flex">
-        <img src="man-with-copy-space-futuristic-device.jpg" className="" />
+        <img src="/home/women-with-space.jpg" className="" />
       </div>
       
 

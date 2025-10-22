@@ -58,7 +58,7 @@ function NoCodeSection() {
         <Button className="rounded-lg px-6 py-3 w-fit">Get Started Now</Button>
       </div>
       <div className="lg:w-[35%]">
-        <img alt="No Code" src="/no-code.jpg" className="w-[90vw] lg:w-[25vw] rounded-lg" />
+        <img alt="No Code" src="/home/no-code.jpg" className="w-[90vw] lg:w-[25vw] rounded-lg" />
       </div>
     </div>
   );
