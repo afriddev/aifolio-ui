@@ -224,10 +224,10 @@ function SignUpMain() {
                     </label>
 
                     <p className="  text-destructive">
-                      {<label className="">{errors?.agree?.message}</label>}
+                      {<label className="text-xs">{errors?.agree?.message}</label>}
                     </p>
                   </div>
-                  <div className="flex items-center justify-center w-full ">
+                  <div className="flex items-center justify-center w-full mt-10 ">
                     <GoogleLogin
                       width={300}
                       onSuccess={handleGoogleSignInSuccess}

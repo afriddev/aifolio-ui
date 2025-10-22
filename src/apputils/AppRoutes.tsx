@@ -19,13 +19,14 @@ import DeveloperPolicyMain from "@/features/developerpolicy/DeveloperPolicyMain"
 import DataUsagePolicyMain from "@/features/datausagepolicy/DataUsagePolicyMain";
 import SecurityPolicyMain from "@/features/securitypolicy/SecurityPolicyMain";
 import CompliancePolicyMain from "@/features/compliancepolicy/CompliancePolicyMain";
+import AboutUsMain from "@/features/aboutus/AboutUsMain";
 
 function AppRoutes() {
   return (
     <Routes>
-
       <Route element={<NonProtected />}>
         <Route path="/" element={<HomeMain />} />
+        <Route path="/about" element={<AboutUsMain />} />
         <Route path="/login" element={<LoginMain />} />
         <Route path="/signup" element={<SignUpMain />} />
         <Route path="/forgot-password" element={<ForgotPasswordMain />} />

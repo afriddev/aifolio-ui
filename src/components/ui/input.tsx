@@ -61,7 +61,7 @@ const Input = React.forwardRef<HTMLInputElement, InputInterface>(
         </div>
         {errorMessage && (
           <p className="text-destructive">
-            {<label className="">{errorMessage}</label>}
+            {<label className="text-xs">{errorMessage}</label>}
           </p>
         )}
       </div>
