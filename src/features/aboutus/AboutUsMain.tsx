@@ -1,4 +1,3 @@
-
 import { FaArrowRight } from "react-icons/fa";
 
 function AboutUsMain() {
@@ -202,20 +201,16 @@ function AboutUsMain() {
       <div className="bg-white w-[100%] p-16 flex items-center justify-center">
         <div className="w-[60%] gap-10 flex flex-col text-center">
           <p className="text-xl">
-            AI is reshaping how we create, learn, and build. The question is no
-            longer ‘should I,’ it’s ‘how fast can we harness it to transform
-            knowledge into intelligence?’
+            AI isn’t about whether we’ll use it — it’s about how fast we can
+            turn what we know into real intelligence and real impact.
           </p>
           <label className="font-thin text-xl">
             — Shaik Afrid, Founder & CEO
           </label>
         </div>
       </div>
-
-      
     </div>
   );
 }
 
 export default AboutUsMain;
-
