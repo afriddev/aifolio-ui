@@ -12,7 +12,7 @@ import { useLogin } from "@/hooks/loginHooks";
 
 function LoginMain() {
   const [loginStep, setLoginStep] = useState<number>(0);
-  const { login, isPending } = useLogin();
+  const { login, isPending } = useLogin();  
   const navigate = useNavigate();
   const { formState, handleSubmit, register, reset, watch } = useForm();
 

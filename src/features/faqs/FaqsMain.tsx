@@ -1,7 +1,3 @@
-// src/pages/Faqs.tsx
-
-import Footer from "@/apputils/Footer";
-import NavBar from "@/apputils/NavBar";
 import PageWrapper from "@/apputils/PageWrapper";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/accordion";
 
@@ -101,7 +97,6 @@ export default function FaqsMain() {
   return (
     <PageWrapper>
       <div className="flex flex-col">
-        <NavBar />
         <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
           <motion.div
             className="lg:w-[80vw] mx-auto text-center mb-12"
@@ -139,7 +134,6 @@ export default function FaqsMain() {
             ))}
           </Accordion>
         </div>
-        <Footer />
       </div>
     </PageWrapper>
   );
