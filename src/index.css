@@ -1,6 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&display=swap");
+:root {
+  --font-sans: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, SFMono-Regular, monospace;
+}
 
-/* existing Tailwind imports */
+
+
+/* 
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&f[]=jetbrains-mono@400,500&display=swap");
+
+:root {
+  --font-sans: "Satoshi", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+} */
+
+
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -51,14 +66,14 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.987 0.001 106.42);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(0.987 0.001 106.42);
+  --background: oklch(98.231% 0.00837 271.335);
+  --foreground: oklch(0% 0 0);
+  --card: oklch(98.231% 0.00837 271.335);
   --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(0.987 0.001 106.42);
+  --popover: oklch(98.231% 0.00837 271.335);
   --popover-foreground: oklch(0.145 0 0);
   
-  --primary: oklch(62.742% 0.2284 33.08);
+  --primary: oklch(64.753% 0.21287 34.355);
   --primary-foreground: oklch(0.985 0 0);
   
   --secondary: oklch(39.626% 0.26452 267.077);
@@ -92,17 +107,14 @@
 
 
 
-:root {
-  --font-sans: "Space Grotesk", "Inter", system-ui, sans-serif;
-  --font-mono: "Fira Code", ui-monospace, SFMono-Regular, monospace;
-}
+
 
 
 
 
 @layer base {
   body {
-    @apply bg-background text-foreground text-base;
+    @apply bg-background text-foreground text-base font-normal;
     font-family: var(--font-sans); 
   }
 
@@ -121,3 +133,4 @@
   -webkit-text-stroke: 1px #facc15; 
   color: transparent;
 }
+

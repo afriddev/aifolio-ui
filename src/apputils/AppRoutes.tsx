@@ -20,6 +20,7 @@ import DataUsagePolicyMain from "@/features/datausagepolicy/DataUsagePolicyMain"
 import SecurityPolicyMain from "@/features/securitypolicy/SecurityPolicyMain";
 import CompliancePolicyMain from "@/features/compliancepolicy/CompliancePolicyMain";
 import AboutUsMain from "@/features/aboutus/AboutUsMain";
+import ContactUsMain from "@/features/contactus/ContactUsMain";
 
 function AppRoutes() {
   return (
@@ -27,6 +28,7 @@ function AppRoutes() {
       <Route element={<NonProtected />}>
         <Route path="/" element={<HomeMain />} />
         <Route path="/about" element={<AboutUsMain />} />
+        <Route path="/contact" element={<ContactUsMain />} />
         <Route path="/login" element={<LoginMain />} />
         <Route path="/signup" element={<SignUpMain />} />
         <Route path="/forgot-password" element={<ForgotPasswordMain />} />
