@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { BsLightningCharge } from "react-icons/bs";
+
 import { FaArrowRight } from "react-icons/fa";
 
 function AboutUsMain() {
@@ -189,10 +188,10 @@ function AboutUsMain() {
                   <div className="flex ">
                     <div className="h-5 w-5 bg-foreground"></div>
                     <div className="bg-foreground text-background h-fit p-4  w-[10vw]  mt-5 flex items-center  justify-center text-center">
-                      Team members
+                      Female leaders
                     </div>
                   </div>
-                  <img alt="Team members" src="/about/feamale-selfie.svg" />
+                  <img alt="Female leaders" src="/about/feamale-selfie.svg" />
                 </div>
               </div>
             </div>
@@ -220,25 +219,3 @@ function AboutUsMain() {
 
 export default AboutUsMain;
 
-// function AboutUsMain() {
-//   return (
-//     <div className="relative flex h-[20vh] overflow-hidden">
-//       <div
-//         className="absolute inset-0"
-//         style={{
-//           backgroundColor: "#fff",
-//           backgroundImage: `
-//             repeating-linear-gradient(to right, #000 0 1px, transparent 1px 50px),
-//             repeating-linear-gradient(to bottom, #000 0 1px, transparent 1px 50px)
-//           `,
-//           backgroundSize: "50px 50px",
-//           backgroundPosition: "0 0",
-//         }}
-//       ></div>
-//       <div className="absolute bottom-0 left-0 w-full h-[1px] bg-black"></div>
-//       <div className="absolute top-0 right-0 w-[1px] h-full bg-black"></div>
-//     </div>
-//   );
-// }
-
-// export default AboutUsMain;
