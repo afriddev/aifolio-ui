@@ -1,261 +1,141 @@
-// src/pages/CookiePolicy.tsx
-
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-
 import { Button } from "@/components/ui/button";
-import {
-  Cookie,
-  Info,
-  Zap,
-  Settings,
-  Globe,
-  EyeOff,
-  Shield,
-  MapPin,
-  FileWarning,
-  Phone,
-} from "lucide-react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/accordion";
+import PageWrapper from "@/apputils/PageWrapper";
 
-const sections = [
-  {
-    id: "summary",
-    title: "Summary",
-    icon: <Cookie className="w-6 h-6 text-indigo-500" />,
-    content: (
-      <>
-        <p className="mb-4 text-sm">
-          <strong>Purpose & Scope:</strong> This Cookie Policy explains how
-          Cortexvia uses cookies and tracking technologies across its website
-          and dashboard to deliver a seamless user experience, store preferences,
-          and analyze platform performance.
-        </p>
-        <p className="mb-4 text-sm">
-          <strong>Categories & Use:</strong> Cortexvia uses essential,
-          functional, performance, and analytical cookies to enable login
-          sessions, secure API access, personalize dashboard settings, and
-          improve system reliability.
-        </p>
-        <p className="mb-4 text-sm">
-          <strong>User Control:</strong> You can adjust cookie settings anytime
-          via browser preferences. Disabling cookies may affect login or API
-          access functionality.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "definitions",
-    title: "Definitions",
-    icon: <Info className="w-6 h-6 text-blue-500" />,
-    content: (
-      <p className="mb-4">
-        “Cookies” are small data files stored on your browser to maintain
-        sessions and preferences. “Tracking technologies” include analytics and
-        performance tools that help Cortexvia optimize user experience.
-      </p>
-    ),
-  },
-  {
-    id: "types",
-    title: "Types of Cookies",
-    icon: <Settings className="w-6 h-6 text-green-500" />,
-    content: (
-      <ul className="list-disc ml-6 space-y-2">
-        <li>
-          <strong>Essential Cookies:</strong> Enable login authentication, API
-          key management, and session continuity.
-        </li>
-        <li>
-          <strong>Performance Cookies:</strong> Monitor system uptime, loading
-          speed, and error tracking.
-        </li>
-        <li>
-          <strong>Functional Cookies:</strong> Store user preferences, theme,
-          and interface settings.
-        </li>
-        <li>
-          <strong>Analytics Cookies:</strong> Collect anonymous usage data to
-          help improve AI response speed and dashboard experience.
-        </li>
-      </ul>
-    ),
-  },
-  {
-    id: "use-of-cookies",
-    title: "How We Use Cookies",
-    icon: <Zap className="w-6 h-6 text-yellow-500" />,
-    content: (
-      <ul className="list-disc ml-6 space-y-2">
-        <li>Maintain user sessions and API authentication securely.</li>
-        <li>Track errors and improve website performance.</li>
-        <li>Analyze dashboard interactions for better usability.</li>
-        <li>Provide personalized model recommendations or data insights.</li>
-      </ul>
-    ),
-  },
-  {
-    id: "third-party",
-    title: "Third-Party Cookies",
-    icon: <Globe className="w-6 h-6 text-teal-500" />,
-    content: (
-      <p className="mb-4">
-        Cortexvia may use trusted analytics tools like Google Analytics and
-        Sentry for monitoring usage patterns and improving service quality. These
-        third parties follow their respective data protection policies.
-      </p>
-    ),
-  },
-  {
-    id: "managing-cookies",
-    title: "Managing & Disabling Cookies",
-    icon: <EyeOff className="w-6 h-6 text-gray-600" />,
-    content: (
-      <p className="mb-4">
-        You can disable or delete cookies via browser settings. Some features
-        like secure login, API dashboard, or usage analytics may not work
-        correctly if cookies are turned off.
-      </p>
-    ),
-  },
-  {
-    id: "data-protection",
-    title: "Data Protection & Security",
-    icon: <Shield className="w-6 h-6 text-black" />,
-    content: (
-      <p className="mb-4">
-        Cortexvia uses encryption and secure transmission for all cookie data.
-        Cookie-based identifiers are anonymized and never used for advertising
-        or shared outside our infrastructure.
-      </p>
-    ),
-  },
-  {
-    id: "mobile-cookies",
-    title: "Cookies on Mobile Devices",
-    icon: <MapPin className="w-6 h-6 text-pink-400" />,
-    content: (
-      <p className="mb-4">
-        Our cookie practices apply equally to mobile browsers and web apps. You
-        can manage cookie preferences through your device’s browser or app
-        settings.
-      </p>
-    ),
-  },
-  {
-    id: "changes",
-    title: "Changes to this Policy",
-    icon: <FileWarning className="w-6 h-6 text-orange-500" />,
-    content: (
-      <p className="mb-4">
-        Cortexvia may revise this Cookie Policy periodically. Major updates will
-        be notified via our website or email, with the latest version always
-        available on the policy page.
-      </p>
-    ),
-  },
-  {
-    id: "contact",
-    title: "Contact Information",
-    icon: <Phone className="w-6 h-6 text-green-400" />,
-    content: (
-      <>
-        <p className="mb-2">For questions about cookies or privacy:</p>
-        <ul className="list-disc ml-6">
-          <li>
-            <strong>Email:</strong> privacy@Cortexvia.com
-          </li>
-          <li>
-            <strong>Address:</strong> 45 Data Hub Street, Bangalore, India
-          </li>
-        </ul>
-      </>
-    ),
-  },
-];
-
-
-const CookiePolicyMain: React.FC = () => {
+function CookiePolicyMain() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col">
-      <div className="min-h-screen w-full flex justify-center">
-        <div className="lg:w-[80vw] mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <PageWrapper>
+      <div className="flex flex-col items-center justify-center w-full pb-20">
+        <div className="w-[50%] text-gray-800">
           <Button
             variant="ghost"
-            className="mb-6 text-gray-600 hover:text-indigo-600"
+            className="mb-6 text-gray-600 hover:text-black focus:outline-none"
             onClick={() => navigate(-1)}
           >
             ← Back
           </Button>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4 font-montserrat">
-              Cortexvia Cookie Policy
-            </h1>
-            <p className="text-lg text-gray-700 mb-8 font-roboto">
-              Effective Date: April 21, 2025
-            </p>
+          <h1 className="text-3xl font-semibold mb-2">
+            Cortexvia Cookie Policy
+          </h1>
+          <p className="text-sm mb-8">Date of Last Revision: April 21, 2025</p>
 
-            <Card className="mb-8 shadow-lg bg-white">
-              <CardHeader className="border-b border-gray-200">
-                <h2 className="text-xl sm:text-2xl font-semibold text-indigo-700 flex items-center space-x-2 font-montserrat">
-                  {sections[0].icon}
-                  <span>{sections[0].title}</span>
-                </h2>
-              </CardHeader>
-              <CardContent className="p-6 text-gray-700 font-roboto leading-relaxed">
-                {sections[0].content}
-              </CardContent>
-            </Card>
+          <p className="mb-4 text-[15px] leading-relaxed">
+            This Cookie Policy explains how Cortexvia (“we,” “our,” or “us”)
+            uses cookies and similar technologies on our website, APIs, and
+            dashboards to enhance user experience, improve performance, and
+            secure platform functionality.
+          </p>
 
-            <Accordion type="single" collapsible className="space-y-6">
-              {sections.slice(1).map((section) => (
-                <AccordionItem
-                  key={section.id}
-                  value={section.id}
-                  className="border border-gray-200 rounded-md bg-white shadow-sm"
-                >
-                  <AccordionTrigger className="p-4 text-gray-800 hover:bg-gray-100 font-montserrat">
-                    <div className="flex items-center space-x-2">
-                      {section.icon}
-                      <span className="font-medium">{section.title}</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-4 text-gray-600 font-roboto leading-relaxed">
-                    {section.content}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+          <h2 className="font-bold text-[16px] mb-2">1. What Are Cookies</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Cookies are small text files stored on your browser when you visit
+            our site. They help maintain session data, remember preferences, and
+            support secure access to Cortexvia’s platform and APIs.
+          </p>
 
-            <motion.div
-              className="mt-12 text-center"
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Button
-                size="lg"
-                className="bg-indigo-600 text-white hover:bg-indigo-700"
-                onClick={() => navigate("/contact")}
-              >
-                Contact Us
-              </Button>
-            </motion.div>
-          </motion.div>
+          <h2 className="font-bold text-[16px] mb-2">
+            2. Types of Cookies We Use
+          </h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Cortexvia uses the following categories of cookies:
+            <ul className="list-disc ml-6 mt-2">
+              <li>
+                <strong>Essential Cookies:</strong> Required for authentication
+                and API session continuity.
+              </li>
+              <li>
+                <strong>Performance Cookies:</strong> Monitor system uptime,
+                response times, and error tracking.
+              </li>
+              <li>
+                <strong>Functional Cookies:</strong> Save interface preferences
+                such as theme and layout.
+              </li>
+              <li>
+                <strong>Analytics Cookies:</strong> Collect anonymous usage data
+                to optimize AI performance.
+              </li>
+            </ul>
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">3. How We Use Cookies</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            We use cookies to:
+            <ul className="list-disc ml-6 mt-2">
+              <li>Authenticate users and maintain login sessions</li>
+              <li>Measure dashboard performance and identify errors</li>
+              <li>Improve AI response times and usability</li>
+              <li>Provide personalized feature recommendations</li>
+            </ul>
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">4. Third-Party Cookies</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            We may use third-party tools such as Google Analytics or Sentry for
+            system performance and analytics. These providers adhere to their
+            respective privacy and security policies.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">
+            5. Managing and Disabling Cookies
+          </h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            You can manage, disable, or delete cookies in your browser settings.
+            However, disabling cookies may limit access to secure sections or
+            affect login and API functions.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">
+            6. Data Protection and Security
+          </h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Cortexvia encrypts all cookie-related data and ensures secure
+            transmission. We do not use cookies for advertising or share cookie
+            data externally.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">
+            7. Cookies on Mobile Devices
+          </h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Our cookie policy applies equally across mobile browsers and web
+            apps. You may manage cookie preferences through your device’s
+            browser or system settings.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">
+            8. Changes to This Policy
+          </h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Cortexvia may update this Cookie Policy from time to time. The
+            revised version will be posted on our website with the effective
+            date updated accordingly.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">9. Contact Information</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            For any questions about this Cookie Policy:
+            <br />
+            <strong>Email:</strong> privacy@cortexvia.com
+            <br />
+            <strong>Phone:</strong> +91 98765 43210
+            <br />
+            <strong>Address:</strong> 45 Data Hub Street, Bangalore, Karnataka,
+            India
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">10. Consent</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            By continuing to use Cortexvia’s website and dashboard, you consent
+            to our use of cookies as outlined in this Policy.
+          </p>
         </div>
       </div>
-    </div>
+    </PageWrapper>
   );
-};
+}
 
 export default CookiePolicyMain;

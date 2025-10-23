@@ -1,219 +1,120 @@
-// src/pages/RefundPolicyMain.tsx
-
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "@/components/accordion";
 import { Button } from "@/components/ui/button";
-import {
-  HandCoins,
-  FileWarning,
-  CreditCard,
-  ShieldCheck,
-  Slash,
-  Clock,
-  Info,
-  Phone,
-} from "lucide-react";
+import PageWrapper from "@/apputils/PageWrapper";
 
-const sections = [
-  {
-    id: "overview",
-    title: "Overview",
-    icon: <Info className="w-6 h-6 text-indigo-500" />,
-    content: (
-      <p className="mb-4 text-sm">
-        This Refund & Cancellation Policy outlines how Cortexvia handles
-        payment disputes, cancellations, and refund eligibility. As we provide
-        digital services such as API access and AI-based processing, refunds are
-        handled case-by-case to maintain system fairness.
-      </p>
-    ),
-  },
-  {
-    id: "eligibility",
-    title: "Refund Eligibility",
-    icon: <ShieldCheck className="w-6 h-6 text-green-600" />,
-    content: (
-      <ul className="list-disc ml-6 space-y-2">
-        <li>Refunds apply only to failed or duplicate payments verified by our billing team.</li>
-        <li>Requests must be made within <strong>7 days</strong> of the payment date.</li>
-        <li>No refunds are issued for Words, API calls, or subscription time already used.</li>
-        <li>Users may cancel subscriptions before the next renewal date to avoid future charges.</li>
-      </ul>
-    ),
-  },
-  {
-    id: "process",
-    title: "Refund Process",
-    icon: <HandCoins className="w-6 h-6 text-yellow-600" />,
-    content: (
-      <ol className="list-decimal ml-6 space-y-2">
-        <li>Contact <strong>billing@Cortexvia.com</strong> with your order ID and reason for request.</li>
-        <li>Our team verifies transaction logs and confirms eligibility.</li>
-        <li>Approved refunds are processed within <strong>5–10 business days</strong>.</li>
-        <li>You’ll receive confirmation once your refund is completed.</li>
-      </ol>
-    ),
-  },
-  {
-    id: "non-refundable",
-    title: "Non-Refundable Items",
-    icon: <Slash className="w-6 h-6 text-red-500" />,
-    content: (
-      <ul className="list-disc ml-6 space-y-2">
-        <li>Consumed API Words or used requests.</li>
-        <li>Monthly or annual subscriptions post-renewal.</li>
-        <li>Performance-based or model-accuracy complaints.</li>
-        <li>Delays from third-party payment providers.</li>
-      </ul>
-    ),
-  },
-  {
-    id: "subscription",
-    title: "Subscription & Cancellation",
-    icon: <Clock className="w-6 h-6 text-blue-500" />,
-    content: (
-      <p className="mb-4">
-        Subscriptions can be cancelled anytime before the next billing date via
-        your dashboard. Once cancelled, you’ll retain access until the end of
-        your current cycle. Partial refunds for unused time are not provided.
-      </p>
-    ),
-  },
-  {
-    id: "security",
-    title: "Payment Security",
-    icon: <CreditCard className="w-6 h-6 text-teal-500" />,
-    content: (
-      <p className="mb-4">
-        All payments are processed via secure gateways with encryption and
-        compliance to industry standards. Cortexvia never stores card details on
-        its servers.
-      </p>
-    ),
-  },
-  {
-    id: "changes",
-    title: "Policy Updates",
-    icon: <FileWarning className="w-6 h-6 text-orange-500" />,
-    content: (
-      <p className="mb-4">
-        Cortexvia may revise this Refund Policy periodically. Any major change
-        will be announced on our website, and continued use implies agreement
-        with the updated version.
-      </p>
-    ),
-  },
-  {
-    id: "contact",
-    title: "Contact Information",
-    icon: <Phone className="w-6 h-6 text-green-400" />,
-    content: (
-      <>
-        <p className="mb-2">For billing or refund queries, reach out:</p>
-        <ul className="list-disc ml-6">
-          <li>
-            <strong>Email:</strong> billing@Cortexvia.com
-          </li>
-          <li>
-            <strong>Support:</strong> support@Cortexvia.com
-          </li>
-          <li>
-            <strong>Address:</strong> 45 Data Hub Street, Bangalore, India
-          </li>
-        </ul>
-      </>
-    ),
-  },
-];
-
-const RefundPolicyMain: React.FC = () => {
+function RefundPolicyMain() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col">
-      <div className="min-h-screen w-full flex justify-center">
-        <div className="lg:w-[80vw] mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <PageWrapper>
+      <div className="flex flex-col items-center justify-center w-full pb-20">
+        <div className="w-[50%] text-gray-800">
           <Button
             variant="ghost"
-            className="mb-6 text-gray-600 hover:text-indigo-600"
+            className="mb-6 text-gray-600 hover:text-black focus:outline-none"
             onClick={() => navigate(-1)}
           >
             ← Back
           </Button>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4 font-montserrat">
-               Cortexvia Refund & Cancellation Policy
-            </h1>
-            <p className="text-lg text-gray-700 mb-8 font-roboto">
-              Effective Date: April 21, 2025
-            </p>
+          <h1 className="text-3xl font-semibold mb-2">
+            Cortexvia Refund & Cancellation Policy
+          </h1>
+          <p className="text-sm mb-8">Date of Last Revision: April 21, 2025</p>
 
-            {/* Summary Card */}
-            <Card className="mb-8 shadow-lg bg-white">
-              <CardHeader className="border-b border-gray-200">
-                <h2 className="text-xl sm:text-2xl font-semibold text-indigo-700 flex items-center space-x-2 font-montserrat">
-                  {sections[0].icon}
-                  <span>{sections[0].title}</span>
-                </h2>
-              </CardHeader>
-              <CardContent className="p-6 text-gray-700 font-roboto leading-relaxed">
-                {sections[0].content}
-              </CardContent>
-            </Card>
+          <p className="mb-4 text-[15px] leading-relaxed">
+            This Refund & Cancellation Policy explains how Cortexvia manages
+            refund requests, cancellations, and billing adjustments related to
+            our digital services and AI-based API plans.
+          </p>
 
-            {/* Accordion */}
-            <Accordion type="single" collapsible className="space-y-6">
-              {sections.slice(1).map((section) => (
-                <AccordionItem
-                  key={section.id}
-                  value={section.id}
-                  className="border border-gray-200 rounded-md bg-white shadow-sm"
-                >
-                  <AccordionTrigger className="p-4 text-gray-800 hover:bg-gray-100 font-montserrat">
-                    <div className="flex items-center space-x-2">
-                      {section.icon}
-                      <span className="font-medium">{section.title}</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-4 text-gray-600 font-roboto leading-relaxed">
-                    {section.content}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+          <h2 className="font-bold text-[16px] mb-2">1. Refund Eligibility</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Refunds are available only for verified cases of failed or duplicate
+            transactions. Requests must be submitted within{" "}
+            <strong>7 days</strong> from the transaction date. Refunds are not
+            provided for used API Words, partial subscriptions, or billing
+            cycles already consumed.
+          </p>
 
-            <motion.div
-              className="mt-12 text-center"
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Button
-                size="lg"
-                className="bg-indigo-600 text-white hover:bg-indigo-700"
-                onClick={() => navigate("/contact")}
-              >
-                Contact Support
-              </Button>
-            </motion.div>
-          </motion.div>
+          <h2 className="font-bold text-[16px] mb-2">2. Refund Process</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            To request a refund:
+            <ul className="list-decimal ml-6 mt-2">
+              <li>
+                Email <strong>billing@cortexvia.com</strong> with your payment ID
+                and reason for request.
+              </li>
+              <li>
+                Our billing team reviews each case and verifies transaction logs.
+              </li>
+              <li>
+                Approved refunds are processed within{" "}
+                <strong>5–10 business days</strong>.
+              </li>
+              <li>
+                A confirmation will be sent once the refund is completed.
+              </li>
+            </ul>
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">3. Non-Refundable Cases</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            The following are not eligible for refunds:
+            <ul className="list-disc ml-6 mt-2">
+              <li>Used API calls or consumed Words.</li>
+              <li>Active or renewed subscriptions.</li>
+              <li>Performance dissatisfaction or output accuracy issues.</li>
+              <li>Delays caused by external payment providers.</li>
+            </ul>
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">
+            4. Subscription & Cancellation
+          </h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Users can cancel subscriptions anytime before the next billing date
+            from their Cortexvia dashboard. Once cancelled, access remains active
+            until the end of the billing period. No partial refunds are issued for
+            unused subscription time.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">5. Payment Security</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            All payments are processed through secure PCI-DSS compliant gateways.
+            Cortexvia does not store any payment card information on its servers.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">6. Policy Updates</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Cortexvia may modify this Refund Policy at any time. Updated versions
+            will be published on our website. Continued use of our services implies
+            acceptance of the revised policy.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">7. Contact Information</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            For refund or billing inquiries:
+            <br />
+            <strong>Email:</strong> billing@cortexvia.com
+            <br />
+            <strong>Support:</strong> support@cortexvia.com
+            <br />
+            <strong>Phone:</strong> +91 98765 43210
+            <br />
+            <strong>Address:</strong> 45 Data Hub Street, Bangalore, Karnataka,
+            India
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">8. Acknowledgement</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            By using Cortexvia’s paid services, you acknowledge that you have read
+            and agreed to this Refund & Cancellation Policy.
+          </p>
         </div>
       </div>
-    </div>
+    </PageWrapper>
   );
-};
+}
 
 export default RefundPolicyMain;

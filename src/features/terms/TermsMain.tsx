@@ -1,292 +1,171 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-
 import { Button } from "@/components/ui/button";
-import {
-  ClipboardList,
-  Briefcase,
-  FileText,
-  DollarSign,
-  AlertTriangle,
-  Phone,
-  RefreshCcw,
-  Slash,
-  Shield,
-  Key,
-} from "lucide-react";
 import PageWrapper from "@/apputils/PageWrapper";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/accordion";
 
-const sections = [
-  {
-    id: "summary",
-    title: "Overview",
-    icon: <Briefcase className="w-6 h-6 text-blue-500" />,
-    content: (
-      <>
-        <p className="mb-4 text-sm">
-          Welcome to Cortexvia – an intelligent AI platform offering document,
-          video, and model-based solutions. By accessing our website, APIs, SDK,
-          or chatbot library, you agree to the following Terms & Conditions.
-          These ensure fair use, user safety, and compliance with global data
-          standards.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "usage",
-    title: "Platform Usage",
-    icon: <ClipboardList className="w-6 h-6 text-green-500" />,
-    content: (
-      <>
-        <p className="mb-4">
-          Cortexvia provides tools for data uploads, retrieval-augmented
-          generation (RAG), and AI model interaction. You may not use the
-          platform to store, distribute, or generate content that is illegal,
-          offensive, or violates intellectual property laws.
-        </p>
-        <p className="mb-4">
-          Any misuse, including automated scraping, spamming, or exploiting
-          system vulnerabilities, is strictly prohibited. Violations may result
-          in immediate suspension or legal action.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "api-keys",
-    title: "API Keys & Access",
-    icon: <Key className="w-6 h-6 text-orange-500" />,
-    content: (
-      <>
-        <p className="mb-4">
-          Each user account is assigned unique Data and Model API keys. Keep
-          them secure and never share or resell them. Unauthorized access or key
-          abuse (e.g., key sharing or excessive requests) may lead to key
-          revocation and account suspension.
-        </p>
-        <p>
-          Cortexvia reserves the right to monitor API usage to maintain service
-          stability and prevent abuse.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "plans",
-    title: "Plans & Billing",
-    icon: <DollarSign className="w-6 h-6 text-yellow-500" />,
-    content: (
-      <>
-        <p className="mb-4">
-          We offer Free and Developer plans with defined Word, speed, and data
-          limits. Billing occurs monthly through secure payment gateways.
-          Upgrades or downgrades can be managed from your dashboard.
-        </p>
-        <p>
-          Refunds are only processed for verified service interruptions caused
-          by Cortexvia. Subscription cancellations must occur before the next
-          billing cycle.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "privacy",
-    title: "Data & Privacy",
-    icon: <Shield className="w-6 h-6 text-purple-500" />,
-    content: (
-      <>
-        <p className="mb-4">
-          We prioritize data security and privacy. Uploaded content is processed
-          securely and may be temporarily cached for model inference. Cortexvia
-          does not sell, rent, or distribute user data to third parties.
-        </p>
-        <p>
-          Users retain ownership of their uploaded content but grant Cortexvia a
-          limited license to process it for AI-based operations.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "limitations",
-    title: "Usage Limitations",
-    icon: <AlertTriangle className="w-6 h-6 text-red-500" />,
-    content: (
-      <>
-        <p className="mb-4">
-          Users must comply with all rate limits and usage restrictions.
-          Generating or distributing harmful, biased, or misleading content via
-          Cortexvia is strictly forbidden.
-        </p>
-        <p>
-          Cortexvia reserves the right to throttle or restrict access to protect
-          platform performance and maintain ethical AI practices.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "liability",
-    title: "Liability Disclaimer",
-    icon: <FileText className="w-6 h-6 text-gray-600" />,
-    content: (
-      <>
-        <p className="mb-4">
-          Cortexvia is provided “as is” without warranties. We are not liable
-          for losses arising from system downtime, AI output errors, or
-          third-party misuse. Users are responsible for verifying generated
-          content before publication or decision-making.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "termination",
-    title: "Account Termination",
-    icon: <Slash className="w-6 h-6 text-pink-500" />,
-    content: (
-      <>
-        <p className="mb-4">
-          Accounts can be terminated due to policy violations, non-payment, or
-          prolonged inactivity. Once terminated, all user data may be deleted
-          without recovery. Backup critical data before closure.
-        </p>
-        <p>
-          Cortexvia reserves the right to deny future registrations from users
-          involved in prior misuse or violations.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "updates",
-    title: "Policy Updates",
-    icon: <RefreshCcw className="w-6 h-6 text-teal-500" />,
-    content: (
-      <>
-        <p className="mb-4">
-          Cortexvia may update these Terms periodically to reflect legal or
-          technical changes. Continued use of the platform after such updates
-          implies acceptance of revised terms.
-        </p>
-        <p>
-          Users are advised to review this page regularly for the latest
-          updates.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "contact",
-    title: "Contact & Support",
-    icon: <Phone className="w-6 h-6 text-blue-400" />,
-    content: (
-      <>
-        <p className="mb-4">For legal or technical assistance, contact:</p>
-        <p className="mb-2">
-          <strong>Email:</strong> support@Cortexvia.com
-        </p>
-        <p className="mb-2">
-          <strong>Phone:</strong> +91 98765 43210
-        </p>
-        <p>
-          <strong>Address:</strong> 45 Data Hub Street, Bangalore, Karnataka,
-          India
-        </p>
-      </>
-    ),
-  },
-];
-
-
-const TermsMain: React.FC = () => {
+function TermsMain() {
   const navigate = useNavigate();
 
   return (
     <PageWrapper>
-      <div className="flex flex-col h-full w-full ">
-        <div className=" w-full justify-center flex h-full  ">
-          <div className="lg:w-[80vw] py-12 px-4 sm:px-6 lg:px-8">
-            <Button
-              variant="ghost"
-              className="mb-6 text-gray-600 hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              onClick={() => navigate(-1)}
-            >
-              ← Back
-            </Button>
+      <div className="flex flex-col items-center justify-center w-full pb-20">
+        <div className="w-[50%] text-gray-800">
+          <Button
+            variant="ghost"
+            className="mb-6 text-gray-600 hover:text-black focus:outline-none"
+            onClick={() => navigate(-1)}
+          >
+            ← Back
+          </Button>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h1 className="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4 font-montserrat">
-                Cortexvia Terms & Conditions
-              </h1>
-              <p className="text-lg text-gray-700 mb-8 font-roboto">
-                Effective Date: April 21, 2025
-              </p>
+          <h1 className="text-3xl font-semibold mb-2">Cortexvia Terms & Conditions</h1>
+          <p className="text-sm mb-8">Date of Last Revision: April 21, 2025</p>
 
-              <Card className="mb-8 shadow-lg bg-white">
-                <CardHeader className=" border-b border-gray-200">
-                  <h2 className="text-2xl mt-3 font-semibold text-indigo-700 flex items-center space-x-2 font-montserrat">
-                    {sections[0].icon}
-                    <span className="">{sections[0].title}</span>
-                  </h2>
-                </CardHeader>
-                <CardContent className="p-6 text-gray-700 font-roboto leading-relaxed">
-                  {sections[0].content}
-                </CardContent>
-              </Card>
+          <p className="mb-4 text-[15px] leading-relaxed">
+            These Terms and Conditions govern the use of Cortexvia’s website, APIs, SDKs, and
+            platform services (collectively, the “Services”). By using or accessing Cortexvia, you
+            agree to be bound by these Terms and all applicable laws and regulations. If you do not
+            agree with any of these Terms, you are prohibited from using the Services.
+          </p>
 
-              <Accordion type="single" collapsible className="space-y-4">
-                {sections.slice(1).map((section) => (
-                  <AccordionItem
-                    key={section.id}
-                    value={section.id}
-                    className="border border-gray-200 rounded-md bg-white shadow-sm"
-                  >
-                    <AccordionTrigger className="p-4 text-gray-800 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-montserrat">
-                      <div className="flex items-center space-x-2">
-                        {section.icon}
-                        <span className="font-medium">{section.title}</span>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="p-4 text-gray-600 font-roboto leading-relaxed">
-                      {section.content}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+          <p className="mb-4 text-[15px] leading-relaxed font-semibold">
+            PLEASE READ THESE TERMS CAREFULLY. THEY CONSTITUTE A LEGALLY BINDING AGREEMENT BETWEEN
+            YOU AND CORTEXVIA REGARDING YOUR USE OF THE PLATFORM.
+          </p>
 
-              <motion.div
-                className="mt-12 text-center"
-                initial={{ scale: 0.9 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Button
-                  size="lg"
-                  className="bg-indigo-600 text-white hover:bg-indigo-700 shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                  onClick={() => navigate("/signup")}
-                >
-                  Get Started
-                </Button>
-              </motion.div>
-            </motion.div>
-          </div>
+          <p className="mb-10 text-[15px] leading-relaxed font-semibold">
+            IF YOU DO NOT AGREE TO THESE TERMS OR OUR PRIVACY POLICY, YOU SHOULD NOT ACCESS OR USE
+            THE SERVICES.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">1. Privacy Policy; Entire Agreement</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Your privacy is important to us. We encourage you to read our Privacy Policy to
+            understand our practices. By using Cortexvia, you consent to the collection and use of
+            information as described therein. These Terms and our Privacy Policy constitute the
+            entire agreement between you and Cortexvia concerning the use of our Services.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">2. Changes to Terms and Conditions</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Cortexvia may modify these Terms at any time. Updated Terms will be posted on the
+            website. Continued use of the Services after such updates constitutes your acceptance of
+            the revised Terms. If you do not agree to any changes, you must discontinue using the
+            Services.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">3. Scope of Use</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Cortexvia grants you a limited, non-exclusive, non-transferable right to use its
+            Services for informational and lawful purposes only. You may not copy, modify,
+            redistribute, or resell any part of Cortexvia’s platform, APIs, or models without
+            written permission.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">4. Account and API Key Management</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Each registered user receives unique API keys for Data and Model access. You are
+            responsible for safeguarding your credentials. Cortexvia reserves the right to suspend
+            keys if misuse, key sharing, or excessive traffic is detected.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">5. Plans and Billing</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Cortexvia offers Free, Developer, and Enterprise plans. Billing occurs monthly through
+            secure payment providers. Refunds may be granted only in cases of verified service
+            failure. Subscription cancellations must occur before the next billing cycle.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">6. Data & Content Ownership</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            You retain ownership of data you upload to Cortexvia. By uploading or integrating data,
+            you grant Cortexvia a limited license to process it for retrieval, model training, or
+            inference purposes. Cortexvia does not sell or share your data with third parties.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">7. Acceptable Use Policy</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            You may not use Cortexvia to generate, distribute, or host illegal, harmful, or
+            misleading content. Violations include attempts to reverse-engineer the platform,
+            overloading APIs, or automated scraping. Misuse may result in termination or legal
+            action.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">8. Service Availability</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            While Cortexvia strives for continuous uptime, maintenance or technical interruptions
+            may occur. We do not guarantee uninterrupted or error-free access to the platform.
+            Scheduled maintenance will be communicated in advance when possible.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">9. Liability Disclaimer</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Cortexvia is provided “as is” without warranties of any kind. We are not liable for
+            losses arising from downtime, data loss, or errors in AI-generated outputs. You are
+            responsible for reviewing and verifying all model outputs before relying on them.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">10. Account Termination</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Accounts may be terminated due to policy violations, non-payment, or inactivity.
+            Termination will result in deletion of all associated data and credentials. Back up your
+            data regularly. Cortexvia reserves the right to deny re-registration for prior misuse.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">11. Policy Updates</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            These Terms may be updated periodically. Continued use of Cortexvia after changes means
+            you accept the new Terms. You are responsible for reviewing the latest version regularly.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">12. Contact Information</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            For inquiries or support:
+            <br />
+            <strong>Email:</strong> support@cortexvia.com
+            <br />
+            <strong>Phone:</strong> +91 98765 43210
+            <br />
+            <strong>Address:</strong> 45 Data Hub Street, Bangalore, Karnataka, India
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">13. Intellectual Property</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            All content, logos, models, code, and intellectual property available through Cortexvia
+            are owned by Cortexvia or its licensors. You may not copy, reproduce, or distribute
+            platform materials without written authorization.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">14. Confidentiality</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Users must maintain confidentiality regarding non-public information obtained through
+            the platform, including system APIs, unpublished features, or testing data.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">15. Indemnification</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            You agree to indemnify and hold Cortexvia and its affiliates harmless from any claims,
+            damages, or expenses arising from your use of the Services or violation of these Terms.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">16. Governing Law & Jurisdiction</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            These Terms are governed by the laws of India. Any disputes arising shall be subject to
+            the exclusive jurisdiction of courts in Bangalore, Karnataka.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">17. Severability</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            If any provision of these Terms is found unenforceable, the remaining provisions shall
+            remain in full force and effect.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">18. Entire Agreement</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            These Terms, along with the Privacy Policy, constitute the entire agreement between you
+            and Cortexvia regarding your use of the Services and supersede all prior agreements or
+            understandings.
+          </p>
         </div>
-
       </div>
     </PageWrapper>
   );

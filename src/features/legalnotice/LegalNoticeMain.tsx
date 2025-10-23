@@ -1,181 +1,106 @@
-// src/pages/LegalNotice.tsx
-
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import {
-  FileText,
-  Building,
-  Gavel,
-  Copyright,
-  AlertCircle,
-  Mail,
-  MapPin,
-} from "lucide-react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/accordion";
 import { Button } from "@/components/ui/button";
+import PageWrapper from "@/apputils/PageWrapper";
 
-const sections = [
-  {
-    id: "summary",
-    title: "Summary",
-    icon: <FileText className="w-6 h-6 text-indigo-500" />,
-    content: (
-      <>
-        <p className="mb-4 text-sm">
-          <strong>Purpose & Scope:</strong> This Legal Notice provides public disclosure of Cortexvia's entity details, governance, and content usage rules.
-        </p>
-        <p className="mb-4 text-sm">
-          <strong>Key Principles:</strong> All platform content is protected; use is governed by Indian law with exclusive jurisdiction in Bangalore courts.
-        </p>
-        <p className="mb-4 text-sm">
-          <strong>Protections:</strong> Trademarks and intellectual property are enforced to maintain brand integrity.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "entity",
-    title: "Company Entity",
-    icon: <Building className="w-6 h-6 text-blue-500" />,
-    content: (
-      <p className="mb-4">
-        <strong>Entity:</strong> Cortexvia Technologies Pvt. Ltd.
-      </p>
-    ),
-  },
-  {
-    id: "address",
-    title: "Registered Address",
-    icon: <MapPin className="w-6 h-6 text-green-500" />,
-    content: (
-      <p className="mb-4">
-        <strong>Address:</strong> 45 Data Hub Street, Bangalore, India.
-      </p>
-    ),
-  },
-  {
-    id: "jurisdiction",
-    title: "Governing Law and Jurisdiction",
-    icon: <Gavel className="w-6 h-6 text-yellow-500" />,
-    content: (
-      <p className="mb-4">
-        Governed by Indian law; disputes settled in Bangalore courts. This applies to all users worldwide.
-      </p>
-    ),
-  },
-  {
-    id: "trademarks",
-    title: "Trademarks and Content Ownership",
-    icon: <Copyright className="w-6 h-6 text-teal-500" />,
-    content: (
-      <p className="mb-4">
-        All trademarks, names, and content belong to Cortexvia or respective owners. Unauthorized use is not permitted.
-      </p>
-    ),
-  },
-  {
-    id: "prohibited",
-    title: "Prohibited Actions",
-    icon: <AlertCircle className="w-6 h-6 text-red-500" />,
-    content: (
-      <p className="mb-4">
-        Unauthorized reproduction, redistribution, or scraping of platform content is prohibited. Violators may face legal action.
-      </p>
-    ),
-  },
-  {
-    id: "contact",
-    title: "Legal Contact",
-    icon: <Mail className="w-6 h-6 text-purple-500" />,
-    content: (
-      <>
-        <p className="mb-2">Contact legal department:</p>
-        <p className="font-medium">legal@Cortexvia.com</p>
-      </>
-    ),
-  },
-];
-
-const LegalNoticeMain: React.FC = () => {
+function LegalNoticeMain() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col">
-      <div className="min-h-screen w-full flex justify-center">
-        <div className="lg:w-[80vw] mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <PageWrapper>
+      <div className="flex flex-col items-center justify-center w-full pb-20">
+        <div className="w-[50%] text-gray-800">
           <Button
             variant="ghost"
-            className="mb-6 text-gray-600 hover:text-indigo-600"
+            className="mb-6 text-gray-600 hover:text-black focus:outline-none"
             onClick={() => navigate(-1)}
           >
             ← Back
           </Button>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4 font-montserrat">
-              Legal Notice
-            </h1>
-            <p className="text-lg text-gray-700 mb-8 font-roboto">
-              Effective Date: October 20, 2025
-            </p>
+          <h1 className="text-3xl font-semibold mb-2">Cortexvia Legal Notice</h1>
+          <p className="text-sm mb-8">Date of Last Revision: October 20, 2025</p>
 
-            <Card className="mb-8 shadow-lg bg-white">
-              <CardHeader className="border-b border-gray-200">
-                <h2 className="text-xl sm:text-2xl font-semibold text-indigo-700 flex items-center space-x-2 font-montserrat">
-                  {sections[0].icon}
-                  <span>{sections[0].title}</span>
-                </h2>
-              </CardHeader>
-              <CardContent className="p-6 text-gray-700 font-roboto leading-relaxed">
-                {sections[0].content}
-              </CardContent>
-            </Card>
+          <p className="mb-4 text-[15px] leading-relaxed">
+            This Legal Notice provides official information regarding Cortexvia’s legal entity,
+            jurisdiction, and intellectual property rights. By using this platform, you agree to
+            comply with the applicable legal framework described below.
+          </p>
 
-            <Accordion type="single" collapsible className="space-y-6">
-              {sections.slice(1).map((section) => (
-                <AccordionItem
-                  key={section.id}
-                  value={section.id}
-                  className="border border-gray-200 rounded-md bg-white shadow-sm"
-                >
-                  <AccordionTrigger className="p-4 text-gray-800 hover:bg-gray-100 font-montserrat">
-                    <div className="flex items-center space-x-2">
-                      {section.icon}
-                      <span className="font-medium">{section.title}</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-4 text-gray-600 font-roboto leading-relaxed">
-                    {section.content}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+          <h2 className="font-bold text-[16px] mb-2">1. Company Information</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            <strong>Entity Name:</strong> Cortexvia Technologies Pvt. Ltd.
+            <br />
+            <strong>Registered Address:</strong> No where, Imaginary street, Nowhere City, 00000
+          </p>
 
-            <motion.div
-              className="mt-12 text-center"
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Button
-                size="lg"
-                className="bg-indigo-600 text-white hover:bg-indigo-700"
-                onClick={() => navigate("/contact")}
-              >
-                Contact Us
-              </Button>
-            </motion.div>
-          </motion.div>
+          <h2 className="font-bold text-[16px] mb-2">2. Purpose and Scope</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            This notice outlines legal responsibilities related to Cortexvia’s operations, ownership,
+            and intellectual property rights. It applies to all visitors, users, and partners of
+            Cortexvia’s platform and services.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">3. Governing Law and Jurisdiction</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            All legal matters involving Cortexvia are governed by the laws of India. Any disputes
+            shall be exclusively resolved in the courts of Bangalore, Karnataka, India. This
+            jurisdiction clause applies universally to all users worldwide.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">4. Intellectual Property</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            All trademarks, logos, models, source code, and related content available through
+            Cortexvia are the exclusive property of Cortexvia Technologies Pvt. Ltd. or its
+            licensors. Unauthorized reproduction, redistribution, or modification is strictly
+            prohibited without written consent.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">5. Copyright and Content Ownership</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            The website, platform interfaces, APIs, and documentation are protected under applicable
+            copyright laws. Users may view or use Cortexvia materials solely for lawful personal or
+            business purposes as permitted by license or agreement.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">6. Prohibited Actions</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Users are prohibited from reproducing, redistributing, framing, scraping, or reselling
+            any part of the Cortexvia website, documentation, or services. Legal action may be taken
+            against violations of intellectual property or brand misuse.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">7. Liability Disclaimer</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Cortexvia is provided “as is,” without warranties of any kind. The company is not liable
+            for any direct or indirect damages arising from the use of its platform, APIs, or
+            content.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">8. Legal Contact Information</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            For legal correspondence or trademark inquiries, contact:
+            <br />
+            <strong>Email:</strong> legal@cortexvia.com
+            <br />
+            <strong>Address:</strong> 45 Data Hub Street, Bangalore, Karnataka, India
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">9. Changes to Legal Notice</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Cortexvia may update this Legal Notice from time to time. The most recent version will
+            always be published on this page. Continued use of our services constitutes your
+            acknowledgment of the updated notice.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">10. Acknowledgment</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            By using Cortexvia’s platform, you confirm that you have read, understood, and agree to
+            abide by this Legal Notice, including all applicable laws and regulations.
+          </p>
         </div>
       </div>
-    </div>
+    </PageWrapper>
   );
-};
+}
 
 export default LegalNoticeMain;

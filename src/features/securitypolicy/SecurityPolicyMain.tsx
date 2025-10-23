@@ -1,180 +1,128 @@
-// src/pages/SecurityPolicy.tsx
-
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Shield,
-  Lock,
-  Search,
-  Key,
-  Eye,
-  Bug,
-} from "lucide-react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/accordion";
+import PageWrapper from "@/apputils/PageWrapper";
 
-const sections = [
-  {
-    id: "summary",
-    title: "Summary",
-    icon: <Shield className="w-6 h-6 text-indigo-500" />,
-    content: (
-      <>
-        <p className="mb-4 text-sm">
-          <strong>Purpose & Scope:</strong> This Security Policy describes the technical safeguards implemented by Cortexvia to protect user data, APIs, and platform integrity.
-        </p>
-        <p className="mb-4 text-sm">
-          <strong>Key Principles:</strong> We employ industry-standard practices for encryption, monitoring, and testing to mitigate risks and respond to incidents swiftly.
-        </p>
-        <p className="mb-4 text-sm">
-          <strong>Commitment:</strong> Security is ongoing; we encourage responsible disclosure of vulnerabilities.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "encryption",
-    title: "Encryption Standards",
-    icon: <Lock className="w-6 h-6 text-blue-500" />,
-    content: (
-      <p className="mb-4">
-        Data encrypted in transit (TLS) and at rest (AES-256). All communications and storage are protected end-to-end.
-      </p>
-    ),
-  },
-  {
-    id: "scans",
-    title: "Vulnerability Scans and Audits",
-    icon: <Search className="w-6 h-6 text-green-500" />,
-    content: (
-      <p className="mb-4">
-        Regular vulnerability scans and access audits are conducted to identify and remediate potential threats proactively.
-      </p>
-    ),
-  },
-  {
-    id: "authentication",
-    title: "Access Controls",
-    icon: <Key className="w-6 h-6 text-yellow-500" />,
-    content: (
-      <p className="mb-4">
-        Role-based permissions and token-based authentication ensure only authorized users access sensitive features.
-      </p>
-    ),
-  },
-  {
-    id: "monitoring",
-    title: "System Monitoring",
-    icon: <Eye className="w-6 h-6 text-teal-500" />,
-    content: (
-      <p className="mb-4">
-        24/7 system monitoring and automated anomaly detection help detect and respond to unusual activity in real-time.
-      </p>
-    ),
-  },
-  {
-    id: "testing",
-    title: "Penetration Testing",
-    icon: <Bug className="w-6 h-6 text-red-500" />,
-    content: (
-      <p className="mb-4">
-        Periodic penetration testing and incident response procedures are in place to strengthen defenses.
-      </p>
-    ),
-  },
-  {
-    id: "disclosure",
-    title: "Responsible Disclosure",
-    icon: <Shield className="w-6 h-6 text-purple-500" />,
-    content: (
-      <>
-        <p className="mb-2">Bug-bounty or responsible disclosure email:</p>
-        <p className="font-medium">security@Cortexvia.com</p>
-      </>
-    ),
-  },
-];
-
-const SecurityPolicyMain: React.FC = () => {
+function SecurityPolicyMain() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col">
-      <div className="min-h-screen w-full flex justify-center">
-        <div className="lg:w-[80vw] mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <PageWrapper>
+      <div className="flex flex-col items-center justify-center w-full pb-20">
+        <div className="w-[50%] text-gray-800">
           <Button
             variant="ghost"
-            className="mb-6 text-gray-600 hover:text-indigo-600"
+            className="mb-6 text-gray-600 hover:text-black focus:outline-none"
             onClick={() => navigate(-1)}
           >
             ← Back
           </Button>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4 font-montserrat">
-             Cortexvia Security Policy
-            </h1>
-            <p className="text-lg text-gray-700 mb-8 font-roboto">
-              Effective Date: October 20, 2025
-            </p>
+          <h1 className="text-3xl font-semibold mb-2">Cortexvia Security Policy</h1>
+          <p className="text-sm mb-8">Date of Last Revision: October 20, 2025</p>
 
-            <Card className="mb-8 shadow-lg bg-white">
-              <CardHeader className="border-b border-gray-200">
-                <h2 className="text-xl sm:text-2xl font-semibold text-indigo-700 flex items-center space-x-2 font-montserrat">
-                  {sections[0].icon}
-                  <span>{sections[0].title}</span>
-                </h2>
-              </CardHeader>
-              <CardContent className="p-6 text-gray-700 font-roboto leading-relaxed">
-                {sections[0].content}
-              </CardContent>
-            </Card>
+          <p className="mb-4 text-[15px] leading-relaxed">
+            This Security Policy outlines the measures Cortexvia implements to protect user data,
+            ensure service reliability, and maintain the integrity of our platform. Security is a
+            continuous effort at Cortexvia — built into our infrastructure, products, and culture.
+          </p>
 
-            <Accordion type="single" collapsible className="space-y-6">
-              {sections.slice(1).map((section) => (
-                <AccordionItem
-                  key={section.id}
-                  value={section.id}
-                  className="border border-gray-200 rounded-md bg-white shadow-sm"
-                >
-                  <AccordionTrigger className="p-4 text-gray-800 hover:bg-gray-100 font-montserrat">
-                    <div className="flex items-center space-x-2">
-                      {section.icon}
-                      <span className="font-medium">{section.title}</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-4 text-gray-600 font-roboto leading-relaxed">
-                    {section.content}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+          <h2 className="font-bold text-[16px] mb-2">1. Encryption Standards</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            All data is encrypted using <strong>TLS</strong> during transit and{" "}
+            <strong>AES-256</strong> at rest. This ensures your data remains private and
+            inaccessible to unauthorized entities. Encryption keys are rotated and managed securely.
+          </p>
 
-            <motion.div
-              className="mt-12 text-center"
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Button
-                size="lg"
-                className="bg-indigo-600 text-white hover:bg-indigo-700"
-                onClick={() => navigate("/contact")}
-              >
-                Contact Us
-              </Button>
-            </motion.div>
-          </motion.div>
+          <h2 className="font-bold text-[16px] mb-2">2. Access Controls</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Access to internal systems follows a role-based access control (RBAC) model. Only
+            authorized employees with legitimate business needs can access production environments.
+            Authentication is enforced through multi-factor verification.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">3. Vulnerability Scanning and Audits</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Regular vulnerability scans and internal security audits are conducted to identify and
+            remediate potential threats. External penetration testing is scheduled periodically to
+            validate our defense posture.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">4. System Monitoring</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Cortexvia continuously monitors systems for anomalies, suspicious patterns, and
+            unauthorized access attempts. Alerts trigger immediate investigation and, if necessary,
+            automated containment actions.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">5. Authentication and Tokens</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            API and user authentication use token-based mechanisms. Tokens are short-lived, scoped,
+            and securely stored. Passwords are never stored in plain text and are hashed using
+            industry-standard algorithms.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">6. Incident Response</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Cortexvia maintains an incident response protocol for identifying, assessing, and
+            resolving security events. In the event of a breach, affected users are notified promptly
+            in compliance with applicable laws.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">7. Penetration Testing</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Third-party experts conduct regular penetration tests to simulate attacks and identify
+            weaknesses before they can be exploited. Findings are remediated immediately upon
+            verification.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">8. Responsible Disclosure</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            We encourage responsible disclosure of security vulnerabilities. Researchers and users
+            can report potential security flaws directly to{" "}
+            <strong>security@cortexvia.com</strong>. Verified submissions may be eligible for
+            acknowledgment under our disclosure program.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">9. Data Protection</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            User data is processed and stored within secure environments that meet compliance
+            standards. Cortexvia does not sell, trade, or share user data with any unauthorized
+            entity.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">10. Employee Security Training</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            All Cortexvia employees undergo mandatory security awareness and data protection
+            training. Access credentials are revoked immediately upon role changes or termination.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">11. Policy Updates</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            This policy is reviewed and updated regularly to reflect evolving security standards,
+            technology, and legal obligations. Updates are published on the official Cortexvia
+            website.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">12. Contact Information</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            For security concerns, incident reports, or vulnerability disclosures:
+            <br />
+            <strong>Email:</strong> security@cortexvia.com
+            <br />
+            <strong>Support:</strong> support@cortexvia.com
+            <br />
+            <strong>Address:</strong> No where, Imaginary street, Nowhere City, 00000
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">13. Acknowledgement</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            By using Cortexvia, you acknowledge that you understand and agree to this Security
+            Policy and its commitment to safeguarding your data and privacy.
+          </p>
         </div>
       </div>
-    </div>
+    </PageWrapper>
   );
-};
+}
 
 export default SecurityPolicyMain;

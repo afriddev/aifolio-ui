@@ -1,179 +1,120 @@
-// src/pages/DataUsagePolicy.tsx
-
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Database,
-  Lock,
-  Shield,
-  User,
-  Trash2,
-  BarChart3,
-} from "lucide-react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/accordion";
+import PageWrapper from "@/apputils/PageWrapper";
 
-const sections = [
-  {
-    id: "summary",
-    title: "Summary",
-    icon: <Database className="w-6 h-6 text-indigo-500" />,
-    content: (
-      <>
-        <p className="mb-4 text-sm">
-          <strong>Purpose & Scope:</strong> This Data Usage Policy explains how user-uploaded data is handled, processed, and protected within the Cortexvia platform.
-        </p>
-        <p className="mb-4 text-sm">
-          <strong>Key Principles:</strong> We prioritize privacy, security, and user control, ensuring data is used only for intended services like RAG and AI inference.
-        </p>
-        <p className="mb-4 text-sm">
-          <strong>User Rights:</strong> You own your data and can manage or delete it at any time.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "processing",
-    title: "Data Processing",
-    icon: <Database className="w-6 h-6 text-blue-500" />,
-    content: (
-      <p className="mb-4">
-        Data is processed solely for retrieval (RAG) and AI inference. No unrelated processing occurs.
-      </p>
-    ),
-  },
-  {
-    id: "storage",
-    title: "Storage and Caching",
-    icon: <Lock className="w-6 h-6 text-green-500" />,
-    content: (
-      <p className="mb-4">
-        Files are stored securely and may be cached temporarily to optimize performance. Caches are cleared periodically.
-      </p>
-    ),
-  },
-  {
-    id: "no-selling",
-    title: "Data Monetization",
-    icon: <Shield className="w-6 h-6 text-yellow-500" />,
-    content: (
-      <p className="mb-4">
-        Cortexvia never sells, rents, or trains public models on user data. Your information remains private.
-      </p>
-    ),
-  },
-  {
-    id: "ownership",
-    title: "User Ownership",
-    icon: <User className="w-6 h-6 text-teal-500" />,
-    content: (
-      <p className="mb-4">
-        Users retain full ownership of their uploaded files. Cortexvia claims no rights to your content.
-      </p>
-    ),
-  },
-  {
-    id: "deletion",
-    title: "Data Deletion",
-    icon: <Trash2 className="w-6 h-6 text-red-500" />,
-    content: (
-      <p className="mb-4">
-        Deleted data is permanently erased within 30 days. Request deletion via the dashboard.
-      </p>
-    ),
-  },
-  {
-    id: "analytics",
-    title: "Usage Analytics",
-    icon: <BarChart3 className="w-6 h-6 text-purple-500" />,
-    content: (
-      <p className="mb-4">
-        Usage analytics are collected anonymously for performance improvement. No personal identifiers are linked.
-      </p>
-    ),
-  },
-];
-
-const DataUsagePolicyMain: React.FC = () => {
+function DataUsagePolicyMain() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col">
-      <div className="min-h-screen w-full flex justify-center">
-        <div className="lg:w-[80vw] mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <PageWrapper>
+      <div className="flex flex-col items-center justify-center w-full pb-20">
+        <div className="w-[50%] text-gray-800">
           <Button
             variant="ghost"
-            className="mb-6 text-gray-600 hover:text-indigo-600"
+            className="mb-6 text-gray-600 hover:text-black focus:outline-none"
             onClick={() => navigate(-1)}
           >
             ← Back
           </Button>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-3xl sm:text-4xl font-bold text-indigo-700 mb-4 font-montserrat">
-             Cortexvia Data Usage Policy
-            </h1>
-            <p className="text-lg text-gray-700 mb-8 font-roboto">
-              Effective Date: October 20, 2025
-            </p>
+          <h1 className="text-3xl font-semibold mb-2">Cortexvia Data Usage Policy</h1>
+          <p className="text-sm mb-8">Date of Last Revision: October 20, 2025</p>
 
-            <Card className="mb-8 shadow-lg bg-white">
-              <CardHeader className="border-b border-gray-200">
-                <h2 className="text-xl sm:text-2xl font-semibold text-indigo-700 flex items-center space-x-2 font-montserrat">
-                  {sections[0].icon}
-                  <span>{sections[0].title}</span>
-                </h2>
-              </CardHeader>
-              <CardContent className="p-6 text-gray-700 font-roboto leading-relaxed">
-                {sections[0].content}
-              </CardContent>
-            </Card>
+          <p className="mb-4 text-[15px] leading-relaxed">
+            This Data Usage Policy explains how Cortexvia (“we,” “our,” or “us”) handles,
+            processes, and protects user-uploaded data across all services, including RAG
+            pipelines, AI inference, and API integrations. We are committed to maintaining
+            user privacy, security, and full data ownership.
+          </p>
 
-            <Accordion type="single" collapsible className="space-y-6">
-              {sections.slice(1).map((section) => (
-                <AccordionItem
-                  key={section.id}
-                  value={section.id}
-                  className="border border-gray-200 rounded-md bg-white shadow-sm"
-                >
-                  <AccordionTrigger className="p-4 text-gray-800 hover:bg-gray-100 font-montserrat">
-                    <div className="flex items-center space-x-2">
-                      {section.icon}
-                      <span className="font-medium">{section.title}</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-4 text-gray-600 font-roboto leading-relaxed">
-                    {section.content}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+          <h2 className="font-bold text-[16px] mb-2">1. Purpose and Scope</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            The purpose of this policy is to provide transparency on how data is collected,
+            processed, stored, and deleted within the Cortexvia platform. It applies to all
+            users, developers, and organizations using Cortexvia services.
+          </p>
 
-            <motion.div
-              className="mt-12 text-center"
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Button
-                size="lg"
-                className="bg-indigo-600 text-white hover:bg-indigo-700"
-                onClick={() => navigate("/contact")}
-              >
-                Contact Us
-              </Button>
-            </motion.div>
-          </motion.div>
+          <h2 className="font-bold text-[16px] mb-2">2. Data Processing</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Uploaded data is processed solely for retrieval-augmented generation (RAG),
+            question-answering, and AI inference. Cortexvia does not use user data for any
+            unrelated analysis, model training, or third-party purposes.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">3. Data Storage and Caching</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            All files and user data are securely stored using encrypted infrastructure.
+            Temporary caching may occur to improve system performance and reduce latency,
+            and caches are automatically purged at regular intervals.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">4. Data Ownership</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Users retain complete ownership of their uploaded files and content.
+            Cortexvia claims no rights, license, or authorship over user data.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">5. Data Monetization</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Cortexvia does not sell, rent, or trade user data. Your data is never used
+            for public model training or shared with third parties.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">6. Data Deletion</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Users can delete uploaded files at any time from the dashboard.
+            Deleted data is permanently removed from our servers within <strong>30 days</strong>.
+            Once deleted, data cannot be recovered.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">7. Usage Analytics</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Cortexvia collects anonymous usage metrics to improve system reliability,
+            performance, and model efficiency. Analytics are aggregated and contain
+            no personally identifiable information.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">8. Security Practices</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            All data transfers occur over encrypted HTTPS connections. Access to user data
+            is restricted to authorized systems only. Regular audits are performed to
+            maintain compliance with industry security standards.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">9. User Rights</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Users have the right to access, export, or permanently delete their data.
+            You may contact <strong>privacy@cortexvia.com</strong> for any data-related
+            requests or clarifications.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">10. Policy Updates</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            Cortexvia may periodically revise this policy to reflect updates in technology,
+            security, or compliance standards. Continued use of our services after an update
+            signifies your acceptance of the revised policy.
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">11. Contact Information</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            For questions about this Data Usage Policy or data handling practices:
+            <br />
+            <strong>Email:</strong> privacy@cortexvia.com
+            <br />
+            <strong>Support:</strong> support@cortexvia.com
+            <br />
+            <strong>Address:</strong> No where, Imaginary street, Nowhere City, 00000
+          </p>
+
+          <h2 className="font-bold text-[16px] mb-2">12. Consent</h2>
+          <p className="mb-6 text-[15px] leading-relaxed">
+            By using Cortexvia’s platform, you acknowledge and consent to this Data Usage Policy
+            and the processing of your information in accordance with it.
+          </p>
         </div>
       </div>
-    </div>
+    </PageWrapper>
   );
-};
+}
 
 export default DataUsagePolicyMain;

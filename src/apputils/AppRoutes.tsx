@@ -23,6 +23,7 @@ import AboutUsMain from "@/features/aboutus/AboutUsMain";
 import ContactUsMain from "@/features/contactus/ContactUsMain";
 import PricingMain from "@/features/pricing/PricingMain";
 import ModelsMain from "@/features/models/ModelsMain";
+import LegalNoticeMain from "@/features/legalnotice/LegalNoticeMain";
 
 function AppRoutes() {
   return (
@@ -37,6 +38,7 @@ function AppRoutes() {
         <Route path="/signup" element={<SignUpMain />} />
         <Route path="/forgot-password" element={<ForgotPasswordMain />} />
         <Route path="/resetpassword/:token" element={<ResetPasswordMain />} />
+
         <Route path="/terms" element={<TermsMain />} />
         <Route path="/privacy-policy" element={<PrivacyMain />} />
         <Route path="/cookie-policy" element={<CookiePolicyMain />} />
@@ -47,7 +49,7 @@ function AppRoutes() {
         <Route path="/data-usage-policy" element={<DataUsagePolicyMain />} />
         <Route path="/security-policy" element={<SecurityPolicyMain />} />
         <Route path="/compliance-policy" element={<CompliancePolicyMain />} />
-        <Route path="/legal-notice" element={<CompliancePolicyMain />} />
+        <Route path="/legal-notice" element={<LegalNoticeMain />} />
       </Route>
       <Route element={<ProtectedRoute />}>
         <Route path="/chat/:chatId" element={<ChatMain />} />
