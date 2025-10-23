@@ -33,7 +33,7 @@ function RefundPolicyMain() {
             Refunds are available only for verified cases of failed or duplicate
             transactions. Requests must be submitted within{" "}
             <strong>7 days</strong> from the transaction date. Refunds are not
-            provided for used API Words, partial subscriptions, or billing
+            provided for used API Tokens, partial subscriptions, or billing
             cycles already consumed.
           </p>
 
@@ -62,7 +62,7 @@ function RefundPolicyMain() {
           <p className="mb-6 text-[15px] leading-relaxed">
             The following are not eligible for refunds:
             <ul className="list-disc ml-6 mt-2">
-              <li>Used API calls or consumed Words.</li>
+              <li>Used API calls or consumed Tokens.</li>
               <li>Active or renewed subscriptions.</li>
               <li>Performance dissatisfaction or output accuracy issues.</li>
               <li>Delays caused by external payment providers.</li>

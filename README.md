@@ -28,7 +28,7 @@ Whether you're building knowledge bases, chatbots, or AI-driven applications, Co
   - Developer-Friendly Documentation
 - [Components](#components)
 - [Getting Started](#getting-started)
-  - [Requirements](#requirements)
+  - [Requirements](#requirements)/
   - Installation
   - Usage Examples
   - Full Setup Guide
@@ -53,7 +53,7 @@ Cortexvia empowers users and developers to:
 - **Upload Data**: Securely ingest documents (PDFs, DOCs, TXT) or YouTube video URLs for processing.
 - **Query with RAG**: Ask natural language questions and receive context-aware answers from your uploaded data using advanced RAG techniques (RAG, SmartRAG, LightRAG, GraphRAG).
 - **AI Inference**: Access multiple AI models  for generation, embeddings, and reranking.
-- **Track & Scale**: Monitor usage, manage plans (Free or Developer), and scale with speed tiers (Normal: 200–500 Words/sec, Medium: 700–1000, Fast: 2000–2500).
+- **Track & Scale**: Monitor usage, manage plans (Free or Developer), and scale with speed tiers (Normal: 200–500 Tokens/sec, Medium: 700–1000, Fast: 2000–2500).
 
 Built for seamless integration, Cortexvia handles the heavy lifting of data retrieval, vector embeddings, and model orchestration—so you can focus on building intelligent applications.
 
@@ -80,7 +80,7 @@ Why it's valuable? Saves developers time on data prep; just upload and query. In
 - **Retrieval-Augmented Generation**: Core engine that retrieves relevant chunks from your data and feeds them into an LLM for context-aware answers.
 - **RAG variants**: Basic RAG for straightforward retrieval; SmartRAG (hybrid search with JINA for better realtime ranking); LightRAG for lightweight embeddings on edge devices; GraphRAG under the hood for knowledge graph-based queries.
 - **Results Polishing**: Auto-generated answers with citations to source data chunks, streaming support for live chats.
-- **Query Optimization**: Supports multi-step queries and filters (e.g., date range, keywords) for precise results.
+- **Query Optimization**: Supports multi-step queries and filters (e.g., date range, keyTokens) for precise results.
 
 Why it's valuable? Reduces hallucinations in AI outputs by grounding responses in your own data. Perfect for knowledge bases, customer support, or research.
 
@@ -131,7 +131,7 @@ Why it's valuable? Add conversational UIs to your app in minutes, ideal for webs
 
 ### Speed Optimization and Tiers
 
-- **Tiered Inference**: Choose from Normal (200–500 Words/sec), Medium (700–1000), or Fast  for web-scale performance.
+- **Tiered Inference**: Choose from Normal (200–500 Tokens/sec), Medium (700–1000), or Fast  for web-scale performance.
 - **Auto-Scaling**: Dynamically adapt to load, reducing latency during peak usage.
 - **Word Estimation**: Predict and optimize Word use before calling models to stay under limits.
 
@@ -267,7 +267,7 @@ const model = new CortexviaModel({
 
 const completion = await model.generate({
   prompt: 'Summarize this text...',
-  maxWords: 500,
+  maxTokens: 500,
 });
 ```
 
@@ -293,8 +293,8 @@ Generate keys via the dashboard. Treat them as secrets—never commit to version
 
 | Tier      | Data Limits | Model Limits       | Speed Tiers          | Price     |
 |-----------|-------------|--------------------|----------------------|-----------|
-| **Free**  | Low (10 uploads/day) | Low (1k Words/day) | Normal (200–500 t/s) | Free     |
-| **Developer** | Higher (100 uploads/day) | Higher (10k Words/day) | Medium/Fast (700–2500 t/s) | $29/month |
+| **Free**  | Low (10 uploads/day) | Low (1k Tokens/day) | Normal (200–500 t/s) | Free     |
+| **Developer** | Higher (100 uploads/day) | Higher (10k Tokens/day) | Medium/Fast (700–2500 t/s) | $29/month |
 
 Upgrade via dashboard. Limits reset daily/monthly. Overages billed at tier rates.
 

@@ -57,7 +57,7 @@ function SecurityPolicyMain() {
           <h2 className="font-bold text-[16px] mb-2">5. Authentication and Tokens</h2>
           <p className="mb-6 text-[15px] leading-relaxed">
             API and user authentication use token-based mechanisms. Tokens are short-lived, scoped,
-            and securely stored. Passwords are never stored in plain text and are hashed using
+            and securely stored. PassTokens are never stored in plain text and are hashed using
             industry-standard algorithms.
           </p>
 

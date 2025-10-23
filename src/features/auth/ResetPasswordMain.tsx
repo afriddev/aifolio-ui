@@ -88,7 +88,7 @@ function ResetPasswordMain() {
                   {...register("confirmPassword", {
                     required: "Please re-enter your password",
                     validate: (val) =>
-                      val === watch("password") || "Passwords do not match",
+                      val === watch("password") || "PassTokens do not match",
                     pattern: {
                       value:
                         /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])[A-Za-z\d!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]{8,}$/,

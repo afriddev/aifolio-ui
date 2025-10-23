@@ -37,7 +37,7 @@ const faqs = [
     id: "faq-6",
     icon: <FaQuestionCircle className="w-5 h-5 text-primary" />,
     title: "What are the pricing plans?",
-    content: "We offer a free plan with 10,000 Words/day and a Developer plan with > 1,000,000 Words/day for $20/₹1,650/month. Visit our pricing page for details."
+    content: "We offer a free plan with 10,000 Tokens/day and a Developer plan with > 1,000,000 Tokens/day for $20/₹1,650/month. Visit our pricing page for details."
   },
   {
     id: "faq-7",

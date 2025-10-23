@@ -42,26 +42,26 @@ function RAGDocsLimitsSection() {
     },
     {
       type: "Context Memory",
-      free: "4K Words",
-      developer: "64K Words",
-      enterprise: "128K+ Words",
+      free: "4K Tokens",
+      developer: "64K Tokens",
+      enterprise: "128K+ Tokens",
     }
   ];
 
   const speedTiers = [
     {
       speed: "Low Speed",
-      rate: "50–200 Words/sec",
+      rate: "50–200 Tokens/sec",
       desc: "Balanced mode for detailed, reasoning-heavy answers. Default for Free Tier.",
     },
     {
       speed: "Medium Speed",
-      rate: "100–2000 Words/sec",
+      rate: "100–2000 Tokens/sec",
       desc: "Optimized for faster document retrieval and chat responses. Default for Developer Tier.",
     },
     {
       speed: "High Speed (Flash)",
-      rate: "1000–3000 Words/sec",
+      rate: "1000–3000 Tokens/sec",
       desc: "For production-grade RAG and real-time applications. Flash & Ultra models only.",
     },
   ];
