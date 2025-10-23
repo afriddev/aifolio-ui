@@ -37,11 +37,11 @@ function PricingSection() {
             </li>
             <li className="flex items-center gap-3">
               <IoCheckmarkCircle className="w-5 h-5 text-constructive" />
-              <span>10,000 tokens daily for inference</span>
+              <span>10,000 Words daily for inference</span>
             </li>
             <li className="flex items-center gap-3">
               <IoCheckmarkCircle className="w-5 h-5 text-constructive" />
-              <span>8,000 token context window</span>
+              <span>8,000 Word context window</span>
             </li>
             <li className="flex items-center gap-3">
               <IoCheckmarkCircle className="w-5 h-5 text-constructive" />
@@ -49,7 +49,7 @@ function PricingSection() {
             </li>
             <li className="flex items-center gap-3">
               <IoCheckmarkCircle className="w-5 h-5 text-constructive" />
-              <span>Normal speed tier (200–500 tokens/sec)</span>
+              <span>Normal speed tier (200–500 Words/sec)</span>
             </li>
             <li className="flex items-center gap-3">
               <IoCheckmarkCircle className="w-5 h-5 text-constructive" />
@@ -107,11 +107,11 @@ function PricingSection() {
             </li>
             <li className="flex items-center gap-3">
               <IoCheckmarkCircle className="w-5 h-5 text-constructive" />
-              <span>1,000,000 tokens daily for inference</span>
+              <span>1,000,000 Words daily for inference</span>
             </li>
             <li className="flex items-center gap-3">
               <IoCheckmarkCircle className="w-5 h-5 text-constructive" />
-              <span>60,000 token context window</span>
+              <span>60,000 Word context window</span>
             </li>
             <li className="flex items-center gap-3">
               <IoCheckmarkCircle className="w-5 h-5 text-constructive" />
@@ -119,7 +119,7 @@ function PricingSection() {
             </li>
             <li className="flex items-center gap-3">
               <IoCheckmarkCircle className="w-5 h-5 text-constructive" />
-              <span>Medium/Fast tiers (700–2500 tokens/sec)</span>
+              <span>Medium/Fast tiers (700–2500 Words/sec)</span>
             </li>
             <li className="flex items-center gap-3">
               <IoCheckmarkCircle className="w-5 h-5 text-constructive" />

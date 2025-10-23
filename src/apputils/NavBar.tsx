@@ -21,7 +21,7 @@ function NavBar() {
           >
             Docs
           </div>
-          
+
           <div
             onClick={() => navigate("/about")}
             className=" font-medium   hover:bg-muted rounded px-4 py-2 cursor-pointer transition"
@@ -29,30 +29,24 @@ function NavBar() {
             About Us
           </div>
 
-
           <div
-            onClick={() => navigate("/collection")}
+            onClick={() => navigate("/pricing")}
             className=" font-medium   hover:bg-muted rounded px-4 py-2 cursor-pointer transition"
           >
             Pricing
           </div>
           <div
-            onClick={() => navigate("/about")}
+            onClick={() => navigate("/models")}
             className=" font-medium   hover:bg-muted rounded px-4 py-2 cursor-pointer transition"
           >
             Models
           </div>
-
-          <div
-            onClick={() => navigate("/about")}
-            className=" font-medium   hover:bg-muted rounded px-4 py-2 cursor-pointer transition"
-          >
-            Rate Limits
-          </div>
         </div>
         <div className=" gap-4 hidden lg:flex">
           <Button variant={"default"}>Contact Us </Button>
-          <Button variant={"default"} onClick={() => navigate("/login")}  >Login</Button>
+          <Button variant={"default"} onClick={() => navigate("/login")}>
+            Login
+          </Button>
         </div>
       </div>
     </header>

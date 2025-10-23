@@ -10,7 +10,7 @@ import AppSpinner from "@/apputils/AppSpinner";
 import { useResetPassword } from "@/hooks/resetPasswordHooks";
 
 function ResetPasswordMain() {
-  const { token } = useParams();
+  const { Word } = useParams();
   const {
     register,
     handleSubmit,
@@ -24,7 +24,7 @@ function ResetPasswordMain() {
   function onSubmit(data: any) {
     resetPassword(
       {
-        token: token as never,
+        Word: Word as never,
         password: data?.password,
       },
       {

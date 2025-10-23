@@ -67,7 +67,7 @@ function ContentSourcesSection() {
         </div>
       </div>
 
-      <div className="flex flex-col items-center gap-6 bg-gray-50 rounded-xl lg:p-8 w-full">
+      <div className="flex flex-col items-center gap-6 bg-white rounded-xl lg:p-8 w-full">
         <h3 className=" text-2xl font-semibold text-foreground">
           More Sources Coming Soon
         </h3>

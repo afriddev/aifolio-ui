@@ -44,7 +44,7 @@ const sections = [
       <ul className="list-disc ml-6 space-y-2">
         <li>Refunds apply only to failed or duplicate payments verified by our billing team.</li>
         <li>Requests must be made within <strong>7 days</strong> of the payment date.</li>
-        <li>No refunds are issued for tokens, API calls, or subscription time already used.</li>
+        <li>No refunds are issued for Words, API calls, or subscription time already used.</li>
         <li>Users may cancel subscriptions before the next renewal date to avoid future charges.</li>
       </ul>
     ),
@@ -68,7 +68,7 @@ const sections = [
     icon: <Slash className="w-6 h-6 text-red-500" />,
     content: (
       <ul className="list-disc ml-6 space-y-2">
-        <li>Consumed API tokens or used requests.</li>
+        <li>Consumed API Words or used requests.</li>
         <li>Monthly or annual subscriptions post-renewal.</li>
         <li>Performance-based or model-accuracy complaints.</li>
         <li>Delays from third-party payment providers.</li>

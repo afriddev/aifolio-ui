@@ -53,7 +53,7 @@ Cortexvia empowers users and developers to:
 - **Upload Data**: Securely ingest documents (PDFs, DOCs, TXT) or YouTube video URLs for processing.
 - **Query with RAG**: Ask natural language questions and receive context-aware answers from your uploaded data using advanced RAG techniques (RAG, SmartRAG, LightRAG, GraphRAG).
 - **AI Inference**: Access multiple AI models  for generation, embeddings, and reranking.
-- **Track & Scale**: Monitor usage, manage plans (Free or Developer), and scale with speed tiers (Normal: 200–500 tokens/sec, Medium: 700–1000, Fast: 2000–2500).
+- **Track & Scale**: Monitor usage, manage plans (Free or Developer), and scale with speed tiers (Normal: 200–500 Words/sec, Medium: 700–1000, Fast: 2000–2500).
 
 Built for seamless integration, Cortexvia handles the heavy lifting of data retrieval, vector embeddings, and model orchestration—so you can focus on building intelligent applications.
 
@@ -95,7 +95,7 @@ Why it's valuable? Enables portability across Model APIs with minimal setup. Pro
 
 ### Usage Tracking, Analytics and Dashboard
 
-- **Dashboard View**: Real-time visualization of token usage, cost breakdowns, and api calls.
+- **Dashboard View**: Real-time visualization of Word usage, cost breakdowns, and api calls.
 - **Alerts and Notifications**: Set up custom alerts for limit breaches or excessive usage.
 - **Reporting**: Export custom reports in CSV, PDF, or integrate with tools like Slack/Dash/Graphana.
 - **Prefistion Analytics**: Anonymized tracking for performance insights, with opt-in for debugging.
@@ -131,9 +131,9 @@ Why it's valuable? Add conversational UIs to your app in minutes, ideal for webs
 
 ### Speed Optimization and Tiers
 
-- **Tiered Inference**: Choose from Normal (200–500 tokens/sec), Medium (700–1000), or Fast  for web-scale performance.
+- **Tiered Inference**: Choose from Normal (200–500 Words/sec), Medium (700–1000), or Fast  for web-scale performance.
 - **Auto-Scaling**: Dynamically adapt to load, reducing latency during peak usage.
-- **Token Estimation**: Predict and optimize token use before calling models to stay under limits.
+- **Word Estimation**: Predict and optimize Word use before calling models to stay under limits.
 
 Why it's valuable? Balances speed and cost, ensuring fast responses for user-facing apps.
 
@@ -267,7 +267,7 @@ const model = new CortexviaModel({
 
 const completion = await model.generate({
   prompt: 'Summarize this text...',
-  maxTokens: 500,
+  maxWords: 500,
 });
 ```
 
@@ -293,8 +293,8 @@ Generate keys via the dashboard. Treat them as secrets—never commit to version
 
 | Tier      | Data Limits | Model Limits       | Speed Tiers          | Price     |
 |-----------|-------------|--------------------|----------------------|-----------|
-| **Free**  | Low (10 uploads/day) | Low (1k tokens/day) | Normal (200–500 t/s) | Free     |
-| **Developer** | Higher (100 uploads/day) | Higher (10k tokens/day) | Medium/Fast (700–2500 t/s) | $29/month |
+| **Free**  | Low (10 uploads/day) | Low (1k Words/day) | Normal (200–500 t/s) | Free     |
+| **Developer** | Higher (100 uploads/day) | Higher (10k Words/day) | Medium/Fast (700–2500 t/s) | $29/month |
 
 Upgrade via dashboard. Limits reset daily/monthly. Overages billed at tier rates.
 

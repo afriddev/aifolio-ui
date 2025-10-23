@@ -21,6 +21,8 @@ import SecurityPolicyMain from "@/features/securitypolicy/SecurityPolicyMain";
 import CompliancePolicyMain from "@/features/compliancepolicy/CompliancePolicyMain";
 import AboutUsMain from "@/features/aboutus/AboutUsMain";
 import ContactUsMain from "@/features/contactus/ContactUsMain";
+import PricingMain from "@/features/pricing/PricingMain";
+import ModelsMain from "@/features/models/ModelsMain";
 
 function AppRoutes() {
   return (
@@ -29,6 +31,8 @@ function AppRoutes() {
         <Route path="/" element={<HomeMain />} />
         <Route path="/about" element={<AboutUsMain />} />
         <Route path="/contact" element={<ContactUsMain />} />
+        <Route path="/pricing" element={<PricingMain />} />
+        <Route path="/models" element={<ModelsMain />} />
         <Route path="/login" element={<LoginMain />} />
         <Route path="/signup" element={<SignUpMain />} />
         <Route path="/forgot-password" element={<ForgotPasswordMain />} />

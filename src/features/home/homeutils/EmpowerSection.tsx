@@ -131,7 +131,7 @@ function EmpowerSection() {
                   <div className="w-5 h-5 ">
                     <FaCircleCheck className="w-4 h-4 text-constructive" />
                   </div>
-                  Scale up to 2500 tokens/sec with auto-scaling.
+                  Scale up to 3000 Words/sec with auto-scaling.
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-5 h-5 ">

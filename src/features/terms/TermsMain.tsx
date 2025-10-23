@@ -87,7 +87,7 @@ const sections = [
     content: (
       <>
         <p className="mb-4">
-          We offer Free and Developer plans with defined token, speed, and data
+          We offer Free and Developer plans with defined Word, speed, and data
           limits. Billing occurs monthly through secure payment gateways.
           Upgrades or downgrades can be managed from your dashboard.
         </p>

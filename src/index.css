@@ -66,11 +66,11 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(98.231% 0.00837 271.335);
+  --background: oklch(96.158% 0.00563 84.446);
   --foreground: oklch(0% 0 0);
-  --card: oklch(98.231% 0.00837 271.335);
+  --card: oklch(96.158% 0.00563 84.446);
   --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(98.231% 0.00837 271.335);
+  --popover: oklch(96.158% 0.00563 84.446);
   --popover-foreground: oklch(0.145 0 0);
   
   --primary: oklch(64.753% 0.21287 34.355);

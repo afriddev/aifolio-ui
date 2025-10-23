@@ -98,7 +98,7 @@ function LovedBySections() {
         <div className="flex flex-col gap-3 items-center text-center pt-5 w-full pb-10 border-b lg:border-b-0 lg:border-r">
           <Gauge className="w-6 h-6" />
           <p className="text-foreground px-4">
-            Speed Tiers: Fast (2000–2500 tokens/sec) to Normal
+            Speed Tiers: Fast (2000–2500 Words/sec) to Normal
           </p>
         </div>
 

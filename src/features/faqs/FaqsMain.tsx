@@ -57,7 +57,7 @@ const faqs = [
   {
     question: "How fast are the responses?",
     answer:
-      "Response speed depends on your plan tier — Fast (2000–2500 tokens/sec), Medium (700–1000), and Normal (200–500). Developer plans unlock higher throughput.",
+      "Response speed depends on your plan tier — Fast (2000–3000 Words/sec), Medium (700–1000), and Normal (200–500). Developer plans unlock higher throughput.",
     icon: <FaTachometerAlt className="text-red-500 w-6 h-6" />,
   },
   {
