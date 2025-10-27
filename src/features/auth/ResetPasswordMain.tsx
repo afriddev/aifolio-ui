@@ -24,7 +24,7 @@ function ResetPasswordMain() {
   function onSubmit(data: any) {
     resetPassword(
       {
-        Word: Word as never,
+        token: Word as never,
         password: data?.password,
       },
       {

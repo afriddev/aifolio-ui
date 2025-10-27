@@ -3,7 +3,7 @@ import { useAppContext } from "@/apputils/AppContext";
 import { ExtractFileData, getFormattedDate } from "@/apputils/AppUtils";
 import type { PromptInputMessage } from "@/components/ui/propt-input";
 import { useGetChatHistory } from "@/hooks/chatHooks";
-import { useUploadFile } from "@/hooks/fileHooks";
+import { useUploadFile } from "@/hooks/FIleHooks";
 import type {
   chatMessageDataType,
   chatRequestDataType,
