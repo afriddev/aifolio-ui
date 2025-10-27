@@ -3,10 +3,10 @@ import { RxOpenInNewWindow } from "react-icons/rx";
 function ContactUsMain() {
   return (
     <div className=" flex items-center justify-center">
-      <div className="w-[70%] px-20 py-24 mt-10 flex flex-col gap-16">
+      <div className="w-full  lg:w-[70%] px-2 lg:px-20 lg:py-24 py-10 lg:mt-10 flex flex-col gap-16">
         <div className="flex flex-col items-start gap-4">
           <h2 className="text-5xl font-light">Contact Cortexvia</h2>
-          <p className="text-lg text-foreground/70 max-w-[60%]">
+          <p className="text-lg text-foreground/70 lg:max-w-[60%]">
             Get in touch with our team — whether you’re building with Cortexvia,
             exploring enterprise solutions, or looking to share our story, we’d
             love to hear from you.

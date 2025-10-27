@@ -18,18 +18,18 @@ function AboutUsMain() {
           ></div>
         </div>
       </div>
-      <div className="w-[70%]">
-        <div className="flex absolute  mt-32 flex-col gap-2  inset-0 items-center  h-[70vh]  justify-center">
-          <h1 className="text-[80px]">Frontier AI. For all of us.</h1>
-          <p className="text-2xl">
+      <div className="w-[100%] lg:w-[70%] px-2 ">
+        <div className="flex absolute  mt-10 lg:mt-32 flex-col gap-2  inset-0 items-center  lg:h-[70vh]  justify-center px-2">
+          <h1 className=" text-5xl lg:text-[80px]">Frontier AI. For all of us.</h1>
+          <p className="text-lg lg:text-2xl">
             We exist to make frontier AI accessible to everyone.
           </p>
-          <div className="mt-20">
-            <img src="people-working-office.jpg" className="w-[70vw] " />
+          <div className="lg:mt-20">
+            <img src="people-working-office.jpg" className="lg:w-[70vw] object-cover lg:h-fit h-[60vh]" />
           </div>
         </div>
 
-        <div className="bg-white p-16 mt-32 flex items-center justify-center">
+        <div className="bg-white p-4 gap-10 lg:p-16 mt-32 flex lg:flex-row flex-col items-center justify-center">
           <h5 className="w-full text-5xl font-thin leading-[6vh]">
             The Minds Who <br /> Never Stopped <br /> Innovating
           </h5>
@@ -53,8 +53,8 @@ function AboutUsMain() {
           </div>
         </div>
 
-        <div className="mt-32">
-          <h6 className="text-4xl max-w-[40%]">
+        <div className=" mt-10 lg:mt-32">
+          <h6 className="text-4xl lg:max-w-[40%]">
             We believe{" "}
             <FaArrowRight className="inline w-6 h-6 text-primary align-middle" />{" "}
             in a world where knowledge is intelligent, connected, and within
@@ -64,7 +64,7 @@ function AboutUsMain() {
           </h6>
         </div>
 
-        <div className="flex items-center gap-20 w-full mt-20">
+        <div className="flex lg:flex-row flex-col items-center gap-20 w-full mt-10 lg:mt-20">
           <div className="flex flex-col w-full gap-5">
             <p className="text-lg flex flex-col text-foreground/70">
               <label className="text-foreground text-xl font-semibold">
@@ -115,16 +115,16 @@ function AboutUsMain() {
 
               <div className="inset-0 flex items-center justify-between px-5  absolute z-50">
                 <div>
-                  <label className="text-[100px]">20+ </label>
+                  <label className="text-5xl lg:text-[100px]">20+ </label>
                 </div>
                 <div className="flex gap-5">
                   <div className="flex ">
                     <div className="h-5 w-5 bg-foreground"></div>
-                    <div className="bg-foreground text-background h-fit p-4  w-[10vw]  mt-5 flex items-center  justify-center text-center">
+                    <div className="bg-foreground text-background h-fit p-4 w-[30vw] text-xs lg:text-lg  lg:w-[10vw]  mt-5 flex items-center  justify-center text-center">
                       Team members
                     </div>
                   </div>
-                  <img alt="Team members" src="/about/team-members.svg" />
+                  <img className="w-20 h-20 lg:h-fit lg:w-fit" alt="Team members" src="/about/team-members.svg" />
                 </div>
               </div>
             </div>
@@ -147,17 +147,17 @@ function AboutUsMain() {
 
               <div className="inset-0 flex items-center justify-between px-5 absolute z-50">
                 <div>
-                  <label className="text-[100px]">5+</label>
+                  <label className="text-5xl lg:text-[100px]">5+</label>
                 </div>
 
                 <div className="flex gap-5">
                   <div className="flex ">
                     <div className="h-5 w-5 bg-foreground"></div>
-                    <div className="bg-foreground text-background h-fit p-4  w-[10vw]  mt-5 flex items-center  justify-center text-center">
+                    <div className="bg-foreground text-background h-fit p-4 w-[30vw] text-xs lg:text-lg  lg:w-[10vw]  mt-5 flex items-center  justify-center text-center">
                       Different nationalities
                     </div>
                   </div>
-                  <img alt="Different nationalities" src="/about/earth.svg" />
+                  <img className="w-20 h-20 lg:h-fit lg:w-fit" alt="Different nationalities" src="/about/earth.svg" />
                 </div>
               </div>
             </div>
@@ -181,16 +181,16 @@ function AboutUsMain() {
 
               <div className="inset-0 flex items-center justify-between px-5  absolute z-50">
                 <div>
-                  <label className="text-[100px]">50% </label>
+                  <label className="text-5xl lg:text-[100px]">50% </label>
                 </div>
                 <div className="flex gap-5">
                   <div className="flex ">
                     <div className="h-5 w-5 bg-foreground"></div>
-                    <div className="bg-foreground text-background h-fit p-4  w-[10vw]  mt-5 flex items-center  justify-center text-center">
+                    <div className="bg-foreground text-background h-fit p-4 w-[30vw] text-xs lg:text-lg  lg:w-[10vw]  mt-5 flex items-center  justify-center text-center">
                       Female leaders
                     </div>
                   </div>
-                  <img alt="Female leaders" src="/about/feamale-selfie.svg" />
+                  <img className="w-20 h-20 lg:h-fit lg:w-fit" alt="Female leaders" src="/about/feamale-selfie.svg" />
                 </div>
               </div>
             </div>
@@ -199,7 +199,7 @@ function AboutUsMain() {
       </div>
 
       <div className="bg-white w-[100%] p-16 flex items-center justify-center">
-        <div className="w-[60%] gap-10 flex flex-col text-center">
+        <div className="lg:w-[60%] gap-10 flex flex-col text-center">
           <p className="text-xl">
             AI isn’t about whether we’ll use it — it’s about how fast we can
             turn what we know into real intelligence and real impact.

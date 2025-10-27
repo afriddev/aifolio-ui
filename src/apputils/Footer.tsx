@@ -7,13 +7,13 @@ function Footer() {
   const navigate = useNavigate();
 
   return (
-    <footer className="bg-background text-foreground/80 w-full lg:pt-16 pb-10 px-8 md:px-16 mt-10">
-      <div className="flex items-center justify-center">
-        <div className=" w-[70%] flex flex-col gap-5">
+    <footer className="bg-background text-foreground/80 w-full lg:pt-16 pb-10 px-2 md:px-16 mt-10">
+      <div className="flex w-full  items-center justify-center">
+        <div className="w-full lg:w-[70%] flex flex-col gap-5">
           <div className="w-full flex items-center justify-center">
-            <h3 className="text-[70px]">Build the future with us.</h3>
+            <h3 className=" text-5xl lg:text-[70px]">Build the future with us.</h3>
           </div>
-          <div className="items-center gap-14 flex flex-col justify-center bg-primary text-background rounded p-20 w-full">
+          <div className="items-center gap-14 flex flex-col justify-center bg-primary text-background rounded lg:p-20 p-10 w-full mt-10">
             <div className="w-fit h-fit">
               <BsLightningCharge className="w-6 h-6" />
             </div>
@@ -32,7 +32,7 @@ function Footer() {
         </div>
       </div>
 
-      <div className="w-full  flex flex-col lg:flex-row  gap-16  mt-32 justify-between  ">
+      <div className="w-full  flex flex-col lg:flex-row  gap-16  mt-10 lg:mt-32 justify-between  ">
         <div className="flex flex-col  space-y-4 items-center lg:max-w-[15vw]">
           <div className="cursor-pointer  w-fit    ">
             <img src="/home/logo-1.png" className="w-48" alt="logo" />
