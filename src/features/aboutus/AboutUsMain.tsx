@@ -1,215 +1,150 @@
 import { FaArrowRight } from "react-icons/fa";
+import PageWrapper from "@/apputils/PageWrapper";
+import { MotionDiv, MotionParagraph, MotionH2, MotionH1, AnimateWithType } from "@/apputils/MotionUtils";
+import { motion } from "framer-motion";
 
 function AboutUsMain() {
   return (
-    <div className="flex flex-col items-center justify-center  gap-20">
-      <div className="h-[60vh] relative flex w-full items-center justify-center overflow-hidden">
-        <div className="w-full absolute  h-[60vh] inset-0  ">
-          <div
-            className=" absolute inset-0"
-            style={{
-              backgroundImage: `
-              repeating-linear-gradient(to right, #f9ebe4 0 1px, transparent 1px 50px),
-              repeating-linear-gradient(to bottom, #f9ebe4 0 1px, transparent 1px 50px)
-            `,
-              backgroundSize: "50px 50px",
-              backgroundPosition: "0 0",
-            }}
-          ></div>
-        </div>
-      </div>
-      <div className="w-[100%] lg:w-[70%] px-2 ">
-        <div className="flex absolute  mt-10 lg:mt-32 flex-col gap-2  inset-0 items-center  lg:h-[70vh]  justify-center px-2">
-          <h1 className=" text-5xl lg:text-[80px]">Frontier AI. For all of us.</h1>
-          <p className="text-lg lg:text-2xl">
-            We exist to make frontier AI accessible to everyone.
-          </p>
-          <div className="lg:mt-20">
-            <img src="people-working-office.jpg" className="lg:w-[70vw] object-cover lg:h-fit h-[60vh]" />
-          </div>
-        </div>
+    <PageWrapper>
+      <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} initial="hidden" animate="visible" className="flex flex-col items-center justify-center gap-16">
+        <AnimateWithType
+          type="fadeDownSpring"
+          className="min-h-[40vh] h-auto relative flex w-full items-center justify-center overflow-hidden"
+        >
+          <MotionDiv className="w-full absolute h-full inset-0">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `
+                  repeating-linear-gradient(to right, #f9ebe4 0 1px, transparent 1px 50px),
+                  repeating-linear-gradient(to bottom, #f9ebe4 0 1px, transparent 1px 50px)
+                `,
+                backgroundSize: "50px 50px",
+                backgroundPosition: "0 0",
+              }}
+            ></div>
+          </MotionDiv>
+          <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="flex flex-col gap-4 items-center text-center z-10 max-w-[90%] py-10 lg:py-20">
+            <MotionH1 variant="zoomIn" className="text-4xl lg:text-[64px] font-light">
+              Frontier AI. For all of us.
+            </MotionH1>
+            <MotionParagraph variant="fadeInUp" className="text-base lg:text-xl text-foreground/70">
+              We exist to make frontier AI accessible to everyone.
+            </MotionParagraph>
+            <MotionDiv variant="scaleIn" className="mt-6 lg:mt-12">
+              <img src="people-working-office.jpg" className="w-full max-w-[98vw] lg:max-w-[90vw] object-cover h-[40vh] lg:h-auto rounded" alt="Team working at Cortexvia" />
+            </MotionDiv>
+          </motion.div>
+        </AnimateWithType>
 
-        <div className="bg-white p-4 gap-10 lg:p-16 mt-32 flex lg:flex-row flex-col items-center justify-center">
-          <h5 className="w-full text-5xl font-thin leading-[6vh]">
-            The Minds Who <br /> Never Stopped <br /> Innovating
-          </h5>
-          <div className="flex w-full flex-col text-lg gap-5">
-            <h6 className="font-medium text-xl">
-              At Cortexvia, innovation isn’t a goal it’s a habit. It starts with
-              builders who believe AI should empower, not obscure.
-            </h6>
-            <div className="flex flex-col gap-5 text-foreground/70">
-              <p>
-                Our founders and engineers come from deep tech and research
-                backgrounds, but they’ve always shared one obsession making
-                intelligence transparent and useful for everyone.
-              </p>
-              <p>
-                Today, that same spirit drives Cortexvia. From RAG pipelines to
-                open SDKs, we’re still building just smarter. Meet the team
-                shaping the next era of AI.
-              </p>
-            </div>
-          </div>
-        </div>
+        <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="w-[100%] lg:w-[70%] px-2 lg:px-20 py-6 lg:py-16">
+          <AnimateWithType type="fadeLeft" className="bg-white p-6 lg:p-12 flex lg:flex-row flex-col items-center gap-8 rounded-2xl">
+            <MotionH2 variant="slideUpBounce" className="w-full lg:w-1/2 text-4xl lg:text-5xl font-thin leading-tight">
+              The Minds Who <br /> Never Stopped <br /> Innovating
+            </MotionH2>
+            <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="w-full lg:w-1/2 flex flex-col gap-5">
+              <MotionH2 variant="fadeInUp" className="text-lg lg:text-xl font-medium">
+                At Cortexvia, innovation isn’t a goal — it’s a habit. It starts with builders who believe AI should empower, not obscure.
+              </MotionH2>
+              <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="flex flex-col gap-5 text-foreground/70">
+                <MotionParagraph variant="fadeInUp" className="text-base lg:text-lg">
+                  Our founders and engineers come from deep tech and research backgrounds, but they’ve always shared one obsession — making intelligence transparent and useful for everyone.
+                </MotionParagraph>
+                <MotionParagraph variant="fadeInUp" className="text-base lg:text-lg">
+                  Today, that same spirit drives Cortexvia. From RAG pipelines to open SDKs, we’re still building — just smarter. Meet the team shaping the next era of AI.
+                </MotionParagraph>
+              </motion.div>
+            </motion.div>
+          </AnimateWithType>
 
-        <div className=" mt-10 lg:mt-32">
-          <h6 className="text-4xl lg:max-w-[40%]">
-            We believe{" "}
-            <FaArrowRight className="inline w-6 h-6 text-primary align-middle" />{" "}
-            in a world where knowledge is intelligent, connected, and within
-            everyone’s reach. At Cortexvia, we empower builders to create,
-            query, and innovate with AI that’s open, reliable, and built for the
-            future.
-          </h6>
-        </div>
+          <AnimateWithType type="fadeRight" className="mt-12 lg:mt-20">
+            <MotionH2 variant="rotateIn" className="text-3xl lg:text-4xl lg:max-w-[50%]">
+              We believe <FaArrowRight className="inline w-6 h-6 text-primary align-middle" /> in a world where knowledge is intelligent, connected, and within everyone’s reach. At Cortexvia, we empower builders to create, query, and innovate with AI that’s open, reliable, and built for the future.
+            </MotionH2>
+          </AnimateWithType>
 
-        <div className="flex lg:flex-row flex-col items-center gap-20 w-full mt-10 lg:mt-20">
-          <div className="flex flex-col w-full gap-5">
-            <p className="text-lg flex flex-col text-foreground/70">
-              <label className="text-foreground text-xl font-semibold">
-                About Cortexvia{" "}
-              </label>{" "}
-              An advanced AI platform designed to redefine how people and
-              organizations interact with knowledge. Cortexvia brings together
-              cutting-edge Retrieval-Augmented Generation (RAG), intelligent
-              querying, and multi-model integration to make data-driven insight
-              effortless and scalable.
-            </p>
-            <p className="text-lg flex flex-col text-foreground/70">
-              <label className="text-foreground text-xl font-semibold">
-                Our Vision{" "}
-              </label>{" "}
-              We believe intelligence should be transparent, grounded, and
-              accessible to everyone. Cortexvia challenges the limits of closed
-              AI ecosystems, empowering developers and enterprises to unlock the
-              full potential of their data.
-            </p>
-            <p className="text-lg flex flex-col text-foreground/70">
-              <label className="text-foreground text-xl font-semibold">
-                Our Mission{" "}
-              </label>{" "}
-              To democratize AI-powered knowledge retrieval through open SDKs,
-              secure APIs, and seamless integrations— transforming complex data
-              into clear, actionable intelligence for all.
-            </p>
-          </div>
+          <AnimateWithType type="fadeUpSpring" className="flex lg:flex-row flex-col items-center gap-12 w-full mt-12 lg:mt-20">
+            <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="flex flex-col w-full lg:w-1/2 gap-6">
+              {[
+                {
+                  title: "About Cortexvia",
+                  desc: "An advanced AI platform designed to redefine how people and organizations interact with knowledge. Cortexvia brings together cutting-edge Retrieval-Augmented Generation (RAG), intelligent querying, and multi-model integration to make data-driven insight effortless and scalable.",
+                },
+                {
+                  title: "Our Vision",
+                  desc: "We believe intelligence should be transparent, grounded, and accessible to everyone. Cortexvia challenges the limits of closed AI ecosystems, empowering developers and enterprises to unlock the full potential of their data.",
+                },
+                {
+                  title: "Our Mission",
+                  desc: "To democratize AI-powered knowledge retrieval through open SDKs, secure APIs, and seamless integrations — transforming complex data into clear, actionable intelligence for all.",
+                },
+              ].map((item, i) => (
+                <AnimateWithType key={i} type="fadeLeft" className="flex flex-col gap-2 text-foreground/70">
+                  <MotionH2 variant="fadeInUp" className="text-lg lg:text-xl font-semibold">
+                    {item.title}
+                  </MotionH2>
+                  <MotionParagraph variant="fadeInUp" className="text-base lg:text-lg">
+                    {item.desc}
+                  </MotionParagraph>
+                </AnimateWithType>
+              ))}
+            </motion.div>
 
-          <div className="w-full flex flex-col gap-5">
-            <div className="relative ">
-              <div className="relative h-[20vh] w-full overflow-hidden">
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: `
-                                    repeating-linear-gradient(to right, #f9ebe4 0 1px, transparent 1px 50px),
-                                    repeating-linear-gradient(to bottom, #f9ebe4 0 1px, transparent 1px 50px)
-                                    `,
-                    backgroundSize: "50px 50px",
-                    backgroundPosition: "0 0",
-                  }}
-                ></div>
+            <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="w-full lg:w-1/2 flex flex-col gap-6">
+              {[
+                { label: "20+", text: "Team members", img: "/about/team-members.svg" },
+                { label: "5+", text: "Different nationalities", img: "/about/earth.svg" },
+                { label: "50%", text: "Female leaders", img: "/about/feamale-selfie.svg" },
+              ].map((stat, i) => (
+                <AnimateWithType key={i} type="scaleIn" className="relative">
+                  <MotionDiv className="relative h-[20vh] lg:h-[24vh] w-full overflow-hidden rounded-lg">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `
+                          repeating-linear-gradient(to right, #f9ebe4 0 1px, transparent 1px 50px),
+                          repeating-linear-gradient(to bottom, #f9ebe4 0 1px, transparent 1px 50px)
+                        `,
+                        backgroundSize: "50px 50px",
+                        backgroundPosition: "0 0",
+                      }}
+                    ></div>
+                    <div className="absolute inset-0 border border-[#f9ebe4] pointer-events-none"></div>
+                  </MotionDiv>
+                  <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="inset-0 flex items-center justify-between px-4 lg:px-5 absolute z-50">
+                    <MotionDiv variant="zoomIn">
+                      <MotionH1 className="text-4xl lg:text-[80px] font-light">{stat.label}</MotionH1>
+                    </MotionDiv>
+                    <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="flex gap-4 lg:gap-5">
+                      <MotionDiv variant="pulse" className="flex items-center">
+                        <div className="h-4 w-4 lg:h-5 -mt-10 lg:-mt-14 lg:w-5 bg-foreground "></div>
+                        <MotionParagraph className="bg-foreground text-background h-fit p-3 lg:p-4 w-[40vw] lg:w-[12vw] text-xs lg:text-base mt-4 lg:mt-5 flex items-center justify-center text-center">
+                          {stat.text}
+                        </MotionParagraph>
+                      </MotionDiv>
+                      <MotionDiv variant="fadeInUp">
+                        <img className="w-16 h-16 lg:w-20 lg:h-20 object-contain" alt={stat.text} src={stat.img} />
+                      </MotionDiv>
+                    </motion.div>
+                  </motion.div>
+                </AnimateWithType>
+              ))}
+            </motion.div>
+          </AnimateWithType>
+        </motion.div>
 
-                <div className="absolute inset-0 border border-[#f9ebe4] pointer-events-none"></div>
-              </div>
-
-              <div className="inset-0 flex items-center justify-between px-5  absolute z-50">
-                <div>
-                  <label className="text-5xl lg:text-[100px]">20+ </label>
-                </div>
-                <div className="flex gap-5">
-                  <div className="flex ">
-                    <div className="h-5 w-5 bg-foreground"></div>
-                    <div className="bg-foreground text-background h-fit p-4 w-[30vw] text-xs lg:text-lg  lg:w-[10vw]  mt-5 flex items-center  justify-center text-center">
-                      Team members
-                    </div>
-                  </div>
-                  <img className="w-20 h-20 lg:h-fit lg:w-fit" alt="Team members" src="/about/team-members.svg" />
-                </div>
-              </div>
-            </div>
-            <div className="relative  ">
-              <div className="relative h-[20vh] w-full overflow-hidden">
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: `
-                                    repeating-linear-gradient(to right, #f9ebe4 0 1px, transparent 1px 50px),
-                                    repeating-linear-gradient(to bottom, #f9ebe4 0 1px, transparent 1px 50px)
-                                    `,
-                    backgroundSize: "50px 50px",
-                    backgroundPosition: "0 0",
-                  }}
-                ></div>
-
-                <div className="absolute inset-0 border border-[#f9ebe4] pointer-events-none"></div>
-              </div>
-
-              <div className="inset-0 flex items-center justify-between px-5 absolute z-50">
-                <div>
-                  <label className="text-5xl lg:text-[100px]">5+</label>
-                </div>
-
-                <div className="flex gap-5">
-                  <div className="flex ">
-                    <div className="h-5 w-5 bg-foreground"></div>
-                    <div className="bg-foreground text-background h-fit p-4 w-[30vw] text-xs lg:text-lg  lg:w-[10vw]  mt-5 flex items-center  justify-center text-center">
-                      Different nationalities
-                    </div>
-                  </div>
-                  <img className="w-20 h-20 lg:h-fit lg:w-fit" alt="Different nationalities" src="/about/earth.svg" />
-                </div>
-              </div>
-            </div>
-
-            <div className="relative ">
-              <div className="relative h-[20vh] w-full overflow-hidden">
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: `
-                                    repeating-linear-gradient(to right, #f9ebe4 0 1px, transparent 1px 50px),
-                                    repeating-linear-gradient(to bottom, #f9ebe4 0 1px, transparent 1px 50px)
-                                    `,
-                    backgroundSize: "50px 50px",
-                    backgroundPosition: "0 0",
-                  }}
-                ></div>
-
-                <div className="absolute inset-0 border border-[#f9ebe4] pointer-events-none"></div>
-              </div>
-
-              <div className="inset-0 flex items-center justify-between px-5  absolute z-50">
-                <div>
-                  <label className="text-5xl lg:text-[100px]">50% </label>
-                </div>
-                <div className="flex gap-5">
-                  <div className="flex ">
-                    <div className="h-5 w-5 bg-foreground"></div>
-                    <div className="bg-foreground text-background h-fit p-4 w-[30vw] text-xs lg:text-lg  lg:w-[10vw]  mt-5 flex items-center  justify-center text-center">
-                      Female leaders
-                    </div>
-                  </div>
-                  <img className="w-20 h-20 lg:h-fit lg:w-fit" alt="Female leaders" src="/about/feamale-selfie.svg" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white w-[100%] p-16 flex items-center justify-center">
-        <div className="lg:w-[60%] gap-10 flex flex-col text-center">
-          <p className="text-xl">
-            AI isn’t about whether we’ll use it — it’s about how fast we can
-            turn what we know into real intelligence and real impact.
-          </p>
-          <label className="font-thin text-xl">
-            — Shaik Afrid, Founder & CEO
-          </label>
-        </div>
-      </div>
-    </div>
+        <AnimateWithType type="fadeDownSpring" className="bg-white w-full p-12 lg:p-16 flex items-center justify-center">
+          <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="lg:w-[60%] gap-8 flex flex-col text-center">
+            <MotionParagraph variant="fadeInUp" className="text-base lg:text-xl text-foreground/70">
+              AI isn’t about whether we’ll use it — it’s about how fast we can turn what we know into real intelligence and real impact.
+            </MotionParagraph>
+            <MotionParagraph variant="fadeInUp" className="font-thin text-base lg:text-xl text-foreground/70">
+              — Shaik Afrid, Founder & CEO
+            </MotionParagraph>
+          </motion.div>
+        </AnimateWithType>
+      </motion.div>
+    </PageWrapper>
   );
 }
 

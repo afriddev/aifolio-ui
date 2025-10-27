@@ -1,118 +1,288 @@
 import { RxOpenInNewWindow } from "react-icons/rx";
+import { FaArrowRight } from "react-icons/fa";
+import PageWrapper from "@/apputils/PageWrapper";
+import {
+  MotionDiv,
+  MotionParagraph,
+  MotionH2,
+  MotionH1,
+  AnimateWithType,
+} from "@/apputils/MotionUtils";
+import { motion } from "framer-motion";
 
 function ContactUsMain() {
   return (
-    <div className=" flex items-center justify-center">
-      <div className="w-full  lg:w-[70%] px-2 lg:px-20 lg:py-24 py-10 lg:mt-10 flex flex-col gap-16">
-        <div className="flex flex-col items-start gap-4">
-          <h2 className="text-5xl font-light">Contact Cortexvia</h2>
-          <p className="text-lg text-foreground/70 lg:max-w-[60%]">
-            Get in touch with our team — whether you’re building with Cortexvia,
-            exploring enterprise solutions, or looking to share our story, we’d
-            love to hear from you.
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-3">
-          <h3 className="text-2xl font-semibold">Developer Support</h3>
-          <p className="text-lg text-foreground/70">
-            Explore our{" "}
-            <a
-              href="https://docs.cortexvia.com"
-              className="text-primary underline"
+    <PageWrapper>
+      <motion.div
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+        }}
+        initial="hidden"
+        animate="visible"
+        className="flex flex-col items-center justify-center gap-16"
+      >
+        <AnimateWithType
+          type="fadeDownSpring"
+          className="min-h-[40vh] h-auto relative flex w-full items-center justify-center overflow-hidden"
+        >
+          <MotionDiv className="w-full absolute h-full inset-0">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `
+                  repeating-linear-gradient(to right, #f9ebe4 0 1px, transparent 1px 50px),
+                  repeating-linear-gradient(to bottom, #f9ebe4 0 1px, transparent 1px 50px)
+                `,
+                backgroundSize: "50px 50px",
+              }}
+            ></div>
+          </MotionDiv>
+          <motion.div
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+            }}
+            className="flex flex-col items-center text-center gap-3 z-10 max-w-[90%]"
+          >
+            <MotionH1
+              variant="zoomIn"
+              className="text-4xl lg:text-[64px] font-light"
             >
-              Developer Docs
-            </a>{" "}
-            and community resources, or connect with us directly through the
-            chat feature on the Cortexvia Dev Console for assistance with SDKs,
-            APIs, or RAG integrations.
-          </p>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-2xl font-semibold">Enterprises</h3>
-          <p className="text-lg text-foreground/70">
-            Interested in deploying Cortexvia for large-scale inference or
-            secure, self-hosted solutions? Reach out to our enterprise team at{" "}
-            <a
-              href="mailto:enterprise@cortexvia.com"
-              className="text-primary underline"
+              Connect with Cortexvia
+            </MotionH1>
+            <MotionParagraph className="text-base lg:text-xl lg:w-[60%] text-foreground/70">
+              Connect with Cortexvia to build with APIs, explore AI solutions,
+              or partner with us.
+            </MotionParagraph>
+          </motion.div>
+        </AnimateWithType>
+
+        <motion.div
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+          }}
+          className="w-[100%] lg:w-[70%] px-4 lg:px-20 py-6 lg:py-16 flex flex-col gap-12"
+        >
+          <AnimateWithType type="fadeLeft" className="flex flex-col gap-4">
+            <MotionH2 className="text-2xl lg:text-3xl font-semibold">
+              Developer Support
+            </MotionH2>
+            <MotionParagraph className="text-base lg:text-lg text-foreground/70 lg:max-w-[60%]">
+              Get started with our{" "}
+              <a
+                href="https://docs.cortexvia.com"
+                className="text-primary underline"
+              >
+                Developer Docs
+              </a>{" "}
+              for APIs, SDKs like CortexRAG and EmbiRankis, or connect via the
+              Cortexvia Dev Console’s chat for real-time support.
+            </MotionParagraph>
+            <MotionParagraph className="text-base lg:text-lg text-foreground/70">
+              Join our developer community on{" "}
+              <a
+                href="https://x.com/cortexvia"
+                className="text-primary underline"
+              >
+                X
+              </a>{" "}
+              for updates and tips.
+            </MotionParagraph>
+          </AnimateWithType>
+
+          <AnimateWithType type="fadeLeft" className="flex flex-col gap-4">
+            <MotionH2 className="text-2xl lg:text-3xl font-semibold">
+              Enterprise Solutions
+            </MotionH2>
+            <MotionParagraph className="text-base lg:text-lg text-foreground/70">
+              Deploy Cortexvia’s LLMs and automation tools for large-scale
+              inference. Contact our team at{" "}
+              <a
+                href="mailto:enterprise@cortexvia.com"
+                className="text-primary underline"
+              >
+                enterprise@cortexvia.com
+              </a>{" "}
+              for custom plans.
+            </MotionParagraph>
+            <MotionParagraph className="text-base lg:text-lg text-foreground/70">
+              From Flash models (up to 3000 TPS) to business chatbots, we tailor
+              solutions to your needs.
+            </MotionParagraph>
+          </AnimateWithType>
+
+          <AnimateWithType type="fadeLeft" className="flex flex-col gap-4">
+            <MotionH2 className="text-2xl lg:text-3xl font-semibold">
+              Press & Media
+            </MotionH2>
+            <MotionParagraph className="text-base lg:text-lg text-foreground/70">
+              For media inquiries, reach out to{" "}
+              <a
+                href="mailto:press@cortexvia.com"
+                className="text-primary underline"
+              >
+                press@cortexvia.com
+              </a>
+              . Include:
+            </MotionParagraph>
+            <motion.ul
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+              }}
+              className="list-disc list-inside text-base lg:text-lg text-foreground/70"
             >
-              enterprise@cortexvia.com
-            </a>{" "}
-            to discuss your use case.
-          </p>
-        </div>
+              {[
+                "Key topic or theme",
+                "Your name and organization",
+                "Request timeframe or deadlines",
+                "Specific Cortexvia team member (if applicable)",
+              ].map((item, i) => (
+                <MotionDiv key={i} as="li">
+                  {item}
+                </MotionDiv>
+              ))}
+            </motion.ul>
+          </AnimateWithType>
 
-        <div className="flex flex-col gap-3">
-          <h3 className="text-2xl font-semibold">Press / Media / Analysts</h3>
-          <p className="text-lg text-foreground/70">
-            For media inquiries, please contact{" "}
-            <a
-              href="mailto:press@cortexvia.com"
-              className="text-primary underline"
+          <AnimateWithType type="fadeLeft" className="flex flex-col gap-4">
+            <MotionH2 className="text-2xl lg:text-3xl font-semibold">
+              Stay Connected
+            </MotionH2>
+            <MotionParagraph className="text-base lg:text-lg text-foreground/70">
+              Follow Cortexvia for updates, tutorials, and insights:
+            </MotionParagraph>
+            <motion.div
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+              }}
+              className="grid lg:grid-cols-2 gap-4 text-base lg:text-lg text-foreground/70"
             >
-              press@cortexvia.com
-            </a>{" "}
-            and include:
-          </p>
-          <ul className="list-disc list-inside text-lg text-foreground/70">
-            <li>Key topic or theme</li>
-            <li>Your name and organization</li>
-            <li>Request timeframe or deadlines</li>
-            <li>Any specific Cortexvia team member you wish to involve</li>
-          </ul>
-        </div>
+              {[
+                {
+                  platform: "X",
+                  link: "https://x.com/cortexvia",
+                  desc: "Real-time product updates and developer tips",
+                },
+                {
+                  platform: "LinkedIn",
+                  link: "https://linkedin.com/company/cortexvia",
+                  desc: "Professional insights and business news",
+                },
+                {
+                  platform: "YouTube",
+                  link: "https://youtube.com/cortexvia",
+                  desc: "Tutorials, demos, and feature deep dives",
+                },
+                {
+                  platform: "Instagram",
+                  link: "https://instagram.com/cortexvia",
+                  desc: "Team culture and behind-the-scenes",
+                },
+              ].map((item, i) => (
+                <AnimateWithType
+                  key={i}
+                  type="scaleIn"
+                  className="flex items-center gap-3"
+                >
+                  <MotionDiv
+                    variant="zoomIn"
+                    as="a"
+                    href={item.link}
+                    className="flex items-center text-primary underline"
+                  >
+                    {item.platform}{" "}
+                    <RxOpenInNewWindow className="w-4 h-5 ml-1" />
+                  </MotionDiv>
+                  <MotionParagraph className="text-base lg:text-lg text-foreground/70">
+                    {item.desc}
+                  </MotionParagraph>
+                </AnimateWithType>
+              ))}
+            </motion.div>
+          </AnimateWithType>
 
-        <div className="flex flex-col gap-3">
-          <h3 className="text-2xl font-semibold">Social Media</h3>
-          <p className="text-lg text-foreground/70">
-            Stay connected and follow Cortexvia across our social platforms:
-          </p>
-          <ul className="list-disc list-inside text-lg flex flex-col gap-5 text-foreground/70">
-            <li className="flex items-center gap-2">
-              <label className="flex items-center border-b ">
-                X <RxOpenInNewWindow className="w-4 h-5 -mt-3 " /> 
-              </label>{" "}
-              Real-time product and developer updates
-            </li>
-            <li className="flex items-center gap-2">
-              <label className="flex items-center border-b ">
-                LinkedIn <RxOpenInNewWindow className="w-4 h-5 -mt-3 " />
-              </label>{" "}
-              Professional insights and business news
-            </li>
-            <li className="flex items-center gap-2">
-              <label className="flex items-center border-b ">
-                YouTube <RxOpenInNewWindow className="w-4 h-5 -mt-3 " />
-              </label>{" "}
-              Tutorials, demos, and feature deep dives
-            </li>
-            <li className="flex items-center gap-2">
-              <label className="flex items-center border-b ">
-                Instagram <RxOpenInNewWindow className="w-4 h-5 -mt-3 " />
-              </label>{" "}
-              Behind-the-scenes at Cortexvia and team culture
-            </li>
-          </ul>
-        </div>
+          <AnimateWithType type="fadeLeft" className="flex flex-col gap-4">
+            <MotionH2 className="text-2xl lg:text-3xl font-semibold">
+              Visit Us
+            </MotionH2>
+            <motion.div
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+              }}
+              className="flex flex-col lg:flex-row gap-8"
+            >
+              <MotionDiv>
+                <h4 className="text-lg lg:text-xl font-semibold">
+                  Headquarters
+                </h4>
+                <MotionParagraph className="text-base lg:text-lg text-foreground/70">
+                  0-00 Cortexvia St,
+                  <br />
+                  Innovation City, CA 90000, Earth
+                </MotionParagraph>
+              </MotionDiv>
+              <MotionDiv>
+                <h4 className="text-lg lg:text-xl font-semibold">
+                  Mailing Address
+                </h4>
+                <MotionParagraph className="text-base lg:text-lg text-foreground/70">
+                  PO Box 1234,
+                  <br />
+                  Innovation City, CA 90000, Earth
+                </MotionParagraph>
+              </MotionDiv>
+            </motion.div>
+          </AnimateWithType>
 
-        <div className="flex flex-col gap-3">
-          <h3 className="text-2xl font-semibold">Cortexvia Headquarters</h3>
-          <p className="text-lg text-foreground/70">
-            0-00 Cortexvia St,
-            <br />
-            Innovation City, CA 90000 Earth
-          </p>
+          <AnimateWithType
+            type="fadeLeft"
+            className="bg-white/5 p-6 lg:p-12 rounded-2xl border border-white/10 text-center"
+          >
+            <MotionH2 className="text-2xl lg:text-3xl font-semibold mb-4">
+              Ready to Build with Cortexvia?{" "}
+              <FaArrowRight className="inline w-6 h-6 text-primary align-middle" />
+            </MotionH2>
+            <MotionParagraph className="text-base lg:text-lg text-foreground/70 lg:w-[60%] mx-auto">
+              Start with our Free Tier or contact us for enterprise solutions.
+              Create your account at{" "}
+              <a
+                href="https://cortexvia.com"
+                className="text-primary underline"
+              >
+                cortexvia.com
+              </a>
+              .
+            </MotionParagraph>
+          </AnimateWithType>
+        </motion.div>
 
-          <h3 className="text-2xl font-semibold">Mailing Address</h3>
-          <p className="text-lg text-foreground/70">
-            Under
-            <br />
-            Earth
-          </p>
-        </div>
-      </div>
-    </div>
+        <AnimateWithType
+          type="fadeDownSpring"
+          className="bg-white w-[100%] p-12 lg:p-16 flex items-center justify-center"
+        >
+          <motion.div
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+            }}
+            className="lg:w-[60%] gap-8 flex flex-col text-center"
+          >
+            <MotionParagraph className="text-base lg:text-xl text-foreground/70">
+              “At Cortexvia, we connect people to intelligence that transforms
+              how they create and grow.”
+            </MotionParagraph>
+            <MotionDiv as="label" className="font-thin text-base lg:text-xl">
+              — Shaik Afrid, Founder & CEO
+            </MotionDiv>
+          </motion.div>
+        </AnimateWithType>
+      </motion.div>
+    </PageWrapper>
   );
 }
 

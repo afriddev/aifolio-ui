@@ -1,100 +1,174 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import PageWrapper from "@/apputils/PageWrapper";
+import {
+  MotionDiv,
+  MotionH3,
+  MotionH5,
+  MotionParagraph,
+} from "@/apputils/MotionUtils";
 
-function RefundPolicyMain() {
+const RefundPolicyMain: React.FC = () => {
   const navigate = useNavigate();
 
   return (
     <PageWrapper>
       <div className="flex flex-col items-center justify-center w-full pb-20">
-        <div className="px-2 lg:px-0 lg:w-[50%] text-gray-800">
-          <Button
-            variant="ghost"
-            className="mb-6 text-gray-600 hover:text-black focus:outline-none"
-            onClick={() => navigate(-1)}
-          >
-            ← Back
-          </Button>
+        <div className="px-4 lg:px-0 lg:w-[50%] text-gray-800">
+          <MotionDiv>
+            <Button
+              variant="ghost"
+              className="mb-6 text-gray-600 hover:text-black focus:outline-none"
+              onClick={() => navigate(-1)}
+            >
+              ← Back
+            </Button>
+          </MotionDiv>
 
-          <h1 className="text-3xl font-semibold mb-2">
-            Cortexvia Refund & Cancellation Policy
-          </h1>
-          <p className="text-sm mb-8">Date of Last Revision: April 21, 2025</p>
+          <MotionH3>Cortexvia Refund & Cancellation Policy</MotionH3>
+          <MotionParagraph>
+            Date of Last Revision: April 21, 2025
+          </MotionParagraph>
 
-          <p className="mb-4 text-[15px] leading-relaxed">
-            This Refund & Cancellation Policy explains how Cortexvia manages
-            refund requests, cancellations, and billing adjustments related to
-            our digital services and AI-based API plans.
-          </p>
+          <MotionParagraph>
+            This Refund & Cancellation Policy governs refunds, cancellations, and
+            billing adjustments for Cortexvia’s Services, including APIs, SDKs
+            (e.g., CortexRAG, EmbiRankis, Chatbot Library), large language models
+            (LLMs), Retrieval-Augmented Generation (RAG) pipelines, and
+            subscription plans (Free, Developer, Enterprise). By using our paid
+            Services, you agree to the terms outlined in this Policy.
+          </MotionParagraph>
 
-          <h2 className="font-bold text-[16px] mb-2">1. Refund Eligibility</h2>
-          <p className="mb-6 text-[15px] leading-relaxed">
-            Refunds are available only for verified cases of failed or duplicate
-            transactions. Requests must be submitted within{" "}
-            <strong>7 days</strong> from the transaction date. Refunds are not
-            provided for used API Tokens, partial subscriptions, or billing
-            cycles already consumed.
-          </p>
+          <MotionH5>1. Refund Eligibility</MotionH5>
+          <MotionParagraph>
+            Refunds are available only for the following verified cases:
+            <ul className="list-disc ml-6 mt-2">
+              <li>Failed transactions (e.g., payment processed but service not activated).</li>
+              <li>Duplicate transactions (e.g., accidental double billing).</li>
+              <li>
+                Service unavailability exceeding 24 hours, impacting access to APIs,
+                SDKs, or RAG pipelines (e.g., inability to process document uploads
+                or API queries within tier limits).
+              </li>
+            </ul>
+            Refund requests must be submitted within <strong>7 days</strong> from
+            the transaction date. Refunds are not provided for:
+            <ul className="list-disc ml-6 mt-2">
+              <li>Consumed API calls, tokens, or query limits (e.g., exceeding Free Tier’s 100 queries/day or Developer Tier’s 6M tokens/day).</li>
+              <li>Partially used subscriptions or billing cycles.</li>
+              <li>Dissatisfaction with model outputs (e.g., LLM or RAG pipeline accuracy).</li>
+              <li>Delays due to external factors (e.g., payment provider issues or YouTube URL processing).</li>
+            </ul>
+          </MotionParagraph>
 
-          <h2 className="font-bold text-[16px] mb-2">2. Refund Process</h2>
-          <p className="mb-6 text-[15px] leading-relaxed">
+          <MotionH5>2. Refund Process</MotionH5>
+          <MotionParagraph>
             To request a refund:
             <ul className="list-decimal ml-6 mt-2">
               <li>
-                Email <strong>billing@cortexvia.com</strong> with your payment ID
-                and reason for request.
+                Email <strong>billing@cortexvia.com</strong> with your account ID,
+                payment ID, and a detailed reason for the request.
               </li>
               <li>
-                Our billing team reviews each case and verifies transaction logs.
+                Our billing team will review the request, verifying transaction
+                logs and service usage (e.g., API request logs or RAG processing
+                records).
               </li>
               <li>
-                Approved refunds are processed within{" "}
-                <strong>5–10 business days</strong>.
+                Approved refunds are processed within <strong>5–10 business days</strong>
+                via the original payment method.
               </li>
               <li>
-                A confirmation will be sent once the refund is completed.
+                You will receive a confirmation email once the refund is completed.
               </li>
             </ul>
-          </p>
+            Refunds for Enterprise plans with custom agreements are subject to the
+            terms specified in the contract.
+          </MotionParagraph>
 
-          <h2 className="font-bold text-[16px] mb-2">3. Non-Refundable Cases</h2>
-          <p className="mb-6 text-[15px] leading-relaxed">
-            The following are not eligible for refunds:
+          <MotionH5>3. Subscription & Cancellation</MotionH5>
+          <MotionParagraph>
+            Cortexvia offers monthly subscriptions for Developer and Enterprise
+            plans, with tiered limits for document uploads (e.g., 200 files/day for
+            Developer Tier), video processing (e.g., 50 YouTube URLs/day for
+            Developer Tier), and query volumes (e.g., unlimited queries for
+            Developer Tier). Cancellations can be initiated as follows:
             <ul className="list-disc ml-6 mt-2">
-              <li>Used API calls or consumed Tokens.</li>
-              <li>Active or renewed subscriptions.</li>
-              <li>Performance dissatisfaction or output accuracy issues.</li>
-              <li>Delays caused by external payment providers.</li>
+              <li>
+                Cancel your subscription anytime via the Cortexvia dashboard before
+                the next billing cycle.
+              </li>
+              <li>
+                Access to Services (e.g., APIs, SDKs, RAG pipelines) remains active
+                until the end of the current billing period.
+              </li>
+              <li>
+                No partial refunds are issued for unused subscription time or
+                unconsumed limits (e.g., tokens or queries).
+              </li>
+              <li>
+                Upon cancellation, uploaded data (e.g., documents, datasets) may be
+                deleted per the retention policies outlined in our Privacy Policy.
+              </li>
             </ul>
-          </p>
+          </MotionParagraph>
 
-          <h2 className="font-bold text-[16px] mb-2">
-            4. Subscription & Cancellation
-          </h2>
-          <p className="mb-6 text-[15px] leading-relaxed">
-            Users can cancel subscriptions anytime before the next billing date
-            from their Cortexvia dashboard. Once cancelled, access remains active
-            until the end of the billing period. No partial refunds are issued for
-            unused subscription time.
-          </p>
+          <MotionH5>4. Non-Refundable Cases</MotionH5>
+          <MotionParagraph>
+            The following are explicitly non-refundable:
+            <ul className="list-disc ml-6 mt-2">
+              <li>
+                Usage of API calls, tokens, or queries within tier limits (e.g.,
+                Free Tier: 100K–1000K TPD; Developer Tier: 1M–6M TPD).
+              </li>
+              <li>
+                Active or renewed subscriptions for Developer or Enterprise plans.
+              </li>
+              <li>
+                Performance issues related to model outputs, including LLMs (e.g.,
+                Cortexvia Mini, Ultra) or RAG pipelines (e.g., Smart RAG, Graph RAG).
+              </li>
+              <li>
+                Processing delays within expected timeframes (e.g., Free Tier:
+                Standard Queue up to 2 mins; Developer Tier: Priority Queue 10–30 sec).
+              </li>
+              <li>
+                Issues arising from user errors, such as incorrect API key usage or
+                exceeding rate limits (e.g., RPM, RPD).
+              </li>
+            </ul>
+          </MotionParagraph>
 
-          <h2 className="font-bold text-[16px] mb-2">5. Payment Security</h2>
-          <p className="mb-6 text-[15px] leading-relaxed">
-            All payments are processed through secure PCI-DSS compliant gateways.
-            Cortexvia does not store any payment card information on its servers.
-          </p>
+          <MotionH5>5. Payment Security</MotionH5>
+          <MotionParagraph>
+            All payments for Cortexvia’s Services are processed through secure,
+            PCI-DSS compliant third-party payment gateways. We do not store
+            payment card information on our servers. Billing disputes or errors
+            caused by external payment providers must be resolved directly with
+            the provider, though we will assist in coordinating resolution.
+          </MotionParagraph>
 
-          <h2 className="font-bold text-[16px] mb-2">6. Policy Updates</h2>
-          <p className="mb-6 text-[15px] leading-relaxed">
-            Cortexvia may modify this Refund Policy at any time. Updated versions
-            will be published on our website. Continued use of our services implies
-            acceptance of the revised policy.
-          </p>
+          <MotionH5>6. Chargeback Policy</MotionH5>
+          <MotionParagraph>
+            Initiating a chargeback without contacting Cortexvia first may result
+            in account suspension or termination, including loss of access to APIs,
+            SDKs, and uploaded data. Please reach out to
+            <strong> billing@cortexvia.com</strong> to resolve billing issues before
+            pursuing a chargeback.
+          </MotionParagraph>
 
-          <h2 className="font-bold text-[16px] mb-2">7. Contact Information</h2>
-          <p className="mb-6 text-[15px] leading-relaxed">
-            For refund or billing inquiries:
+          <MotionH5>7. Policy Updates</MotionH5>
+          <MotionParagraph>
+            Cortexvia may update this Refund & Cancellation Policy periodically to
+            reflect changes in our Services or legal requirements. Updates will be
+            posted on <a href="https://cortexvia.com">cortexvia.com</a>, and
+            continued use of the Services constitutes acceptance of the revised
+            Policy. We encourage you to review this Policy regularly.
+          </MotionParagraph>
+
+          <MotionH5>8. Contact Information</MotionH5>
+          <MotionParagraph>
+            For refund, cancellation, or billing inquiries:
             <br />
             <strong>Email:</strong> billing@cortexvia.com
             <br />
@@ -104,17 +178,18 @@ function RefundPolicyMain() {
             <br />
             <strong>Address:</strong> 45 Data Hub Street, Bangalore, Karnataka,
             India
-          </p>
+          </MotionParagraph>
 
-          <h2 className="font-bold text-[16px] mb-2">8. Acknowledgement</h2>
-          <p className="mb-6 text-[15px] leading-relaxed">
-            By using Cortexvia’s paid services, you acknowledge that you have read
-            and agreed to this Refund & Cancellation Policy.
-          </p>
+          <MotionH5>9. Acknowledgement</MotionH5>
+          <MotionParagraph>
+            By using Cortexvia’s paid Services, including APIs, SDKs, LLMs, or RAG
+            pipelines, you acknowledge that you have read, understood, and agreed
+            to this Refund & Cancellation Policy.
+          </MotionParagraph>
         </div>
       </div>
     </PageWrapper>
   );
-}
+};
 
 export default RefundPolicyMain;

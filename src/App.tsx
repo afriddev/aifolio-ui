@@ -8,7 +8,7 @@ function App() {
   useImageLoader();
 
   return (
-    <div className="w-full min-h-[100vh] flex bg-background text-foreground">
+    <div className="w-full overflow-x-hidden min-h-[100vh] flex bg-background text-foreground">
       <BrowserRouter>
         <ScrollToTop />
 

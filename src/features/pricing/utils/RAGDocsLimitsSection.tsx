@@ -1,3 +1,11 @@
+import {
+  MotionDiv,
+  MotionParagraph,
+  MotionH2,
+  MotionH4,
+  AnimateWithType,
+} from "@/apputils/MotionUtils";
+import { motion } from "framer-motion";
 
 function RAGDocsLimitsSection() {
   const docLimits = [
@@ -45,7 +53,7 @@ function RAGDocsLimitsSection() {
       free: "4K Tokens",
       developer: "64K Tokens",
       enterprise: "128K+ Tokens",
-    }
+    },
   ];
 
   const speedTiers = [
@@ -67,93 +75,182 @@ function RAGDocsLimitsSection() {
   ];
 
   return (
-    <div className="flex flex-col text-xs lg:text-base items-center w-full justify-center py-24">
-      <div className="w-full flex flex-col gap-16">
-        <h2 className="text-5xl font-light text-center">
+    <motion.div
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+      }}
+      initial="hidden"
+      animate="visible"
+      className="flex flex-col text-sm lg:text-base items-center w-full justify-center py-12 lg:py-20"
+    >
+      <div className="w-full flex flex-col gap-12 max-w-[90vw] lg:max-w-[70vw]">
+        <MotionH2
+          variant="zoomIn"
+          className="text-3xl lg:text-4xl font-light text-center"
+        >
           Cortexvia RAG Data, Query & Speed Limits
-        </h2>
+        </MotionH2>
 
-        <div className="flex flex-col gap-5">
-          <h4 className="text-2xl font-medium">Document & Video Limits</h4>
-          <table className="w-full border-t border-foreground/20 text-left">
-            <thead>
-              <tr className="text-sm text-foreground/60 border-b">
-                <th className="text-center lg:text-start py-3 px-2">Limit Type</th>
-                <th className="text-center lg:text-start py-3 px-2">Free Tier</th>
-                <th className="text-center lg:text-start py-3 px-2">Developer Tier</th>
-                <th className="text-center lg:text-start py-3 px-2">Enterprise</th>
-              </tr>
-            </thead>
-            <tbody>
-              {docLimits.map((row, i) => (
-                <tr key={i} className="border-b hover:bg-gray-50 transition">
-                  <td className="py-3 px-2 font-medium">{row.type}</td>
-                  <td className="text-center lg:text-start py-3 px-2">{row.free}</td>
-                  <td className="text-center lg:text-start py-3 px-2">{row.developer}</td>
-                  <td className="text-center lg:text-start py-3 px-2">{row.enterprise}</td>
+        <AnimateWithType type="fadeInUp" className="flex flex-col gap-6">
+          <MotionH4
+            variant="slideUpBounce"
+            className="text-lg lg:text-xl font-medium"
+          >
+            Document & Video Limits
+          </MotionH4>
+          <MotionDiv
+            variant="fadeInUp"
+            as="tr"
+            className="border-b  transition will-change-transform relative"
+            style={{ transformOrigin: "center" }}
+          >
+            <table className="w-full border-t border-foreground/20 text-left">
+              <thead>
+                <tr className="text-sm text-foreground/60 border-b">
+                  <th className="py-3 px-4 font-medium min-w-[120px]">
+                    Limit Type
+                  </th>
+                  <th className="py-3 px-4 font-medium min-w-[120px]">
+                    Free Tier
+                  </th>
+                  <th className="py-3 px-4 font-medium min-w-[120px]">
+                    Developer Tier
+                  </th>
+                  <th className="py-3 px-4 font-medium min-w-[120px]">
+                    Enterprise
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {docLimits.map((row, i) => (
+                  <MotionDiv
+                    key={i}
+                    variant="fadeInUp"
+                    as="tr"
+                    className="border-b  transition"
+                  >
+                    <td className="py-3 px-4 font-medium break-words">
+                      {row.type}
+                    </td>
+                    <td className="py-3 px-4 break-words">{row.free}</td>
+                    <td className="py-3 px-4 break-words">{row.developer}</td>
+                    <td className="py-3 px-4 break-words">{row.enterprise}</td>
+                  </MotionDiv>
+                ))}
+              </tbody>
+            </table>
+          </MotionDiv>
+        </AnimateWithType>
 
-        <div className="flex flex-col gap-5">
-          <h4 className="text-2xl font-medium"> Query & Message Limits</h4>
-          <table className="w-full border-t border-foreground/20 text-left">
-            <thead>
-              <tr className="text-sm text-foreground/60 border-b">
-                <th className="text-center lg:text-start py-3 px-2">Parameter</th>
-                <th className="text-center lg:text-start py-3 px-2">Free Tier</th>
-                <th className="text-center lg:text-start py-3 px-2">Developer Tier</th>
-                <th className="text-center lg:text-start py-3 px-2">Enterprise</th>
-              </tr>
-            </thead>
-            <tbody>
-              {queryLimits.map((row, i) => (
-                <tr key={i} className="border-b hover:bg-gray-50 transition">
-                  <td className="py-3 px-2 font-medium">{row.type}</td>
-                  <td className="text-center lg:text-start py-3 px-2">{row.free}</td>
-                  <td className="text-center lg:text-start py-3 px-2">{row.developer}</td>
-                  <td className="text-center lg:text-start py-3 px-2">{row.enterprise}</td>
+        <AnimateWithType type="fadeInUp" className="flex flex-col gap-6">
+          <MotionH4
+            variant="slideUpBounce"
+            className="text-lg lg:text-xl font-medium"
+          >
+            Query & Message Limits
+          </MotionH4>
+          <MotionDiv
+            variant="fadeInUp"
+            as="tr"
+            className="border-b  transition will-change-transform relative"
+            style={{ transformOrigin: "center" }}
+          >
+            <table className="w-full border-t border-foreground/20 text-left">
+              <thead>
+                <tr className="text-sm text-foreground/60 border-b">
+                  <th className="py-3 px-4 font-medium min-w-[120px]">
+                    Parameter
+                  </th>
+                  <th className="py-3 px-4 font-medium min-w-[120px]">
+                    Free Tier
+                  </th>
+                  <th className="py-3 px-4 font-medium min-w-[120px]">
+                    Developer Tier
+                  </th>
+                  <th className="py-3 px-4 font-medium min-w-[120px]">
+                    Enterprise
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {queryLimits.map((row, i) => (
+                  <MotionDiv
+                    key={i}
+                    variant="fadeInUp"
+                    as="tr"
+                    className="border-b  transition"
+                  >
+                    <td className="py-3 px-4 font-medium break-words">
+                      {row.type}
+                    </td>
+                    <td className="py-3 px-4 break-words">{row.free}</td>
+                    <td className="py-3 px-4 break-words">{row.developer}</td>
+                    <td className="py-3 px-4 break-words">{row.enterprise}</td>
+                  </MotionDiv>
+                ))}
+              </tbody>
+            </table>
+          </MotionDiv>
+        </AnimateWithType>
 
-        {/* SPEED TIERS TABLE */}
-        <div className="flex flex-col gap-5">
-          <h4 className="text-2xl font-medium">⚡ Query Speed Tiers</h4>
-          <table className="w-full border-t border-foreground/20 text-left">
-            <thead>
-              <tr className="text-sm text-foreground/60 border-b">
-                <th className="text-center lg:text-start py-3 px-2">Speed Tier</th>
-                <th className="text-center lg:text-start py-3 px-2">Rate</th>
-                <th className="text-center lg:text-start py-3 px-2">Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              {speedTiers.map((row, i) => (
-                <tr key={i} className="border-b hover:bg-gray-50 transition">
-                  <td className="py-3 px-2 font-medium">{row.speed}</td>
-                  <td className="text-center lg:text-start py-3 px-2">{row.rate}</td>
-                  <td className="text-center lg:text-start py-3 px-2">{row.desc}</td>
+        <AnimateWithType type="fadeInUp" className="flex flex-col gap-6">
+          <MotionH4
+            variant="slideUpBounce"
+            className="text-lg lg:text-xl font-medium"
+          >
+            ⚡ Query Speed Tiers
+          </MotionH4>
+          <MotionDiv
+            variant="fadeInUp"
+            as="tr"
+            className="border-b  transition will-change-transform relative"
+            style={{ transformOrigin: "center" }}
+          >
+            <table className="w-full border-t border-foreground/20 text-left">
+              <thead>
+                <tr className="text-sm text-foreground/60 border-b">
+                  <th className="py-3 px-4 font-medium min-w-[120px]">
+                    Speed Tier
+                  </th>
+                  <th className="py-3 px-4 font-medium min-w-[120px]">Rate</th>
+                  <th className="py-3 px-4 font-medium min-w-[120px]">
+                    Description
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {speedTiers.map((row, i) => (
+                  <MotionDiv
+                    key={i}
+                    variant="fadeInUp"
+                    as="tr"
+                    className="border-b  transition"
+                  >
+                    <td className="py-3 px-4 font-medium break-words">
+                      {row.speed}
+                    </td>
+                    <td className="py-3 px-4 break-words">{row.rate}</td>
+                    <td className="py-3 px-4 break-words">{row.desc}</td>
+                  </MotionDiv>
+                ))}
+              </tbody>
+            </table>
+          </MotionDiv>
+        </AnimateWithType>
 
-        {/* FOOTER */}
-        <div className="text-center text-foreground/60 text-lg mt-10">
-          <p>
+        <AnimateWithType
+          type="fadeInUp"
+          className="text-center text-foreground/60 text-base lg:text-lg mt-8"
+        >
+          <MotionParagraph variant="fadeInUp">
             All data and query limits refresh every 24 hours. Upgrade your tier
             for faster indexing, more document uploads, and higher query
             throughput.
-          </p>
-        </div>
+          </MotionParagraph>
+        </AnimateWithType>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
