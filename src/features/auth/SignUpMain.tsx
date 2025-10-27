@@ -90,11 +90,11 @@ function SignUpMain() {
     <PageWrapper>
       <div className="flex w-full min-h-[90vh]  items-center  h-full justify-center ">
         <div className="flex flex-col ">
-          <div className=" flex  bg-background  items-center ">
+          <div className=" flex   bg-background  items-center ">
             {<AppSpinner isPending={isPending} />}
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="w-full max-w-md mx-auto   p-10 space-y-4"
+              className="w-full    p-3 lg:p-10 space-y-4"
             >
               <div className="text-center">
                 <h2 className="text-3xl ">Create Your Account</h2>
@@ -229,7 +229,7 @@ function SignUpMain() {
                   </div>
                   <div className="flex items-center justify-center w-full mt-10 ">
                     <GoogleLogin
-                      width={300}
+                      width={350}
                       onSuccess={handleGoogleSignInSuccess}
                       onError={() => {
                         console.log("Login Failed");

@@ -8,7 +8,7 @@ function RefundPolicyMain() {
   return (
     <PageWrapper>
       <div className="flex flex-col items-center justify-center w-full pb-20">
-        <div className="w-[50%] text-gray-800">
+        <div className="px-2 lg:px-0 lg:w-[50%] text-gray-800">
           <Button
             variant="ghost"
             className="mb-6 text-gray-600 hover:text-black focus:outline-none"

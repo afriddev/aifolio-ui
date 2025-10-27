@@ -67,7 +67,7 @@ function RAGDocsLimitsSection() {
   ];
 
   return (
-    <div className="flex flex-col items-center w-full justify-center py-24">
+    <div className="flex flex-col text-xs lg:text-base items-center w-full justify-center py-24">
       <div className="w-full flex flex-col gap-16">
         <h2 className="text-5xl font-light text-center">
           Cortexvia RAG Data, Query & Speed Limits
@@ -78,19 +78,19 @@ function RAGDocsLimitsSection() {
           <table className="w-full border-t border-foreground/20 text-left">
             <thead>
               <tr className="text-sm text-foreground/60 border-b">
-                <th className="py-3 px-2">Limit Type</th>
-                <th className="py-3 px-2">Free Tier</th>
-                <th className="py-3 px-2">Developer Tier</th>
-                <th className="py-3 px-2">Enterprise</th>
+                <th className="text-center lg:text-start py-3 px-2">Limit Type</th>
+                <th className="text-center lg:text-start py-3 px-2">Free Tier</th>
+                <th className="text-center lg:text-start py-3 px-2">Developer Tier</th>
+                <th className="text-center lg:text-start py-3 px-2">Enterprise</th>
               </tr>
             </thead>
             <tbody>
               {docLimits.map((row, i) => (
                 <tr key={i} className="border-b hover:bg-gray-50 transition">
                   <td className="py-3 px-2 font-medium">{row.type}</td>
-                  <td className="py-3 px-2">{row.free}</td>
-                  <td className="py-3 px-2">{row.developer}</td>
-                  <td className="py-3 px-2">{row.enterprise}</td>
+                  <td className="text-center lg:text-start py-3 px-2">{row.free}</td>
+                  <td className="text-center lg:text-start py-3 px-2">{row.developer}</td>
+                  <td className="text-center lg:text-start py-3 px-2">{row.enterprise}</td>
                 </tr>
               ))}
             </tbody>
@@ -102,19 +102,19 @@ function RAGDocsLimitsSection() {
           <table className="w-full border-t border-foreground/20 text-left">
             <thead>
               <tr className="text-sm text-foreground/60 border-b">
-                <th className="py-3 px-2">Parameter</th>
-                <th className="py-3 px-2">Free Tier</th>
-                <th className="py-3 px-2">Developer Tier</th>
-                <th className="py-3 px-2">Enterprise</th>
+                <th className="text-center lg:text-start py-3 px-2">Parameter</th>
+                <th className="text-center lg:text-start py-3 px-2">Free Tier</th>
+                <th className="text-center lg:text-start py-3 px-2">Developer Tier</th>
+                <th className="text-center lg:text-start py-3 px-2">Enterprise</th>
               </tr>
             </thead>
             <tbody>
               {queryLimits.map((row, i) => (
                 <tr key={i} className="border-b hover:bg-gray-50 transition">
                   <td className="py-3 px-2 font-medium">{row.type}</td>
-                  <td className="py-3 px-2">{row.free}</td>
-                  <td className="py-3 px-2">{row.developer}</td>
-                  <td className="py-3 px-2">{row.enterprise}</td>
+                  <td className="text-center lg:text-start py-3 px-2">{row.free}</td>
+                  <td className="text-center lg:text-start py-3 px-2">{row.developer}</td>
+                  <td className="text-center lg:text-start py-3 px-2">{row.enterprise}</td>
                 </tr>
               ))}
             </tbody>
@@ -127,17 +127,17 @@ function RAGDocsLimitsSection() {
           <table className="w-full border-t border-foreground/20 text-left">
             <thead>
               <tr className="text-sm text-foreground/60 border-b">
-                <th className="py-3 px-2">Speed Tier</th>
-                <th className="py-3 px-2">Rate</th>
-                <th className="py-3 px-2">Description</th>
+                <th className="text-center lg:text-start py-3 px-2">Speed Tier</th>
+                <th className="text-center lg:text-start py-3 px-2">Rate</th>
+                <th className="text-center lg:text-start py-3 px-2">Description</th>
               </tr>
             </thead>
             <tbody>
               {speedTiers.map((row, i) => (
                 <tr key={i} className="border-b hover:bg-gray-50 transition">
                   <td className="py-3 px-2 font-medium">{row.speed}</td>
-                  <td className="py-3 px-2">{row.rate}</td>
-                  <td className="py-3 px-2">{row.desc}</td>
+                  <td className="text-center lg:text-start py-3 px-2">{row.rate}</td>
+                  <td className="text-center lg:text-start py-3 px-2">{row.desc}</td>
                 </tr>
               ))}
             </tbody>

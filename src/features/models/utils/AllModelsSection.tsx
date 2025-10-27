@@ -229,7 +229,7 @@ function AllModelsSection() {
   ];
 
   return (
-    <div className="flex flex-col items-center w-full justify-center py-24 ">
+    <div className="flex text-xs lg:text-base flex-col items-center w-full justify-center py-24 ">
       <div className="w-full flex flex-col gap-16">
         <h2 className="text-5xl font-light text-center">
           Cortexvia Model Performance & Throughput
@@ -254,39 +254,44 @@ function AllModelsSection() {
             </div>
           </div>
 
-          <table className="w-full border-t border-foreground/20 text-left">
-            <thead>
-              <tr className="text-sm text-foreground/60 border-b">
-                <th className="py-3 px-2">Model</th>
-                <th className="py-3 px-2">Size</th>
-                <th className="py-3 px-2">Speed</th>
-                <th className="py-3 px-2">RPM</th>
-                <th className="py-3 px-2">RPD</th>
-                <th className="py-3 px-2">TPM</th>
-                <th className="py-3 px-2">TPD</th>
-                <th className="py-3 px-2 text-right"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {freeTierModels.map((m, idx) => (
-                <tr key={idx} className="border-b hover:bg-gray-50 transition">
-                  <td className="py-3 px-2 font-medium">{m.name}</td>
-                  <td className="py-3 px-2">{m.size}</td>
-                  <td className="py-3 px-2">{m.speed}</td>
-                  <td className="py-3 px-2">{m.rpm}</td>
-                  <td className="py-3 px-2">{m.rpd}</td>
-                  <td className="py-3 px-2">{m.tpm}</td>
-                  <td className="py-3 px-2">{m.tpd}</td>
-                  <td className="py-3 px-2 flex justify-end gap-3">
-                    <Button className="bg-primary text-white hover:opacity-90">
-                      Try Now
-                    </Button>
-                    <Button variant="outline">Model Card</Button>
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full border-t border-foreground/20 text-left">
+              <thead>
+                <tr className="text-sm text-foreground/60 border-b">
+                  <th className="py-3 px-2">Model</th>
+                  <th className="py-3 px-2">Size</th>
+                  <th className="py-3 px-2">Speed</th>
+                  <th className="py-3 px-2">RPM</th>
+                  <th className="py-3 px-2">RPD</th>
+                  <th className="py-3 px-2">TPM</th>
+                  <th className="py-3 px-2">TPD</th>
+                  <th className="py-3 px-2 text-right"></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {freeTierModels.map((m, idx) => (
+                  <tr
+                    key={idx}
+                    className="border-b hover:bg-gray-50 transition"
+                  >
+                    <td className="py-3 px-2 font-medium">{m.name}</td>
+                    <td className="py-3 px-2">{m.size}</td>
+                    <td className="py-3 px-2">{m.speed}</td>
+                    <td className="py-3 px-2">{m.rpm}</td>
+                    <td className="py-3 px-2">{m.rpd}</td>
+                    <td className="py-3 px-2">{m.tpm}</td>
+                    <td className="py-3 px-2">{m.tpd}</td>
+                    <td className="py-3 px-2 flex justify-end gap-3">
+                      <Button className="bg-primary text-white hover:opacity-90">
+                        Try Now
+                      </Button>
+                      <Button variant="outline">Model Card</Button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
         <div className="flex flex-col gap-5">
           <div className="flex items-center justify-between">
@@ -307,40 +312,44 @@ function AllModelsSection() {
               </p>
             </div>
           </div>
-
-          <table className="w-full border-t border-foreground/20 text-left">
-            <thead>
-              <tr className="text-sm text-foreground/60 border-b">
-                <th className="py-3 px-2">Model</th>
-                <th className="py-3 px-2">Size</th>
-                <th className="py-3 px-2">Speed</th>
-                <th className="py-3 px-2">RPM</th>
-                <th className="py-3 px-2">RPD</th>
-                <th className="py-3 px-2">TPM</th>
-                <th className="py-3 px-2">TPD</th>
-                <th className="py-3 px-2 text-right"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {developerTierModels.map((m, idx) => (
-                <tr key={idx} className="border-b hover:bg-gray-50 transition">
-                  <td className="py-3 px-2 font-medium">{m.name}</td>
-                  <td className="py-3 px-2">{m.size}</td>
-                  <td className="py-3 px-2">{m.speed}</td>
-                  <td className="py-3 px-2">{m.rpm}</td>
-                  <td className="py-3 px-2">{m.rpd}</td>
-                  <td className="py-3 px-2">{m.tpm}</td>
-                  <td className="py-3 px-2">{m.tpd}</td>
-                  <td className="py-3 px-2 flex justify-end gap-3">
-                    <Button className="bg-primary text-white hover:opacity-90">
-                      Try Now
-                    </Button>
-                    <Button variant="outline">Model Card</Button>
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full border-t border-foreground/20 text-left">
+              <thead>
+                <tr className="text-sm text-foreground/60 border-b">
+                  <th className="py-3 px-2">Model</th>
+                  <th className="py-3 px-2">Size</th>
+                  <th className="py-3 px-2">Speed</th>
+                  <th className="py-3 px-2">RPM</th>
+                  <th className="py-3 px-2">RPD</th>
+                  <th className="py-3 px-2">TPM</th>
+                  <th className="py-3 px-2">TPD</th>
+                  <th className="py-3 px-2 text-right"></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {developerTierModels.map((m, idx) => (
+                  <tr
+                    key={idx}
+                    className="border-b hover:bg-gray-50 transition"
+                  >
+                    <td className="py-3 px-2 font-medium">{m.name}</td>
+                    <td className="py-3 px-2">{m.size}</td>
+                    <td className="py-3 px-2">{m.speed}</td>
+                    <td className="py-3 px-2">{m.rpm}</td>
+                    <td className="py-3 px-2">{m.rpd}</td>
+                    <td className="py-3 px-2">{m.tpm}</td>
+                    <td className="py-3 px-2">{m.tpd}</td>
+                    <td className="py-3 px-2 flex justify-end gap-3">
+                      <Button className="bg-primary text-white hover:opacity-90">
+                        Try Now
+                      </Button>
+                      <Button variant="outline">Model Card</Button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div className="flex items-center justify-between p-6 bg-white rounded border">
