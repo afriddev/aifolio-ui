@@ -5,6 +5,7 @@ import { Lock } from "lucide-react";
 import {
   AnimateWithType,
   MotionH2,
+  MotionH4,
   MotionParagraph,
 } from "@/apputils/MotionUtils";
 
@@ -13,7 +14,7 @@ function SecuritySection() {
     <div className="flex flex-col w-[95%] items-center gap-12 mt-5 lg:mt-32 lg:w-[70%] ">
       <div className="flex flex-col items-center justify-center gap-12">
         <AnimateWithType
-          type="smoothFade"
+         
           className="flex items-center justify-center"
         >
           <div className="flex flex-col lg:w-[60%] gap-6  items-center justify-center">
@@ -42,14 +43,14 @@ function SecuritySection() {
         </AnimateWithType>
         <div className="flex    flex-col gap-10">
           <div className="flex  lg:flex-row flex-col  items-center gap-10 justify-center">
-            <AnimateWithType type="scaleIn" className="flex gap-4 lg:w-[30%]">
+            <AnimateWithType className="flex gap-4 lg:w-[30%]">
               <div className=" border rounded p-2 w-fit h-fit ">
                 <MdOutlineVerifiedUser className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="text-lg font-semibold">
+                <MotionH4 className="text-lg font-semibold">
                   SOC 2 Type II Certification
-                </h4>
+                </MotionH4>
                 <MotionParagraph className="text-foreground/70">
                   Independent auditors validate our controls annually so your
                   organization can rely on consistent safeguards.
@@ -57,12 +58,12 @@ function SecuritySection() {
               </div>
             </AnimateWithType>
 
-            <AnimateWithType type="scaleIn" className="flex gap-4 lg:w-[30%]">
+            <AnimateWithType className="flex gap-4 lg:w-[30%]">
               <div className=" border rounded p-2 w-fit h-fit ">
                 <CiGlobe className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="text-lg font-semibold">GDPR-ready governance</h4>
+                <MotionH4 className="text-lg font-semibold">GDPR-ready governance</MotionH4>
                 <MotionParagraph className="text-foreground/70">
                   Data retention, erasure, and residency workflows respect
                   regional privacy obligations across the EU and beyond.
@@ -71,14 +72,14 @@ function SecuritySection() {
             </AnimateWithType>
           </div>
           <div className="flex flex-col lg:flex-row items-center gap-10 justify-center">
-            <AnimateWithType type="scaleIn" className="flex gap-4 lg:w-[30%]">
+            <AnimateWithType className="flex gap-4 lg:w-[30%]">
               <div className=" border rounded p-2 w-fit h-fit ">
                 <Lock className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="text-lg font-semibold">
+                <MotionH4 className="text-lg font-semibold">
                   Granular access controls
-                </h4>
+                </MotionH4>
                 <MotionParagraph className="text-foreground/70">
                   Role-based permissions and scoped API tokens keep every
                   workspace isolated and auditable.
@@ -86,12 +87,12 @@ function SecuritySection() {
               </div>
             </AnimateWithType>
 
-            <AnimateWithType type="scaleIn" className="flex gap-4 lg:w-[30%]">
+            <AnimateWithType className="flex gap-4 lg:w-[30%]">
               <div className=" border rounded p-2 w-fit h-fit ">
                 <HiServerStack className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="text-lg font-semibold">Encryption end-to-end</h4>
+                <MotionH4 className="text-lg font-semibold">Encryption end-to-end</MotionH4>
                 <MotionParagraph className="text-foreground/70">
                   Customer content stays encrypted at rest and in transit using
                   strong TLS and AES-256 standards.

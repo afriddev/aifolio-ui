@@ -1,4 +1,5 @@
 
+import { MotionParagraph } from "@/apputils/MotionUtils";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
@@ -53,7 +54,7 @@ export const Action = ({
         <Tooltip>
           <TooltipTrigger asChild>{button}</TooltipTrigger>
           <TooltipContent>
-            <p>{tooltip}</p>
+            <MotionParagraph>{tooltip}</MotionParagraph>
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>

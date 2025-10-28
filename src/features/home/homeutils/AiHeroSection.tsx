@@ -24,7 +24,7 @@ function AIHeroSection() {
         <div className="flex flex-col gap-10 lg:gap-0 w-full p-5 lg:p-20 text-foreground/80">
           <div className="flex  items-start gap-3 lg:flex-row flex-col">
             <AnimateWithType
-              type="zoomIn"
+             
               className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
             >
               <IoRocket className="text-primary lg:w-5 w-5 h-5  lg:h-5 mt-1" />
@@ -39,7 +39,7 @@ function AIHeroSection() {
 
           <div className="flex items-start gap-3 lg:flex-row flex-col">
             <AnimateWithType
-              type="zoomIn"
+             
               className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
             >
               <IoDocumentText className="text-primary lg:w-5 w-5 h-5  lg:h-5 mt-1" />
@@ -53,7 +53,7 @@ function AIHeroSection() {
 
           <div className="flex items-start gap-3 lg:flex-row flex-col">
             <AnimateWithType
-              type="zoomIn"
+             
               className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
             >
               <IoAnalytics className="text-primary lg:w-5 w-5 h-5  lg:h-5 mt-1" />
@@ -67,7 +67,7 @@ function AIHeroSection() {
 
           <div className="flex items-start gap-3 lg:flex-row flex-col">
             <AnimateWithType
-              type="zoomIn"
+             
               className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
             >
               <IoPeople className="text-primary lg:w-5 w-5 h-5  lg:h-5 mt-1" />

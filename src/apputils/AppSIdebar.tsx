@@ -18,6 +18,7 @@ import { IoKeyOutline } from "react-icons/io5";
 import { GoTable } from "react-icons/go";
 import { VscGraph } from "react-icons/vsc";
 import { LuBot } from "react-icons/lu";
+import { MotionParagraph } from "./MotionUtils";
 
 function AppSidebar() {
   const { getAllChats } = useGetAllChats();
@@ -81,7 +82,7 @@ function AppSidebar() {
               <Avatar className=" h-8 mr-2">
                 <AvatarFallback className="">SA</AvatarFallback>
               </Avatar>
-              <p className=" text-foreground ">Shaik Afrid</p>
+              <MotionParagraph className=" text-foreground ">Shaik Afrid</MotionParagraph>
             </div>
             <CiSettings className="w-6 h-6" />
           </div>
@@ -93,7 +94,7 @@ function AppSidebar() {
                 }}
                 className="flex items-center gap-3 justify-between  w-full px-3 py-3 lg:hover:bg-muted rounded cursor-pointer"
               >
-                <p className=" font-medium">New Chat</p>
+                <MotionParagraph className=" font-medium">New Chat</MotionParagraph>
                 <BsChatRight className="h-5 w-5" />
               </div>
 
@@ -103,7 +104,7 @@ function AppSidebar() {
                 }}
                 className="flex items-center gap-3 justify-between  w-full px-3 py-3 lg:hover:bg-muted rounded cursor-pointer"
               >
-                <p className=" font-medium">Chat bot</p>
+                <MotionParagraph className=" font-medium">Chat bot</MotionParagraph>
                 <LuBot className="h-5 w-5" />
               </div>
 
@@ -113,17 +114,17 @@ function AppSidebar() {
                 }}
                 className="flex items-center gap-3 justify-between  w-full px-3 py-3 lg:hover:bg-muted rounded cursor-pointer"
               >
-                <p className=" font-medium">API keys</p>
+                <MotionParagraph className=" font-medium">API keys</MotionParagraph>
                 <IoKeyOutline className="h-5 w-5" />
               </div>
 
               <div className="flex items-center gap-3 justify-between  w-full px-3 py-3 lg:hover:bg-muted rounded cursor-pointer">
-                <p className=" font-medium">Limits</p>
+                <MotionParagraph className=" font-medium">Limits</MotionParagraph>
                 <GoTable className="h-5 w-5" />
               </div>
 
               <div className="flex items-center gap-3 justify-between  w-full px-3 py-3 lg:hover:bg-muted rounded cursor-pointer">
-                <p className=" font-medium">Usage</p>
+                <MotionParagraph className=" font-medium">Usage</MotionParagraph>
                 <VscGraph className="h-5 w-5" />
               </div>
             </div>
@@ -151,9 +152,9 @@ function AppSidebar() {
                     }}
                     className="flex items-center gap-3 justify-between relative  px-3 py-2 lg:hover:bg-muted/60 rounded cursor-pointer text-foreground/80 "
                   >
-                    <p className=" font-medium ">
+                    <MotionParagraph className=" font-medium ">
                       {truncateText(chat.title, 20, "...")}
-                    </p>
+                    </MotionParagraph>
                     <div className="absolute   cursor-pointer right-2 flex ">
                       <Popover
                         open={openDelete === index}

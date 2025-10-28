@@ -10,6 +10,7 @@ import { BrainIcon, ChevronDownIcon } from "lucide-react";
 import type { ComponentProps } from "react";
 import { createContext, memo, useContext, useEffect, useState } from "react";
 import { Response } from "./response";
+import { MotionParagraph } from "@/apputils/MotionUtils";
 
 type ReasoningContextValue = {
   isStreaming: boolean;
@@ -113,12 +114,12 @@ export type ReasoningTriggerProps = ComponentProps<typeof CollapsibleTrigger>;
 
 const getThinkingMessage = (isStreaming: boolean, duration?: number) => {
   if (isStreaming || duration === 0) {
-    return <p>Thinking...</p>;
+    return <MotionParagraph>Thinking...</MotionParagraph>;
   }
   if (duration === undefined) {
-    return <p>Thought for a few seconds</p>;
+    return <MotionParagraph>Thought for a few seconds</MotionParagraph>;
   }
-  return <p>Thought for {duration} seconds</p>;
+  return <MotionParagraph>Thought for {duration} seconds</MotionParagraph>;
 };
 
 export const ReasoningTrigger = memo(

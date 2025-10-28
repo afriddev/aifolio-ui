@@ -28,7 +28,7 @@ function ContentSourcesSection() {
             <div className="flex flex-col gap-10 lg:gap-5 p-5 lg:p-20  w-full text-foreground/80">
               <div className="flex items-start gap-3 lg:flex-row flex-col">
                 <AnimateWithType
-                  type="zoomIn"
+                 
                   className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
                 >
                   <IoDocumentText className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
@@ -42,7 +42,7 @@ function ContentSourcesSection() {
 
               <div className="flex items-start gap-3 lg:flex-row flex-col">
                 <AnimateWithType
-                  type="zoomIn"
+                 
                   className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
                 >
                   <IoLogoYoutube className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
@@ -56,7 +56,7 @@ function ContentSourcesSection() {
 
               <div className="flex items-start gap-3 lg:flex-row flex-col">
                 <AnimateWithType
-                  type="zoomIn"
+                 
                   className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
                 >
                   <IoCloudUpload className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
@@ -70,7 +70,7 @@ function ContentSourcesSection() {
 
               <div className="flex items-start gap-3 lg:flex-row flex-col">
                 <AnimateWithType
-                  type="zoomIn"
+                 
                   className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
                 >
                   <IoSyncCircle className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
@@ -82,7 +82,7 @@ function ContentSourcesSection() {
                 </MotionParagraph>
               </div>
 
-              <AnimateWithType type="scaleIn">
+              <AnimateWithType>
                 <Button className="mt-6 rounded-lg py-3 px-6 transition-colors duration-200 font-medium w-fit">
                   Start Indexing Your Content
                 </Button>
@@ -102,27 +102,27 @@ function ContentSourcesSection() {
         </MotionParagraph>
 
         <div className="flex flex-wrap gap-3 mt-4 justify-center">
-          <AnimateWithType type="scaleIn">
+          <AnimateWithType>
             <span className="px-4 py-2 bg-white rounded-full text-foreground/60 border lg:hover:bg-muted transition-colors duration-200 flex items-center gap-2">
               <IoCloudOutline className="w-4 h-4" /> OneDrive
             </span>
           </AnimateWithType>
-          <AnimateWithType type="scaleIn">
+          <AnimateWithType>
             <span className="px-4 py-2 bg-white rounded-full text-foreground/60 border lg:hover:bg-muted transition-colors duration-200 flex items-center gap-2">
               <IoCloudOutline className="w-4 h-4" /> Box
             </span>
           </AnimateWithType>
-          <AnimateWithType type="scaleIn">
+          <AnimateWithType>
             <span className="px-4 py-2 bg-white rounded-full text-foreground/60 border lg:hover:bg-muted transition-colors duration-200 flex items-center gap-2">
               <IoDocumentText className="w-4 h-4" /> WordPress
             </span>
           </AnimateWithType>
-          <AnimateWithType type="scaleIn">
+          <AnimateWithType>
             <span className="px-4 py-2 bg-white rounded-full text-foreground/60 border lg:hover:bg-muted transition-colors duration-200 flex items-center gap-2">
               <IoCloudOutline className="w-4 h-4" /> RSS Feeds
             </span>
           </AnimateWithType>
-          <AnimateWithType type="scaleIn">
+          <AnimateWithType>
             <span className="px-4 py-2 bg-white rounded-full text-foreground/60 border lg:hover:bg-muted transition-colors duration-200 flex items-center gap-2">
               <IoDocumentText className="w-4 h-4" /> Sitemaps
             </span>

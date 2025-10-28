@@ -1,34 +1,35 @@
 import { IoCheckmarkCircle } from "react-icons/io5";
 import { Button } from "@/components/ui/button";
+import { MotionH1, MotionH3, MotionParagraph } from "@/apputils/MotionUtils";
 
 function PricingSection() {
   return (
     <div className="flex flex-col items-center gap-12 mt-5 lg:mt-32 w-[95%] lg:w-[70%] ">
       <div className="flex flex-col items-center gap-6 text-center">
-        <h1 className="text-5xl font-semibold text-foreground tracking-tight">
+        <MotionH1 className="text-5xl font-semibold text-foreground tracking-tight">
           Pricing Plans
-        </h1>
-        <p className="text-lg text-foreground/60 leading-relaxed max-w-2xl">
+        </MotionH1>
+        <MotionParagraph className="text-lg text-foreground/60 leading-relaxed max-w-2xl">
           Unlock Cortexvia’s AI-driven potential with plans crafted for all
           users—hobbyists, developers, and enterprises. Seamlessly ingest data,
           query with RAG, and deploy custom chatbots, with INR pricing for
           Indian users in a clean, intuitive interface.
-        </p>
+        </MotionParagraph>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:w-[80%]">
         <div className="flex flex-col justify-between bg-bactext-background rounded-2xl p-8 border ">
           <div className="flex flex-col gap-4">
-            <h3 className="text-2xl font-semibold text-foreground">
+            <MotionH3 className="text-2xl font-semibold text-foreground">
               Free Plan
-            </h3>
+            </MotionH3>
             <div className="flex items-baseline gap-2">
-              <p className="text-4xl font-semibold text-foreground">$0 / ₹0</p>
+              <MotionParagraph className="text-4xl font-semibold text-foreground">$0 / ₹0</MotionParagraph>
               <span className="text-base text-foreground/50">/month</span>
             </div>
-            <p className="text-foreground/60 text-sm leading-relaxed">
+            <MotionParagraph className="text-foreground/60 text-sm leading-relaxed">
               Ideal for individuals and small projects to explore Cortexvia’s
               RAG and AI capabilities with no upfront cost.
-            </p>
+            </MotionParagraph>
           </div>
           <ul className="flex flex-col gap-3 mt-6">
             <li className="flex items-center gap-3">
@@ -86,19 +87,19 @@ function PricingSection() {
             Recommended
           </div>
           <div className="flex flex-col gap-4">
-            <h3 className="text-2xl font-semibold text-foreground">
+            <MotionH3 className="text-2xl font-semibold text-foreground">
               Developer Plan
-            </h3>
+            </MotionH3>
             <div className="flex items-baseline gap-2">
-              <p className="text-4xl font-semibold text-foreground">
+              <MotionParagraph className="text-4xl font-semibold text-foreground">
                 $20 / ₹1,650
-              </p>
+              </MotionParagraph>
               <span className="text-base text-foreground/50">/month</span>
             </div>
-            <p className="text-foreground/60 text-sm leading-relaxed">
+            <MotionParagraph className="text-foreground/60 text-sm leading-relaxed">
               Built for developers and teams scaling high-performance AI
               applications with advanced RAG and robust deployment options.
-            </p>
+            </MotionParagraph>
           </div>
           <ul className="flex flex-col gap-3 mt-6">
             <li className="flex items-center gap-3">

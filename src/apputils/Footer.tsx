@@ -25,19 +25,19 @@ function Footer() {
       className="bg-background text-foreground/80 w-full pt-12 lg:pt-16 pb-10 px-4 lg:px-10 mt-12"
     >
       <AnimateWithType
-        type="smoothFade"
+       
         className="flex w-full items-center justify-center"
       >
         <div className="w-full max-w-[90vw] lg:max-w-[70vw] flex flex-col gap-12">
           <MotionH3
-            variant="zoomIn"
+            
             className="text-4xl lg:text-5xl font-light text-center"
           >
             Build the future with us.
           </MotionH3>
 
           <AnimateWithType
-            type="smoothFade"
+           
             className="items-center gap-8 flex flex-col justify-center bg-primary text-background rounded-lg p-6 lg:p-16 w-full"
           >
             <MotionDiv variant="pulse">
@@ -74,7 +74,7 @@ function Footer() {
       </AnimateWithType>
 
       <AnimateWithType
-        type="smoothFade"
+       
         className="w-full flex flex-col lg:flex-row gap-12 lg:gap-16 mt-12 lg:mt-20 justify-between"
       >
         <motion.div
@@ -214,7 +214,7 @@ function Footer() {
       
 
       <AnimateWithType
-        type="smoothFade"
+       
         className="w-full flex flex-col md:flex-row justify-between items-center mt-6 border-t border-white/20 text-center text-foreground gap-4"
       >
         <MotionParagraph variant="fadeInUp" className="text-sm lg:text-base">

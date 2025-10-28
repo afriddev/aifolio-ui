@@ -4,9 +4,9 @@ import PageWrapper from "@/apputils/PageWrapper";
 import {
   MotionDiv,
   MotionParagraph,
-  MotionH2,
   MotionH1,
   AnimateWithType,
+  MotionH4,
 } from "@/apputils/MotionUtils";
 import { motion } from "framer-motion";
 
@@ -23,7 +23,7 @@ function ContactUsMain() {
         className="flex flex-col items-center justify-center gap-16"
       >
         <AnimateWithType
-          type="smoothFade"
+         
           className="min-h-[40vh] h-auto relative flex w-full items-center justify-center overflow-hidden"
         >
           <MotionDiv className="w-full absolute h-full inset-0">
@@ -46,7 +46,7 @@ function ContactUsMain() {
             className="flex flex-col items-center text-center gap-3 z-10 max-w-[90%]"
           >
             <MotionH1
-              variant="zoomIn"
+              
               className="text-4xl lg:text-[64px] font-light"
             >
               Connect with Cortexvia
@@ -63,12 +63,12 @@ function ContactUsMain() {
             hidden: { opacity: 0 },
             visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
           }}
-          className="w-[100%] lg:w-[70%] px-4 lg:px-20 py-6 lg:py-16 flex flex-col gap-12"
+          className="w-[100%] lg:w-[80%] px-4 lg:px-20 py-0 lg:py-6 flex flex-col gap-12"
         >
-          <AnimateWithType type="pulse" className="flex flex-col gap-4">
-            <MotionH2 className="text-2xl lg:text-3xl font-semibold">
+          <AnimateWithType className="flex flex-col gap-4">
+            <MotionH4 >
               Developer Support
-            </MotionH2>
+            </MotionH4>
             <MotionParagraph className="text-base lg:text-lg text-foreground/70 lg:max-w-[60%]">
               Get started with our{" "}
               <a
@@ -92,10 +92,10 @@ function ContactUsMain() {
             </MotionParagraph>
           </AnimateWithType>
 
-          <AnimateWithType type="pulse" className="flex flex-col gap-4">
-            <MotionH2 className="text-2xl lg:text-3xl font-semibold">
+          <AnimateWithType className="flex flex-col gap-4">
+            <MotionH4 >
               Enterprise Solutions
-            </MotionH2>
+            </MotionH4>
             <MotionParagraph className="text-base lg:text-lg text-foreground/70">
               Deploy Cortexvia’s LLMs and automation tools for large-scale
               inference. Contact our team at{" "}
@@ -113,10 +113,10 @@ function ContactUsMain() {
             </MotionParagraph>
           </AnimateWithType>
 
-          <AnimateWithType type="pulse" className="flex flex-col gap-4">
-            <MotionH2 className="text-2xl lg:text-3xl font-semibold">
+          <AnimateWithType className="flex flex-col gap-4">
+            <MotionH4 >
               Press & Media
-            </MotionH2>
+            </MotionH4>
             <MotionParagraph className="text-base lg:text-lg text-foreground/70">
               For media inquiries, reach out to{" "}
               <a
@@ -147,10 +147,10 @@ function ContactUsMain() {
             </motion.ul>
           </AnimateWithType>
 
-          <AnimateWithType type="pulse" className="flex flex-col gap-4">
-            <MotionH2 className="text-2xl lg:text-3xl font-semibold">
+          <AnimateWithType className="flex flex-col gap-4">
+            <MotionH4 >
               Stay Connected
-            </MotionH2>
+            </MotionH4>
             <MotionParagraph className="text-base lg:text-lg text-foreground/70">
               Follow Cortexvia for updates, tutorials, and insights:
             </MotionParagraph>
@@ -185,11 +185,11 @@ function ContactUsMain() {
               ].map((item, i) => (
                 <AnimateWithType
                   key={i}
-                  type="scaleIn"
+                 
                   className="flex items-center gap-3"
                 >
                   <MotionDiv
-                    variant="zoomIn"
+                    
                     as="a"
                     href={item.link}
                     className="flex items-center text-primary underline"
@@ -205,10 +205,10 @@ function ContactUsMain() {
             </motion.div>
           </AnimateWithType>
 
-          <AnimateWithType type="pulse" className="flex flex-col gap-4">
-            <MotionH2 className="text-2xl lg:text-3xl font-semibold">
+          <AnimateWithType className="flex flex-col gap-4">
+            <MotionH4 >
               Visit Us
-            </MotionH2>
+            </MotionH4>
             <motion.div
               variants={{
                 hidden: { opacity: 0 },
@@ -217,9 +217,9 @@ function ContactUsMain() {
               className="flex flex-col lg:flex-row gap-8"
             >
               <MotionDiv>
-                <h4 className="text-lg lg:text-xl font-semibold">
+                <MotionH4 className="text-lg lg:text-xl font-semibold">
                   Headquarters
-                </h4>
+                </MotionH4>
                 <MotionParagraph className="text-base lg:text-lg text-foreground/70">
                   0-00 Cortexvia St,
                   <br />
@@ -227,9 +227,9 @@ function ContactUsMain() {
                 </MotionParagraph>
               </MotionDiv>
               <MotionDiv>
-                <h4 className="text-lg lg:text-xl font-semibold">
+                <MotionH4 className="text-lg lg:text-xl font-semibold">
                   Mailing Address
-                </h4>
+                </MotionH4>
                 <MotionParagraph className="text-base lg:text-lg text-foreground/70">
                   PO Box 1234,
                   <br />
@@ -240,13 +240,13 @@ function ContactUsMain() {
           </AnimateWithType>
 
           <AnimateWithType
-            type="pulse"
+           
             className="bg-white/5 p-6 lg:p-12 rounded-2xl border border-white/10 text-center"
           >
-            <MotionH2 className="text-2xl lg:text-3xl font-semibold mb-4">
+            <MotionH4 className="text-2xl lg:text-3xl font-semibold mb-4">
               Ready to Build with Cortexvia?{" "}
               <FaArrowRight className="inline w-6 h-6 text-primary align-middle" />
-            </MotionH2>
+            </MotionH4>
             <MotionParagraph className="text-base lg:text-lg text-foreground/70 lg:w-[60%] mx-auto">
               Start with our Free Tier or contact us for enterprise solutions.
               Create your account at{" "}
@@ -262,7 +262,7 @@ function ContactUsMain() {
         </motion.div>
 
         <AnimateWithType
-          type="smoothFade"
+         
           className="bg-white w-[100%] p-12 lg:p-16 flex items-center justify-center"
         >
           <motion.div

@@ -1,4 +1,5 @@
 
+import { MotionH3, MotionParagraph } from "@/apputils/MotionUtils";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ArrowDownIcon } from "lucide-react";
@@ -54,9 +55,9 @@ export const ConversationEmptyState = ({
       <>
         {icon && <div className="text-muted-foreground">{icon}</div>}
         <div className="space-y-1">
-          <h3 className="font-medium ">{title}</h3>
+          <MotionH3 className="font-medium ">{title}</MotionH3>
           {description && (
-            <p className="text-muted-foreground ">{description}</p>
+            <MotionParagraph className="text-muted-foreground ">{description}</MotionParagraph>
           )}
         </div>
       </>

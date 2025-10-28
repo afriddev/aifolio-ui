@@ -1,4 +1,4 @@
-import { AnimateWithType } from "@/apputils/MotionUtils";
+import { AnimateWithType, MotionH1, MotionParagraph } from "@/apputils/MotionUtils";
 import { Button } from "@/components/ui/button";
 
 function CreateFirstSection() {
@@ -9,10 +9,10 @@ function CreateFirstSection() {
       </div>
 
       <AnimateWithType className="flex absolute gap-10 flex-col w-full items-center">
-        <h1 className="text-4xl text-center lg:text-[60px] font-semibold">
+        <MotionH1 className="text-4xl text-center lg:text-[60px] font-semibold">
           Create your first RAG workflow today
-        </h1>
-        <p className="text-center  w-[95%] lg:w-[50%] text-background/90">
+        </MotionH1>
+        <MotionParagraph className="text-center  w-[95%] lg:w-[50%] text-background/90">
           Create your first RAG powered workflow in Cortexvia today: Simply
           upload a document, PDF, or YouTube video URL to build your knowledge
           base, then query it with natural language questions for context aware,
@@ -20,7 +20,7 @@ function CreateFirstSection() {
           SDKs and deploy a fully customizable React chatbot streamlined for
           developers, scalable for teams, and hallucination-free for reliable
           results. No backend hassle, just pure AI acceleration.
-        </p>
+        </MotionParagraph>
         <Button className=" mt-10 px-6 py-3 rounded-lg">
           Get Started for Free
         </Button>

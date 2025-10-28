@@ -17,7 +17,7 @@ function NoCodeSection() {
       <div className="flex flex-col-reverse lg:flex-row bg-white/50 lg:gap-10 items-center">
         <div className="flex flex-col p-5 lg:p-20  gap-10 lg:gap-0 w-full text-foreground/80">
           <div className="flex items-start gap-3 lg:flex-row flex-col">
-            <AnimateWithType type="zoomIn" className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none">
+            <AnimateWithType className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none">
               <IoConstruct className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
             </AnimateWithType>
             <MotionParagraph>
@@ -28,7 +28,7 @@ function NoCodeSection() {
           </div>
 
           <div className="flex items-start gap-3 lg:flex-row flex-col">
-            <AnimateWithType type="zoomIn" className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none">
+            <AnimateWithType className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none">
               <IoDocumentText className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
             </AnimateWithType>
             <MotionParagraph>
@@ -39,7 +39,7 @@ function NoCodeSection() {
           </div>
 
           <div className="flex items-start gap-3 lg:flex-row flex-col">
-            <AnimateWithType type="zoomIn" className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none">
+            <AnimateWithType className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none">
               <IoAnalytics className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
             </AnimateWithType>
             <MotionParagraph>
@@ -50,7 +50,7 @@ function NoCodeSection() {
           </div>
 
           <div className="flex items-start gap-3 lg:flex-row flex-col">
-            <AnimateWithType type="zoomIn" className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none">
+            <AnimateWithType className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none">
               <IoPeopleCircle className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
             </AnimateWithType>
             <MotionParagraph>
@@ -60,7 +60,7 @@ function NoCodeSection() {
             </MotionParagraph>
           </div>
 
-          <AnimateWithType type="smoothFade">
+          <AnimateWithType>
             <Button className="mt-6 rounded-lg py-3 px-6 transition-colors duration-200 font-medium w-fit">
               Watch Demo
             </Button>

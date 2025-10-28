@@ -9,6 +9,7 @@ import PageWrapper from "@/apputils/PageWrapper";
 import DividerWithText from "@/apputils/DividerWithText";
 import LoginForm from "./LoginForm";
 import { useLogin } from "@/hooks/loginHooks";
+import { MotionH2, MotionParagraph } from "@/apputils/MotionUtils";
 
 function LoginMain() {
   const [loginStep, setLoginStep] = useState<number>(0);
@@ -64,11 +65,11 @@ function LoginMain() {
             <div className=" w-full  flex items-center flex-col justify-between  ">
               <div className="flex flex-col gap-y-5  justify-center px-2">
                 <div className="flex flex-col items-center gap-2">
-                  <h2 className=" text-3xl ">Login to your account</h2>
-                  <p className=" text-foreground/70 text-xs text-center">
+                  <MotionH2 className=" text-3xl ">Login to your account</MotionH2>
+                  <MotionParagraph className=" text-foreground/70 text-xs text-center">
                     Continue tracking your progress after logging <br /> in to
                     your account
-                  </p>
+                  </MotionParagraph>
                 </div>
 
                 {loginStep === 0 && (

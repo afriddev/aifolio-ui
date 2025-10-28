@@ -6,6 +6,7 @@ import { ExtractFileData } from "../../apputils/AppUtils";
 import type { FileUIPart } from "ai";
 import { useUploadApiKeyFile } from "@/hooks/ApiKeyHooks";
 import { Input } from "@/components/ui/input";
+import { MotionH2, MotionH3, MotionParagraph } from "@/apputils/MotionUtils";
 
 interface SelectApiKeyFileInterface {
   onFileSelect: (
@@ -90,7 +91,7 @@ function SelectApiKeyFile({ onFileSelect }: SelectApiKeyFileInterface) {
                 } `}
               />
               <div className="flex items-center relative  ">
-                <p
+                <MotionParagraph
                   className={`${
                     selectedFile?.length >= 5
                       ? "text-primary/40"
@@ -98,7 +99,7 @@ function SelectApiKeyFile({ onFileSelect }: SelectApiKeyFileInterface) {
                   }`}
                 >
                   Upload Sources
-                </p>
+                </MotionParagraph>
                 <LuAsterisk
                   className={`  ${
                     selectedFile?.length >= 5
@@ -109,16 +110,16 @@ function SelectApiKeyFile({ onFileSelect }: SelectApiKeyFileInterface) {
               </div>
             </div>
 
-            <p className="flex text-primary/70 ">
+            <MotionParagraph className="flex text-primary/70 ">
               Supported file types: PDF, .txt, Markdown, Csv.
-            </p>
+            </MotionParagraph>
           </div>
 
           {selectedFile && (
             <div className="flex flex-col gap-2">
               {selectedFile.map((file, index) => (
                 <div className="flex items-center px-1 gap-4 justify-between">
-                  <p className="text-secondary ">{file.name}</p>
+                  <MotionParagraph className="text-secondary ">{file.name}</MotionParagraph>
                   <X
                     onClick={() => {
                       handleDeleteFile(index);
@@ -133,7 +134,7 @@ function SelectApiKeyFile({ onFileSelect }: SelectApiKeyFileInterface) {
         <div className="flex gap-4 flex-col items-start border p-3   rounded-2xl">
           <div className="flex justify-center gap-4 ">
             <IoLinkSharp className="!h-5 !w-5" />
-            <h2>YouTube Link</h2>
+            <MotionH2>YouTube Link</MotionH2>
           </div>
           <div className="w-full ">
             <Input
@@ -145,7 +146,7 @@ function SelectApiKeyFile({ onFileSelect }: SelectApiKeyFileInterface) {
         </div>
 
         <div className="text-[10px] flex flex-col ">
-          <h3 className="text-destructive">Notes</h3>
+          <MotionH3 className="text-destructive">Notes</MotionH3>
           <ul className="flex flex-col pl-5">
             <li className="list-disc">Maximum 5 Files are supported</li>
 

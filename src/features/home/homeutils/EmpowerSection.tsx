@@ -1,3 +1,4 @@
+import { MotionH3 } from "@/apputils/MotionUtils";
 import { Button } from "@/components/ui/button";
 import { FaCircleCheck } from "react-icons/fa6";
 
@@ -13,9 +14,9 @@ function EmpowerSection() {
         <div className="flex  flex-col gap-5 ">
           <div className="flex items-start gap-6    rounded-xl lg:p-6">
             <div className="flex flex-col gap-4">
-              <h3 className="text-2xl font-semibold ">
+              <MotionH3 className="text-2xl font-semibold ">
                 Developers & AI Builders
-              </h3>
+              </MotionH3>
               <ul className="flex flex-col gap-3 lg:text-background/70">
                 <li className="flex items-center gap-3">
                   <div className="w-5 h-5 ">
@@ -42,9 +43,9 @@ function EmpowerSection() {
 
           <div className="flex items-start gap-6    rounded-xl lg:p-6">
             <div className="flex flex-col gap-4">
-              <h3 className="text-2xl font-semibold ">
+              <MotionH3 className="text-2xl font-semibold ">
                 Business & Domain Experts
-              </h3>
+              </MotionH3>
               <ul className="flex flex-col gap-3 lg:text-background/70">
                 <li className="flex items-center gap-3">
                   <div className="w-5 h-5 ">
@@ -83,9 +84,9 @@ function EmpowerSection() {
               />
             </div>
             <div className="flex flex-col gap-4">
-              <h3 className="text-2xl font-semibold ">
+              <MotionH3 className="text-2xl font-semibold ">
                 End Users & Consumers
-              </h3>
+              </MotionH3>
               <ul className="flex flex-col gap-3 lg:text-background/70">
                 <li className="flex items-center gap-3">
                   <div className="w-5 h-5 ">
@@ -117,9 +118,9 @@ function EmpowerSection() {
 
           <div className="flex items-start gap-6    rounded-xl lg:p-6">
             <div className="flex flex-col gap-4">
-              <h3 className="text-2xl font-semibold ">
+              <MotionH3 className="text-2xl font-semibold ">
                 Teams & Enterprise Leaders
-              </h3>
+              </MotionH3>
               <ul className="flex flex-col gap-3 lg:text-background/70">
                 <li className="flex items-center gap-3">
                   <div className="w-5 h-5 ">

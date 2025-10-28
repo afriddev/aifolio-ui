@@ -12,11 +12,11 @@ function ModelsMain() {
       className="flex items-center w-full justify-center mt-12 lg:mt-20"
     >
       <div className="flex flex-col gap-12 lg:gap-16 px-2 lg:px-0 w-full  lg:max-w-[70vw] items-center justify-center">
-        <AnimateWithType type="smoothFade" className="flex flex-col gap-8 w-full border-b pb-16 items-center justify-center text-center">
+        <AnimateWithType className="flex flex-col gap-8 w-full border-b pb-16 items-center justify-center text-center">
           <MotionH5 variant="smoothFade" className="text-primary [word-spacing:8px] text-xs lg:text-sm uppercase">
             PERFORMANCE, SPEED, AND CHOICE
           </MotionH5>
-          <MotionH2 variant="zoomIn" className="text-4xl lg:text-5xl font-light">
+          <MotionH2  className="text-4xl lg:text-5xl font-light">
             Model Pricing & Performance
           </MotionH2>
           <MotionParagraph variant="smoothFade" className="text-base lg:text-lg text-foreground/70 max-w-[80%]">
@@ -27,7 +27,7 @@ function ModelsMain() {
           </MotionDiv>
         </AnimateWithType>
 
-        <AnimateWithType type="smoothFade" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 rounded-2xl">
+        <AnimateWithType className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 rounded-2xl">
           <MotionH2 variant="slideUpBounce" className="lg:w-1/2 text-4xl lg:text-5xl font-light">
             About Our Models
           </MotionH2>
@@ -53,7 +53,7 @@ function ModelsMain() {
 
         <AllModelsSection />
 
-        <AnimateWithType type="pulse" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 rounded-2xl">
+        <AnimateWithType className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 rounded-2xl">
           <MotionH2 variant="slideUpBounce" className="lg:w-1/2 text-4xl lg:text-5xl font-light">
             Batch Inference API
           </MotionH2>
@@ -73,7 +73,7 @@ function ModelsMain() {
           </motion.div>
         </AnimateWithType>
 
-        <AnimateWithType type="smoothFade" className="flex items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 lg:flex-row flex-col rounded-2xl">
+        <AnimateWithType className="flex items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 lg:flex-row flex-col rounded-2xl">
           <MotionH2 variant="slideUpBounce" className="lg:w-1/2 text-4xl lg:text-5xl font-light">
             Multi-Model Routing
           </MotionH2>

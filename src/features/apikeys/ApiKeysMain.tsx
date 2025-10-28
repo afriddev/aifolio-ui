@@ -26,6 +26,7 @@ import { IoCheckmarkCircleOutline } from "react-icons/io5";
 import { useAppContext } from "@/apputils/AppContext";
 import GenerateApiKeyDialog from "./GenerateApiKeyDialog";
 import ApiKeyDataDialog from "./ApiKeyDataDialog";
+import { MotionH3, MotionParagraph } from "@/apputils/MotionUtils";
 
 function ApiKeysMain() {
   const [apiKeys, setApiKeys] = useState<apiKeyDataType[] | undefined>(
@@ -137,7 +138,7 @@ function ApiKeysMain() {
         <div className="w-fit flex flex-col min-w-[60vw] mt-10">
           <div className="flex items-center  justify-between gap-10">
             <div>
-              <h3 className="text-2xl font-semibold">API Keys</h3>
+              <MotionH3 className="text-2xl font-semibold">API Keys</MotionH3>
             </div>
             <div>
               <Button
@@ -157,10 +158,10 @@ function ApiKeysMain() {
             </Alert>
           )}
           <div className="mt-6 text-foreground/80">
-            <p>
+            <MotionParagraph>
               These API keys provide programmatic access to your data through
               the AiFolio library.{" "}
-            </p>
+            </MotionParagraph>
           </div>
           <div className="font-semibold flex shadow rounded-tr-lg rounded-tl-lg mt-5  bg-white p-4 items-center justify-between">
             <div className="w-[10vw] ">Name</div>

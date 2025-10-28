@@ -86,13 +86,13 @@ function RAGDocsLimitsSection() {
     >
       <div className="w-full flex flex-col gap-12 max-w-[90vw] lg:max-w-[70vw]">
         <MotionH2
-          variant="zoomIn"
+          
           className="text-3xl lg:text-4xl font-light text-center"
         >
           Cortexvia RAG Data, Query & Speed Limits
         </MotionH2>
 
-        <AnimateWithType type="smoothFade" className="flex flex-col gap-6">
+        <AnimateWithType className="flex flex-col gap-6">
           <MotionH4
             variant="slideUpBounce"
             className="text-lg lg:text-xl font-medium"
@@ -143,7 +143,7 @@ function RAGDocsLimitsSection() {
           </MotionDiv>
         </AnimateWithType>
 
-        <AnimateWithType type="smoothFade" className="flex flex-col gap-6">
+        <AnimateWithType className="flex flex-col gap-6">
           <MotionH4
             variant="slideUpBounce"
             className="text-lg lg:text-xl font-medium"
@@ -194,7 +194,7 @@ function RAGDocsLimitsSection() {
           </MotionDiv>
         </AnimateWithType>
 
-        <AnimateWithType type="smoothFade" className="flex flex-col gap-6">
+        <AnimateWithType className="flex flex-col gap-6">
           <MotionH4
             variant="slideUpBounce"
             className="text-lg lg:text-xl font-medium"
@@ -240,7 +240,7 @@ function RAGDocsLimitsSection() {
         </AnimateWithType>
 
         <AnimateWithType
-          type="smoothFade"
+         
           className="text-center text-foreground/60 text-base lg:text-lg mt-8"
         >
           <MotionParagraph variant="fadeInUp">

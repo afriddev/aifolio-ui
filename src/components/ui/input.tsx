@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { LuAsterisk } from "react-icons/lu";
 import {  IoSearch } from "react-icons/io5";
 import { TbBrandYoutubeFilled } from "react-icons/tb";
+import { MotionParagraph } from "@/apputils/MotionUtils";
 
 interface InputInterface extends React.ComponentProps<"input"> {
   label?: string;
@@ -60,9 +61,9 @@ const Input = React.forwardRef<HTMLInputElement, InputInterface>(
           </div>
         </div>
         {errorMessage && (
-          <p className="text-destructive">
+          <MotionParagraph className="text-destructive">
             {<label className="text-xs">{errorMessage}</label>}
-          </p>
+          </MotionParagraph>
         )}
       </div>
     );

@@ -19,7 +19,7 @@ function DeploymentSection() {
         <div className="flex flex-col gap-10 lg:gap-0 w-full text-foreground/80 p-5 lg:p-20">
           <div className="flex items-start gap-3 lg:flex-row flex-col">
             <AnimateWithType
-              type="zoomIn"
+             
               className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
             >
               <IoGlobeOutline className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
@@ -33,7 +33,7 @@ function DeploymentSection() {
 
           <div className="flex items-start gap-3 lg:flex-row flex-col">
             <AnimateWithType
-              type="zoomIn"
+             
               className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
             >
               <IoCloudUploadOutline className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
@@ -47,7 +47,7 @@ function DeploymentSection() {
 
           <div className="flex items-start gap-3 lg:flex-row flex-col">
             <AnimateWithType
-              type="zoomIn"
+             
               className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
             >
               <IoChatbubbleEllipsesOutline className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
@@ -61,7 +61,7 @@ function DeploymentSection() {
 
           <div className="flex items-start gap-3 lg:flex-row flex-col">
             <AnimateWithType
-              type="zoomIn"
+             
               className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
             >
               <IoSettingsOutline className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
@@ -75,7 +75,7 @@ function DeploymentSection() {
 
           <div className="flex items-start gap-3 lg:flex-row flex-col">
             <AnimateWithType
-              type="zoomIn"
+             
               className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
             >
               <IoGitBranchOutline className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
@@ -87,7 +87,7 @@ function DeploymentSection() {
             </MotionParagraph>
           </div>
 
-          <AnimateWithType type="scaleIn">
+          <AnimateWithType>
             <Button className="mt-6 rounded-lg py-3 px-6 transition-colors duration-200 font-medium w-fit">
               Deploy Your AI Assistant
             </Button>{" "}

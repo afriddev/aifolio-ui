@@ -1,16 +1,29 @@
 import { FaArrowRight } from "react-icons/fa";
 import PageWrapper from "@/apputils/PageWrapper";
-import { MotionDiv, MotionParagraph, MotionH2, MotionH1, AnimateWithType } from "@/apputils/MotionUtils";
+import {
+  MotionDiv,
+  MotionParagraph,
+  MotionH2,
+  MotionH1,
+  AnimateWithType,
+  MotionH4,
+  MotionH3
+} from "@/apputils/MotionUtils";
 import { motion } from "framer-motion";
 
 function AboutUsMain() {
   return (
     <PageWrapper>
-      <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} initial="hidden" animate="visible" className="flex flex-col items-center justify-center gap-16">
-        <AnimateWithType
-          type="smoothFade"
-          className="min-h-[40vh] h-auto relative flex w-full items-center justify-center overflow-hidden"
-        >
+      <motion.div
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+        }}
+        initial="hidden"
+        animate="visible"
+        className="flex flex-col items-center justify-center gap-16"
+      >
+        <AnimateWithType className="min-h-[40vh] h-auto relative flex w-full items-center justify-center overflow-hidden">
           <MotionDiv className="w-full absolute h-full inset-0">
             <div
               className="absolute inset-0"
@@ -24,47 +37,95 @@ function AboutUsMain() {
               }}
             ></div>
           </MotionDiv>
-          <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="flex flex-col gap-4 items-center text-center z-10 max-w-[90%] py-10 lg:py-20">
-            <MotionH1 variant="zoomIn" className="text-4xl lg:text-[64px] font-light">
-              Frontier AI. For all of us.
-            </MotionH1>
-            <MotionParagraph variant="fadeInUp" className="text-base lg:text-xl text-foreground/70">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+            }}
+            className="flex flex-col gap-4 items-center text-center z-10 max-w-[90%] py-10 lg:py-20"
+          >
+            <MotionH1>Frontier AI. For all of us.</MotionH1>
+            <MotionParagraph
+              variant="fadeInUp"
+              className="text-base lg:text-xl text-foreground/70"
+            >
               We exist to make frontier AI accessible to everyone.
             </MotionParagraph>
             <MotionDiv variant="scaleIn" className="mt-6 lg:mt-12">
-              <img src="people-working-office.jpg" className="w-full max-w-[98vw] lg:max-w-[90vw] object-cover h-[40vh] lg:h-auto rounded" alt="Team working at Cortexvia" />
+              <img
+                src="people-working-office.jpg"
+                className="w-full max-w-[98vw] lg:max-w-[90vw] object-cover h-[40vh] lg:h-auto rounded"
+                alt="Team working at Cortexvia"
+              />
             </MotionDiv>
           </motion.div>
         </AnimateWithType>
 
-        <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="w-[100%] lg:w-[70%] px-2 lg:px-20 py-6 lg:py-16">
-          <AnimateWithType type="pulse"  className="bg-white/50 p-6 lg:p-12 flex lg:flex-row flex-col items-center gap-8 ">
-            <MotionH2 variant="slideUpBounce" className="w-full lg:w-1/2 text-4xl lg:text-5xl font-thin leading-tight">
+        <motion.div
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+          }}
+          className="w-[100%] lg:w-[70%] px-2 lg:px-20 py-6 lg:py-16"
+        >
+          <AnimateWithType className="bg-white/50 p-6 lg:p-12 flex lg:flex-row flex-col items-center gap-8 ">
+            <MotionH2
+              variant="slideUpBounce"
+              className="w-full lg:w-1/2  leading-tight"
+            >
               The Minds Who <br /> Never Stopped <br /> Innovating
             </MotionH2>
-            <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="w-full lg:w-1/2 flex flex-col gap-5">
-              <MotionH2 variant="fadeInUp" className="text-lg lg:text-xl font-medium">
-                At Cortexvia, innovation isn’t a goal — it’s a habit. It starts with builders who believe AI should empower, not obscure.
-              </MotionH2>
-              <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="flex flex-col gap-5 text-foreground/70">
-                <MotionParagraph variant="fadeInUp" className="text-base lg:text-lg">
-                  Our founders and engineers come from deep tech and research backgrounds, but they’ve always shared one obsession — making intelligence transparent and useful for everyone.
+            <motion.div
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+              }}
+              className="w-full lg:w-1/2 flex flex-col gap-5"
+            >
+              <MotionH4 variant="fadeInUp" className=" font-medium">
+                At Cortexvia, innovation isn’t a goal — it’s a habit. It starts
+                with builders who believe AI should empower, not obscure.
+              </MotionH4>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+                }}
+                className="flex flex-col gap-5 text-foreground/70"
+              >
+                <MotionParagraph variant="fadeInUp">
+                  Our founders and engineers come from deep tech and research
+                  backgrounds, but they’ve always shared one obsession — making
+                  intelligence transparent and useful for everyone.
                 </MotionParagraph>
-                <MotionParagraph variant="fadeInUp" className="text-base lg:text-lg">
-                  Today, that same spirit drives Cortexvia. From RAG pipelines to open SDKs, we’re still building — just smarter. Meet the team shaping the next era of AI.
+                <MotionParagraph variant="fadeInUp">
+                  Today, that same spirit drives Cortexvia. From RAG pipelines
+                  to open SDKs, we’re still building — just smarter. Meet the
+                  team shaping the next era of AI.
                 </MotionParagraph>
               </motion.div>
             </motion.div>
           </AnimateWithType>
 
-          <AnimateWithType type="smoothFade" className="mt-12 lg:mt-20">
-            <MotionH2 variant="rotateIn" className="text-3xl lg:text-4xl lg:max-w-[50%]">
-              We believe <FaArrowRight className="inline w-6 h-6 text-primary align-middle" /> in a world where knowledge is intelligent, connected, and within everyone’s reach. At Cortexvia, we empower builders to create, query, and innovate with AI that’s open, reliable, and built for the future.
-            </MotionH2>
+          <AnimateWithType className="mt-12 lg:mt-20">
+            <MotionH3 variant="rotateIn" className=" lg:max-w-[50%]">
+              We believe{" "}
+              <FaArrowRight className="inline w-6 h-6 text-primary align-middle" />{" "}
+              in a world where knowledge is intelligent, connected, and within
+              everyone’s reach. At Cortexvia, we empower builders to create,
+              query, and innovate with AI that’s open, reliable, and built for
+              the future.
+            </MotionH3>
           </AnimateWithType>
 
-          <AnimateWithType type="smoothFade" className="flex lg:flex-row flex-col items-center gap-12 w-full mt-12 lg:mt-20">
-            <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="flex flex-col w-full lg:w-1/2 gap-6">
+          <AnimateWithType className="flex lg:flex-row flex-col items-center gap-12 w-full mt-12 lg:mt-20">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+              }}
+              className="flex flex-col w-full lg:w-1/2 gap-6"
+            >
               {[
                 {
                   title: "About Cortexvia",
@@ -79,24 +140,43 @@ function AboutUsMain() {
                   desc: "To democratize AI-powered knowledge retrieval through open SDKs, secure APIs, and seamless integrations — transforming complex data into clear, actionable intelligence for all.",
                 },
               ].map((item, i) => (
-                <AnimateWithType key={i} type="pulse"  className="flex flex-col gap-2 text-foreground/70">
-                  <MotionH2 variant="fadeInUp" className="text-lg lg:text-xl font-semibold">
-                    {item.title}
-                  </MotionH2>
-                  <MotionParagraph variant="fadeInUp" className="text-base lg:text-lg">
+                <AnimateWithType
+                  key={i}
+                  className="flex flex-col gap-2 text-foreground/70"
+                >
+                  <MotionH4 variant="fadeInUp">{item.title}</MotionH4>
+                  <MotionParagraph variant="fadeInUp">
                     {item.desc}
                   </MotionParagraph>
                 </AnimateWithType>
               ))}
             </motion.div>
 
-            <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="w-full lg:w-1/2 flex flex-col gap-6">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+              }}
+              className="w-full lg:w-1/2 flex flex-col gap-6"
+            >
               {[
-                { label: "20+", text: "Team members", img: "/about/team-members.svg" },
-                { label: "5+", text: "Different nationalities", img: "/about/earth.svg" },
-                { label: "50%", text: "Female leaders", img: "/about/feamale-selfie.svg" },
+                {
+                  label: "20+",
+                  text: "Team members",
+                  img: "/about/team-members.svg",
+                },
+                {
+                  label: "5+",
+                  text: "Different nationalities",
+                  img: "/about/earth.svg",
+                },
+                {
+                  label: "50%",
+                  text: "Female leaders",
+                  img: "/about/feamale-selfie.svg",
+                },
               ].map((stat, i) => (
-                <AnimateWithType key={i} type="scaleIn" className="relative">
+                <AnimateWithType key={i} className="relative">
                   <MotionDiv className="relative h-[20vh] lg:h-[24vh] w-full overflow-hidden rounded-lg">
                     <div
                       className="absolute inset-0"
@@ -111,19 +191,41 @@ function AboutUsMain() {
                     ></div>
                     <div className="absolute inset-0 border border-[#f9ebe4] pointer-events-none"></div>
                   </MotionDiv>
-                  <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="inset-0 flex items-center justify-between px-4 lg:px-5 absolute z-50">
-                    <MotionDiv variant="zoomIn">
-                      <MotionH1 className="text-4xl lg:text-[80px] font-light">{stat.label}</MotionH1>
+                  <motion.div
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: {
+                        opacity: 1,
+                        transition: { staggerChildren: 0.2 },
+                      },
+                    }}
+                    className="inset-0 flex items-center justify-between px-4 lg:px-5 absolute z-50"
+                  >
+                    <MotionDiv>
+                      <MotionH1>{stat.label}</MotionH1>
                     </MotionDiv>
-                    <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="flex gap-4 lg:gap-5">
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: {
+                          opacity: 1,
+                          transition: { staggerChildren: 0.2 },
+                        },
+                      }}
+                      className="flex gap-4 lg:gap-5"
+                    >
                       <MotionDiv variant="pulse" className="flex items-center">
                         <div className="h-4 w-4 lg:h-5 -mt-10 lg:-mt-14 lg:w-5 bg-foreground "></div>
-                        <MotionParagraph className="bg-foreground text-background h-fit p-3 lg:p-4 w-[40vw] lg:w-[12vw] text-xs lg:text-base mt-4 lg:mt-5 flex items-center justify-center text-center">
+                        <MotionParagraph className="bg-foreground text-white h-fit p-3 lg:p-4 w-[40vw] lg:w-[12vw]  mt-4 lg:mt-5 flex items-center justify-center text-center">
                           {stat.text}
                         </MotionParagraph>
                       </MotionDiv>
                       <MotionDiv variant="fadeInUp">
-                        <img className="w-16 h-16 lg:w-20 lg:h-20 object-contain" alt={stat.text} src={stat.img} />
+                        <img
+                          className="w-16 h-16 lg:w-20 lg:h-20 object-contain"
+                          alt={stat.text}
+                          src={stat.img}
+                        />
                       </MotionDiv>
                     </motion.div>
                   </motion.div>
@@ -133,12 +235,19 @@ function AboutUsMain() {
           </AnimateWithType>
         </motion.div>
 
-        <AnimateWithType type="smoothFade" className="bg-white/50 w-full p-12 lg:p-16 flex items-center justify-center">
-          <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="lg:w-[60%] gap-8 flex flex-col text-center">
-            <MotionParagraph variant="fadeInUp" className="text-base lg:text-xl text-foreground/70">
-              AI isn’t about whether we’ll use it — it’s about how fast we can turn what we know into real intelligence and real impact.
+        <AnimateWithType className="bg-white/50 w-full p-12 lg:p-16 flex items-center justify-center">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+            }}
+            className="lg:w-[40%] gap-8 flex flex-col text-center"
+          >
+            <MotionParagraph variant="fadeInUp" >
+              AI isn’t about whether we’ll use it — it’s about how fast we can
+              turn what we know into real intelligence and real impact.
             </MotionParagraph>
-            <MotionParagraph variant="fadeInUp" className="font-thin text-base lg:text-xl text-foreground/70">
+            <MotionParagraph variant="fadeInUp">
               — Shaik Afrid, Founder & CEO
             </MotionParagraph>
           </motion.div>

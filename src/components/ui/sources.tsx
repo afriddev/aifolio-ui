@@ -1,4 +1,5 @@
 
+import { MotionParagraph } from "@/apputils/MotionUtils";
 import {
   Collapsible,
   CollapsibleContent,
@@ -33,7 +34,7 @@ export const SourcesTrigger = ({
   >
     {children ?? (
       <>
-        <p className="font-medium">Used {count} sources</p>
+        <MotionParagraph className="font-medium">Used {count} sources</MotionParagraph>
         <ChevronDownIcon className="h-4 w-4" />
       </>
     )}

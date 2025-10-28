@@ -1,6 +1,7 @@
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { type ReactNode, useEffect } from "react";
+import { MotionParagraph } from "./MotionUtils";
 
 interface AppDialogInterface {
   start?: "CENTER" | "LEFT";
@@ -78,7 +79,7 @@ export default function AppDialog({
             } overflow-x-hidden`}
           >
             <div className="p-3 bg-foreground/5 flex items-center justify-between border-b border-foreground/10">
-              <p className="text-base font-semibold text-foreground">{title}</p>
+              <MotionParagraph className="text-base font-semibold text-foreground">{title}</MotionParagraph>
               <button
                 onClick={onClose}
                 className="w-7 cursor-pointer h-7 hover:bg-foreground/10 rounded-full flex items-center justify-center"

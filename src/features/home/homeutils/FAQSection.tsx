@@ -1,6 +1,7 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/accordion";
 import { FaQuestionCircle } from 'react-icons/fa';
 import { Button } from "@/components/ui/button";
+import { MotionH2, MotionParagraph } from "@/apputils/MotionUtils";
 
 const faqs = [
   {
@@ -57,12 +58,12 @@ function FAQSection() {
   return (
     <div className="flex flex-col items-center gap-12 mt-32 w-[95%] lg:w-[70%]">
       <div className="flex flex-col items-center gap-6 text-center">
-        <h2 className="text-4xl font-semibold text-foreground tracking-tight">
+        <MotionH2 className="text-4xl font-semibold text-foreground tracking-tight">
           Frequently Asked Questions
-        </h2>
-        <p className="text-lg text-foreground/60 leading-relaxed max-w-3xl">
+        </MotionH2>
+        <MotionParagraph className="text-lg text-foreground/60 leading-relaxed max-w-3xl">
           Get quick answers to common queries about Cortexvia’s features, security, and usage to help you get started with confidence.
-        </p>
+        </MotionParagraph>
       </div>
 
       <Accordion type="single" collapsible className="w-full space-y-4">

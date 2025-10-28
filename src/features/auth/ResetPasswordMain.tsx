@@ -8,6 +8,7 @@ import { useState } from "react";
 import PageWrapper from "@/apputils/PageWrapper";
 import AppSpinner from "@/apputils/AppSpinner";
 import { useResetPassword } from "@/hooks/resetPasswordHooks";
+import { MotionH2 } from "@/apputils/MotionUtils";
 
 function ResetPasswordMain() {
   const { Word } = useParams();
@@ -45,9 +46,9 @@ function ResetPasswordMain() {
         <div className="flex flex-col ">
           <div className="flex justify-center w-full h-screen  items-center">
             <div className="w-[30vw] mx-auto mt-20 px-6 py-10 ">
-              <h2 className="text-3xl font-bold text-center text-blue-950 mb-6">
+              <MotionH2 className="text-3xl font-bold text-center text-blue-950 mb-6">
                 Reset Your Password
-              </h2>
+              </MotionH2>
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="flex flex-col gap-10"

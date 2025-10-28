@@ -13,6 +13,7 @@ import { LuAsterisk } from "react-icons/lu";
 import PageWrapper from "@/apputils/PageWrapper";
 import { useSignUp } from "@/hooks/signUpHooks";
 import InterPhoneInput from "@/components/ui/phone-input";
+import { MotionH2, MotionParagraph } from "@/apputils/MotionUtils";
 
 type FormData = {
   firstName: string;
@@ -97,8 +98,8 @@ function SignUpMain() {
               className="w-full    p-3 lg:p-10 space-y-4"
             >
               <div className="text-center">
-                <h2 className="text-3xl ">Create Your Account</h2>
-                <p className="text-muted-foreground  mt-1">Cortexvia</p>
+                <MotionH2 className="text-3xl ">Create Your Account</MotionH2>
+                <MotionParagraph className="text-muted-foreground  mt-1">Cortexvia</MotionParagraph>
               </div>
               {signUpStep === 0 ? (
                 <div className="flex flex-col gap-4">
@@ -150,9 +151,9 @@ function SignUpMain() {
                         required: false,
                       })}
                     />
-                    <p className="  text-destructive">
+                    <MotionParagraph className="  text-destructive">
                       {<label className="">{errors?.phone?.message}</label>}
-                    </p>
+                    </MotionParagraph>
                   </div>
                   <div>
                     <div className="relative ">
@@ -223,9 +224,9 @@ function SignUpMain() {
                       </span>
                     </label>
 
-                    <p className="  text-destructive">
+                    <MotionParagraph className="  text-destructive">
                       {<label className="text-xs">{errors?.agree?.message}</label>}
-                    </p>
+                    </MotionParagraph>
                   </div>
                   <div className="flex items-center justify-center w-full mt-10 ">
                     <GoogleLogin
@@ -270,12 +271,12 @@ function SignUpMain() {
                   Create account
                 </Button>
               </div>
-              <p className="text-center  text-muted-foreground">
+              <MotionParagraph className="text-center  text-muted-foreground">
                 Already have an account?{" "}
                 <a href="/login" className="text-primary underline font-medium">
                   Log in
                 </a>
-              </p>
+              </MotionParagraph>
             </form>
           </div>
         </div>

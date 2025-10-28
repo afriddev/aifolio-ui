@@ -2,7 +2,7 @@ import {
   AnimateWithType,
   MotionH1,
   MotionH3,
-  MotionH7,
+  MotionH5,
   MotionParagraph,
 } from "@/apputils/MotionUtils";
 import { ServiceTiersSvg } from "@/apputils/SvgUtils";
@@ -35,8 +35,8 @@ function ServiceTiersSection() {
 
         <div className="flex flex-col gap-6 lg:max-w-[45%]">
           <div className="flex flex-col gap-1">
-            <MotionH7 className="text-foreground text-lg">Free Tier</MotionH7>
-            <MotionParagraph className="text-sm text-foreground/70">
+            <MotionH5 className="text-foreground ">Free Tier</MotionH5>
+            <MotionParagraph className=" text-foreground/70">
               Ideal for exploration and prototypes. Includes 100 daily queries,
               2 document uploads, and access to core RAG models with up to 4K
               context memory.
@@ -44,10 +44,8 @@ function ServiceTiersSection() {
           </div>
 
           <div className="flex flex-col gap-1">
-            <MotionH7 className="text-foreground text-lg">
-              Developer Tier
-            </MotionH7>
-            <MotionParagraph className="text-sm text-foreground/70">
+            <MotionH5 className="text-foreground ">Developer Tier</MotionH5>
+            <MotionParagraph className=" text-foreground/70">
               Designed for independent developers and small teams. Offers
               unlimited queries, priority queueing, faster model speeds (up to
               2500 tokens/sec), and 64K context memory.
@@ -55,10 +53,8 @@ function ServiceTiersSection() {
           </div>
 
           <div className="flex flex-col gap-1">
-            <MotionH7 className="text-foreground text-lg">
-              Student Tier
-            </MotionH7>
-            <MotionParagraph className="text-sm text-foreground/70">
+            <MotionH5 className="text-foreground ">Student Tier</MotionH5>
+            <MotionParagraph className=" text-foreground/70">
               For educational and research use. Get discounted access, learning
               credits, and sandbox APIs to experiment with Cortexvia SDKs and
               model integrations safely.

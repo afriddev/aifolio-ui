@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import PageWrapper from "@/apputils/PageWrapper";
 import AppSpinner from "@/apputils/AppSpinner";
 import { useForogotPassword } from "@/hooks/forgotPasswordHooks";
+import { MotionH2, MotionParagraph } from "@/apputils/MotionUtils";
 
 function ForgotPasswordMain() {
   const navigate = useNavigate();
@@ -37,12 +38,12 @@ function ForgotPasswordMain() {
         <div className="flex flex-col h-[95vh]">
           <div className="flex flex-col items-center justify-center h-full w-full">
             <div className=" mx-auto mt-20 px-6 py-10  ">
-              <h2 className="text-3xl font-bold text-center text-blue-950 mb-4">
+              <MotionH2 className="text-3xl font-bold text-center text-blue-950 mb-4">
                 Forgot Password?
-              </h2>
-              <p className="text-sm text-gray-600 text-center mb-6">
+              </MotionH2>
+              <MotionParagraph className="text-sm text-gray-600 text-center mb-6">
                 Enter your email to receive a password reset link.
-              </p>
+              </MotionParagraph>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 <Input
                   label="Email"
@@ -65,7 +66,7 @@ function ForgotPasswordMain() {
                   Send Reset Link
                 </Button>
               </form>
-              <p className="text-sm mt-6 text-center text-gray-700">
+              <MotionParagraph className="text-sm mt-6 text-center text-gray-700">
                 Remember your password?{" "}
                 <span
                   onClick={() => navigate("/login")}
@@ -73,7 +74,7 @@ function ForgotPasswordMain() {
                 >
                   Login here
                 </span>
-              </p>
+              </MotionParagraph>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { MotionParagraph } from "@/apputils/MotionUtils";
 import { Button } from "@/components/ui/button";
 import Checkbox from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
@@ -76,17 +77,17 @@ function LoginForm({ handleLoginSubmit, loginStep,formState,handleSubmit,registe
       )}
       <div className="mt-3 flex justify-between px-2">
         <Checkbox label="Remember me" checked={true} onChange={() => {}} />
-        <p className=" font-medium text-blue-700 cursor-pointer" onClick={()=>{
+        <MotionParagraph className=" font-medium text-blue-700 cursor-pointer" onClick={()=>{
           navigate("/forgot-password")
         }}>
           Forgot password?
-        </p>
+        </MotionParagraph>
       </div>
       <div className="w-full mt-5">
         <Button className="w-full ">Login now</Button>
       </div>
       <div className="mt-3 flex justify-start px-2">
-        <p className="">
+        <MotionParagraph className="">
           Don't have an account?&nbsp;
           <Button
             onClick={() => {
@@ -98,7 +99,7 @@ function LoginForm({ handleLoginSubmit, loginStep,formState,handleSubmit,registe
           >
             Create account now
           </Button>
-        </p>
+        </MotionParagraph>
       </div>
     </form>
   );

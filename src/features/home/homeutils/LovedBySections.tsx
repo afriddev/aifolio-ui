@@ -3,6 +3,7 @@ import {
   MotionDiv,
   MotionH2,
   MotionH4,
+  MotionH5,
   MotionParagraph,
 } from "@/apputils/MotionUtils";
 import { LovedBySvg } from "@/apputils/SvgUtils";
@@ -86,9 +87,9 @@ const features = [
 
 export default function LovedBySections() {
   return (
-    <div className="w-[95%] lg:w-[70%] mx-auto mt-20">
+    <div className=" ">
       <MotionDiv className="lg:text-center mb-12">
-        <MotionH2 className=" flex items-center justify-center gap-5 text-2xl lg:text-4xl ">
+        <MotionH2 className=" flex items-center justify-center gap-5 ">
           <LovedBySvg /> Loved by Innovators. Trusted by Enterprises.
         </MotionH2>
         {/* <MotionParagraph className="text-foreground/70  mt-4 max-w-2xl mx-auto">
@@ -108,8 +109,8 @@ export default function LovedBySections() {
             <Icon className="w-10 h-10 p-3 border" />
 
             <div className="flex flex-col ">
-              <h5 className="text-xl text-foreground">{title}</h5>
-              <p className=" text-foreground/70">{desc}</p>
+              <MotionH5 className="text-foreground">{title}</MotionH5>
+              <MotionParagraph className="text-foreground/70">{desc}</MotionParagraph>
             </div>
           </MotionDiv>
         ))}
@@ -117,9 +118,9 @@ export default function LovedBySections() {
 
       <div className="flex lg:flex-row flex-col border mt-20  overflow-hidden">
         <div className="p-10 lg:border-r bg-white/50 flex items-center">
-          <MotionH4 className="text-xl">
-            Empower your data with Cortexvia — start building intelligent,
-            RAG-powered AI today.
+          <MotionH4 >
+            Empower your data with Cortexvia  start building intelligent,
+            RAG powered AI today.
           </MotionH4>
         </div>
 
@@ -132,7 +133,7 @@ export default function LovedBySections() {
         </div>
 
         <div className="p-10 flex flex-col justify-center">
-          <AnimateWithType type="smoothFade" className="flex flex-col gap-3">
+          <AnimateWithType className="flex flex-col gap-3">
             <Button className="rounded w-full bg-foreground text-background font-medium text-sm hover:bg-foreground/90">
               Get Started Free
             </Button>

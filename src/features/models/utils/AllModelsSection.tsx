@@ -236,13 +236,13 @@ function AllModelsSection() {
     >
       <div className="w-full flex flex-col gap-12 max-w-[90vw] lg:max-w-[70vw]">
         <MotionH2
-          variant="zoomIn"
+          
           className="text-3xl lg:text-4xl font-light text-center"
         >
           Cortexvia Model Performance & Throughput
         </MotionH2>
 
-        <AnimateWithType type="pulse" className="flex flex-col gap-6">
+        <AnimateWithType className="flex flex-col gap-6">
           <div className="flex items-center justify-between">
             <div>
               <MotionH4
@@ -332,7 +332,7 @@ function AllModelsSection() {
           </MotionDiv>
         </AnimateWithType>
 
-        <AnimateWithType type="pulse" className="flex flex-col gap-6">
+        <AnimateWithType className="flex flex-col gap-6">
           <div className="flex items-center justify-between">
             <div>
               <MotionH4
@@ -423,7 +423,7 @@ function AllModelsSection() {
         </AnimateWithType>
 
         <AnimateWithType
-          type="pulse"
+         
           className="flex items-center justify-between p-6 bg-white rounded border"
         >
           <motion.div

@@ -7,11 +7,11 @@ function PricingMain() {
   return (
     <div className="flex items-center w-full justify-center mt-12 lg:mt-20">
       <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} initial="hidden" animate="visible" className="flex w-full px-2 lg:px-0 flex-col gap-16 lg:w-[70%] items-center justify-center">
-        <AnimateWithType type="smoothFade" className="flex flex-col gap-8 w-full border-b pb-16 items-center justify-center text-center">
+        <AnimateWithType className="flex flex-col gap-8 w-full border-b pb-16 items-center justify-center text-center">
           <MotionH5 variant="fadeInUp" className="text-primary [word-spacing:8px] text-xs lg:text-sm uppercase">
             Simple, Scalable, and Transparent
           </MotionH5>
-          <MotionH2 variant="zoomIn" className="text-4xl lg:text-5xl font-light">
+          <MotionH2  className="text-4xl lg:text-5xl font-light">
             Built for Every Builder
           </MotionH2>
           <MotionParagraph variant="fadeInUp" className="text-base lg:text-lg text-foreground/70 max-w-[80%]">
@@ -22,7 +22,7 @@ function PricingMain() {
           </MotionDiv>
         </AnimateWithType>
 
-        <AnimateWithType type="scaleIn" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 rounded-2xl">
+        <AnimateWithType className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 rounded-2xl">
           <MotionH2 variant="slideUpBounce" className="lg:w-1/2 text-4xl lg:text-5xl font-light">
             About Our Pricing
           </MotionH2>
@@ -48,7 +48,7 @@ function PricingMain() {
 
         <RAGDocsLimitsSection />
 
-        <AnimateWithType type="pulse" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 rounded-2xl">
+        <AnimateWithType className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 rounded-2xl">
           <MotionH2 variant="slideUpBounce" className="lg:w-1/2 text-4xl lg:text-5xl font-light">
             Batch API
           </MotionH2>
@@ -71,7 +71,7 @@ function PricingMain() {
           </motion.div>
         </AnimateWithType>
 
-        <AnimateWithType type="smoothFade" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 rounded-2xl">
+        <AnimateWithType className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 rounded-2xl">
           <MotionH2 variant="slideUpBounce" className="lg:w-1/2 text-4xl lg:text-5xl font-light">
             Multi-Model Inference
           </MotionH2>

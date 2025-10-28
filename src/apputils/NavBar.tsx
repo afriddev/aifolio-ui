@@ -30,33 +30,33 @@ function NavBar() {
 
   return (
     <header className="w-full sticky bg-background flex items-center justify-center top-0 z-[200] h-[10vh]">
-      <AnimateWithType type="smoothFade" className="px-5 lg:px-20 py-4 w-full flex items-center justify-between">
+      <AnimateWithType className="px-5 lg:px-20 py-4 w-full flex items-center justify-between">
         <div
           onClick={() => handleNavigate("/")}
           className="flex items-center gap-2 cursor-pointer"
         >
-          <AnimateWithType type="scaleIn">
+          <AnimateWithType>
             <img src="/home/logo-1.png" className="w-48" alt="Logo" />
           </AnimateWithType>
         </div>
 
         <div className="hidden md:flex items-center gap-2">
-          <AnimateWithType type="smoothFade">
+          <AnimateWithType>
             <div onClick={() => handleNavigate("/")} className="font-medium hover:bg-muted rounded px-4 py-2 cursor-pointer transition">
               Docs
             </div>
           </AnimateWithType>
-          <AnimateWithType type="smoothFade">
+          <AnimateWithType>
             <div onClick={() => handleNavigate("/about")} className="font-medium hover:bg-muted rounded px-4 py-2 cursor-pointer transition">
               About Us
             </div>
           </AnimateWithType>
-          <AnimateWithType type="smoothFade">
+          <AnimateWithType>
             <div onClick={() => handleNavigate("/pricing")} className="font-medium hover:bg-muted rounded px-4 py-2 cursor-pointer transition">
               Pricing
             </div>
           </AnimateWithType>
-          <AnimateWithType type="smoothFade">
+          <AnimateWithType>
             <div onClick={() => handleNavigate("/models")} className="font-medium hover:bg-muted rounded px-4 py-2 cursor-pointer transition">
               Models
             </div>
@@ -64,15 +64,15 @@ function NavBar() {
         </div>
 
         <div className="hidden lg:flex gap-4">
-          <AnimateWithType type="scaleIn">
+          <AnimateWithType>
             <Button variant="default" onClick={() => handleNavigate("/contact")}>Contact Us</Button>
           </AnimateWithType>
-          <AnimateWithType type="scaleIn">
+          <AnimateWithType>
             <Button variant="default" onClick={() => handleNavigate("/login")}>Login</Button>
           </AnimateWithType>
         </div>
 
-        <AnimateWithType type="smoothFade" className="md:hidden">
+        <AnimateWithType className="md:hidden">
           <button onClick={toggleMenu} className="focus:outline-none" aria-label={isMenuOpen ? "Close menu" : "Open menu"}>
             <svg className="w-8 h-8 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMenuOpen ? (
@@ -92,30 +92,30 @@ function NavBar() {
         } transition-transform duration-300 ease-in-out md:hidden z-[201]`}
       >
         <div className="flex flex-col p-4 gap-4">
-          <AnimateWithType type="pulse" >
+          <AnimateWithType >
             <div onClick={() => handleNavigate("/")} className="font-medium hover:bg-muted rounded px-4 py-2 cursor-pointer transition">
               Docs
             </div>
           </AnimateWithType>
-          <AnimateWithType type="pulse" >
+          <AnimateWithType >
             <div onClick={() => handleNavigate("/about")} className="font-medium hover:bg-muted rounded px-4 py-2 cursor-pointer transition">
               About Us
             </div>
           </AnimateWithType>
-          <AnimateWithType type="pulse" >
+          <AnimateWithType >
             <div onClick={() => handleNavigate("/pricing")} className="font-medium hover:bg-muted rounded px-4 py-2 cursor-pointer transition">
               Pricing
             </div>
           </AnimateWithType>
-          <AnimateWithType type="pulse" >
+          <AnimateWithType >
             <div onClick={() => handleNavigate("/models")} className="font-medium hover:bg-muted rounded px-4 py-2 cursor-pointer transition">
               Models
             </div>
           </AnimateWithType>
-          <AnimateWithType type="scaleIn">
+          <AnimateWithType>
             <Button variant="default" onClick={() => handleNavigate("/contact")}>Contact Us</Button>
           </AnimateWithType>
-          <AnimateWithType type="scaleIn">
+          <AnimateWithType>
             <Button variant="default" onClick={() => handleNavigate("/login")}>Login</Button>
           </AnimateWithType>
         </div>
