@@ -6,12 +6,12 @@ import UseCaseSection from "./homeutils/UseCaseSection";
 import ServiceTiersSection from "./homeutils/ServiceTiersSection";
 
 import FAQSection from "./homeutils/FAQSection";
-import PricingSection from "./homeutils/PricingSections";
+// import PricingSection from "./homeutils/PricingSections";
 import AIHeroSection from "./homeutils/AiHeroSection";
 import ContentSourcesSection from "./homeutils/ContentSourcesSection";
 import DeploymentSection from "./homeutils/DeploymentSection";
 import NoCodeSection from "./homeutils/NoCodeSection";
-import EmpowerSection from "./homeutils/EmpowerSection";
+// import EmpowerSection from "./homeutils/EmpowerSection";
 // import CreateFirstSection from "./homeutils/CreateFirstSection";
 
 function HomeMain() {
