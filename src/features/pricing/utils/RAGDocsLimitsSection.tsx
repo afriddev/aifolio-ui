@@ -92,7 +92,7 @@ function RAGDocsLimitsSection() {
           Cortexvia RAG Data, Query & Speed Limits
         </MotionH2>
 
-        <AnimateWithType type="fadeInUp" className="flex flex-col gap-6">
+        <AnimateWithType type="smoothFade" className="flex flex-col gap-6">
           <MotionH4
             variant="slideUpBounce"
             className="text-lg lg:text-xl font-medium"
@@ -102,7 +102,7 @@ function RAGDocsLimitsSection() {
           <MotionDiv
             variant="fadeInUp"
             as="tr"
-            className="border-b  transition will-change-transform relative"
+            className="border-b  transition overflow-x-auto will-change-transform relative"
             style={{ transformOrigin: "center" }}
           >
             <table className="w-full border-t border-foreground/20 text-left">
@@ -143,7 +143,7 @@ function RAGDocsLimitsSection() {
           </MotionDiv>
         </AnimateWithType>
 
-        <AnimateWithType type="fadeInUp" className="flex flex-col gap-6">
+        <AnimateWithType type="smoothFade" className="flex flex-col gap-6">
           <MotionH4
             variant="slideUpBounce"
             className="text-lg lg:text-xl font-medium"
@@ -153,7 +153,7 @@ function RAGDocsLimitsSection() {
           <MotionDiv
             variant="fadeInUp"
             as="tr"
-            className="border-b  transition will-change-transform relative"
+            className="border-b  transition overflow-x-auto will-change-transform relative"
             style={{ transformOrigin: "center" }}
           >
             <table className="w-full border-t border-foreground/20 text-left">
@@ -194,7 +194,7 @@ function RAGDocsLimitsSection() {
           </MotionDiv>
         </AnimateWithType>
 
-        <AnimateWithType type="fadeInUp" className="flex flex-col gap-6">
+        <AnimateWithType type="smoothFade" className="flex flex-col gap-6">
           <MotionH4
             variant="slideUpBounce"
             className="text-lg lg:text-xl font-medium"
@@ -204,7 +204,7 @@ function RAGDocsLimitsSection() {
           <MotionDiv
             variant="fadeInUp"
             as="tr"
-            className="border-b  transition will-change-transform relative"
+            className="border-b  overflow-x-auto transition will-change-transform relative"
             style={{ transformOrigin: "center" }}
           >
             <table className="w-full border-t border-foreground/20 text-left">
@@ -240,7 +240,7 @@ function RAGDocsLimitsSection() {
         </AnimateWithType>
 
         <AnimateWithType
-          type="fadeInUp"
+          type="smoothFade"
           className="text-center text-foreground/60 text-base lg:text-lg mt-8"
         >
           <MotionParagraph variant="fadeInUp">

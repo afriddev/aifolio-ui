@@ -242,7 +242,7 @@ function AllModelsSection() {
           Cortexvia Model Performance & Throughput
         </MotionH2>
 
-        <AnimateWithType type="fadeInUp" className="flex flex-col gap-6">
+        <AnimateWithType type="pulse" className="flex flex-col gap-6">
           <div className="flex items-center justify-between">
             <div>
               <MotionH4
@@ -252,7 +252,7 @@ function AllModelsSection() {
                 Free Tier
               </MotionH4>
               <MotionParagraph
-                variant="fadeInUp"
+                variant="pulse"
                 className="text-foreground/60 text-sm lg:text-base"
               >
                 Speed: &lt;200 TPS | Daily Limit:{" "}
@@ -261,7 +261,7 @@ function AllModelsSection() {
             </div>
             <div className="text-right">
               <MotionParagraph
-                variant="fadeInUp"
+                variant="pulse"
                 className="text-base lg:text-lg font-semibold"
               >
                 <span className="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">
@@ -269,7 +269,7 @@ function AllModelsSection() {
                 </span>
               </MotionParagraph>
               <MotionParagraph
-                variant="fadeInUp"
+                variant="pulse"
                 className="text-foreground/60 text-sm lg:text-base"
               >
                 Includes 7+ models
@@ -277,9 +277,9 @@ function AllModelsSection() {
             </div>
           </div>
           <MotionDiv
-            variant="fadeInUp"
+            variant="pulse"
             as="tr"
-            className="border-b hover:bg-gray-50 transition will-change-transform relative"
+            className="overflow-x-auto border-b hover:bg-gray-50 transition will-change-transform relative   "
             style={{ transformOrigin: "center" }}
           >
             <table className="w-full border-t border-foreground/20 text-left">
@@ -299,7 +299,7 @@ function AllModelsSection() {
                 {freeTierModels.map((m, idx) => (
                   <MotionDiv
                     key={idx}
-                    variant="fadeInUp"
+                    variant="pulse"
                     as="tr"
                     className="border-b hover:bg-gray-50 transition will-change-transform relative"
                     style={{ transformOrigin: "center" }}
@@ -332,7 +332,7 @@ function AllModelsSection() {
           </MotionDiv>
         </AnimateWithType>
 
-        <AnimateWithType type="fadeInUp" className="flex flex-col gap-6">
+        <AnimateWithType type="pulse" className="flex flex-col gap-6">
           <div className="flex items-center justify-between">
             <div>
               <MotionH4
@@ -342,7 +342,7 @@ function AllModelsSection() {
                 Developer Tier
               </MotionH4>
               <MotionParagraph
-                variant="fadeInUp"
+                variant="pulse"
                 className="text-foreground/60 text-sm lg:text-base"
               >
                 Speed: 500–3000 TPS | Daily Limit:{" "}
@@ -351,7 +351,7 @@ function AllModelsSection() {
             </div>
             <div className="text-right">
               <MotionParagraph
-                variant="fadeInUp"
+                variant="pulse"
                 className="text-base lg:text-lg font-semibold"
               >
                 <span className="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">
@@ -359,7 +359,7 @@ function AllModelsSection() {
                 </span>
               </MotionParagraph>
               <MotionParagraph
-                variant="fadeInUp"
+                variant="pulse"
                 className="text-foreground/60 text-sm lg:text-base"
               >
                 Includes 10+ high-speed models
@@ -367,9 +367,9 @@ function AllModelsSection() {
             </div>
           </div>
           <MotionDiv
-            variant="fadeInUp"
+            variant="pulse"
             as="tr"
-            className="border-b hover:bg-gray-50 transition will-change-transform relative"
+            className="border-b overflow-x-auto hover:bg-gray-50 transition will-change-transform relative"
             style={{ transformOrigin: "center" }}
           >
             <table className="w-full border-t border-foreground/20 text-left">
@@ -389,7 +389,7 @@ function AllModelsSection() {
                 {developerTierModels.map((m, idx) => (
                   <MotionDiv
                     key={idx}
-                    variant="fadeInUp"
+                    variant="pulse"
                     as="tr"
                     className="border-b hover:bg-gray-50 transition will-change-transform relative"
                     style={{ transformOrigin: "center" }}
@@ -423,7 +423,7 @@ function AllModelsSection() {
         </AnimateWithType>
 
         <AnimateWithType
-          type="fadeInUp"
+          type="pulse"
           className="flex items-center justify-between p-6 bg-white rounded border"
         >
           <motion.div
@@ -441,7 +441,7 @@ function AllModelsSection() {
                 Enterprise Tier
               </MotionH4>
               <MotionParagraph
-                variant="fadeInUp"
+                variant="pulse"
                 className="text-foreground/60 text-sm lg:text-base"
               >
                 Unlimited RPM/TPM, private model hosting, and dedicated compute.
@@ -449,13 +449,13 @@ function AllModelsSection() {
             </div>
             <div className="text-right">
               <MotionParagraph
-                variant="fadeInUp"
+                variant="pulse"
                 className="text-base lg:text-lg font-semibold"
               >
                 Contact Sales
               </MotionParagraph>
               <MotionParagraph
-                variant="fadeInUp"
+                variant="pulse"
                 className="text-foreground/60 text-sm lg:text-base"
               >
                 Custom pricing & throughput scaling

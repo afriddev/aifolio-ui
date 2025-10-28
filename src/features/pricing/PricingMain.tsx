@@ -7,7 +7,7 @@ function PricingMain() {
   return (
     <div className="flex items-center w-full justify-center mt-12 lg:mt-20">
       <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} initial="hidden" animate="visible" className="flex w-full px-2 lg:px-0 flex-col gap-16 lg:w-[70%] items-center justify-center">
-        <AnimateWithType type="fadeDownSpring" className="flex flex-col gap-8 w-full border-b pb-16 items-center justify-center text-center">
+        <AnimateWithType type="smoothFade" className="flex flex-col gap-8 w-full border-b pb-16 items-center justify-center text-center">
           <MotionH5 variant="fadeInUp" className="text-primary [word-spacing:8px] text-xs lg:text-sm uppercase">
             Simple, Scalable, and Transparent
           </MotionH5>
@@ -48,7 +48,7 @@ function PricingMain() {
 
         <RAGDocsLimitsSection />
 
-        <AnimateWithType type="fadeLeft" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white px-6 py-10 lg:p-16 rounded-2xl">
+        <AnimateWithType type="pulse" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white px-6 py-10 lg:p-16 rounded-2xl">
           <MotionH2 variant="slideUpBounce" className="lg:w-1/2 text-4xl lg:text-5xl font-light">
             Batch API
           </MotionH2>
@@ -71,7 +71,7 @@ function PricingMain() {
           </motion.div>
         </AnimateWithType>
 
-        <AnimateWithType type="fadeRight" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white px-6 py-10 lg:p-16 rounded-2xl">
+        <AnimateWithType type="smoothFade" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white px-6 py-10 lg:p-16 rounded-2xl">
           <MotionH2 variant="slideUpBounce" className="lg:w-1/2 text-4xl lg:text-5xl font-light">
             Multi-Model Inference
           </MotionH2>

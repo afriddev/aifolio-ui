@@ -23,7 +23,7 @@ function ContactUsMain() {
         className="flex flex-col items-center justify-center gap-16"
       >
         <AnimateWithType
-          type="fadeDownSpring"
+          type="smoothFade"
           className="min-h-[40vh] h-auto relative flex w-full items-center justify-center overflow-hidden"
         >
           <MotionDiv className="w-full absolute h-full inset-0">
@@ -65,7 +65,7 @@ function ContactUsMain() {
           }}
           className="w-[100%] lg:w-[70%] px-4 lg:px-20 py-6 lg:py-16 flex flex-col gap-12"
         >
-          <AnimateWithType type="fadeLeft" className="flex flex-col gap-4">
+          <AnimateWithType type="pulse" className="flex flex-col gap-4">
             <MotionH2 className="text-2xl lg:text-3xl font-semibold">
               Developer Support
             </MotionH2>
@@ -92,7 +92,7 @@ function ContactUsMain() {
             </MotionParagraph>
           </AnimateWithType>
 
-          <AnimateWithType type="fadeLeft" className="flex flex-col gap-4">
+          <AnimateWithType type="pulse" className="flex flex-col gap-4">
             <MotionH2 className="text-2xl lg:text-3xl font-semibold">
               Enterprise Solutions
             </MotionH2>
@@ -113,7 +113,7 @@ function ContactUsMain() {
             </MotionParagraph>
           </AnimateWithType>
 
-          <AnimateWithType type="fadeLeft" className="flex flex-col gap-4">
+          <AnimateWithType type="pulse" className="flex flex-col gap-4">
             <MotionH2 className="text-2xl lg:text-3xl font-semibold">
               Press & Media
             </MotionH2>
@@ -147,7 +147,7 @@ function ContactUsMain() {
             </motion.ul>
           </AnimateWithType>
 
-          <AnimateWithType type="fadeLeft" className="flex flex-col gap-4">
+          <AnimateWithType type="pulse" className="flex flex-col gap-4">
             <MotionH2 className="text-2xl lg:text-3xl font-semibold">
               Stay Connected
             </MotionH2>
@@ -205,7 +205,7 @@ function ContactUsMain() {
             </motion.div>
           </AnimateWithType>
 
-          <AnimateWithType type="fadeLeft" className="flex flex-col gap-4">
+          <AnimateWithType type="pulse" className="flex flex-col gap-4">
             <MotionH2 className="text-2xl lg:text-3xl font-semibold">
               Visit Us
             </MotionH2>
@@ -240,7 +240,7 @@ function ContactUsMain() {
           </AnimateWithType>
 
           <AnimateWithType
-            type="fadeLeft"
+            type="pulse"
             className="bg-white/5 p-6 lg:p-12 rounded-2xl border border-white/10 text-center"
           >
             <MotionH2 className="text-2xl lg:text-3xl font-semibold mb-4">
@@ -262,7 +262,7 @@ function ContactUsMain() {
         </motion.div>
 
         <AnimateWithType
-          type="fadeDownSpring"
+          type="smoothFade"
           className="bg-white w-[100%] p-12 lg:p-16 flex items-center justify-center"
         >
           <motion.div
