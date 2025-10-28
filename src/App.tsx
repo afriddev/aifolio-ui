@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="w-full overflow-x-hidden min-h-[100vh] flex bg-background text-foreground">
       <BrowserRouter>
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
 
         <AppRoutes />
       </BrowserRouter>

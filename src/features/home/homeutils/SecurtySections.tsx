@@ -1,7 +1,7 @@
 import { CiGlobe } from "react-icons/ci";
-import { FaLock } from "react-icons/fa";
 import { MdOutlineVerifiedUser } from "react-icons/md";
 import { HiServerStack } from "react-icons/hi2";
+import { Lock } from "lucide-react";
 
 function SecuritySection() {
   return (
@@ -11,7 +11,7 @@ function SecuritySection() {
           <h2 className="text-base font-semibold text-secondary tracking-tight">
             SECURITY & COMPLIANCE
           </h2>
-          <div className="flex items-center">
+          <div className="flex items-center gap-10">
             <div>
               <img src="/home/soc-2.webp" className="w-32" />
             </div>
@@ -33,7 +33,7 @@ function SecuritySection() {
         <div className="flex    flex-col gap-10">
           <div className="flex  lg:flex-row flex-col  items-center gap-10 justify-center">
             <div className="flex gap-4 lg:w-[30%]">
-              <div className="bg-primary rounded-lg p-2 w-fit h-fit text-background">
+              <div className=" border rounded p-2 w-fit h-fit ">
                 <MdOutlineVerifiedUser className="w-6 h-6" />
               </div>
               <div>
@@ -48,7 +48,7 @@ function SecuritySection() {
             </div>
 
             <div className="flex gap-4 lg:w-[30%]">
-              <div className="bg-primary rounded-lg p-2 w-fit h-fit text-background">
+              <div className=" border rounded p-2 w-fit h-fit ">
                 <CiGlobe className="w-6 h-6" />
               </div>
               <div>
@@ -62,8 +62,8 @@ function SecuritySection() {
           </div>
           <div className="flex flex-col lg:flex-row items-center gap-10 justify-center">
             <div className="flex gap-4 lg:w-[30%]">
-              <div className="bg-primary rounded-lg p-2 w-fit h-fit text-background">
-                <FaLock className="w-6 h-6" />
+              <div className=" border rounded p-2 w-fit h-fit ">
+                <Lock className="w-6 h-6" />
               </div>
               <div>
                 <h4 className="text-lg font-bold">Granular access controls</h4>
@@ -75,7 +75,7 @@ function SecuritySection() {
             </div>
 
             <div className="flex gap-4 lg:w-[30%]">
-              <div className="bg-primary rounded-lg p-2 w-fit h-fit text-background">
+              <div className=" border rounded p-2 w-fit h-fit ">
                 <HiServerStack className="w-6 h-6" />
               </div>
               <div>
