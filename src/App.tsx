@@ -2,7 +2,6 @@ import { BrowserRouter } from "react-router-dom";
 import { Toaster } from "./components/ui/toaster";
 import AppRoutes from "./apputils/AppRoutes";
 import { useImageLoader } from "./apputils/AppHooks";
-import ScrollToTop from "./apputils/ScrollToTop";
 
 function App() {
   useImageLoader();
