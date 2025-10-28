@@ -25,6 +25,7 @@ export type chatMessageDataType = {
   timeAndDate: string;
 };
 
+
 export type fileModelDataType = {
   name: string;
   mediaType: string;
