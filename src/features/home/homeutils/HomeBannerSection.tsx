@@ -11,7 +11,7 @@ import { GoDependabot } from "react-icons/go";
 function HomeBannerSection() {
   return (
     <div className="flex  lg:w-[50%]  w-[95%] relative">
-      <AnimateWithType className=" flex flex-col w-full   gap-10  h-[90vh]   items-center justify-center  ">
+      <AnimateWithType className=" flex flex-col w-full   gap-10  h-[100vh]   items-center justify-center  ">
         <MotionDiv>
           <div className="flex justify-center gap-1 pb-5 lg:-mt-[10vh] items-center  ">
             <GoDependabot className="h-8 w-8  " />

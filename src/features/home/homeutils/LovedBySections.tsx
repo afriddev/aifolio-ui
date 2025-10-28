@@ -102,7 +102,7 @@ export default function LovedBySections() {
         {features.map(({ icon: Icon, title, desc }, i) => (
           <MotionDiv
             key={i}
-            className={`flex flex-col gap-4 items-start p-10 border-border 
+            className={`flex flex-col gap-4 items-start p-5 lg:p-10 border-border 
               ${i < features.length - 3 ? "border-b" : ""} 
               ${i % 3 !== 2 ? "lg:border-r" : ""}`}
           >

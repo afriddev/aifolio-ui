@@ -37,7 +37,7 @@ export const MotionDiv = ({ className = "", ...p }: any) => (
 export const MotionParagraph = ({ className = "", ...p }: any) => (
   <MotionWrapper
     as="p"
-    className={`text-lg text-foreground/80 leading-relaxed mb-6 ${className}`}
+    className={`text-base lg:text-lg text-foreground/80 leading-relaxed mb-6 ${className}`}
     {...p}
   />
 );

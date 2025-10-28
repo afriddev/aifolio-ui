@@ -1,7 +1,7 @@
 import {
   AnimateWithType,
   MotionH1,
-  MotionH3,
+  MotionH2,
   MotionH5,
   MotionParagraph,
 } from "@/apputils/MotionUtils";
@@ -10,13 +10,13 @@ import { Button } from "@/components/ui/button";
 
 function ServiceTiersSection() {
   return (
-    <div className="flex flex-col w-[95%] items-center gap-12 mt-5 lg:mt-32 lg:w-[70%]">
-      <div className="flex justify-between items-center w-full gap-10 bg-white/50  p-20 ">
+    <div className="flex flex-col items-center ">
+      <div className="flex  lg:flex-row flex-col justify-between items-center w-full gap-10 bg-white/50  p-6  lg:p-20 ">
         <div className="flex flex-col gap-5">
           <MotionH1>
             <ServiceTiersSvg />
           </MotionH1>
-          <MotionH3>Service Tiers</MotionH3>
+          <MotionH2>Service Tiers</MotionH2>
           <MotionParagraph className="max-w-xs">
             Choose the right tier to balance access, speed, and scalability —
             whether you’re experimenting, developing, or scaling production

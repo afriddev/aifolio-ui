@@ -3,26 +3,30 @@ import {
   MotionH2,
   MotionParagraph,
 } from "@/apputils/MotionUtils";
+import {  ToolsSvg } from "@/apputils/SvgUtils";
 import { Button } from "@/components/ui/button";
 import {
   IoGlobeOutline,
   IoCloudUploadOutline,
   IoChatbubbleEllipsesOutline,
   IoSettingsOutline,
-  IoGitBranchOutline,
 } from "react-icons/io5";
 
 function DeploymentSection() {
   return (
-    <div className="flex flex-col items-center gap-12 mt-5 lg:mt-32 w-[95%] lg:w-[70%]">
-      <div className="flex flex-col-reverse lg:flex-row items-center justify-center bg-white/50  lg:gap-10">
-        <div className="flex flex-col gap-10 lg:gap-0 w-full text-foreground/80 p-5 lg:p-20">
-          <div className="flex items-start gap-3 lg:flex-row flex-col">
-            <AnimateWithType
-             
-              className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
-            >
-              <IoGlobeOutline className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
+    <div className="flex lg:flex-row flex-col items-center justify-center">
+      <div className="flex flex-col bg-white/50 gap-5 p-5 py-10 lg:p-20 lg:gap-10 items-center">
+        <div className="flex flex-col gap-4 lg:items-center">
+          <MotionH2 className="flex items-center gap-5 tracking-tight">
+            <ToolsSvg />
+            Deploy Anywhere with Powerful Integrations
+          </MotionH2>
+        </div>
+
+        <div className="flex lg:flex-row flex-col lg:mt-16 mt-5 gap-10 lg:gap-10 w-full text-foreground/80">
+          <div className="flex items-start gap-1 lg:gap-8 flex-col">
+            <AnimateWithType className="w-10 h-10 lg:w-5 lg:h-5">
+              <IoGlobeOutline className="lg:w-8 w-6 h-6 lg:h-8 mt-1 text-foreground/70" />
             </AnimateWithType>
             <MotionParagraph>
               <strong>Website Embedding:</strong> Deploy your AI chatbot
@@ -31,12 +35,9 @@ function DeploymentSection() {
             </MotionParagraph>
           </div>
 
-          <div className="flex items-start gap-3 lg:flex-row flex-col">
-            <AnimateWithType
-             
-              className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
-            >
-              <IoCloudUploadOutline className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
+          <div className="flex items-start gap-1 lg:gap-8 flex-col">
+            <AnimateWithType className="w-10 h-10 lg:w-5 lg:h-5">
+              <IoCloudUploadOutline className="lg:w-8 w-6 h-6 lg:h-8 mt-1 text-foreground/70" />
             </AnimateWithType>
             <MotionParagraph>
               <strong>Cloud Integration:</strong> Connect to your data wherever
@@ -45,12 +46,9 @@ function DeploymentSection() {
             </MotionParagraph>
           </div>
 
-          <div className="flex items-start gap-3 lg:flex-row flex-col">
-            <AnimateWithType
-             
-              className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
-            >
-              <IoChatbubbleEllipsesOutline className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
+          <div className="flex items-start gap-1 lg:gap-8 flex-col">
+            <AnimateWithType className="w-10 h-10 lg:w-5 lg:h-5">
+              <IoChatbubbleEllipsesOutline className="lg:w-8 w-6 h-6 lg:h-8 mt-1 text-foreground/70" />
             </AnimateWithType>
             <MotionParagraph>
               <strong>Multi-Platform Chat:</strong> Integrate seamlessly with
@@ -59,12 +57,9 @@ function DeploymentSection() {
             </MotionParagraph>
           </div>
 
-          <div className="flex items-start gap-3 lg:flex-row flex-col">
-            <AnimateWithType
-             
-              className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
-            >
-              <IoSettingsOutline className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
+          <div className="flex items-start gap-1 lg:gap-8 flex-col">
+            <AnimateWithType className="w-10 h-10 lg:w-5 lg:h-5">
+              <IoSettingsOutline className="lg:w-8 w-6 h-6 lg:h-8 mt-1 text-foreground/70" />
             </AnimateWithType>
             <MotionParagraph>
               <strong>Custom Workflows:</strong> Automate actions or trigger
@@ -73,32 +68,17 @@ function DeploymentSection() {
             </MotionParagraph>
           </div>
 
-          <div className="flex items-start gap-3 lg:flex-row flex-col">
-            <AnimateWithType
-             
-              className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
-            >
-              <IoGitBranchOutline className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
-            </AnimateWithType>
-            <MotionParagraph>
-              <strong>CI/CD Ready:</strong> Integrate into your dev pipeline
-              with ease — automate deployments and updates using secure access
-              tokens.
-            </MotionParagraph>
-          </div>
-
-          <AnimateWithType>
-            <Button className="mt-6 rounded-lg py-3 px-6 transition-colors duration-200 font-medium w-fit">
-              Deploy Your AI Assistant
-            </Button>{" "}
-          </AnimateWithType>
+          
         </div>
 
-        <div className="flex p-10 lg:p-20 flex-col gap-4 lg:max-w-[35vw]">
-          <MotionH2 className="text-4xl lg:text-[50px] font-thin text-foreground tracking-tight">
-            Deploy Anywhere with Powerful Integrations
-          </MotionH2>
-        </div>
+        <AnimateWithType>
+          <Button
+            variant="outline"
+            className="mt-6 rounded-lg py-3 px-6 transition-colors duration-200 font-medium bg-foreground text-background hover:bg-foreground/90 w-fit"
+          >
+            Deploy Your AI Assistant
+          </Button>
+        </AnimateWithType>
       </div>
     </div>
   );

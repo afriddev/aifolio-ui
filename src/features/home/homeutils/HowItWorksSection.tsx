@@ -27,19 +27,19 @@ function HowItWorksSection() {
             </MotionParagraph> */}
           </div>
 
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-8 px-3 lg:w-full">
+          <div className="flex flex-col lg:flex-row justify-between items-start gap-8 px-6 lg:px-3 lg:w-full">
             <div className="lg:w-[25%] gap-2 flex flex-col">
               <AnimateWithType>
                 <div className="flex flex-col gap-1">
                   <div className="rounded p-2 bg-background text-foreground w-fit h-fit border">
                     <IoAddCircleOutline className="w-5 h-5" />
                   </div>
-                  <MotionH6 className="text-foreground/60">CREATE</MotionH6>
+                  <MotionH6 className="text-foreground/60">Create</MotionH6>
                 </div>
               </AnimateWithType>
 
               <div className="flex flex-col gap-2">
-                <MotionH4 className="  text-foreground    ">
+                <MotionH4 className="">
                   Set up your workspace
                 </MotionH4>
                 <MotionParagraph className="text-foreground/80">
@@ -57,7 +57,7 @@ function HowItWorksSection() {
                   <div className="rounded p-2 bg-background text-foreground w-fit h-fit border">
                     <CiFileOn className="w-5 h-5" />
                   </div>
-                  <MotionH6 className="text-foreground/60">INGEST</MotionH6>
+                  <MotionH6 className="text-foreground/60">Ingest</MotionH6>
                 </div>
               </AnimateWithType>
 
@@ -78,7 +78,7 @@ function HowItWorksSection() {
                   <div className="rounded p-2 bg-background text-foreground w-fit h-fit border">
                     <IoRocketOutline className="w-5 h-5" />
                   </div>
-                  <MotionH6 className="text-foreground/60">DEPLOY</MotionH6>
+                  <MotionH6 className="text-foreground/60">Deploy</MotionH6>
                 </div>
               </AnimateWithType>
               <div className="flex flex-col gap-2">
@@ -95,7 +95,7 @@ function HowItWorksSection() {
         </div>
       </div>
       <div className="flex flex-col items-center w-full bg-white/50 mt-5">
-        <MotionParagraph className="  w-full p-10 text-foreground text-center lg:w-[50%]">
+        <MotionParagraph className="  w-full p-5 lg:p-10 text-foreground lg:text-center lg:w-[50%]">
           Cortexvia empowers developers and enterprises to turn unstructured
           data into actionable intelligence. From setup to deployment, every
           step is designed for speed, security, and seamless integration.

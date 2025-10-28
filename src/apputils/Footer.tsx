@@ -24,22 +24,13 @@ function Footer() {
       animate="visible"
       className="bg-background text-foreground/80 w-full pt-12 lg:pt-16 pb-10 px-4 lg:px-10 mt-12"
     >
-      <AnimateWithType
-       
-        className="flex w-full items-center justify-center"
-      >
+      <AnimateWithType className="flex w-full items-center justify-center">
         <div className="w-full max-w-[90vw] lg:max-w-[70vw] flex flex-col gap-12">
-          <MotionH3
-            
-            className="text-4xl lg:text-5xl font-light text-center"
-          >
+          <MotionH3 className="text-4xl lg:text-5xl font-light text-center">
             Build the future with us.
           </MotionH3>
 
-          <AnimateWithType
-           
-            className="items-center gap-8 flex flex-col justify-center bg-primary text-background rounded-lg p-6 lg:p-16 w-full"
-          >
+          <AnimateWithType className="items-center gap-8 flex flex-col justify-center bg-primary text-background rounded-lg p-6 lg:p-16 w-full">
             <MotionDiv variant="pulse">
               <BsLightningCharge className="w-6 h-6" />
             </MotionDiv>
@@ -52,13 +43,13 @@ function Footer() {
             >
               <MotionH3
                 variant="slideUpBounce"
-                className="text-2xl lg:text-3xl font-medium"
+                className="text-2xl text-white lg:text-3xl font-medium"
               >
                 Build Fast
               </MotionH3>
               <MotionParagraph
                 variant="fadeInUp"
-                className="text-base lg:text-lg"
+                className="text-base text-white lg:text-lg"
               >
                 Seamlessly integrate Cortexvia starting with just a few lines of
                 code
@@ -73,16 +64,13 @@ function Footer() {
         </div>
       </AnimateWithType>
 
-      <AnimateWithType
-       
-        className="w-full flex flex-col lg:flex-row gap-12 lg:gap-16 mt-12 lg:mt-20 justify-between"
-      >
+      <AnimateWithType className="w-full flex flex-col lg:flex-row gap-12 lg:gap-16 mt-12 lg:mt-20 justify-between">
         <motion.div
           variants={{
             hidden: { opacity: 0 },
             visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
           }}
-          className="flex flex-col gap-4 items-center max-w-[200px]"
+          className="flex flex-col gap-4 items-center lg:max-w-[20vw]"
         >
           <MotionDiv variant="fadeInUp">
             <img
@@ -211,12 +199,7 @@ function Footer() {
         </motion.div>
       </AnimateWithType>
 
-      
-
-      <AnimateWithType
-       
-        className="w-full flex flex-col md:flex-row justify-between items-center mt-6 border-t border-white/20 text-center text-foreground gap-4"
-      >
+      <AnimateWithType className="w-full flex flex-col md:flex-row justify-between items-center mt-6 border-t border-white/20 text-center text-foreground gap-4">
         <MotionParagraph variant="fadeInUp" className="text-sm lg:text-base">
           © 2025 Cortexvia. All rights reserved.
         </MotionParagraph>

@@ -20,12 +20,12 @@ import { GoClock } from "react-icons/go";
 function UseCaseSection() {
   return (
     <div className="flex flex-col  items-center gap-20 ">
-      <div className="flex gap-5 items-center">
+      <div className="flex gap-5 items-center ">
         <UseCaseSvg /> <MotionH2>Use cases for Cortexvia</MotionH2>
       </div>
 
       <div className="flex lg:flex-row flex-col justify-center">
-        <div className="border-t py-8 lg:border-l border-foreground/10 px-10 lg:border-t-0 lg:py-2 flex flex-col gap-4">
+        <div className="border-t py-8 lg:border-l border-foreground/10 px-5 lg:px-10  lg:border-t-0 lg:py-2 flex flex-col gap-4">
           <CodingSvg />
           <MotionH5 className="text-foreground ">Developer Tools</MotionH5>
           <MotionParagraph className="text-foreground/70 lg:h-[15vh]">
@@ -38,7 +38,7 @@ function UseCaseSection() {
           </AnimateWithType>
         </div>
 
-        <div className="border-t py-8 lg:border-l border-foreground/10 px-10 lg:border-t-0 lg:py-2 flex flex-col gap-4">
+        <div className="border-t py-8 lg:border-l border-foreground/10 px-5 lg:px-10 lg:border-t-0 lg:py-2 flex flex-col gap-4">
           <AgentsSvg />
           <MotionH5 className="text-foreground ">
             AI Agents & Automation
@@ -53,7 +53,7 @@ function UseCaseSection() {
           </AnimateWithType>
         </div>
 
-        <div className="border-t py-8 lg:border-l border-foreground/10 px-10 lg:border-t-0 lg:py-2 flex flex-col gap-4">
+        <div className="border-t py-8 lg:border-l border-foreground/10 px-5 lg:px-10 lg:border-t-0 lg:py-2 flex flex-col gap-4">
           <ProductivitySvg />
           <MotionH5 className="text-foreground ">
             Business Intelligence
@@ -68,7 +68,7 @@ function UseCaseSection() {
           </AnimateWithType>
         </div>
 
-        <div className="border-t border-b lg:border-b-0 py-8 lg:border-l border-foreground/10 px-10 lg:border-t-0 lg:py-2 flex flex-col gap-4">
+        <div className="border-t border-b lg:border-b-0 py-8 lg:border-l border-foreground/10 px-5 lg:px-10 lg:border-t-0 lg:py-2 flex flex-col gap-4">
           <CustomerSupportSvg />
           <MotionH5 className="text-foreground ">Customer Support</MotionH5>
           <MotionParagraph className="text-foreground/70 lg:h-[15vh]">
@@ -82,21 +82,21 @@ function UseCaseSection() {
         </div>
       </div>
 
-      <div className="flex mt-3 flex-col items-center gap-10 justify-center w-full bg-white/50 p-20">
+      <div className="flex mt-3 flex-col items-center gap-10 justify-center w-full bg-white/50 lg:px-20 lg:py-20 px-5 py-10">
         <MotionH2 className="flex items-center  gap-5">
           <PricingSvg />
           How We Support AI-Driven Startups
         </MotionH2>
 
-        <MotionParagraph className="text-lg text-foreground/70 text-center lg:w-[60%] mt-2">
+        <MotionParagraph className="text-lg text-foreground/70 lg:text-center lg:w-[60%] mt-2">
           For venture-backed startups building with Cortexvia, our startup
           program provides API credits, developer resources, and advanced speed
           tiers to help you scale your AI products faster — from prototype to
           production.
         </MotionParagraph>
 
-        <div className="flex lg:flex-row mt-20 flex-col justify-center  border-foreground/10">
-          <div className="border-t py-8 lg:border-l border-foreground/10 px-10 lg:border-t-0 lg:py-2 flex flex-col gap-4">
+        <div className="flex lg:flex-row mt-10 lg:mt-20 flex-col justify-center  border-foreground/10">
+          <div className="border-t py-8 lg:border-l border-foreground/10 lg:px-10 lg:border-t-0 lg:py-2 flex flex-col gap-4">
             <BsCodeSlash className="w-10 h-10 text-foreground/80" />
             <MotionH5 className="text-foreground ">Free API Credits</MotionH5>
             <MotionParagraph className="text-foreground/70">
@@ -106,7 +106,7 @@ function UseCaseSection() {
             </MotionParagraph>
           </div>
 
-          <div className="border-t py-8 lg:border-l border-foreground/10 px-10 lg:border-t-0 lg:py-2 flex flex-col gap-4">
+          <div className="border-t py-8 lg:border-l border-foreground/10 lg:px-10 lg:border-t-0 lg:py-2 flex flex-col gap-4">
             <GoClock className="w-10 h-10 text-foreground/80" />
             <MotionH5 className="text-foreground ">
               Extended Rate Limits
@@ -118,7 +118,7 @@ function UseCaseSection() {
             </MotionParagraph>
           </div>
 
-          <div className="border-t border-b lg:border-b-0 py-8 lg:border-l border-foreground/10 px-10 lg:border-t-0 lg:py-2 flex flex-col gap-4">
+          <div className="border-t border-b lg:border-b-0 py-8 lg:border-l border-foreground/10 lg:px-10 lg:border-t-0 lg:py-2 flex flex-col gap-4">
             <FaGlobeAmericas className="w-10 h-10 text-foreground/80" />
             <MotionH5 className="text-foreground ">
               Community & Mentorship
