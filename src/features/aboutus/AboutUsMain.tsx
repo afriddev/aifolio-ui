@@ -38,7 +38,7 @@ function AboutUsMain() {
         </AnimateWithType>
 
         <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="w-[100%] lg:w-[70%] px-2 lg:px-20 py-6 lg:py-16">
-          <AnimateWithType type="pulse"  className="bg-white p-6 lg:p-12 flex lg:flex-row flex-col items-center gap-8 rounded-2xl">
+          <AnimateWithType type="pulse"  className="bg-white/50 p-6 lg:p-12 flex lg:flex-row flex-col items-center gap-8 ">
             <MotionH2 variant="slideUpBounce" className="w-full lg:w-1/2 text-4xl lg:text-5xl font-thin leading-tight">
               The Minds Who <br /> Never Stopped <br /> Innovating
             </MotionH2>
@@ -133,7 +133,7 @@ function AboutUsMain() {
           </AnimateWithType>
         </motion.div>
 
-        <AnimateWithType type="smoothFade" className="bg-white w-full p-12 lg:p-16 flex items-center justify-center">
+        <AnimateWithType type="smoothFade" className="bg-white/50 w-full p-12 lg:p-16 flex items-center justify-center">
           <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }} className="lg:w-[60%] gap-8 flex flex-col text-center">
             <MotionParagraph variant="fadeInUp" className="text-base lg:text-xl text-foreground/70">
               AI isn’t about whether we’ll use it — it’s about how fast we can turn what we know into real intelligence and real impact.

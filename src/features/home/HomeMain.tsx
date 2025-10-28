@@ -1,14 +1,17 @@
-import NoCodeSection from "./homeutils/NoCodeSection";
 import LovedBySections from "./homeutils/LovedBySections";
 import HomeBannerSection from "./homeutils/HomeBannerSection";
-import EmpowerSection from "./homeutils/EmpowerSection";
 import HowItWorksSection from "./homeutils/HowItWorksSection";
-import PricingSection from "./homeutils/PricingSections";
-import AIHeroSection from "./homeutils/AiHeroSection";
-import ContentSourcesSection from "./homeutils/ContentSourcesSection";
-import DeploymentSection from "./homeutils/DeploymentSection";
 import SecuritySection from "./homeutils/SecurtySections";
-import FAQSection from "./homeutils/FAQSection";
+import UseCaseSection from "./homeutils/UseCaseSection";
+import ServiceTiersSection from "./homeutils/ServiceTiersSection";
+
+// import FAQSection from "./homeutils/FAQSection";
+// import PricingSection from "./homeutils/PricingSections";
+// import AIHeroSection from "./homeutils/AiHeroSection";
+// import ContentSourcesSection from "./homeutils/ContentSourcesSection";
+// import DeploymentSection from "./homeutils/DeploymentSection";
+// import NoCodeSection from "./homeutils/NoCodeSection";
+// import EmpowerSection from "./homeutils/EmpowerSection";
 
 function HomeMain() {
   return (
@@ -18,15 +21,17 @@ function HomeMain() {
         <div className="lg:-mt-[10vh] items-center  flex flex-col gap-10">
           <LovedBySections />
           <HowItWorksSection />
+          <UseCaseSection />
+          <ServiceTiersSection />
           {/* <CreateFirstSection /> */}
           <SecuritySection />
-          <AIHeroSection />
+          {/* <AIHeroSection />
           <NoCodeSection />
           <ContentSourcesSection />
           <DeploymentSection />
           <PricingSection />
-          <EmpowerSection />
-          <FAQSection />
+          <EmpowerSection /> */}
+          {/* <FAQSection /> */}
         </div>
       </div>
     </div>

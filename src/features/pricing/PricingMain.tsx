@@ -22,7 +22,7 @@ function PricingMain() {
           </MotionDiv>
         </AnimateWithType>
 
-        <AnimateWithType type="scaleIn" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white px-6 py-10 lg:p-16 rounded-2xl">
+        <AnimateWithType type="scaleIn" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 rounded-2xl">
           <MotionH2 variant="slideUpBounce" className="lg:w-1/2 text-4xl lg:text-5xl font-light">
             About Our Pricing
           </MotionH2>
@@ -48,7 +48,7 @@ function PricingMain() {
 
         <RAGDocsLimitsSection />
 
-        <AnimateWithType type="pulse" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white px-6 py-10 lg:p-16 rounded-2xl">
+        <AnimateWithType type="pulse" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 rounded-2xl">
           <MotionH2 variant="slideUpBounce" className="lg:w-1/2 text-4xl lg:text-5xl font-light">
             Batch API
           </MotionH2>
@@ -71,7 +71,7 @@ function PricingMain() {
           </motion.div>
         </AnimateWithType>
 
-        <AnimateWithType type="smoothFade" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white px-6 py-10 lg:p-16 rounded-2xl">
+        <AnimateWithType type="smoothFade" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 rounded-2xl">
           <MotionH2 variant="slideUpBounce" className="lg:w-1/2 text-4xl lg:text-5xl font-light">
             Multi-Model Inference
           </MotionH2>

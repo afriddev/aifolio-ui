@@ -27,7 +27,7 @@ function ModelsMain() {
           </MotionDiv>
         </AnimateWithType>
 
-        <AnimateWithType type="smoothFade" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white px-6 py-10 lg:p-16 rounded-2xl">
+        <AnimateWithType type="smoothFade" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 rounded-2xl">
           <MotionH2 variant="slideUpBounce" className="lg:w-1/2 text-4xl lg:text-5xl font-light">
             About Our Models
           </MotionH2>
@@ -53,7 +53,7 @@ function ModelsMain() {
 
         <AllModelsSection />
 
-        <AnimateWithType type="pulse" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white px-6 py-10 lg:p-16 rounded-2xl">
+        <AnimateWithType type="pulse" className="flex lg:flex-row flex-col items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 rounded-2xl">
           <MotionH2 variant="slideUpBounce" className="lg:w-1/2 text-4xl lg:text-5xl font-light">
             Batch Inference API
           </MotionH2>
@@ -73,7 +73,7 @@ function ModelsMain() {
           </motion.div>
         </AnimateWithType>
 
-        <AnimateWithType type="smoothFade" className="flex items-center justify-center gap-12 bg-white px-6 py-10 lg:p-16 lg:flex-row flex-col rounded-2xl">
+        <AnimateWithType type="smoothFade" className="flex items-center justify-center gap-12 bg-white/50 px-6 py-10 lg:p-16 lg:flex-row flex-col rounded-2xl">
           <MotionH2 variant="slideUpBounce" className="lg:w-1/2 text-4xl lg:text-5xl font-light">
             Multi-Model Routing
           </MotionH2>

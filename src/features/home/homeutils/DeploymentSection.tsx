@@ -1,57 +1,103 @@
-
+import {
+  AnimateWithType,
+  MotionH2,
+  MotionParagraph,
+} from "@/apputils/MotionUtils";
 import { Button } from "@/components/ui/button";
-import { FaCircleCheck } from "react-icons/fa6";
+import {
+  IoGlobeOutline,
+  IoCloudUploadOutline,
+  IoChatbubbleEllipsesOutline,
+  IoSettingsOutline,
+  IoGitBranchOutline,
+} from "react-icons/io5";
 
 function DeploymentSection() {
   return (
-    <div className="flex flex-col items-center gap-12 mt-5 lg:mt-32 w-[95%] lg:w-[70%] ">
-      <div className="flex flex-col-reverse lg:flex-row   items-center justify-center gap-12">
-        <div className="flex flex-col gap-10 lg:w-[50%]">
-          <div className="flex flex-col gap-6 lg:max-w-[35vw]">
-            <h2 className="text-4xl font-semibold text-foreground tracking-tight">
-              Deploy Anywhere with Powerful Integrations
-            </h2>
-            <p className="text-lg text-foreground/60 leading-relaxed">
-              Seamlessly integrate your Cortexvia-powered AI assistant across
-              your digital ecosystem. Use our flexible widgets and robust APIs
-              to embed it on websites, apps, or connect with popular platforms
-              like Slack, Microsoft Teams, and more—tailored to your workflow.
-            </p>
+    <div className="flex flex-col items-center gap-12 mt-5 lg:mt-32 w-[95%] lg:w-[70%]">
+      <div className="flex flex-col-reverse lg:flex-row items-center justify-center bg-white/50  lg:gap-10">
+        <div className="flex flex-col gap-10 lg:gap-0 w-full text-foreground/80 p-5 lg:p-20">
+          <div className="flex items-start gap-3 lg:flex-row flex-col">
+            <AnimateWithType
+              type="zoomIn"
+              className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
+            >
+              <IoGlobeOutline className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
+            </AnimateWithType>
+            <MotionParagraph>
+              <strong>Website Embedding:</strong> Deploy your AI chatbot
+              directly to your website with a single snippet — fully responsive
+              and themeable.
+            </MotionParagraph>
           </div>
 
-          <div className="flex flex-col gap-4 text-foreground/80">
-            <div className="flex items-center gap-3">
-              <div className="w-5 h-5">
-                <FaCircleCheck className="w-4 h-4 text-constructive" />
-              </div>
-              <span>
-                <strong>Website Embedding:</strong> Add a customizable chatbot
-                widget to your site with a single line of code, enhancing user
-                engagement.
-              </span>
-            </div>
-            <div className="flex items-center gap-3">
-              <div>
-                <FaCircleCheck className="w-4 h-4 text-constructive" />
-              </div>
-              <span>
-                <strong>API Integration:</strong> Build custom AI solutions with
-                Data and Model APIs, supporting deep system integration.
-              </span>
-            </div>
+          <div className="flex items-start gap-3 lg:flex-row flex-col">
+            <AnimateWithType
+              type="zoomIn"
+              className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
+            >
+              <IoCloudUploadOutline className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
+            </AnimateWithType>
+            <MotionParagraph>
+              <strong>Cloud Integration:</strong> Connect to your data wherever
+              it lives — from private databases to cloud drives, with secure API
+              calls.
+            </MotionParagraph>
           </div>
 
-          <Button className="px-6 py-3  rounded-lg transition-colors duration-200 font-medium w-fit">
-            Deploy Your AI Assistant
-          </Button>
+          <div className="flex items-start gap-3 lg:flex-row flex-col">
+            <AnimateWithType
+              type="zoomIn"
+              className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
+            >
+              <IoChatbubbleEllipsesOutline className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
+            </AnimateWithType>
+            <MotionParagraph>
+              <strong>Multi-Platform Chat:</strong> Integrate seamlessly with
+              Slack, Microsoft Teams, or internal tools for cross-platform AI
+              interactions.
+            </MotionParagraph>
+          </div>
+
+          <div className="flex items-start gap-3 lg:flex-row flex-col">
+            <AnimateWithType
+              type="zoomIn"
+              className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
+            >
+              <IoSettingsOutline className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
+            </AnimateWithType>
+            <MotionParagraph>
+              <strong>Custom Workflows:</strong> Automate actions or trigger
+              APIs using Cortexvia’s webhooks and SDKs for complete workflow
+              control.
+            </MotionParagraph>
+          </div>
+
+          <div className="flex items-start gap-3 lg:flex-row flex-col">
+            <AnimateWithType
+              type="zoomIn"
+              className="w-10 h-10 lg:w-5 lg:h-5 border p-2 lg:p-0 lg:border-none"
+            >
+              <IoGitBranchOutline className="text-primary lg:w-5 w-5 h-5 lg:h-5 mt-1" />
+            </AnimateWithType>
+            <MotionParagraph>
+              <strong>CI/CD Ready:</strong> Integrate into your dev pipeline
+              with ease — automate deployments and updates using secure access
+              tokens.
+            </MotionParagraph>
+          </div>
+
+          <AnimateWithType type="scaleIn">
+            <Button className="mt-6 rounded-lg py-3 px-6 transition-colors duration-200 font-medium w-fit">
+              Deploy Your AI Assistant
+            </Button>{" "}
+          </AnimateWithType>
         </div>
 
-        <div className="lg:w-[35%]">
-          <img
-            alt="Deployment"
-            src="/home/deployment.jpg"
-            className="w-[90vw] lg:w-[25vw] rounded-lg shadow-md"
-          />
+        <div className="flex p-10 lg:p-20 flex-col gap-4 lg:max-w-[35vw]">
+          <MotionH2 className="text-4xl lg:text-[50px] font-thin text-foreground tracking-tight">
+            Deploy Anywhere with Powerful Integrations
+          </MotionH2>
         </div>
       </div>
     </div>

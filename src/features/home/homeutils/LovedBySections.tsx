@@ -5,6 +5,7 @@ import {
   MotionH4,
   MotionParagraph,
 } from "@/apputils/MotionUtils";
+import { LovedBySvg } from "@/apputils/SvgUtils";
 import { Button } from "@/components/ui/button";
 import {
   Upload,
@@ -87,16 +88,16 @@ export default function LovedBySections() {
   return (
     <div className="w-[95%] lg:w-[70%] mx-auto mt-20">
       <MotionDiv className="lg:text-center mb-12">
-        <MotionH2 className="text-2xl lg:text-4xl font-medium">
-          Loved by Innovators. Trusted by Enterprises.
+        <MotionH2 className=" flex items-center justify-center gap-5 text-2xl lg:text-4xl ">
+          <LovedBySvg /> Loved by Innovators. Trusted by Enterprises.
         </MotionH2>
-        <MotionParagraph className="text-foreground/70  mt-4 max-w-2xl mx-auto">
+        {/* <MotionParagraph className="text-foreground/70  mt-4 max-w-2xl mx-auto">
           Empower developers to build intelligent, secure, and scalable AI
           solutions with confidence.
-        </MotionParagraph>
+        </MotionParagraph> */}
       </MotionDiv>
 
-      <div className="grid grid-cols-1 bg-white/40 sm:grid-cols-2 lg:grid-cols-3 border border-border  overflow-hidden">
+      <div className="grid grid-cols-1 bg-white/50 sm:grid-cols-2 lg:grid-cols-3 border border-border  overflow-hidden">
         {features.map(({ icon: Icon, title, desc }, i) => (
           <MotionDiv
             key={i}
@@ -107,7 +108,7 @@ export default function LovedBySections() {
             <Icon className="w-10 h-10 p-3 border" />
 
             <div className="flex flex-col ">
-              <h3 className=" font-semibold">{title}</h3>
+              <h5 className="text-xl text-foreground">{title}</h5>
               <p className=" text-foreground/70">{desc}</p>
             </div>
           </MotionDiv>
@@ -115,8 +116,8 @@ export default function LovedBySections() {
       </div>
 
       <div className="flex lg:flex-row flex-col border mt-20  overflow-hidden">
-        <div className="p-10 lg:border-r bg-muted/30 flex items-center">
-          <MotionH4>
+        <div className="p-10 lg:border-r bg-white/50 flex items-center">
+          <MotionH4 className="text-xl">
             Empower your data with Cortexvia — start building intelligent,
             RAG-powered AI today.
           </MotionH4>
