@@ -102,12 +102,12 @@ function PricingMain() {
           </motion.div>
         </AnimateWithType>
 
-        <AnimateWithType className="w-full items-center justify-center  flex gap-10 ">
-          <MotionDiv className=" bg-white/50 p-7 rounded-2xl flex-col justify-between flex gap-7 h-160 w-[20vw]">
+        <AnimateWithType className="w-full items-center justify-center  flex lg:flex-row flex-col gap-10 ">
+          <MotionDiv className=" bg-white/50 p-7  rounded-2xl flex-col justify-between flex gap-7 h-160  lg:w-[20vw] w-[90vw]">
             <MotionDiv className="flex flex-col items-center gap-4 justify-between">
               <MotionDiv className="flex items-center w-full justify-between">
-                <MotionDiv className="text-3xl ">Free</MotionDiv>
-                <span className="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">
+                <MotionDiv className="lg:text-3xl text-2xl  ">Free</MotionDiv>
+                <span className="bg-primary/10 text-primary lg:text-sm text-xs px-3 py-1 rounded-full">
                   $0 / month
                 </span>
               </MotionDiv>
@@ -159,10 +159,6 @@ function PricingMain() {
                   <IoCheckmarkOutline />
                   <MotionDiv>PDF uploads supported</MotionDiv>
                 </MotionDiv>
-                <MotionDiv className="flex items-center gap-2">
-                  <IoCheckmarkOutline />
-                  <MotionDiv>Basic RAG + SmartRAG access</MotionDiv>
-                </MotionDiv>
               </MotionDiv>
             </MotionDiv>
             <MotionDiv variant="pulse" className="flex ">
@@ -171,11 +167,11 @@ function PricingMain() {
               </Button>
             </MotionDiv>
           </MotionDiv>
-          <MotionDiv className=" bg-white/50 p-7 rounded-2xl flex-col flex justify-between  gap-7 h-160 w-[20vw]">
+          <MotionDiv className=" bg-white/50 p-7 rounded-2xl flex-col flex justify-between  gap-7 h-160  lg:w-[20vw] w-[90vw]">
             <MotionDiv className="flex flex-col items-center w-full justify-between  gap-4 ">
-              <MotionDiv className="flex items-center w-full justify-between">
-                <MotionDiv className="text-3xl ">Developer</MotionDiv>
-                <span className="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">
+              <MotionDiv className="flex items-center w-full justify-between ">
+                <MotionDiv className="lg:text-3xl text-2xl ">Developer</MotionDiv>
+                <span className="bg-primary/10 text-primary lg:text-sm text-xs px-3 py-1 rounded-full">
                   $20 / month
                 </span>
               </MotionDiv>
@@ -230,10 +226,10 @@ function PricingMain() {
               <Button className="h-10 px-6 w-full rounded-sm">Upgrade</Button>
             </MotionDiv>
           </MotionDiv>
-          <MotionDiv className=" bg-white/50 p-7 rounded-2xl flex-col flex gap-7 h-160 w-[20vw] justify-between">
+          <MotionDiv className=" bg-white/50 p-7 rounded-2xl flex-col flex gap-7 h-160  lg:w-[20vw] w-[90vw] justify-between">
            <MotionDiv className="flex flex-col items-center w-full justify-between  gap-4 ">
              <MotionDiv className="flex items-center justify-between">
-              <MotionDiv className="text-3xl ">Enterprise</MotionDiv>
+              <MotionDiv className="lg:text-3xl text-2xl">Enterprise</MotionDiv>
             </MotionDiv>
             <MotionDiv className=" font-light text-foreground/60">
               The easiest way to get started with Cortexvia
