@@ -28,7 +28,10 @@ const InterPhoneInput = forwardRef<
           },
         }}
         inputClassName="w-full focus:ring-0"
-        className=" w-full focus-within:ring-[1.5px] focus-within:ring-ring focus-within:outline-none rounded"
+        className=" w-full rounded  focus-within:border-secondary 
+  focus-within:ring-secondary/80 
+  focus-within:ring-[1px] 
+  focus-within:outline-none "
         defaultCountry="in"
         name={name}
         onChange={onChange as any}
