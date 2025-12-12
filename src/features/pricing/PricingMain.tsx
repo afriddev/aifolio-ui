@@ -102,8 +102,8 @@ function PricingMain() {
           </motion.div>
         </AnimateWithType>
 
-        <AnimateWithType className="w-full items-center justify-center  flex lg:flex-row flex-col gap-10 ">
-          <MotionDiv className=" bg-white/50 p-7  rounded-2xl flex-col justify-between flex gap-7 h-160  lg:w-[20vw] w-[90vw]">
+        <AnimateWithType className="w-full items-center justify-between  flex lg:flex-row flex-col gap-10 ">
+          <MotionDiv className=" bg-white/50 p-7  rounded-2xl flex-col justify-between flex gap-7 h-160  lg:w-[22vw] w-[95vw]">
             <MotionDiv className="flex flex-col items-center gap-4 justify-between">
               <MotionDiv className="flex items-center w-full justify-between">
                 <MotionDiv className="lg:text-3xl text-2xl  ">Free</MotionDiv>
@@ -167,7 +167,7 @@ function PricingMain() {
               </Button>
             </MotionDiv>
           </MotionDiv>
-          <MotionDiv className=" bg-white/50 p-7 rounded-2xl flex-col flex justify-between  gap-7 h-160  lg:w-[20vw] w-[90vw]">
+          <MotionDiv className=" bg-white/50 p-7 rounded-2xl flex-col flex justify-between  gap-7 h-160  lg:w-[22vw] w-[95vw]">
             <MotionDiv className="flex flex-col items-center w-full justify-between  gap-4 ">
               <MotionDiv className="flex items-center w-full justify-between ">
                 <MotionDiv className="lg:text-3xl text-2xl ">Developer</MotionDiv>
@@ -226,7 +226,7 @@ function PricingMain() {
               <Button className="h-10 px-6 w-full rounded-sm">Upgrade</Button>
             </MotionDiv>
           </MotionDiv>
-          <MotionDiv className=" bg-white/50 p-7 rounded-2xl flex-col flex gap-7 h-160  lg:w-[20vw] w-[90vw] justify-between">
+          <MotionDiv className=" bg-white/50 p-7 rounded-2xl flex-col flex gap-7 h-160  lg:w-[22vw] w-[95vw] justify-between">
            <MotionDiv className="flex flex-col items-center w-full justify-between  gap-4 ">
              <MotionDiv className="flex items-center justify-between">
               <MotionDiv className="lg:text-3xl text-2xl">Enterprise</MotionDiv>
