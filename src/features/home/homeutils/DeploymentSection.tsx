@@ -74,7 +74,7 @@ function DeploymentSection() {
         <AnimateWithType>
           <Button
             variant="outline"
-            className="mt-6 rounded-lg py-3 px-6 transition-colors duration-200 font-medium bg-foreground text-background hover:bg-foreground/90 w-fit"
+            className="mt-6 rounded-lg py-3 px-6 transition-colors duration-200 font-medium bg-foreground text-background hover:bg-foreground/90  hover:text-white w-fit"
           >
             Deploy Your AI Assistant
           </Button>

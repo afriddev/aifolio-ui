@@ -159,7 +159,7 @@ function ContactUsMain() {
                 hidden: { opacity: 0 },
                 visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
               }}
-              className="grid lg:grid-cols-2 gap-4 text-base lg:text-lg text-foreground/70"
+              className="grid lg:grid-cols-2 gap-4 text-base lg:text-lg text-foreground/70 "
             >
               {[
                 {
@@ -192,7 +192,7 @@ function ContactUsMain() {
                     
                     as="a"
                     href={item.link}
-                    className="flex items-center text-primary underline"
+                    className="flex items-center text-primary underline cursor-pointer"
                   >
                     {item.platform}{" "}
                     <RxOpenInNewWindow className="w-4 h-5 ml-1" />

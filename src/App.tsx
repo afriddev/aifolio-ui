@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         {/* <ScrollToTop /> */}
 
-        <AppRoutes />
+        <AppRoutes  />
       </BrowserRouter>
       <Toaster />
     </div>

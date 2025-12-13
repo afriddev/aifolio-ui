@@ -2,6 +2,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { FaQuestionCircle } from 'react-icons/fa';
 import { Button } from "@/components/ui/button";
 import { MotionH2, MotionParagraph } from "@/apputils/MotionUtils";
+import { useNavigate } from "react-router-dom";
 
 const faqs = [
   {
@@ -55,6 +56,10 @@ const faqs = [
 ];
 
 function FAQSection() {
+  const navigate = useNavigate();
+  function handleNavigate(path:string){
+    navigate(path)
+  }
   return (
     <div className="flex flex-col items-center gap-12 mt-32 w-[95%] lg:w-[70%]">
       <div className="flex flex-col items-center gap-6 text-center">
@@ -86,7 +91,7 @@ function FAQSection() {
         ))}
       </Accordion>
 
-      <Button className="px-6 py-3 rounded-lg">
+      <Button className="px-6 py-3 rounded-lg" onClick={()=> handleNavigate("/contact")}>
         Contact Support for More Help
       </Button>
     </div>
