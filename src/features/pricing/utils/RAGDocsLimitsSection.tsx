@@ -61,16 +61,19 @@ function RAGDocsLimitsSection() {
       speed: "Low Speed",
       rate: "50–200 Tokens/sec",
       desc: "Balanced mode for detailed, reasoning-heavy answers. Default for Free Tier.",
+      tier:"Free Tier",
     },
     {
       speed: "Medium Speed",
       rate: "100–2000 Tokens/sec",
       desc: "Optimized for faster document retrieval and chat responses. Default for Developer Tier.",
+      tier:"Developer Tier",
     },
     {
       speed: "High Speed (Flash)",
       rate: "1000–3000 Tokens/sec",
       desc: "For production-grade RAG and real-time applications. Flash & Ultra models only.",
+      tier:"Enterprise",
     },
   ];
 
@@ -217,6 +220,7 @@ function RAGDocsLimitsSection() {
                   <th className="py-3 px-4 font-medium min-w-[120px]">
                     Description
                   </th>
+                  <th className="py-3 px-4 font-medium min-w-[120px]">Tier</th>
                 </tr>
               </thead>
               <tbody>
@@ -232,6 +236,7 @@ function RAGDocsLimitsSection() {
                     </td>
                     <td className="py-3 px-4 break-words">{row.rate}</td>
                     <td className="py-3 px-4 break-words">{row.desc}</td>
+                    <td className="py-3 px-4 break-words">{row.tier}</td>
                   </MotionDiv>
                 ))}
               </tbody>
