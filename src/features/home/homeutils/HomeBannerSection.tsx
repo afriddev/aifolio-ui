@@ -7,8 +7,14 @@ import {
 } from "@/apputils/MotionUtils";
 import { Button } from "@/components/ui/button";
 import { GoDependabot } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 
 function HomeBannerSection() {
+  const navigate = useNavigate();
+
+  function handleNavigate(path:string){
+    navigate(path)
+  }
   return (
     <div className="flex  lg:w-[50%]  w-[95%] relative">
       <AnimateWithType className=" flex flex-col w-full   gap-10  h-[100vh]   items-center justify-center  ">
@@ -32,7 +38,7 @@ function HomeBannerSection() {
           AI features seamlessly into your projects.
         </MotionParagraph>
         <AnimateWithType>
-          <Button className=" px-10 py-3  rounded-lg">Start Building</Button>
+          <Button className=" px-10 py-3  rounded-lg" onClick={()=> handleNavigate("/login")}>Start Building</Button>
         </AnimateWithType>
       </AnimateWithType>
     </div>

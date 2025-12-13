@@ -7,8 +7,14 @@ import {
 } from "@/apputils/MotionUtils";
 import { ServiceTiersSvg } from "@/apputils/SvgUtils";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 function ServiceTiersSection() {
+  const navigate = useNavigate();
+
+  function handleNavigate(path:string){
+    navigate(path)
+  }
   return (
     <div className="flex flex-col items-center ">
       <div className="flex  lg:flex-row flex-col justify-between items-center w-full gap-10 bg-white/50  p-6  lg:p-20 ">
@@ -24,10 +30,10 @@ function ServiceTiersSection() {
           </MotionParagraph>
 
           <AnimateWithType className="flex items-center gap-4 mt-4">
-            <Button className="rounded bg-foreground text-background hover:bg-foreground/90">
+            <Button className="rounded bg-foreground text-background hover:bg-foreground/90" onClick={()=> handleNavigate("/login")}>
               Learn more
             </Button>
-            <Button className="rounded" variant="outline">
+            <Button className="rounded" variant="outline" onClick={()=> handleNavigate("/contact")}>
               Contact Sales
             </Button>
           </AnimateWithType>

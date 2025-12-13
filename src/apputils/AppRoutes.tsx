@@ -50,6 +50,8 @@ function AppRoutes() {
         <Route path="/security-policy" element={<SecurityPolicyMain />} />
         <Route path="/compliance-policy" element={<CompliancePolicyMain />} />
         <Route path="/legal-notice" element={<LegalNoticeMain />} />
+
+        
       </Route>
       <Route element={<ProtectedRoute />}>
         <Route path="/chat/:chatId" element={<ChatMain />} />

@@ -21,6 +21,7 @@ import {
   Gauge,
   Download,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const features = [
   {
@@ -86,6 +87,10 @@ const features = [
 ];
 
 export default function LovedBySections() {
+  const navigate = useNavigate();
+  function handleNavigate(path:string){
+    navigate(path)
+  }
   return (
     <div className=" ">
       <MotionDiv className="lg:text-center mb-12">
@@ -134,12 +139,12 @@ export default function LovedBySections() {
 
         <div className="p-10 flex flex-col justify-center">
           <AnimateWithType className="flex flex-col gap-3">
-            <Button className="rounded w-full bg-foreground text-background font-medium text-sm hover:bg-foreground/90">
+            <Button className="rounded w-full bg-foreground text-background font-medium text-sm hover:bg-foreground/90" onClick={()=> handleNavigate("/login")}>
               Get Started Free
             </Button>
             <Button
               variant="outline"
-              className="rounded w-full font-medium text-sm"
+              className="rounded w-full font-medium text-sm "
             >
               Watch Demo
             </Button>
